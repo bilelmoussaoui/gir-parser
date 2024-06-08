@@ -4,9 +4,8 @@ use crate::{
     attribute::Attribute,
     documentation::{DocDeprecated, DocStability, DocVersion, Documentation, SourcePosition},
     prelude::*,
-    r#type::Type,
     version::Version,
-    Stability, TransferOwnership,
+    AnyType, Stability, TransferOwnership,
 };
 
 #[derive(Debug, XmlDeserialize)]
@@ -55,7 +54,7 @@ pub struct Property {
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
     #[xmlserde(name = b"type", ty = "child")]
-    type_: Type, // TODO: should this really be a AnyType?
+    type_: AnyType,
 }
 
 impl Property {
@@ -95,7 +94,7 @@ impl Property {
         self.default_value.as_deref()
     }
 
-    pub fn ty(&self) -> &Type {
+    pub fn ty(&self) -> &AnyType {
         &self.type_
     }
 }
