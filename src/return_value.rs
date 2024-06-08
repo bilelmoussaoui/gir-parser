@@ -16,11 +16,11 @@ pub struct ReturnValue {
     #[xmlserde(name = b"nullable", ty = "attr")]
     nullable: Option<bool>,
     #[xmlserde(name = b"closure", ty = "attr")]
-    closure: Option<u8>,
+    closure: Option<usize>,
     #[xmlserde(name = b"scope", ty = "attr")]
     scope: Option<FunctionScope>,
     #[xmlserde(name = b"destroy", ty = "attr")]
-    destroy: Option<u8>,
+    destroy: Option<usize>,
     #[xmlserde(name = b"skip", ty = "attr")]
     skip: Option<bool>,
     #[xmlserde(name = b"allow-none", ty = "attr")]
@@ -57,7 +57,7 @@ impl ReturnValue {
         self.nullable
     }
 
-    pub fn closure(&self) -> Option<u8> {
+    pub fn closure(&self) -> Option<usize> {
         self.closure
     }
 
@@ -65,7 +65,7 @@ impl ReturnValue {
         self.scope
     }
 
-    pub fn destroy(&self) -> Option<u8> {
+    pub fn destroy(&self) -> Option<usize> {
         self.destroy
     }
 

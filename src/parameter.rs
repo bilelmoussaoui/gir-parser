@@ -72,9 +72,9 @@ pub struct Parameter {
     #[xmlserde(name = b"scope", ty = "attr")]
     scope: Option<FunctionScope>,
     #[xmlserde(name = b"closure", ty = "attr")]
-    closure: Option<u8>,
+    closure: Option<usize>,
     #[xmlserde(name = b"destroy", ty = "attr")]
-    destroy: Option<u8>,
+    destroy: Option<usize>,
     #[xmlserde(name = b"direction", ty = "attr")]
     direction: Option<Direction>,
     #[xmlserde(name = b"caller-allocates", ty = "attr")]
@@ -122,11 +122,11 @@ impl Parameter {
         self.scope
     }
 
-    pub fn closure(&self) -> Option<u8> {
+    pub fn closure(&self) -> Option<usize> {
         self.closure
     }
 
-    pub fn destroy(&self) -> Option<u8> {
+    pub fn destroy(&self) -> Option<usize> {
         self.destroy
     }
 

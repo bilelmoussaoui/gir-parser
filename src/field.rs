@@ -71,7 +71,7 @@ pub struct Field {
     #[xmlserde(name = b"private", ty = "attr")]
     private: Option<bool>,
     #[xmlserde(name = b"bits", ty = "attr")]
-    bits: Option<u32>,
+    bits: Option<u8>,
     // Common attributes
     #[xmlserde(name = b"introspectable", ty = "attr")]
     introspectable: Option<bool>,
@@ -118,7 +118,7 @@ impl Field {
         self.private.unwrap_or(false)
     }
 
-    pub fn bits(&self) -> Option<u32> {
+    pub fn bits(&self) -> Option<u8> {
         self.bits
     }
 
