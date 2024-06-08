@@ -65,6 +65,24 @@ xml_serde_enum! {
     }
 }
 
+impl FunctionScope {
+    pub fn is_call(&self) -> bool {
+        matches!(self, Self::Call)
+    }
+
+    pub fn is_notified(&self) -> bool {
+        matches!(self, Self::Notified)
+    }
+
+    pub fn is_async(&self) -> bool {
+        matches!(self, Self::Async)
+    }
+
+    pub fn is_forever(&self) -> bool {
+        matches!(self, Self::Forever)
+    }
+}
+
 xml_serde_enum! {
     #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     SignalEmission {
