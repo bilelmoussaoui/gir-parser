@@ -6,6 +6,24 @@ use xmlserde::XmlValue;
 #[derive(Debug, Default, Clone, Copy, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Version(u16, u16, u16);
 
+impl Version {
+    pub fn new(major: u16, minor: u16, patch: u16) -> Self {
+        Self(major, minor, patch)
+    }
+
+    pub fn major(self) -> u16 {
+        self.0
+    }
+
+    pub fn minor(self) -> u16 {
+        self.1
+    }
+
+    pub fn patch(self) -> u16 {
+        self.2
+    }
+}
+
 impl<'de> Deserialize<'de> for Version {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
