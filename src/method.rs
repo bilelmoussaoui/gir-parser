@@ -10,7 +10,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"method")]
 pub struct Method {
     #[xmlserde(name = b"glib:get-property", ty = "attr")]
@@ -92,7 +92,7 @@ impl_documentable!(Method);
 impl_callable!(Method);
 impl_function_like!(Method);
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct MethodInline {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

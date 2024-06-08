@@ -4,7 +4,7 @@ use xmlserde_derives::XmlDeserialize;
 
 use crate::{namespace::Namespace, version::Version, ParserError};
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct NamespaceInclude {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -30,7 +30,7 @@ impl NamespaceInclude {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct HeaderInclude {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -42,7 +42,7 @@ impl HeaderInclude {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Package {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -54,7 +54,7 @@ impl Package {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"repository")]
 pub struct Repository {
     #[xmlserde(name = b"version", ty = "attr")]

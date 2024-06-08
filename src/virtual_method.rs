@@ -10,7 +10,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct VirtualMethod {
     #[xmlserde(name = b"invoker", ty = "attr")]
     invoker: Option<String>,

@@ -8,7 +8,7 @@ use crate::{
     FunctionScope, TransferOwnership,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"return-value")]
 pub struct ReturnValue {
     #[xmlserde(name = b"introspectable", ty = "attr")]

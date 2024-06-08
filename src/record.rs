@@ -12,7 +12,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Record {
     #[xmlserde(name = b"name", ty = "attr")]
     name: Option<String>,

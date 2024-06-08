@@ -11,7 +11,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[allow(clippy::large_enum_variant)]
 pub enum FieldType {
     #[xmlserde(name = b"type")]
@@ -60,7 +60,7 @@ impl FieldType {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Field {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

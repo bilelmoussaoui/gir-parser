@@ -10,7 +10,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Function {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]
@@ -78,7 +78,7 @@ impl_documentable!(Function);
 impl_callable!(Function);
 impl_function_like!(Function);
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct FunctionInline {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

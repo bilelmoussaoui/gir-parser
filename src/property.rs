@@ -8,7 +8,7 @@ use crate::{
     AnyType, Stability, TransferOwnership,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Property {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

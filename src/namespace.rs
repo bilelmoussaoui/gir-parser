@@ -18,7 +18,7 @@ use crate::{
     version::Version,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[cfg_attr(test, derive(Default))]
 #[xmlserde(root = b"namespace")]
 pub struct Namespace {

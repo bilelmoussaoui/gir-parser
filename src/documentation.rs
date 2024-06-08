@@ -1,6 +1,6 @@
 use xmlserde_derives::XmlDeserialize;
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct SourcePosition {
     #[xmlserde(name = b"filename", ty = "attr")]
     filename: String,
@@ -24,7 +24,7 @@ impl SourcePosition {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct DocDeprecated {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -48,7 +48,7 @@ impl DocDeprecated {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct DocStability {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -72,7 +72,7 @@ impl DocStability {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct DocVersion {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -96,7 +96,7 @@ impl DocVersion {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Documentation {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,

@@ -19,7 +19,7 @@ xml_serde_enum! {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub enum ParameterType {
     #[xmlserde(name = b"type")]
     Type(Type),
@@ -29,7 +29,7 @@ pub enum ParameterType {
     VarArgs,
 }
 
-#[derive(Debug, Default, XmlDeserialize)]
+#[derive(Clone, Debug, Default, XmlDeserialize)]
 #[xmlserde(root = b"parameters")]
 pub struct Parameters {
     #[xmlserde(name = b"instance-parameter", ty = "child")]
@@ -61,7 +61,7 @@ impl IntoIterator for Parameters {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Parameter {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -162,7 +162,7 @@ impl Parameter {
 impl_attributable!(Parameter);
 impl_documentable!(Parameter);
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"instance-parameter")]
 pub struct InstanceParameter {
     #[xmlserde(name = b"name", ty = "attr")]

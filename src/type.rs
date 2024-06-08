@@ -6,7 +6,7 @@ use crate::{
     prelude::*,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Type {
     #[xmlserde(name = b"name", ty = "attr")]
     name: Option<String>,
@@ -44,7 +44,7 @@ impl Type {
 
 impl_documentable!(Type);
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub enum AnyType {
     #[xmlserde(name = b"type")]
     Type(Type),

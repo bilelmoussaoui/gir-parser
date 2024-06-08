@@ -9,7 +9,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct FunctionMacro {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

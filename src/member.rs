@@ -8,7 +8,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Member {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

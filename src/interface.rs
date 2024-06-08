@@ -17,7 +17,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Prerequisite {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -29,7 +29,7 @@ impl Prerequisite {
     }
 }
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Interface {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

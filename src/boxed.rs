@@ -9,7 +9,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Debug, XmlDeserialize)]
+#[derive(Clone, Debug, XmlDeserialize)]
 pub struct Boxed {
     #[xmlserde(name = b"glib:type-name", ty = "attr")]
     g_type_name: Option<String>,
