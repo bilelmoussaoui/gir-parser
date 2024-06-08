@@ -25,6 +25,12 @@ pub struct Function {
     throws: Option<bool>,
     #[xmlserde(name = b"moved-to", ty = "attr")]
     moved_to: Option<String>,
+    #[xmlserde(name = b"glib:async-func", ty = "attr")]
+    async_func: Option<String>,
+    #[xmlserde(name = b"glib:finish-func", ty = "attr")]
+    finish_func: Option<String>,
+    #[xmlserde(name = b"glib:sync-func", ty = "attr")]
+    sync_func: Option<String>,
     // Common attributes
     #[xmlserde(name = b"introspectable", ty = "attr")]
     introspectable: Option<bool>,
@@ -86,6 +92,12 @@ pub struct FunctionInline {
     throws: Option<bool>,
     #[xmlserde(name = b"moved-to", ty = "attr")]
     moved_to: Option<String>,
+    #[xmlserde(name = b"glib:async-func", ty = "attr")]
+    async_func: Option<String>,
+    #[xmlserde(name = b"glib:finish-func", ty = "attr")]
+    finish_func: Option<String>,
+    #[xmlserde(name = b"glib:sync-func", ty = "attr")]
+    sync_func: Option<String>,
     // Common attributes
     #[xmlserde(name = b"introspectable", ty = "attr")]
     introspectable: Option<bool>,

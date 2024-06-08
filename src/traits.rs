@@ -60,6 +60,9 @@ pub trait Callable: Info {
     fn shadowed_by(&self) -> Option<&str>;
     fn throws(&self) -> bool;
     fn moved_to(&self) -> Option<&str>;
+    fn async_func(&self) -> Option<&str>;
+    fn finish_func(&self) -> Option<&str>;
+    fn sync_func(&self) -> Option<&str>;
 }
 
 macro_rules! impl_documentable {
@@ -145,6 +148,18 @@ macro_rules! impl_callable {
 
             fn moved_to(&self) -> Option<&str> {
                 self.moved_to.as_deref()
+            }
+
+            fn async_func(&self) -> Option<&str> {
+                self.async_func.as_deref()
+            }
+
+            fn finish_func(&self) -> Option<&str> {
+                self.finish_func.as_deref()
+            }
+
+            fn sync_func(&self) -> Option<&str> {
+                self.sync_func.as_deref()
             }
         }
     };
