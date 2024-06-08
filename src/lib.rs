@@ -24,7 +24,7 @@ impl std::fmt::Display for ParserError {
 }
 
 xml_serde_enum! {
-    #[derive(Debug, Copy, Clone)]
+    #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     Stability {
         Stable => "Stable",
         Unstable => "Unstable",
@@ -33,7 +33,7 @@ xml_serde_enum! {
 }
 
 xml_serde_enum! {
-    #[derive(Debug, Copy, Clone)]
+    #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     TransferOwnership {
         None => "none",
         Container => "container",
@@ -56,7 +56,7 @@ impl TransferOwnership {
 }
 
 xml_serde_enum! {
-    #[derive(Debug, Copy, Clone)]
+    #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     FunctionScope {
         Call => "call",
         Notified => "notified",
@@ -66,7 +66,7 @@ xml_serde_enum! {
 }
 
 xml_serde_enum! {
-    #[derive(Debug, Copy, Clone)]
+    #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     SignalEmission {
         First => "first",
         Last => "last",
