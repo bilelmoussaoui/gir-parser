@@ -85,7 +85,7 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 [[package]]
 name = "xmlserde"
 version = "0.8.1"
-source = "git+https://github.com/bilelmoussaoui/xmlserde?branch=bilelmoussaoui/more-numerical-types#c2cdfc5056a7c92c7089568022577adfba3dd280"
+source = "git+https://github.com/ImJeremyHe/xmlserde#9b1c2ba9bc179210129070f12d37e3732856579c"
 dependencies = [
  "quick-xml",
 ]
@@ -93,7 +93,7 @@ dependencies = [
 [[package]]
 name = "xmlserde_derives"
 version = "0.8.1"
-source = "git+https://github.com/bilelmoussaoui/xmlserde?branch=bilelmoussaoui/more-numerical-types#c2cdfc5056a7c92c7089568022577adfba3dd280"
+source = "git+https://github.com/ImJeremyHe/xmlserde#9b1c2ba9bc179210129070f12d37e3732856579c"
 dependencies = [
  "proc-macro2",
  "quote",
