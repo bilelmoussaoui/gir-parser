@@ -117,7 +117,7 @@ pub use method::{Method, MethodInline};
 mod namespace;
 pub use namespace::Namespace;
 mod parameter;
-pub use parameter::{InstanceParameter, Parameter, ParameterType, Parameters};
+pub use parameter::{Direction, InstanceParameter, Parameter, ParameterType, Parameters};
 mod property;
 pub use property::Property;
 mod record;
