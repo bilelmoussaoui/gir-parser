@@ -85,8 +85,7 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 [[package]]
 name = "xmlserde"
 version = "0.8.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56945358da8fd95ff189ad14041b907850dfc109283c66bffd04ff39f7f66404"
+source = "git+https://github.com/bilelmoussaoui/xmlserde?branch=bilelmoussaoui/more-numerical-types#c2cdfc5056a7c92c7089568022577adfba3dd280"
 dependencies = [
  "quick-xml",
 ]
@@ -94,8 +93,7 @@ dependencies = [
 [[package]]
 name = "xmlserde_derives"
 version = "0.8.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e2b9028f68be605f767688db78252641a4e79a137948e19eb855e292fba16342"
+source = "git+https://github.com/bilelmoussaoui/xmlserde?branch=bilelmoussaoui/more-numerical-types#c2cdfc5056a7c92c7089568022577adfba3dd280"
 dependencies = [
  "proc-macro2",
  "quote",
