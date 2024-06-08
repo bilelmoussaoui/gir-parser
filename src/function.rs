@@ -76,6 +76,7 @@ impl_info!(Function);
 impl_attributable!(Function);
 impl_documentable!(Function);
 impl_callable!(Function);
+impl_function_like!(Function);
 
 #[derive(Debug, XmlDeserialize)]
 pub struct FunctionInline {
@@ -130,17 +131,8 @@ pub struct FunctionInline {
     parameters: Parameters,
 }
 
-impl FunctionInline {
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
-}
-
 impl_info!(FunctionInline);
 impl_attributable!(FunctionInline);
 impl_documentable!(FunctionInline);
 impl_callable!(FunctionInline);
+impl_function_like!(FunctionInline);

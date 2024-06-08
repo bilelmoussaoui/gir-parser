@@ -90,6 +90,7 @@ impl_info!(Method);
 impl_attributable!(Method);
 impl_documentable!(Method);
 impl_callable!(Method);
+impl_function_like!(Method);
 
 #[derive(Debug, XmlDeserialize)]
 pub struct MethodInline {
@@ -144,17 +145,8 @@ pub struct MethodInline {
     parameters: Parameters,
 }
 
-impl MethodInline {
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
-}
-
 impl_info!(MethodInline);
 impl_attributable!(MethodInline);
 impl_documentable!(MethodInline);
 impl_callable!(MethodInline);
+impl_function_like!(MethodInline);

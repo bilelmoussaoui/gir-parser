@@ -2,7 +2,7 @@ use crate::{
     attribute::Attribute,
     documentation::{DocDeprecated, DocStability, DocVersion, Documentation, SourcePosition},
     version::Version,
-    Stability,
+    Parameters, ReturnValue, Stability,
 };
 
 pub trait Documentable {
@@ -58,7 +58,6 @@ pub trait Callable: Info {
     fn c_identifier(&self) -> Option<&str>;
     fn shadows(&self) -> Option<&str>;
     fn shadowed_by(&self) -> Option<&str>;
-    fn throws(&self) -> bool;
     fn moved_to(&self) -> Option<&str>;
     fn async_func(&self) -> Option<&str>;
     fn finish_func(&self) -> Option<&str>;
@@ -142,10 +141,6 @@ macro_rules! impl_callable {
                 self.shadowed_by.as_deref()
             }
 
-            fn throws(&self) -> bool {
-                self.throws.unwrap_or(false)
-            }
-
             fn moved_to(&self) -> Option<&str> {
                 self.moved_to.as_deref()
             }
@@ -160,6 +155,30 @@ macro_rules! impl_callable {
 
             fn sync_func(&self) -> Option<&str> {
                 self.sync_func.as_deref()
+            }
+        }
+    };
+}
+
+pub trait FunctionLike: Attributable + Info + Documentable {
+    fn throws(&self) -> bool;
+    fn return_value(&self) -> &ReturnValue;
+    fn parameters(&self) -> &Parameters;
+}
+
+macro_rules! impl_function_like {
+    ($rust_type:ident) => {
+        impl FunctionLike for $rust_type {
+            fn throws(&self) -> bool {
+                self.throws.unwrap_or(false)
+            }
+
+            fn return_value(&self) -> &ReturnValue {
+                &self.return_value
+            }
+
+            fn parameters(&self) -> &Parameters {
+                &self.parameters
             }
         }
     };

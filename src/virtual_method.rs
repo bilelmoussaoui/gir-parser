@@ -69,17 +69,10 @@ impl VirtualMethod {
     pub fn invoker(&self) -> Option<&str> {
         self.invoker.as_deref()
     }
-
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
 }
 
 impl_info!(VirtualMethod);
 impl_attributable!(VirtualMethod);
 impl_documentable!(VirtualMethod);
 impl_callable!(VirtualMethod);
+impl_function_like!(VirtualMethod);

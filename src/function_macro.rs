@@ -64,6 +64,10 @@ impl FunctionMacro {
     pub fn parameters(&self) -> &Parameters {
         &self.parameters
     }
+
+    pub fn throws(&self) -> Option<bool> {
+        self.throws
+    }
 }
 
 impl_info!(FunctionMacro);

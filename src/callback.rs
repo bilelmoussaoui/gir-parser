@@ -57,20 +57,9 @@ impl Callback {
     pub fn c_type(&self) -> Option<&str> {
         self.c_type.as_deref()
     }
-
-    pub fn throws(&self) -> bool {
-        self.throws.unwrap_or(false)
-    }
-
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
 }
 
 impl_info!(Callback);
 impl_attributable!(Callback);
 impl_documentable!(Callback);
+impl_function_like!(Callback);
