@@ -1,0 +1,10 @@
+[files]
+extend-exclude = [
+    "gir-files",
+    "gir-1.2.rnc",
+]
+[default.extend-words]
+# Ignore false-positives
+gir = "gir"
+inout = "inout"
+OT = "OT"

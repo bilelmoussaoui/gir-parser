@@ -1,0 +1,15 @@
+[package]
+name = "gir-parser"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/bilelmoussaoui/gir-parser"
+authors = ["Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>"]
+exclude = ["./gir-files/*.gir", "./gir-1.2.rnc", "./update_gir_files.sh"]
+description = "GObject Introspection GIR files parser"
+keywords = ["gir", "gobject", "introspection", "parser", "xml"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+xmlserde = "0.8"
+xmlserde_derives = "0.8"
