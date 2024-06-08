@@ -20,6 +20,14 @@ impl NamespaceInclude {
     pub fn as_package_file(&self) -> String {
         format!("{}-{}.gir", self.name, self.version)
     }
+
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    pub fn version(&self) -> &Version {
+        &self.version
+    }
 }
 
 #[derive(Debug, XmlDeserialize)]
