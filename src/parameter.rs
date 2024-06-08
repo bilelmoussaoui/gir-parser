@@ -46,6 +46,10 @@ impl Parameters {
     pub fn instance(&self) -> Option<&InstanceParameter> {
         self.instance_parameter.as_ref()
     }
+
+    pub fn inner(&self) -> &[Parameter] {
+        &self.parameter
+    }
 }
 
 impl IntoIterator for Parameters {
