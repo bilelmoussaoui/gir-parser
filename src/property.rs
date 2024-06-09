@@ -63,7 +63,7 @@ impl Property {
     }
 
     pub fn is_readable(&self) -> bool {
-        self.readable.unwrap_or(false)
+        self.readable.unwrap_or(true)
     }
 
     pub fn is_writable(&self) -> bool {
