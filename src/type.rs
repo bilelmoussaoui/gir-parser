@@ -52,6 +52,12 @@ pub enum AnyType {
     Array(Array),
 }
 
+impl From<crate::r#type::Type> for AnyType {
+    fn from(value: crate::r#type::Type) -> Self {
+        Self::Type(value)
+    }
+}
+
 impl AnyType {
     pub fn is_array(&self) -> bool {
         matches!(self, Self::Array(_))

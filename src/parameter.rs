@@ -29,6 +29,21 @@ pub enum ParameterType {
     VarArgs,
 }
 
+impl From<crate::r#type::Type> for ParameterType {
+    fn from(value: crate::r#type::Type) -> Self {
+        Self::Type(value)
+    }
+}
+
+impl From<crate::r#type::AnyType> for ParameterType {
+    fn from(value: crate::r#type::AnyType) -> Self {
+        match value {
+            crate::r#type::AnyType::Array(arr) => Self::Array(arr),
+            crate::r#type::AnyType::Type(ty) => Self::Type(ty),
+        }
+    }
+}
+
 #[derive(Clone, Debug, Default, XmlDeserialize)]
 #[xmlserde(root = b"parameters")]
 pub struct Parameters {
