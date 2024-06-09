@@ -99,7 +99,7 @@ pub struct Interface {
     #[xmlserde(name = b"property", ty = "child")]
     properties: Vec<Property>,
 
-    #[xmlserde(name = b"signal", ty = "child")]
+    #[xmlserde(name = b"glib:signal", ty = "child")]
     signals: Vec<Signal>,
 
     #[xmlserde(name = b"callback", ty = "child")]

@@ -102,7 +102,7 @@ pub struct Class {
 
     #[xmlserde(name = b"property", ty = "child")]
     properties: Vec<Property>,
-    #[xmlserde(name = b"signal", ty = "child")]
+    #[xmlserde(name = b"glib:signal", ty = "child")]
     signals: Vec<Signal>,
     #[xmlserde(name = b"virtual-method", ty = "child")]
     virtual_methods: Vec<VirtualMethod>,
