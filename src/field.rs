@@ -70,9 +70,10 @@ pub struct Field {
     readable: Option<bool>,
     #[xmlserde(name = b"writable", ty = "attr")]
     writable: Option<bool>,
-    // Verify who sets this
+    // Seems to be set by libgee, which is a weird use case anyways
+    // Kept hidden from the external API as it is not supposed to be set per the spec
     #[xmlserde(name = b"nullable", ty = "attr")]
-    nullable: Option<bool>,
+    _nullable: Option<bool>,
     #[xmlserde(name = b"private", ty = "attr")]
     private: Option<bool>,
     #[xmlserde(name = b"bits", ty = "attr")]
@@ -109,10 +110,6 @@ pub struct Field {
 impl Field {
     pub fn name(&self) -> &str {
         &self.name
-    }
-
-    pub fn is_nullable(&self) -> Option<bool> {
-        self.nullable
     }
 
     pub fn is_readable(&self) -> bool {
