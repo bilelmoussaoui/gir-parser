@@ -141,7 +141,7 @@ pub use property::Property;
 mod record;
 pub use record::Record;
 mod repository;
-pub use repository::Repository;
+pub use repository::{HeaderInclude, NamespaceInclude, Package, Repository};
 mod return_value;
 pub use return_value::ReturnValue;
 mod signal;
