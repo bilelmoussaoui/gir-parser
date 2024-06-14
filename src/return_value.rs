@@ -10,6 +10,7 @@ use crate::{
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"return-value")]
+#[xmlserde(deny_unknown_fields)]
 pub struct ReturnValue {
     #[xmlserde(name = b"introspectable", ty = "attr")]
     introspectable: Option<bool>,

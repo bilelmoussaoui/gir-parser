@@ -61,6 +61,8 @@ impl FieldType {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"field")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Field {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -68,6 +70,9 @@ pub struct Field {
     readable: Option<bool>,
     #[xmlserde(name = b"writable", ty = "attr")]
     writable: Option<bool>,
+    // Verify who sets this
+    #[xmlserde(name = b"nullable", ty = "attr")]
+    nullable: Option<bool>,
     #[xmlserde(name = b"private", ty = "attr")]
     private: Option<bool>,
     #[xmlserde(name = b"bits", ty = "attr")]
@@ -104,6 +109,10 @@ pub struct Field {
 impl Field {
     pub fn name(&self) -> &str {
         &self.name
+    }
+
+    pub fn is_nullable(&self) -> Option<bool> {
+        self.nullable
     }
 
     pub fn is_readable(&self) -> bool {

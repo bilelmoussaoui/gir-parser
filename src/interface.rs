@@ -18,6 +18,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"prerequisite")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Prerequisite {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -30,6 +32,8 @@ impl Prerequisite {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"interface")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Interface {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

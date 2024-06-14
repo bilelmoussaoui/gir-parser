@@ -3,6 +3,8 @@ use xmlserde_derives::XmlDeserialize;
 use crate::r#type::Type;
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"array")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Array {
     #[xmlserde(name = b"name", ty = "attr")]
     name: Option<String>,

@@ -11,6 +11,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"virtual-method")]
+#[xmlserde(deny_unknown_fields)]
 pub struct VirtualMethod {
     #[xmlserde(name = b"invoker", ty = "attr")]
     invoker: Option<String>,

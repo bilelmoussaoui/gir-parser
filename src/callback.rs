@@ -11,6 +11,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"callback")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Callback {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

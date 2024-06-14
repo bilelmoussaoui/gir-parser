@@ -10,7 +10,11 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"glib:boxed")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Boxed {
+    #[xmlserde(name = b"glib:name", ty = "attr")]
+    g_name: String,
     #[xmlserde(name = b"glib:type-name", ty = "attr")]
     g_type_name: Option<String>,
     #[xmlserde(name = b"glib:get-type", ty = "attr")]
@@ -59,6 +63,11 @@ pub struct Boxed {
 }
 
 impl Boxed {
+    #[doc(alias = "glib:name")]
+    pub fn g_name(&self) -> &str {
+        &self.g_name
+    }
+
     pub fn is_foreign(&self) -> bool {
         self.foreign.unwrap_or(false)
     }

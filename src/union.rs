@@ -13,6 +13,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"union")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Union {
     #[xmlserde(name = b"name", ty = "attr")]
     name: Option<String>,

@@ -1,6 +1,8 @@
 use xmlserde_derives::XmlDeserialize;
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"source-position")]
+#[xmlserde(deny_unknown_fields)]
 pub struct SourcePosition {
     #[xmlserde(name = b"filename", ty = "attr")]
     filename: String,
@@ -25,6 +27,8 @@ impl SourcePosition {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"doc-deprecated")]
+#[xmlserde(deny_unknown_fields)]
 pub struct DocDeprecated {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -49,6 +53,8 @@ impl DocDeprecated {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"doc-stability")]
+#[xmlserde(deny_unknown_fields)]
 pub struct DocStability {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -73,6 +79,8 @@ impl DocStability {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"doc-version")]
+#[xmlserde(deny_unknown_fields)]
 pub struct DocVersion {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,
@@ -97,6 +105,8 @@ impl DocVersion {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"doc")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Documentation {
     #[xmlserde(name = b"xml:space", ty = "attr")]
     space: Option<String>,

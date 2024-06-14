@@ -7,6 +7,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"type")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Type {
     #[xmlserde(name = b"name", ty = "attr")]
     name: Option<String>,

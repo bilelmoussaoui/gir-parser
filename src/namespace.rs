@@ -21,6 +21,7 @@ use crate::{
 #[derive(Clone, Debug, XmlDeserialize)]
 #[cfg_attr(test, derive(Default))]
 #[xmlserde(root = b"namespace")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Namespace {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

@@ -19,6 +19,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"implements")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Implements {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -31,6 +33,8 @@ impl Implements {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"class")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Class {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

@@ -9,6 +9,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"member")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Member {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

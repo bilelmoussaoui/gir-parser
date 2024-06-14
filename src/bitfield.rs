@@ -11,6 +11,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"bitfield")]
+#[xmlserde(deny_unknown_fields)]
 pub struct BitField {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

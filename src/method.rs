@@ -12,6 +12,7 @@ use crate::{
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"method")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Method {
     #[xmlserde(name = b"glib:get-property", ty = "attr")]
     get_property: Option<String>,
@@ -93,6 +94,8 @@ impl_callable!(Method);
 impl_function_like!(Method);
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"method-inline")]
+#[xmlserde(deny_unknown_fields)]
 pub struct MethodInline {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

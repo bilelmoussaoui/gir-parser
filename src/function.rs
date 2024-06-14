@@ -11,6 +11,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"function")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Function {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]
@@ -79,6 +81,8 @@ impl_callable!(Function);
 impl_function_like!(Function);
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"function-inline")]
+#[xmlserde(deny_unknown_fields)]
 pub struct FunctionInline {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

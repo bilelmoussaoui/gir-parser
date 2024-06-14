@@ -46,6 +46,7 @@ impl From<crate::r#type::AnyType> for ParameterType {
 
 #[derive(Clone, Debug, Default, XmlDeserialize)]
 #[xmlserde(root = b"parameters")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Parameters {
     #[xmlserde(name = b"instance-parameter", ty = "child")]
     instance_parameter: Option<InstanceParameter>,
@@ -77,6 +78,8 @@ impl IntoIterator for Parameters {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"parameter")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Parameter {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -179,6 +182,7 @@ impl_documentable!(Parameter);
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"instance-parameter")]
+#[xmlserde(deny_unknown_fields)]
 pub struct InstanceParameter {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

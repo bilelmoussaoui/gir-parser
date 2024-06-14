@@ -12,6 +12,7 @@ use crate::{
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"glib:signal")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Signal {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

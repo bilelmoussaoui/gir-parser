@@ -5,6 +5,8 @@ use xmlserde_derives::XmlDeserialize;
 use crate::{namespace::Namespace, version::Version, ParserError};
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"include")]
+#[xmlserde(deny_unknown_fields)]
 pub struct NamespaceInclude {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -31,6 +33,8 @@ impl NamespaceInclude {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"c:include")]
+#[xmlserde(deny_unknown_fields)]
 pub struct HeaderInclude {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -43,6 +47,8 @@ impl HeaderInclude {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"package")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Package {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -56,6 +62,7 @@ impl Package {
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"repository")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Repository {
     #[xmlserde(name = b"version", ty = "attr")]
     version: Option<Version>,
@@ -63,6 +70,12 @@ pub struct Repository {
     c_identifier_prefixes: Option<String>,
     #[xmlserde(name = b"c:symbol-prefixes", ty = "attr")]
     c_symbol_prefixes: Option<String>,
+    #[xmlserde(name = b"xmlns", ty = "attr")]
+    _xmlns: Option<String>,
+    #[xmlserde(name = b"xmlns:c", ty = "attr")]
+    _xmlns_c: Option<String>,
+    #[xmlserde(name = b"xmlns:glib", ty = "attr")]
+    _xmlns_glib: Option<String>,
     #[xmlserde(name = b"include", ty = "child")]
     includes: Vec<NamespaceInclude>,
     #[xmlserde(name = b"c:include", ty = "child")]

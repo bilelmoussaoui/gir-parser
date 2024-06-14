@@ -10,6 +10,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"function-macro")]
+#[xmlserde(deny_unknown_fields)]
 pub struct FunctionMacro {
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]

@@ -11,6 +11,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"enumeration")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Enumeration {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,

@@ -10,6 +10,8 @@ use crate::{
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
+#[xmlserde(root = b"constant")]
+#[xmlserde(deny_unknown_fields)]
 pub struct Constant {
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
