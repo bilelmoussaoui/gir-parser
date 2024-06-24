@@ -84,16 +84,16 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 
 [[package]]
 name = "xmlserde"
-version = "0.9.0"
-source = "git+https://github.com/ImJeremyHe/xmlserde#3c2e2bc2d0229a671c13b9d16495ab003eb8ff05"
+version = "0.9.1"
+source = "git+https://github.com/ImJeremyHe/xmlserde#75c36bd186738734c71b77fba62d1439d9bf702f"
 dependencies = [
  "quick-xml",
 ]
 
 [[package]]
 name = "xmlserde_derives"
-version = "0.9.0"
-source = "git+https://github.com/ImJeremyHe/xmlserde#3c2e2bc2d0229a671c13b9d16495ab003eb8ff05"
+version = "0.9.1"
+source = "git+https://github.com/ImJeremyHe/xmlserde#75c36bd186738734c71b77fba62d1439d9bf702f"
 dependencies = [
  "proc-macro2",
  "quote",
