@@ -93,7 +93,7 @@ impl Repository {
         girs_dirs: impl AsRef<Path>,
     ) -> Result<(), ParserError> {
         let repo = Self::from_path(girs_dirs.as_ref().join(package_file))?;
-        if !cache.contains_key(package_file) {
+        if cache.contains_key(package_file) {
             return Ok(());
         }
         for namespace in repo.namespace_includes() {
@@ -101,7 +101,7 @@ impl Repository {
                 Self::from_path_follow_namespaces_and_cache(
                     cache,
                     &namespace.as_package_file(),
-                    &girs_dirs,
+                    girs_dirs.as_ref(),
                 )?;
             }
         }
