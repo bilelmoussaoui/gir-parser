@@ -1136,7 +1136,7 @@ context from the one that created [class@SparqlConnection].</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-endpoint-http.c"
-             line="462">Sets up a Tracker endpoint to listen via HTTP, in the given @port.
+             line="610">Sets up a Tracker endpoint to listen via HTTP, in the given @port.
 If @certificate is not %NULL, HTTPS may be used to connect to the
 endpoint.</doc>
         <source-position filename="src/libtracker-sparql/tracker-endpoint-http.h"
@@ -1144,20 +1144,20 @@ endpoint.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtracker-sparql/tracker-endpoint-http.c"
-               line="474">a `TrackerEndpointHttp` object.</doc>
+               line="622">a `TrackerEndpointHttp` object.</doc>
           <type name="EndpointHttp" c:type="TrackerEndpointHttp*"/>
         </return-value>
         <parameters>
           <parameter name="sparql_connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtracker-sparql/tracker-endpoint-http.c"
-                 line="464">The [class@SparqlConnection] being made public</doc>
+                 line="612">The [class@SparqlConnection] being made public</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </parameter>
           <parameter name="port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtracker-sparql/tracker-endpoint-http.c"
-                 line="465">HTTP port to handle incoming requests</doc>
+                 line="613">HTTP port to handle incoming requests</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="certificate"
@@ -1166,7 +1166,7 @@ endpoint.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtracker-sparql/tracker-endpoint-http.c"
-                 line="466">Optional [type@Gio.TlsCertificate] to use for encription</doc>
+                 line="614">Optional [type@Gio.TlsCertificate] to use for encription</doc>
             <type name="Gio.TlsCertificate" c:type="GTlsCertificate*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1175,7 +1175,7 @@ endpoint.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtracker-sparql/tracker-endpoint-http.c"
-                 line="467">Optional [type@Gio.Cancellable]</doc>
+                 line="615">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1186,7 +1186,7 @@ endpoint.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-endpoint-http.c"
-             line="441">[class@Gio.TlsCertificate] to encrypt the communication.</doc>
+             line="589">[class@Gio.TlsCertificate] to encrypt the communication.</doc>
         <type name="Gio.TlsCertificate"/>
       </property>
       <property name="http-port"
@@ -1196,13 +1196,13 @@ endpoint.</doc>
                 default-value="8080">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-endpoint-http.c"
-             line="429">HTTP port used to listen requests.</doc>
+             line="577">HTTP port used to listen requests.</doc>
         <type name="guint" c:type="guint"/>
       </property>
       <glib:signal name="block-remote-address">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-endpoint-http.c"
-             line="411">Allows control over the connections stablished. The given
+             line="559">Allows control over the connections stablished. The given
 address is that of the requesting peer.
 
 Returning %FALSE in this handler allows the connection,
@@ -1215,7 +1215,7 @@ handlers connected is %FALSE.</doc>
           <parameter name="address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtracker-sparql/tracker-endpoint-http.c"
-                 line="414">The socket address of the remote connection</doc>
+                 line="562">The socket address of the remote connection</doc>
             <type name="Gio.SocketAddress"/>
           </parameter>
         </parameters>
@@ -6935,7 +6935,7 @@ version @required_major.@required_minor.@required_micro
               c:identifier="tracker_sparql_escape_string">
       <doc xml:space="preserve"
            filename="src/libtracker-sparql/tracker-utils.c"
-           line="26">Escapes @literal so it is suitable for insertion in
+           line="36">Escapes @literal so it is suitable for insertion in
 SPARQL queries as string literals.
 
 Manual construction of query strings based user input is best
@@ -6946,14 +6946,14 @@ instead.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-utils.c"
-             line="37">the escaped string</doc>
+             line="47">the escaped string</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="literal" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtracker-sparql/tracker-utils.c"
-               line="28">a string to escape</doc>
+               line="38">a string to escape</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -7049,13 +7049,13 @@ the result.</doc>
               c:identifier="tracker_sparql_get_ontology_nepomuk">
       <doc xml:space="preserve"
            filename="src/libtracker-sparql/tracker-utils.c"
-           line="103">Returns a path to the built-in Nepomuk ontologies.</doc>
+           line="113">Returns a path to the built-in Nepomuk ontologies.</doc>
       <source-position filename="src/libtracker-sparql/tracker-utils.h"
                        line="48"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-utils.c"
-             line="108">a #GFile instance.</doc>
+             line="118">a #GFile instance.</doc>
         <type name="Gio.File" c:type="GFile*"/>
       </return-value>
     </function>
@@ -7063,13 +7063,13 @@ the result.</doc>
               c:identifier="tracker_sparql_get_uuid_urn">
       <doc xml:space="preserve"
            filename="src/libtracker-sparql/tracker-utils.c"
-           line="90">Creates a fresh UUID-based URN.</doc>
+           line="100">Creates a fresh UUID-based URN.</doc>
       <source-position filename="src/libtracker-sparql/tracker-utils.h"
                        line="44"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/libtracker-sparql/tracker-utils.c"
-             line="95">A newly generated UUID URN.</doc>
+             line="105">A newly generated UUID URN.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
     </function>

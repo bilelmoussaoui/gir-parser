@@ -2038,7 +2038,10 @@ another future rejects or resolves.</doc>
           <type name="Future" c:type="DexFuture*"/>
         </return-value>
         <parameters>
-          <parameter name="value" transfer-ownership="full">
+          <parameter name="value"
+                     transfer-ownership="full"
+                     nullable="1"
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-future.c"
                  line="1197">the value</doc>
@@ -3585,8 +3588,6 @@ rounded up to the nearest page size.</doc>
           </parameter>
           <parameter name="func"
                      transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
                      scope="notified"
                      closure="2"
                      destroy="3">
@@ -3598,8 +3599,7 @@ rounded up to the nearest page size.</doc>
           <parameter name="func_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="1">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-scheduler.c"
                  line="185">closure data for @func</doc>

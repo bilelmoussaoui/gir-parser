@@ -5222,6 +5222,7 @@ Multiple anchors are primarily used by client-side image maps.</doc>
       </method>
       <method name="is_selected_link"
               c:identifier="atk_hyperlink_is_selected_link"
+              glib:get-property="selected-link"
               version="1.4"
               deprecated="1"
               deprecated-version="1.8">
@@ -5283,6 +5284,7 @@ respect to the document it references) and %FALSE otherwise.</doc>
                 deprecated="1"
                 deprecated-version="1.8"
                 transfer-ownership="none"
+                getter="is_selected_link"
                 default-value="FALSE">
         <doc xml:space="preserve"
              filename="atk/atkhyperlink.c"
@@ -8838,7 +8840,9 @@ the name to a empty value you can use "".</doc>
              filename="atk/atkobject.c"
              line="1774">Sets the help text associated with the accessible. This can be used to
 expose context-sensitive information to help a user understand how to
-interact with the object.</doc>
+interact with the object. You can't set the help text to NULL.
+This is reserved for the initial value. If you want to set the name to
+an empty value, you can use "".</doc>
         <source-position filename="atk/atkobject.h" line="819"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>

@@ -5923,14 +5923,14 @@ right of the line numbers.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcegutter.c"
-               line="570">the associated #GtkSourceView.</doc>
+               line="576">the associated #GtkSourceView.</doc>
           <type name="View" c:type="GtkSourceView*"/>
         </return-value>
         <parameters>
           <instance-parameter name="gutter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="568">a #GtkSourceGutter.</doc>
+                 line="574">a #GtkSourceGutter.</doc>
             <type name="Gutter" c:type="GtkSourceGutter*"/>
           </instance-parameter>
         </parameters>
@@ -5938,33 +5938,33 @@ right of the line numbers.</doc>
       <method name="insert" c:identifier="gtk_source_gutter_insert">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutter.c"
-             line="580">Insert @renderer into the gutter. If @renderer is yet unowned then gutter
+             line="586">Insert @renderer into the gutter. If @renderer is yet unowned then gutter
 claims its ownership. Otherwise just increases renderer's reference count.
 @renderer cannot be already inserted to another gutter.</doc>
         <source-position filename="gtksourceview/gtksourcegutter.h" line="40"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourcegutter.c"
-               line="590">%TRUE if operation succeeded. Otherwise %FALSE.</doc>
+               line="596">%TRUE if operation succeeded. Otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="gutter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="582">a #GtkSourceGutter.</doc>
+                 line="588">a #GtkSourceGutter.</doc>
             <type name="Gutter" c:type="GtkSourceGutter*"/>
           </instance-parameter>
           <parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="583">a gutter renderer (must inherit from #GtkSourceGutterRenderer).</doc>
+                 line="589">a gutter renderer (must inherit from #GtkSourceGutterRenderer).</doc>
             <type name="GutterRenderer" c:type="GtkSourceGutterRenderer*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="584">the renderer position.</doc>
+                 line="590">the renderer position.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -5986,7 +5986,7 @@ claims its ownership. Otherwise just increases renderer's reference count.
       <method name="reorder" c:identifier="gtk_source_gutter_reorder">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutter.c"
-             line="681">Reorders @renderer in @gutter to new @position.</doc>
+             line="687">Reorders @renderer in @gutter to new @position.</doc>
         <source-position filename="gtksourceview/gtksourcegutter.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -5995,19 +5995,19 @@ claims its ownership. Otherwise just increases renderer's reference count.
           <instance-parameter name="gutter" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="683">a #GtkSourceGutterRenderer.</doc>
+                 line="689">a #GtkSourceGutterRenderer.</doc>
             <type name="Gutter" c:type="GtkSourceGutter*"/>
           </instance-parameter>
           <parameter name="renderer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="684">a #GtkCellRenderer.</doc>
+                 line="690">a #GtkCellRenderer.</doc>
             <type name="GutterRenderer" c:type="GtkSourceGutterRenderer*"/>
           </parameter>
           <parameter name="position" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourcegutter.c"
-                 line="685">the new renderer position.</doc>
+                 line="691">the new renderer position.</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -6019,7 +6019,7 @@ claims its ownership. Otherwise just increases renderer's reference count.
                 getter="get_view">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutter.c"
-             line="452">The #GtkSourceView of the gutter.</doc>
+             line="458">The #GtkSourceView of the gutter.</doc>
         <type name="View"/>
       </property>
       <property name="window-type"
@@ -6029,7 +6029,7 @@ claims its ownership. Otherwise just increases renderer's reference count.
                 default-value="GTK_TEXT_WINDOW_LEFT">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourcegutter.c"
-             line="465">The text window type on which the window is placed.</doc>
+             line="471">The text window type on which the window is placed.</doc>
         <type name="Gtk.TextWindowType"/>
       </property>
     </class>
@@ -8792,7 +8792,7 @@ user may undo them using standard undo/redo accelerators.</doc>
       <virtual-method name="indent" invoker="indent">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceindenter.c"
-             line="207">This function should be implemented to alter the indentation of text
+             line="219">This function should be implemented to alter the indentation of text
 within the view.
 
 @view is provided so that the indenter may retrieve settings such as indentation and tab widths.
@@ -8819,13 +8819,13 @@ indentation of the previous line.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="209">a #GtkSourceIndenter</doc>
+                 line="221">a #GtkSourceIndenter</doc>
             <type name="Indenter" c:type="GtkSourceIndenter*"/>
           </instance-parameter>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="210">a #GtkSourceView</doc>
+                 line="222">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </parameter>
           <parameter name="iter"
@@ -8834,7 +8834,7 @@ indentation of the previous line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="211">the location of the indentation request</doc>
+                 line="223">the location of the indentation request</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -8842,7 +8842,7 @@ indentation of the previous line.</doc>
       <virtual-method name="is_trigger" invoker="is_trigger">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceindenter.c"
-             line="173">This function is used to determine if a key pressed should cause the
+             line="185">This function is used to determine if a key pressed should cause the
 indenter to automatically indent.
 
 The default implementation of this virtual method will check to see
@@ -8855,7 +8855,7 @@ to copy this behavior to provide a consistent experience to users.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceindenter.c"
-               line="190">%TRUE if indentation should be automatically triggered;
+               line="202">%TRUE if indentation should be automatically triggered;
   otherwise %FALSE and no indentation will be performed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -8863,31 +8863,31 @@ to copy this behavior to provide a consistent experience to users.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="175">a #GtkSourceIndenter</doc>
+                 line="187">a #GtkSourceIndenter</doc>
             <type name="Indenter" c:type="GtkSourceIndenter*"/>
           </instance-parameter>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="176">a #GtkSourceView</doc>
+                 line="188">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="177">the location where @ch is to be inserted</doc>
+                 line="189">the location where @ch is to be inserted</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="178">modifier state for the insertion</doc>
+                 line="190">modifier state for the insertion</doc>
             <type name="Gdk.ModifierType" c:type="GdkModifierType"/>
           </parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="179">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
+                 line="191">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -8895,7 +8895,7 @@ to copy this behavior to provide a consistent experience to users.</doc>
       <method name="indent" c:identifier="gtk_source_indenter_indent">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceindenter.c"
-             line="207">This function should be implemented to alter the indentation of text
+             line="219">This function should be implemented to alter the indentation of text
 within the view.
 
 @view is provided so that the indenter may retrieve settings such as indentation and tab widths.
@@ -8922,13 +8922,13 @@ indentation of the previous line.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="209">a #GtkSourceIndenter</doc>
+                 line="221">a #GtkSourceIndenter</doc>
             <type name="Indenter" c:type="GtkSourceIndenter*"/>
           </instance-parameter>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="210">a #GtkSourceView</doc>
+                 line="222">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </parameter>
           <parameter name="iter"
@@ -8937,7 +8937,7 @@ indentation of the previous line.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="211">the location of the indentation request</doc>
+                 line="223">the location of the indentation request</doc>
             <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
           </parameter>
         </parameters>
@@ -8945,7 +8945,7 @@ indentation of the previous line.</doc>
       <method name="is_trigger" c:identifier="gtk_source_indenter_is_trigger">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceindenter.c"
-             line="173">This function is used to determine if a key pressed should cause the
+             line="185">This function is used to determine if a key pressed should cause the
 indenter to automatically indent.
 
 The default implementation of this virtual method will check to see
@@ -8958,7 +8958,7 @@ to copy this behavior to provide a consistent experience to users.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceindenter.c"
-               line="190">%TRUE if indentation should be automatically triggered;
+               line="202">%TRUE if indentation should be automatically triggered;
   otherwise %FALSE and no indentation will be performed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -8966,31 +8966,31 @@ to copy this behavior to provide a consistent experience to users.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="175">a #GtkSourceIndenter</doc>
+                 line="187">a #GtkSourceIndenter</doc>
             <type name="Indenter" c:type="GtkSourceIndenter*"/>
           </instance-parameter>
           <parameter name="view" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="176">a #GtkSourceView</doc>
+                 line="188">a #GtkSourceView</doc>
             <type name="View" c:type="GtkSourceView*"/>
           </parameter>
           <parameter name="location" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="177">the location where @ch is to be inserted</doc>
+                 line="189">the location where @ch is to be inserted</doc>
             <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
           </parameter>
           <parameter name="state" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="178">modifier state for the insertion</doc>
+                 line="190">modifier state for the insertion</doc>
             <type name="Gdk.ModifierType" c:type="GdkModifierType"/>
           </parameter>
           <parameter name="keyval" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="179">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
+                 line="191">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -9016,7 +9016,7 @@ to copy this behavior to provide a consistent experience to users.</doc>
           <return-value transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gtksourceview/gtksourceindenter.c"
-                 line="190">%TRUE if indentation should be automatically triggered;
+                 line="202">%TRUE if indentation should be automatically triggered;
   otherwise %FALSE and no indentation will be performed.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
@@ -9024,31 +9024,31 @@ to copy this behavior to provide a consistent experience to users.</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="175">a #GtkSourceIndenter</doc>
+                   line="187">a #GtkSourceIndenter</doc>
               <type name="Indenter" c:type="GtkSourceIndenter*"/>
             </parameter>
             <parameter name="view" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="176">a #GtkSourceView</doc>
+                   line="188">a #GtkSourceView</doc>
               <type name="View" c:type="GtkSourceView*"/>
             </parameter>
             <parameter name="location" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="177">the location where @ch is to be inserted</doc>
+                   line="189">the location where @ch is to be inserted</doc>
               <type name="Gtk.TextIter" c:type="const GtkTextIter*"/>
             </parameter>
             <parameter name="state" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="178">modifier state for the insertion</doc>
+                   line="190">modifier state for the insertion</doc>
               <type name="Gdk.ModifierType" c:type="GdkModifierType"/>
             </parameter>
             <parameter name="keyval" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="179">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
+                   line="191">the keyval pressed such as [const@Gdk.KEY_Return]</doc>
               <type name="guint" c:type="guint"/>
             </parameter>
           </parameters>
@@ -9068,13 +9068,13 @@ to copy this behavior to provide a consistent experience to users.</doc>
             <parameter name="self" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="209">a #GtkSourceIndenter</doc>
+                   line="221">a #GtkSourceIndenter</doc>
               <type name="Indenter" c:type="GtkSourceIndenter*"/>
             </parameter>
             <parameter name="view" transfer-ownership="none">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="210">a #GtkSourceView</doc>
+                   line="222">a #GtkSourceView</doc>
               <type name="View" c:type="GtkSourceView*"/>
             </parameter>
             <parameter name="iter"
@@ -9083,7 +9083,7 @@ to copy this behavior to provide a consistent experience to users.</doc>
                        transfer-ownership="full">
               <doc xml:space="preserve"
                    filename="gtksourceview/gtksourceindenter.c"
-                   line="211">the location of the indentation request</doc>
+                   line="223">the location of the indentation request</doc>
               <type name="Gtk.TextIter" c:type="GtkTextIter*"/>
             </parameter>
           </parameters>
@@ -9776,7 +9776,7 @@ against at application run time.</doc>
       <source-position filename="gtksourceview/gtksourceversion.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GTK_SOURCE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="GTK_SOURCE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
            line="45">Like gtk_source_get_micro_version(), but from the headers used at
@@ -19464,7 +19464,7 @@ if not found.</doc>
     <function name="finalize" c:identifier="gtk_source_finalize">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceinit.c"
-           line="247">Free the resources allocated by GtkSourceView. For example it unrefs the
+           line="259">Free the resources allocated by GtkSourceView. For example it unrefs the
 singleton objects.
 
 It is not mandatory to call this function, it's just to be friendlier to
@@ -19535,7 +19535,7 @@ have included when compiling your code.</doc>
     <function name="init" c:identifier="gtk_source_init">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceinit.c"
-           line="156">Initializes the GtkSourceView library (e.g. for the internationalization).
+           line="163">Initializes the GtkSourceView library (e.g. for the internationalization).
 
 This function can be called several times, but is meant to be called at the
 beginning of main(), before any other GtkSourceView function call.</doc>
@@ -19653,7 +19653,7 @@ Use [func@scheduler_remove] to remove the handler.</doc>
               c:identifier="gtk_source_utils_escape_search_text">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceutils.c"
-           line="174">Use this function to escape the following characters: `\n`, `\r`, `\t` and `\`.
+           line="175">Use this function to escape the following characters: `\n`, `\r`, `\t` and `\`.
 
 For a regular expression search, use g_regex_escape_string() instead.
 
@@ -19673,14 +19673,14 @@ may be modified.
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceutils.c"
-             line="195">the escaped @text.</doc>
+             line="196">the escaped @text.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="text" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceutils.c"
-               line="176">the text to escape.</doc>
+               line="177">the text to escape.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -19689,7 +19689,7 @@ may be modified.
               c:identifier="gtk_source_utils_unescape_search_text">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceutils.c"
-           line="83">Use this function before [method@SearchSettings.set_search_text], to
+           line="84">Use this function before [method@SearchSettings.set_search_text], to
 unescape the following sequences of characters: `\n`, `\r`, `\t` and `\\`.
 The purpose is to easily write those characters in a search entry.
 
@@ -19701,14 +19701,14 @@ See also: [func@utils_escape_search_text].</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceutils.c"
-             line="96">the unescaped @text.</doc>
+             line="97">the unescaped @text.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="text" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gtksourceview/gtksourceutils.c"
-               line="85">the text to unescape.</doc>
+               line="86">the text to unescape.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>

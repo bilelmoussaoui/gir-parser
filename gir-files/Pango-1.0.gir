@@ -6085,7 +6085,7 @@ The unset fields will get back to their default values.</doc>
 
 The string must have the form
 
-    "\[FAMILY-LIST] \[STYLE-OPTIONS] \[SIZE] \[VARIATIONS]",
+    "[FAMILY-LIST] [STYLE-OPTIONS] [SIZE] [VARIATIONS]",
 
 where FAMILY-LIST is a comma-separated list of families optionally
 terminated by a comma, STYLE_OPTIONS is a whitespace-separated list
@@ -6093,7 +6093,7 @@ of words where each word describes one of style, variant, weight,
 stretch, or gravity, and SIZE is a decimal number (size in points)
 or optionally followed by the unit modifier "px" for absolute size.
 VARIATIONS is a comma-separated list of font variation
-specifications of the form "\@axis=value" (the = sign is optional).
+specifications of the form @‍axis=value (the = sign is optional).
 
 The following words are understood as styles:
 "Normal", "Roman", "Oblique", "Italic".
@@ -6124,7 +6124,7 @@ size in the resulting font description will be set to 0.
 
 A typical example:
 
-    "Cantarell Italic Light 15 \@wght=200"</doc>
+    "Cantarell Italic Light 15 @‍wght=200"</doc>
         <source-position filename="pango/pango-font.h" line="340"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
@@ -19412,7 +19412,7 @@ Two encoded version numbers can be compared as integers.</doc>
       <source-position filename="pango/pango-features.h" line="6"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="VERSION_MINOR" value="53" c:type="PANGO_VERSION_MINOR">
+    <constant name="VERSION_MINOR" value="54" c:type="PANGO_VERSION_MINOR">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
            line="142">The minor component of the version of Pango available at compile-time.</doc>
@@ -19420,7 +19420,7 @@ Two encoded version numbers can be compared as integers.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="VERSION_STRING"
-              value="1.53.0"
+              value="1.54.0"
               c:type="PANGO_VERSION_STRING">
       <doc xml:space="preserve"
            filename="pango/pango-utils.h"
@@ -21129,7 +21129,7 @@ and @next_paragraph_start are filled with the length of @text
 
 The string must have the form
 
-    "\[FAMILY-LIST] \[STYLE-OPTIONS] \[SIZE] \[VARIATIONS]",
+    "[FAMILY-LIST] [STYLE-OPTIONS] [SIZE] [VARIATIONS]",
 
 where FAMILY-LIST is a comma-separated list of families optionally
 terminated by a comma, STYLE_OPTIONS is a whitespace-separated list
@@ -21137,7 +21137,7 @@ of words where each word describes one of style, variant, weight,
 stretch, or gravity, and SIZE is a decimal number (size in points)
 or optionally followed by the unit modifier "px" for absolute size.
 VARIATIONS is a comma-separated list of font variation
-specifications of the form "\@axis=value" (the = sign is optional).
+specifications of the form @‍axis=value (the = sign is optional).
 
 The following words are understood as styles:
 "Normal", "Roman", "Oblique", "Italic".
@@ -21168,7 +21168,7 @@ size in the resulting font description will be set to 0.
 
 A typical example:
 
-    "Cantarell Italic Light 15 \@wght=200"</doc>
+    "Cantarell Italic Light 15 @‍wght=200"</doc>
       <source-position filename="pango/pango-font.h" line="340"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"

@@ -476,16 +476,16 @@ so will be ignored.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="639">Gets the glyph index for a given Unicode character
+             line="635">Gets the glyph index for a given Unicode character
 for @font.
 
 If you only want to determine whether the font has
 the glyph, use [method@PangoFc.Font.has_char].</doc>
-        <source-position filename="pango/pangofc-font.h" line="96"/>
+        <source-position filename="pango/pangofc-font.h" line="97"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="650">the glyph index, or 0, if the Unicode
+               line="646">the glyph index, or 0, if the Unicode
   character doesn't exist in the font.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -493,13 +493,13 @@ the glyph, use [method@PangoFc.Font.has_char].</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="641">a `PangoFcFont`</doc>
+                 line="637">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
           <parameter name="wc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="642">Unicode character to look up</doc>
+                 line="638">Unicode character to look up</doc>
             <type name="gunichar" c:type="gunichar"/>
           </parameter>
         </parameters>
@@ -511,18 +511,18 @@ the glyph, use [method@PangoFc.Font.has_char].</doc>
               deprecated-version="1.50">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="1083">Returns the languages that are supported by @font.
+             line="1079">Returns the languages that are supported by @font.
 
 This corresponds to the FC_LANG member of the FcPattern.
 
 The returned array is only valid as long as the font
 and its fontmap are valid.</doc>
         <doc-deprecated xml:space="preserve">Use pango_font_get_language()</doc-deprecated>
-        <source-position filename="pango/pangofc-font.h" line="101"/>
+        <source-position filename="pango/pangofc-font.h" line="102"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="1094">a
+               line="1090">a
   %NULL-terminated array of `PangoLanguage`*</doc>
           <array c:type="PangoLanguage**">
             <type name="Pango.Language" c:type="PangoLanguage*"/>
@@ -532,7 +532,7 @@ and its fontmap are valid.</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="1085">a `PangoFcFont`</doc>
+                 line="1081">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
         </parameters>
@@ -544,19 +544,19 @@ and its fontmap are valid.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="1123">Returns the FcPattern that @font is based on.</doc>
-        <source-position filename="pango/pangofc-font.h" line="104"/>
+             line="1113">Returns the FcPattern that @font is based on.</doc>
+        <source-position filename="pango/pangofc-font.h" line="105"/>
         <return-value>
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="1129">the fontconfig pattern for this font</doc>
+               line="1119">the fontconfig pattern for this font</doc>
           <type name="fontconfig.Pattern" c:type="FcPattern*"/>
         </return-value>
         <parameters>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="1125">a `PangoFcFont`</doc>
+                 line="1115">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
         </parameters>
@@ -566,28 +566,28 @@ and its fontmap are valid.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="674">Returns the index of a glyph suitable for drawing @wc
+             line="670">Returns the index of a glyph suitable for drawing @wc
 as an unknown character.
 
 Use PANGO_GET_UNKNOWN_GLYPH() instead.</doc>
-        <source-position filename="pango/pangofc-font.h" line="107"/>
+        <source-position filename="pango/pangofc-font.h" line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="684">a glyph index into @font.</doc>
+               line="680">a glyph index into @font.</doc>
           <type name="Pango.Glyph" c:type="PangoGlyph"/>
         </return-value>
         <parameters>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="676">a `PangoFcFont`</doc>
+                 line="672">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
           <parameter name="wc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="677">the Unicode character for which a glyph is needed.</doc>
+                 line="673">the Unicode character for which a glyph is needed.</doc>
             <type name="gunichar" c:type="gunichar"/>
           </parameter>
         </parameters>
@@ -599,26 +599,26 @@ Use PANGO_GET_UNKNOWN_GLYPH() instead.</doc>
               deprecated-version="1.44">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="609">Determines whether @font has a glyph for the codepoint @wc.</doc>
+             line="605">Determines whether @font has a glyph for the codepoint @wc.</doc>
         <doc-deprecated xml:space="preserve">Use [method@Pango.Font.has_char]</doc-deprecated>
-        <source-position filename="pango/pangofc-font.h" line="93"/>
+        <source-position filename="pango/pangofc-font.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="616">%TRUE if @font has the requested codepoint.</doc>
+               line="612">%TRUE if @font has the requested codepoint.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="611">a `PangoFcFont`</doc>
+                 line="607">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
           <parameter name="wc" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="612">Unicode codepoint to look up</doc>
+                 line="608">Unicode codepoint to look up</doc>
             <type name="gunichar" c:type="gunichar"/>
           </parameter>
         </parameters>
@@ -630,11 +630,11 @@ Use PANGO_GET_UNKNOWN_GLYPH() instead.</doc>
               deprecated-version="1.32">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="707">This function used to adjust each adjacent pair of glyphs
+             line="703">This function used to adjust each adjacent pair of glyphs
 in @glyphs according to kerning information in @font.
 
 Since 1.44, it does nothing.</doc>
-        <source-position filename="pango/pangofc-font.h" line="110"/>
+        <source-position filename="pango/pangofc-font.h" line="111"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -642,13 +642,13 @@ Since 1.44, it does nothing.</doc>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="709">a `PangoFcFont`</doc>
+                 line="705">a `PangoFcFont`</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
           <parameter name="glyphs" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="710">a `PangoGlyphString`</doc>
+                 line="706">a `PangoGlyphString`</doc>
             <type name="Pango.GlyphString" c:type="PangoGlyphString*"/>
           </parameter>
         </parameters>
@@ -661,23 +661,23 @@ Since 1.44, it does nothing.</doc>
               deprecated-version="1.44">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="569">Gets the FreeType `FT_Face` associated with a font.
+             line="565">Gets the FreeType `FT_Face` associated with a font.
 
 This face will be kept around until you call
 [method@PangoFc.Font.unlock_face].</doc>
         <doc-deprecated xml:space="preserve">Use pango_font_get_hb_font() instead</doc-deprecated>
-        <source-position filename="pango/pangofc-font.h" line="114"/>
+        <source-position filename="pango/pangofc-font.h" line="115"/>
         <return-value>
           <doc xml:space="preserve"
                filename="pango/pangofc-font.c"
-               line="578">the FreeType `FT_Face` associated with @font.</doc>
+               line="574">the FreeType `FT_Face` associated with @font.</doc>
           <type name="freetype2.Face" c:type="FT_Face"/>
         </return-value>
         <parameters>
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="571">a `PangoFcFont`.</doc>
+                 line="567">a `PangoFcFont`.</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
         </parameters>
@@ -689,10 +689,10 @@ This face will be kept around until you call
               deprecated-version="1.44">
         <doc xml:space="preserve"
              filename="pango/pangofc-font.c"
-             line="591">Releases a font previously obtained with
+             line="587">Releases a font previously obtained with
 [method@PangoFc.Font.lock_face].</doc>
         <doc-deprecated xml:space="preserve">Use pango_font_get_hb_font() instead</doc-deprecated>
-        <source-position filename="pango/pangofc-font.h" line="116"/>
+        <source-position filename="pango/pangofc-font.h" line="117"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -700,7 +700,7 @@ This face will be kept around until you call
           <instance-parameter name="font" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="pango/pangofc-font.c"
-                 line="593">a `PangoFcFont`.</doc>
+                 line="589">a `PangoFcFont`.</doc>
             <type name="Font" c:type="PangoFcFont*"/>
           </instance-parameter>
         </parameters>

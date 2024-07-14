@@ -3958,8 +3958,6 @@ pressed or released.</doc>
           </instance-parameter>
           <parameter name="callback"
                      transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
                      scope="notified"
                      closure="1"
                      destroy="2">
@@ -3972,8 +3970,7 @@ pressed or released.</doc>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="0">
+                     allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-device.c"
                  line="254">Data to be passed to @callback.</doc>
@@ -5389,7 +5386,7 @@ As with all character offsets, the specified @position may not be the
       <function name="main" c:identifier="atspi_event_main">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1111">Starts/enters the main event loop for the AT-SPI services.
+             line="1113">Starts/enters the main event loop for the AT-SPI services.
 
 NOTE: This method does not return control; it is exited via a call to
 #atspi_event_quit from within an event handler.</doc>
@@ -5401,7 +5398,7 @@ NOTE: This method does not return control; it is exited via a call to
       <function name="quit" c:identifier="atspi_event_quit">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1129">Quits the last main event loop for the AT-SPI services,
+             line="1131">Quits the last main event loop for the AT-SPI services,
 See: #atspi_event_main</doc>
         <source-position filename="atspi/atspi-misc.h" line="36"/>
         <return-value transfer-ownership="none">
@@ -5510,13 +5507,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="877">Deregisters an #AtspiEventListenerCB from the registry, for a specific
+             line="878">Deregisters an #AtspiEventListenerCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="144"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="888">#TRUE if successful, otherwise #FALSE.</doc>
+               line="889">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5526,7 +5523,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="879">the #AtspiEventListenerCB registered against an
+                 line="880">the #AtspiEventListenerCB registered against an
            event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5536,13 +5533,13 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="881">User data that was passed in for this callback.</doc>
+                 line="882">User data that was passed in for this callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="882">a string specifying the event type for which this
+                 line="883">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5554,20 +5551,20 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="960">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
+             line="961">deregisters an #AtspiEventListenerSimpleCB from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="970">#TRUE if successful, otherwise #FALSE.</doc>
+               line="971">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="callback" transfer-ownership="none" scope="call">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="962">the #AtspiEventListenerSimpleCB registered against
+                 line="963">the #AtspiEventListenerSimpleCB registered against
            an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5575,7 +5572,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="964">a string specifying the event type for which this
+                 line="965">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5586,12 +5583,12 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="656">Registers an #AtspiEventListenerCB against an @event_type.</doc>
+             line="657">Registers an #AtspiEventListenerCB against an @event_type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="109"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="668">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="669">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5602,7 +5599,7 @@ and data associated with the callback should be freed.  Can be NULL.</doc>
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="658">the #AtspiEventListenerCB to be registered
+                 line="659">the #AtspiEventListenerCB to be registered
 against an event type.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
@@ -5612,7 +5609,7 @@ against an event type.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="660">User data to be passed to the callback.</doc>
+                 line="661">User data to be passed to the callback.</doc>
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -5620,13 +5617,13 @@ against an event type.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="661">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="662">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="662">a character string indicating the type of events for which
+                 line="663">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5640,27 +5637,24 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="711">#TRUE if successful, otherwise #FALSE.</doc>
+               line="712">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="callback"
                      transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
                      scope="notified"
                      closure="1"
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="704">an #AtspiEventListenerCB function pointer.</doc>
+                 line="705">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="0">
+                     allow-none="1">
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -5686,27 +5680,24 @@ for a description of the format.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="739">#TRUE if successful, otherwise #FALSE.</doc>
+               line="740">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="callback"
                      transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
                      scope="notified"
                      closure="1"
                      destroy="2">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="731">an #AtspiEventListenerCB function pointer.</doc>
+                 line="732">an #AtspiEventListenerCB function pointer.</doc>
             <type name="EventListenerCB" c:type="AtspiEventListenerCB"/>
           </parameter>
           <parameter name="user_data"
                      transfer-ownership="none"
                      nullable="1"
-                     allow-none="1"
-                     closure="0">
+                     allow-none="1">
             <type name="gpointer" c:type="void*"/>
           </parameter>
           <parameter name="callback_destroyed"
@@ -5737,13 +5728,13 @@ for a description of the format.</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="817">Registers an #AtspiEventListenetSimpleCB. The method is similar to
+             line="818">Registers an #AtspiEventListenetSimpleCB. The method is similar to
 #atspi_event_listener_register, but @callback takes no user_data.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="133"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="833">#TRUE if successfull, otherwise #FALSE.</doc>
+               line="834">#TRUE if successfull, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5753,7 +5744,7 @@ for a description of the format.</doc>
                      destroy="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="819">the #AtspiEventListenerSimpleCB to be
+                 line="820">the #AtspiEventListenerSimpleCB to be
            registered against an event type.</doc>
             <type name="EventListenerSimpleCB"
                   c:type="AtspiEventListenerSimpleCB"/>
@@ -5763,13 +5754,13 @@ for a description of the format.</doc>
                      scope="async">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="821">A #GDestroyNotify called when the callback is destroyed.</doc>
+                 line="822">A #GDestroyNotify called when the callback is destroyed.</doc>
             <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
           </parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="822">a character string indicating the type of events for which
+                 line="823">a character string indicating the type of events for which
            notification is requested.  Format is
            EventClass:major_type:minor_type:detail
            where all subfields other than EventClass are optional.
@@ -5785,26 +5776,26 @@ for a description of the format.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="856">Deregisters an #AtspiEventListener from the registry, for a specific
+             line="857">Deregisters an #AtspiEventListener from the registry, for a specific
             event type.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="139"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="865">#TRUE if successful, otherwise #FALSE.</doc>
+               line="866">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="858">The #AtspiEventListener to deregister.</doc>
+                 line="859">The #AtspiEventListener to deregister.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="859">a string specifying the event type for which this
+                 line="860">a string specifying the event type for which this
             listener is to be deregistered.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -5824,6 +5815,7 @@ Legal object event types:
            object:property-change
            object:property-change:accessible-name
            object:property-change:accessible-description
+           object:property-change:accessible-help-text
            object:property-change:accessible-parent
            object:property-change:accessible-value
            object:property-change:accessible-role
@@ -5902,7 +5894,7 @@ reader and is thus a special case internally.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="561">#TRUE if successful, otherwise #FALSE.</doc>
+               line="562">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -5931,25 +5923,25 @@ reader and is thus a special case internally.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="577">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="578">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="590">#TRUE if successful, otherwise #FALSE.</doc>
+               line="591">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="579">The #AtspiEventListener to register against an event type.</doc>
+                 line="580">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="580">a character string indicating the type of events for which
+                 line="581">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -5960,7 +5952,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="583">a list of
+                 line="584">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.
             TODO: Document.</doc>
@@ -5975,25 +5967,25 @@ for a description of the format and legal event types.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="atspi/atspi-event-listener.c"
-             line="609">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
+             line="610">Adds an in-process callback function to an existing #AtspiEventListener.</doc>
         <source-position filename="atspi/atspi-event-listener.h" line="102"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-event-listener.c"
-               line="623">#TRUE if successful, otherwise #FALSE.</doc>
+               line="624">#TRUE if successful, otherwise #FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="listener" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="611">The #AtspiEventListener to register against an event type.</doc>
+                 line="612">The #AtspiEventListener to register against an event type.</doc>
             <type name="EventListener" c:type="AtspiEventListener*"/>
           </instance-parameter>
           <parameter name="event_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="612">a character string indicating the type of events for which
+                 line="613">a character string indicating the type of events for which
            notification is requested.  See #atspi_event_listener_register
 for a description of the format and legal event types.</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -6004,7 +5996,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="615">a list of
+                 line="616">a list of
             properties that should be sent along with the event. The
             properties are valued for the duration of the event callback.</doc>
             <array name="GLib.Array" c:type="GArray*">
@@ -6017,7 +6009,7 @@ for a description of the format and legal event types.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="atspi/atspi-event-listener.c"
-                 line="618">the application whose events should be reported, or
+                 line="619">the application whose events should be reported, or
      %null for all applications.</doc>
             <type name="Accessible" c:type="AtspiAccessible*"/>
           </parameter>
@@ -9643,19 +9635,19 @@ enumeration.</doc>
                 c:identifier="atspi_role_get_localized_name">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2027">Gets the localized description string describing the #AtspiRole @role.</doc>
+             line="2029">Gets the localized description string describing the #AtspiRole @role.</doc>
         <source-position filename="atspi/atspi-misc.h" line="51"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2033">the localized string describing the AtspiRole</doc>
+               line="2035">the localized string describing the AtspiRole</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-misc.c"
-                 line="2029">an #AtspiRole object to query.</doc>
+                 line="2031">an #AtspiRole object to query.</doc>
             <type name="Role" c:type="AtspiRole"/>
           </parameter>
         </parameters>
@@ -9663,19 +9655,19 @@ enumeration.</doc>
       <function name="get_name" c:identifier="atspi_role_get_name">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1994">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
+             line="1996">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
         <source-position filename="atspi/atspi-misc.h" line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2000">a localizable string name for an #AtspiRole enumerated type.</doc>
+               line="2002">a localizable string name for an #AtspiRole enumerated type.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <parameter name="role" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="atspi/atspi-misc.c"
-                 line="1996">an #AtspiRole object to query.</doc>
+                 line="1998">an #AtspiRole object to query.</doc>
             <type name="Role" c:type="AtspiRole"/>
           </parameter>
         </parameters>
@@ -13732,7 +13724,7 @@ connection.</doc>
               moved-to="Event.main">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1111">Starts/enters the main event loop for the AT-SPI services.
+           line="1113">Starts/enters the main event loop for the AT-SPI services.
 
 NOTE: This method does not return control; it is exited via a call to
 #atspi_event_quit from within an event handler.</doc>
@@ -13746,7 +13738,7 @@ NOTE: This method does not return control; it is exited via a call to
               moved-to="Event.quit">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1129">Quits the last main event loop for the AT-SPI services,
+           line="1131">Quits the last main event loop for the AT-SPI services,
 See: #atspi_event_main</doc>
       <source-position filename="atspi/atspi-misc.h" line="36"/>
       <return-value transfer-ownership="none">
@@ -13756,13 +13748,13 @@ See: #atspi_event_main</doc>
     <function name="exit" c:identifier="atspi_exit">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1141">Disconnects from #AtspiRegistry instances and releases
+           line="1143">Disconnects from #AtspiRegistry instances and releases
 any floating resources. Call only once at exit.</doc>
       <source-position filename="atspi/atspi-misc.h" line="38"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1147">0 if there were no leaks, otherwise other integer values.</doc>
+             line="1149">0 if there were no leaks, otherwise other integer values.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
@@ -13982,7 +13974,7 @@ desktops.</doc>
               version="2.50">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="2200">Returns the version of the AT-SPI library being used at runtime.</doc>
+           line="2202">Returns the version of the AT-SPI library being used at runtime.</doc>
       <source-position filename="atspi/atspi-misc.h" line="53"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -13994,7 +13986,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2202">the major version.</doc>
+               line="2204">the major version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="minor"
@@ -14003,7 +13995,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2203">the minor version.</doc>
+               line="2205">the minor version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
         <parameter name="micro"
@@ -14012,7 +14004,7 @@ desktops.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2204">the micro/patch version.</doc>
+               line="2206">the micro/patch version.</doc>
           <type name="gint" c:type="gint*"/>
         </parameter>
       </parameters>
@@ -14020,24 +14012,24 @@ desktops.</doc>
     <function name="init" c:identifier="atspi_init">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1041">Connects to the accessibility registry and initializes the SPI.</doc>
+           line="1043">Connects to the accessibility registry and initializes the SPI.</doc>
       <source-position filename="atspi/atspi-misc.h" line="31"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1046">0 on success, 1 if already initialized, or an integer error code.</doc>
+             line="1048">0 on success, 1 if already initialized, or an integer error code.</doc>
         <type name="gint" c:type="int"/>
       </return-value>
     </function>
     <function name="is_initialized" c:identifier="atspi_is_initialized">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1098">Indicates whether AT-SPI has been initialized.</doc>
+           line="1100">Indicates whether AT-SPI has been initialized.</doc>
       <source-position filename="atspi/atspi-misc.h" line="32"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="1103">%True if initialized; %False otherwise.</doc>
+             line="1105">%True if initialized; %False otherwise.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>
@@ -14144,19 +14136,19 @@ desktops.</doc>
               moved-to="Role.get_localized_name">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="2027">Gets the localized description string describing the #AtspiRole @role.</doc>
+           line="2029">Gets the localized description string describing the #AtspiRole @role.</doc>
       <source-position filename="atspi/atspi-misc.h" line="51"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2033">the localized string describing the AtspiRole</doc>
+             line="2035">the localized string describing the AtspiRole</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="2029">an #AtspiRole object to query.</doc>
+               line="2031">an #AtspiRole object to query.</doc>
           <type name="Role" c:type="AtspiRole"/>
         </parameter>
       </parameters>
@@ -14166,19 +14158,19 @@ desktops.</doc>
               moved-to="Role.get_name">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1994">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
+           line="1996">Gets a localizable string that indicates the name of an #AtspiRole.</doc>
       <source-position filename="atspi/atspi-misc.h" line="49"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="atspi/atspi-misc.c"
-             line="2000">a localizable string name for an #AtspiRole enumerated type.</doc>
+             line="2002">a localizable string name for an #AtspiRole enumerated type.</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="role" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1996">an #AtspiRole object to query.</doc>
+               line="1998">an #AtspiRole object to query.</doc>
           <type name="Role" c:type="AtspiRole"/>
         </parameter>
       </parameters>
@@ -14186,7 +14178,7 @@ desktops.</doc>
     <function name="set_main_context" c:identifier="atspi_set_main_context">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1925">Sets the main loop context that AT-SPI should assume is in use when
+           line="1927">Sets the main loop context that AT-SPI should assume is in use when
 setting an idle callback.
 This function should be called by application-side implementors (ie,
 at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
@@ -14198,7 +14190,7 @@ at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
         <parameter name="cnx" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1927">The #GMainContext to use.</doc>
+               line="1929">The #GMainContext to use.</doc>
           <type name="GLib.MainContext" c:type="GMainContext*"/>
         </parameter>
       </parameters>
@@ -14226,7 +14218,7 @@ at-spi2-atk) when it is desirable to re-enter the main loop.</doc>
     <function name="set_timeout" c:identifier="atspi_set_timeout">
       <doc xml:space="preserve"
            filename="atspi/atspi-misc.c"
-           line="1895">Set the timeout used for method calls. If this is not set explicitly,
+           line="1897">Set the timeout used for method calls. If this is not set explicitly,
 a default of 800 ms is used.
 Note that at-spi2-registryd currently uses a timeout of 3 seconds when
 sending a keyboard event notification. This means that, if an AT makes
@@ -14247,13 +14239,13 @@ timeout is set to 15 seconds.</doc>
         <parameter name="val" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1897">The timeout value, in milliseconds, or -1 to disable the timeout.</doc>
+               line="1899">The timeout value, in milliseconds, or -1 to disable the timeout.</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="startup_time" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="atspi/atspi-misc.c"
-               line="1898">The amount of time, in milliseconds, to allow to pass
+               line="1900">The amount of time, in milliseconds, to allow to pass
 before enforcing timeouts on an application. Can be used to prevent
 timeout exceptions if an application is likely to block for an extended
 period of time on initialization. -1 can be passed to disable this
