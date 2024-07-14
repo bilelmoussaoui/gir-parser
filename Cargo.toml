@@ -11,8 +11,8 @@ keywords = ["gir", "gobject", "introspection", "parser", "xml"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
-xmlserde = {git = "https://github.com/ImJeremyHe/xmlserde"}
-xmlserde_derives = {git = "https://github.com/ImJeremyHe/xmlserde"}
+xmlserde = "0.9"
+xmlserde_derives = "0.9"
 
 [[bin]]
 name = "playground"
