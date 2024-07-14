@@ -1,33 +1,16 @@
-use std::{collections::HashMap, path::PathBuf};
-
 use gir_parser::{prelude::*, Repository};
-
-fn read_gir_file(
-    namespaces: &mut HashMap<String, Repository>,
-    gir_file: &str,
-) -> Result<(), gir_parser::ParserError> {
-    let path = PathBuf::from("./gir-files").join(gir_file);
-    if namespaces.contains_key(gir_file) {
-        return Ok(());
-    }
-    let repo = Repository::from_path(path)?;
-    for namespace in repo.namespace_includes() {
-        if !namespaces.contains_key(&namespace.as_package()) {
-            read_gir_file(namespaces, &namespace.as_package_file())?;
-        }
-    }
-    namespaces.insert(gir_file.to_owned(), repo);
-    Ok(())
-}
 
 fn main() {
     let paths = std::fs::read_dir("./gir-files").unwrap();
-    let mut namespaces = HashMap::new();
+    let mut namespaces = std::collections::HashMap::new();
+    let mut total_namespaces = 0;
 
     for path in paths {
         let path = path.unwrap().path();
         let gir_file = path.file_name().unwrap().to_str().unwrap();
-        read_gir_file(&mut namespaces, gir_file).unwrap();
+
+        Repository::from_path_follow_namespaces_and_cache(&mut namespaces, gir_file, "./gir-files")
+            .unwrap();
     }
 
     for (name, repo) in &namespaces {
@@ -45,5 +28,8 @@ fn main() {
         println!("Classes: {}", repo.namespace().classes().len());
 
         println!("\n             ##############             \n");
+        total_namespaces += 1;
     }
+    println!("Total namespaces read in: {total_namespaces}");
+    println!("\n             *****************             \n");
 }

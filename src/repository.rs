@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{collections::HashMap, path::Path};
 
 use xmlserde_derives::XmlDeserialize;
 
@@ -87,6 +87,45 @@ pub struct Repository {
 }
 
 impl Repository {
+    pub fn from_path_follow_namespaces_and_cache(
+        cache: &mut HashMap<String, Self>,
+        package_file: &str,
+        girs_dirs: impl AsRef<Path>,
+    ) -> Result<(), ParserError> {
+        let repo = Self::from_path(girs_dirs.as_ref().join(package_file))?;
+        if !cache.contains_key(package_file) {
+            return Ok(());
+        }
+        for namespace in repo.namespace_includes() {
+            if !cache.contains_key(&namespace.as_package_file()) {
+                Self::from_path_follow_namespaces_and_cache(
+                    cache,
+                    &namespace.as_package_file(),
+                    &girs_dirs,
+                )?;
+            }
+        }
+        debug_assert_eq!(
+            package_file,
+            format!(
+                "{}-{}.gir",
+                repo.namespace().name(),
+                repo.namespace().version()
+            )
+        );
+        cache.insert(package_file.to_owned(), repo);
+        Ok(())
+    }
+
+    pub fn from_path_follow_namespaces(
+        package_file: &str,
+        girs_dirs: impl AsRef<Path>,
+    ) -> Result<HashMap<String, Self>, ParserError> {
+        let mut output = HashMap::new();
+        Self::from_path_follow_namespaces_and_cache(&mut output, package_file, girs_dirs)?;
+        Ok(output)
+    }
+
     pub fn from_path(path: impl AsRef<Path>) -> Result<Self, ParserError> {
         let content = std::fs::read_to_string(path)?;
         let repository = xmlserde::xml_deserialize_from_str(&content).map_err(ParserError::Xml)?;
