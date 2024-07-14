@@ -230,8 +230,8 @@ mod tests {
         let aliases = namespace.aliases();
         assert_eq!(aliases[0].name(), "Atom");
         assert_eq!(aliases[0].c_type(), "Atom");
-        assert_eq!(aliases[0].ty().unwrap().as_type().name(), Some("gulong"));
-        assert_eq!(aliases[0].ty().unwrap().as_type().c_type(), Some("gulong"));
+        assert_eq!(aliases[0].ty().as_type().name(), Some("gulong"));
+        assert_eq!(aliases[0].ty().as_type().c_type(), Some("gulong"));
 
         let records = namespace.records();
         assert_eq!(records[0].name(), Some("Display"));

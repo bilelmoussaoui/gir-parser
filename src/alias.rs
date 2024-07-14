@@ -43,7 +43,7 @@ pub struct Alias {
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
     #[xmlserde(ty = "untag")]
-    type_: Option<AnyType>,
+    type_: AnyType,
 }
 
 impl Alias {
@@ -55,8 +55,8 @@ impl Alias {
         &self.c_type
     }
 
-    pub fn ty(&self) -> Option<&AnyType> {
-        self.type_.as_ref()
+    pub fn ty(&self) -> &AnyType {
+        &self.type_
     }
 }
 
