@@ -16,6 +16,13 @@ pub trait Documentable {
 pub trait Attributable {
     fn attributes(&self) -> &[Attribute];
 
+    fn element_type(&self) -> Option<&str> {
+        self.attributes()
+            .iter()
+            .find(|a| a.name() == "element-type")
+            .map(|a| a.value())
+    }
+
     fn gtk_property_get(&self) -> Option<&str> {
         self.attributes()
             .iter()
