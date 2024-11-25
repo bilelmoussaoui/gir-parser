@@ -12,7 +12,7 @@ keywords = ["gir", "gobject", "introspection", "parser", "xml"]
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 xmlserde = "0.10"
-xmlserde_derives = "0.9"
+xmlserde_derives = "0.10"
 
 [[bin]]
 name = "playground"
