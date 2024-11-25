@@ -84,9 +84,9 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 
 [[package]]
 name = "xmlserde"
-version = "0.10.0"
+version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "880295d97b5063de0a8d5334e3de95e327a1a0bfd3f48e86919d812f94741420"
+checksum = "b4e03afadb8b334c9403789a7077ea4239b3aab6a8afb4bb05e91d90da680a9e"
 dependencies = [
  "quick-xml",
 ]
