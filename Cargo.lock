@@ -93,9 +93,9 @@ dependencies = [
 
 [[package]]
 name = "xmlserde_derives"
-version = "0.9.1"
+version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d684e251bb88c814765a11afc31fc11de6a4f14a731ff8b42c89151fefba8fb"
+checksum = "7ac4847350140b85fb4d52e7a51af13cf6328a47c9dde02c6af402a86a91c9b9"
 dependencies = [
  "proc-macro2",
  "quote",
