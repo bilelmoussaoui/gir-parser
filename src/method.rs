@@ -77,14 +77,6 @@ impl Method {
     pub fn set_property(&self) -> Option<&str> {
         self.set_property.as_deref()
     }
-
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
 }
 
 impl_info!(Method);

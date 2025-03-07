@@ -16,6 +16,8 @@ use crate::{
 pub struct VirtualMethod {
     #[xmlserde(name = b"invoker", ty = "attr")]
     invoker: Option<String>,
+    #[xmlserde(name = b"glib:static", ty = "attr")]
+    is_static: Option<bool>,
     // Callable attributes
     #[xmlserde(name = b"name", ty = "attr")]
     name: String,
@@ -63,13 +65,17 @@ pub struct VirtualMethod {
 
     #[xmlserde(name = b"return-value", ty = "child")]
     return_value: ReturnValue,
-    #[xmlserde(name = b"parameters", ty = "child")]
+    #[xmlserde(name = b"parameters", ty = "child", default = "Parameters::default")]
     parameters: Parameters,
 }
 
 impl VirtualMethod {
     pub fn invoker(&self) -> Option<&str> {
         self.invoker.as_deref()
+    }
+
+    pub fn is_static(&self) -> Option<bool> {
+        self.is_static
     }
 }
 

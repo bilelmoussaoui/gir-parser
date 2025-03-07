@@ -64,16 +64,6 @@ pub struct Function {
     parameters: Parameters,
 }
 
-impl Function {
-    pub fn return_value(&self) -> &ReturnValue {
-        &self.return_value
-    }
-
-    pub fn parameters(&self) -> &Parameters {
-        &self.parameters
-    }
-}
-
 impl_info!(Function);
 impl_attributable!(Function);
 impl_documentable!(Function);

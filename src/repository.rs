@@ -60,6 +60,31 @@ impl Package {
     }
 }
 
+#[derive(Clone, Debug)]
+pub enum DocFormat {
+    GtkDoc,
+    GiDocgen,
+    Other(String),
+}
+
+impl xmlserde::XmlValue for DocFormat {
+    fn serialize(&self) -> String {
+        match self {
+            Self::GtkDoc => "gtk-doc".to_owned(),
+            Self::GiDocgen => "gi-docgen".to_owned(),
+            Self::Other(e) => e.to_owned(),
+        }
+    }
+
+    fn deserialize(s: &str) -> Result<Self, String> {
+        match s {
+            "gtk-doc" => Ok(Self::GtkDoc),
+            "gi-docgen" => Ok(Self::GiDocgen),
+            e => Ok(Self::Other(e.to_owned())),
+        }
+    }
+}
+
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"repository")]
 #[xmlserde(deny_unknown_fields)]
@@ -76,6 +101,8 @@ pub struct Repository {
     _xmlns_c: Option<String>,
     #[xmlserde(name = b"xmlns:glib", ty = "attr")]
     _xmlns_glib: Option<String>,
+    #[xmlserde(name = b"xmlns:doc", ty = "attr")]
+    _xmlns_doc: Option<String>,
     #[xmlserde(name = b"include", ty = "child")]
     includes: Vec<NamespaceInclude>,
     #[xmlserde(name = b"c:include", ty = "child")]
@@ -84,6 +111,8 @@ pub struct Repository {
     packages: Vec<Package>,
     #[xmlserde(name = b"namespace", ty = "child")]
     namespace: Namespace,
+    #[xmlserde(name = b"doc:format", ty = "attr")]
+    doc_format: Option<DocFormat>,
 }
 
 impl Repository {
@@ -160,5 +189,9 @@ impl Repository {
 
     pub fn namespace(&self) -> &Namespace {
         &self.namespace
+    }
+
+    pub fn doc_format(&self) -> Option<&DocFormat> {
+        self.doc_format.as_ref()
     }
 }
