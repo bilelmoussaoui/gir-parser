@@ -1,4 +1,4 @@
-use gir_parser::{prelude::*, Repository};
+use gir_parser::Repository;
 
 fn main() {
     let paths = std::fs::read_dir("./gir-files").unwrap();

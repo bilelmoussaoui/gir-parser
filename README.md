@@ -7,13 +7,11 @@ A [GObject introspection](https://gi.readthedocs.io/en/latest/) [GIR files](http
 ```rust,no_run
 use gir_parser::{Repository, prelude::*};
 
-fn main() {
-    let repository = Repository::from_path(format!("./gir-files/Gtk-4.0.gir")).unwrap();
-    for class in repository.namespace().classes().iter() {
-        for method in class.methods() {
-            println!("{}", method.name());
-            println!("{}", method.doc().unwrap().text());
-        }
+let repository = Repository::from_path(format!("./gir-files/Gtk-4.0.gir")).unwrap();
+for class in repository.namespace().classes().iter() {
+    for method in class.methods() {
+        println!("{}", method.name());
+        println!("{}", method.doc().unwrap().text());
     }
 }
 ```
