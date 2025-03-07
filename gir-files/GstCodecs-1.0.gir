@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstVideo" version="1.0"/>
@@ -14,6 +15,7 @@ and/or use gtk-doc annotations.  -->
   <c:include name="gst/codecs/gstmpeg2decoder.h"/>
   <c:include name="gst/codecs/gstvp8decoder.h"/>
   <c:include name="gst/codecs/gstvp9decoder.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstCodecs"
              version="1.0"
              shared-library="libgstcodecs-1.0.so.0"
@@ -1191,27 +1193,27 @@ decoding process for the #GstH264Picture</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264decoder.c"
-             line="3329">Retrive DPB and return a #GstH264Picture corresponding to
+             line="3365">Retrive DPB and return a #GstH264Picture corresponding to
 the @system_frame_number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264decoder.h"
                          line="251"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth264decoder.c"
-               line="3337">a #GstH264Picture if successful, or %NULL otherwise</doc>
+               line="3373">a #GstH264Picture if successful, or %NULL otherwise</doc>
           <type name="H264Picture" c:type="GstH264Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3331">a #GstH264Decoder</doc>
+                 line="3367">a #GstH264Decoder</doc>
             <type name="H264Decoder" c:type="GstH264Decoder*"/>
           </instance-parameter>
           <parameter name="system_frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3332">a target system frame number of #GstH264Picture</doc>
+                 line="3368">a target system frame number of #GstH264Picture</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -1221,7 +1223,7 @@ the @system_frame_number</doc>
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth264decoder.c"
-             line="3313">Called to en/disable reference picture modification process.</doc>
+             line="3349">Called to en/disable reference picture modification process.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth264decoder.h"
                          line="247"/>
         <return-value transfer-ownership="none">
@@ -1231,13 +1233,13 @@ the @system_frame_number</doc>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3315">a #GstH264Decoder</doc>
+                 line="3351">a #GstH264Decoder</doc>
             <type name="H264Decoder" c:type="GstH264Decoder*"/>
           </instance-parameter>
           <parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth264decoder.c"
-                 line="3316">whether subclass is requiring reference picture modification process</doc>
+                 line="3352">whether subclass is requiring reference picture modification process</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>

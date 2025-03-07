@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gck" version="1"/>
   <include name="Gio" version="2.0"/>
   <package name="gcr-base-3"/>
   <c:include name="gcr/gcr-base.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gcr"
              version="3"
              shared-library="libgcr-base-3.so.1"
@@ -4139,6 +4141,24 @@ If @attrs are a floating reference, then it is consumed.</doc>
           <type name="none" c:type="void"/>
         </return-value>
       </function>
+      <virtual-method name="create_for_parsed"
+                      glib:static="1"
+                      introspectable="0">
+        <doc xml:space="preserve"
+             filename="gcr/gcr-importer.c"
+             line="58">implementation of gcr_importer_create_for_parsed(), required</doc>
+        <source-position filename="gcr/gcr-importer.h" line="48"/>
+        <return-value>
+          <type name="GLib.List" c:type="GList*">
+            <type name="gpointer" c:type="gpointer"/>
+          </type>
+        </return-value>
+        <parameters>
+          <parameter name="parsed" transfer-ownership="none">
+            <type name="Parsed" c:type="GcrParsed*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
       <virtual-method name="import_async"
                       invoker="import_async"
                       glib:finish-func="import_finish">

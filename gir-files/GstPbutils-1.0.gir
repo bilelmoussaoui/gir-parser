@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstAudio" version="1.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="GstVideo" version="1.0"/>
   <package name="gstreamer-pbutils-1.0"/>
   <c:include name="gst/pbutils/pbutils.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstPbutils"
              version="1.0"
              shared-library="libgstpbutils-1.0.so.0"
@@ -488,13 +490,13 @@ All the information is returned in a #GstDiscovererInfo structure.</doc>
       <constructor name="new" c:identifier="gst_discoverer_new" throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2670">Creates a new #GstDiscoverer with the provided timeout.</doc>
+             line="2681">Creates a new #GstDiscoverer with the provided timeout.</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="411"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-               line="2678">The new #GstDiscoverer.
+               line="2689">The new #GstDiscoverer.
 If an error occurred when creating the discoverer, @err will be set
 accordingly and %NULL will be returned. If @err is set, the caller must
 free it when no longer needed using g_error_free().</doc>
@@ -504,7 +506,7 @@ free it when no longer needed using g_error_free().</doc>
           <parameter name="timeout" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2672">timeout per file, in nanoseconds. Allowed are values between
+                 line="2683">timeout per file, in nanoseconds. Allowed are values between
     one second (#GST_SECOND) and one hour (3600 * #GST_SECOND)</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
@@ -599,7 +601,7 @@ free it when no longer needed using g_error_free().</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2608">Synchronously discovers the given @uri.
+             line="2619">Synchronously discovers the given @uri.
 
 A copy of @uri will be made internally, so the caller can safely g_free()
 afterwards.</doc>
@@ -608,7 +610,7 @@ afterwards.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-               line="2619">the result of the scanning. Can be %NULL if an
+               line="2630">the result of the scanning. Can be %NULL if an
 error occurred.</doc>
           <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
         </return-value>
@@ -616,13 +618,13 @@ error occurred.</doc>
           <instance-parameter name="discoverer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2610">A #GstDiscoverer</doc>
+                 line="2621">A #GstDiscoverer</doc>
             <type name="Discoverer" c:type="GstDiscoverer*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2611">The URI to run on.</doc>
+                 line="2622">The URI to run on.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -631,7 +633,7 @@ error occurred.</doc>
               c:identifier="gst_discoverer_discover_uri_async">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2569">Appends the given @uri to the list of URIs to discoverer. The actual
+             line="2580">Appends the given @uri to the list of URIs to discoverer. The actual
 discovery of the @uri will only take place if gst_discoverer_start() has
 been called.
 
@@ -642,7 +644,7 @@ afterwards.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-               line="2581">%TRUE if the @uri was successfully appended to the list of pending
+               line="2592">%TRUE if the @uri was successfully appended to the list of pending
 uris, else %FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -650,13 +652,13 @@ uris, else %FALSE</doc>
           <instance-parameter name="discoverer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2571">A #GstDiscoverer</doc>
+                 line="2582">A #GstDiscoverer</doc>
             <type name="Discoverer" c:type="GstDiscoverer*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2572">the URI to add.</doc>
+                 line="2583">the URI to add.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -664,7 +666,7 @@ uris, else %FALSE</doc>
       <method name="start" c:identifier="gst_discoverer_start">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2468">Allow asynchronous discovering of URIs to take place.
+             line="2479">Allow asynchronous discovering of URIs to take place.
 A #GMainLoop must be available for #GstDiscoverer to properly work in
 asynchronous mode.</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
@@ -676,7 +678,7 @@ asynchronous mode.</doc>
           <instance-parameter name="discoverer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2470">A #GstDiscoverer</doc>
+                 line="2481">A #GstDiscoverer</doc>
             <type name="Discoverer" c:type="GstDiscoverer*"/>
           </instance-parameter>
         </parameters>
@@ -684,7 +686,7 @@ asynchronous mode.</doc>
       <method name="stop" c:identifier="gst_discoverer_stop">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2511">Stop the discovery of any pending URIs and clears the list of
+             line="2522">Stop the discovery of any pending URIs and clears the list of
 pending URIS (if any).</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="419"/>
@@ -695,7 +697,7 @@ pending URIS (if any).</doc>
           <instance-parameter name="discoverer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2513">A #GstDiscoverer</doc>
+                 line="2524">A #GstDiscoverer</doc>
             <type name="Discoverer" c:type="GstDiscoverer*"/>
           </instance-parameter>
         </parameters>
@@ -842,14 +844,14 @@ thread.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="839">the average or nominal bitrate of the stream in bits/second.</doc>
+               line="852">the average or nominal bitrate of the stream in bits/second.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="837">a #GstDiscovererAudioInfo</doc>
+                 line="850">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -863,7 +865,7 @@ thread.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="808">the channel-mask of the stream, refer to
+               line="821">the channel-mask of the stream, refer to
 gst_audio_channel_positions_from_mask() for more
 information.</doc>
           <type name="guint64" c:type="guint64"/>
@@ -872,7 +874,7 @@ information.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="806">a #GstDiscovererAudioInfo</doc>
+                 line="819">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -885,14 +887,14 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="799">the number of channels in the stream.</doc>
+               line="812">the number of channels in the stream.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="797">a #GstDiscovererAudioInfo</doc>
+                 line="810">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -905,14 +907,14 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="830">the number of bits used per sample in each channel.</doc>
+               line="843">the number of bits used per sample in each channel.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="828">a #GstDiscovererAudioInfo</doc>
+                 line="841">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -925,14 +927,14 @@ information.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="857">the language of the stream, or NULL if unknown.</doc>
+               line="870">the language of the stream, or NULL if unknown.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="855">a #GstDiscovererAudioInfo</doc>
+                 line="868">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -945,14 +947,14 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="848">the maximum bitrate of the stream in bits/second.</doc>
+               line="861">the maximum bitrate of the stream in bits/second.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="846">a #GstDiscovererAudioInfo</doc>
+                 line="859">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -965,14 +967,14 @@ information.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="821">the sample rate of the stream in Hertz.</doc>
+               line="834">the sample rate of the stream in Hertz.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="819">a #GstDiscovererAudioInfo</doc>
+                 line="832">a #GstDiscovererAudioInfo</doc>
             <type name="DiscovererAudioInfo"
                   c:type="const GstDiscovererAudioInfo*"/>
           </instance-parameter>
@@ -1100,7 +1102,7 @@ information.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="751">the list of
+               line="764">the list of
 #GstDiscovererStreamInfo this container stream offers.
 Free with gst_discoverer_stream_info_list_free() after usage.</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1111,7 +1113,7 @@ Free with gst_discoverer_stream_info_list_free() after usage.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="749">a #GstDiscovererStreamInfo</doc>
+                 line="762">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererContainerInfo"
                   c:type="GstDiscovererContainerInfo*"/>
           </instance-parameter>
@@ -1125,7 +1127,7 @@ Free with gst_discoverer_stream_info_list_free() after usage.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="775">tags specific to the given container. If you wish to use
+               line="788">tags specific to the given container. If you wish to use
 the tags after the life-time of @info, you will need to copy them.</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </return-value>
@@ -1133,7 +1135,7 @@ the tags after the life-time of @info, you will need to copy them.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="773">a #GstDiscovererStreamInfo</doc>
+                 line="786">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererContainerInfo"
                   c:type="const GstDiscovererContainerInfo*"/>
           </instance-parameter>
@@ -1154,21 +1156,21 @@ the tags after the life-time of @info, you will need to copy them.</doc>
                 version="1.6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2747">Parses a #GVariant as produced by gst_discoverer_info_to_variant()
+             line="2758">Parses a #GVariant as produced by gst_discoverer_info_to_variant()
 back to a #GstDiscovererInfo.</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="344"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-               line="2754">A newly-allocated #GstDiscovererInfo.</doc>
+               line="2765">A newly-allocated #GstDiscovererInfo.</doc>
           <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
         </return-value>
         <parameters>
           <parameter name="variant" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2749">A #GVariant to deserialize into a #GstDiscovererInfo.</doc>
+                 line="2760">A #GVariant to deserialize into a #GstDiscovererInfo.</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -1179,14 +1181,14 @@ back to a #GstDiscovererInfo.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="408">A copy of the #GstDiscovererInfo</doc>
+               line="413">A copy of the #GstDiscovererInfo</doc>
           <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
         </return-value>
         <parameters>
           <instance-parameter name="ptr" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="406">a #GstDiscovererInfo</doc>
+                 line="411">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1195,13 +1197,13 @@ back to a #GstDiscovererInfo.</doc>
               c:identifier="gst_discoverer_info_get_audio_streams">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="507">Finds all the #GstDiscovererAudioInfo contained in @info</doc>
+             line="520">Finds all the #GstDiscovererAudioInfo contained in @info</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="328"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="513">A #GList of
+               line="526">A #GList of
 matching #GstDiscovererStreamInfo. The caller should free it with
 gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1212,7 +1214,7 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="509">a #GstDiscovererInfo</doc>
+                 line="522">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1221,13 +1223,13 @@ gst_discoverer_stream_info_list_free().</doc>
               c:identifier="gst_discoverer_info_get_container_streams">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="556">Finds all the #GstDiscovererContainerInfo contained in @info</doc>
+             line="569">Finds all the #GstDiscovererContainerInfo contained in @info</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="337"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="562">A #GList of
+               line="575">A #GList of
 matching #GstDiscovererStreamInfo. The caller should free it with
 gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1238,7 +1240,7 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="558">a #GstDiscovererInfo</doc>
+                 line="571">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1250,14 +1252,14 @@ gst_discoverer_stream_info_list_free().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1068">the duration of the URI in #GstClockTime (nanoseconds).</doc>
+               line="1081">the duration of the URI in #GstClockTime (nanoseconds).</doc>
           <type name="Gst.ClockTime" c:type="GstClockTime"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1066">a #GstDiscovererInfo</doc>
+                 line="1079">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1270,14 +1272,14 @@ gst_discoverer_stream_info_list_free().</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1086">whether the URI is live.</doc>
+               line="1099">whether the URI is live.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1084">a #GstDiscovererInfo</doc>
+                 line="1097">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1292,7 +1294,7 @@ gst_discoverer_stream_info_list_free().</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1101">Miscellaneous information stored as a #GstStructure
+               line="1114">Miscellaneous information stored as a #GstStructure
 (for example: information about missing plugins). If you wish to use the
 #GstStructure after the life-time of @info, you will need to copy it.</doc>
           <type name="Gst.Structure" c:type="const GstStructure*"/>
@@ -1301,7 +1303,7 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1096">a #GstDiscovererInfo</doc>
+                 line="1109">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1311,13 +1313,13 @@ gst_discoverer_stream_info_list_free().</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="1164">Get the installer details for missing elements</doc>
+             line="1177">Get the installer details for missing elements</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="321"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1171">An array of strings
+               line="1184">An array of strings
 containing information about how to install the various missing elements
 for @info to be usable. If you wish to use the strings after the life-time
 of @info, you will need to copy them.</doc>
@@ -1329,7 +1331,7 @@ of @info, you will need to copy them.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1166">a #GstDiscovererStreamInfo to retrieve installer detail
+                 line="1179">a #GstDiscovererStreamInfo to retrieve installer detail
 for the missing element</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
@@ -1341,14 +1343,14 @@ for the missing element</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1016">the result of the discovery as a #GstDiscovererResult.</doc>
+               line="1029">the result of the discovery as a #GstDiscovererResult.</doc>
           <type name="DiscovererResult" c:type="GstDiscovererResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1014">a #GstDiscovererInfo</doc>
+                 line="1027">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1360,14 +1362,14 @@ for the missing element</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1077">the whether the URI is seekable.</doc>
+               line="1090">the whether the URI is seekable.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1075">a #GstDiscovererInfo</doc>
+                 line="1088">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1379,7 +1381,7 @@ for the missing element</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1025">the structure (or topology) of the URI as a
+               line="1038">the structure (or topology) of the URI as a
 #GstDiscovererStreamInfo.
 This structure can be traversed to see the original hierarchy. Unref with
 gst_discoverer_stream_info_unref() after usage.</doc>
@@ -1389,7 +1391,7 @@ gst_discoverer_stream_info_unref() after usage.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1023">a #GstDiscovererInfo</doc>
+                 line="1036">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1401,7 +1403,7 @@ gst_discoverer_stream_info_unref() after usage.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1045">the list of
+               line="1058">the list of
 all streams contained in the #info. Free after usage
 with gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1412,7 +1414,7 @@ with gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1043">a #GstDiscovererInfo</doc>
+                 line="1056">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1421,14 +1423,14 @@ with gst_discoverer_stream_info_list_free().</doc>
               c:identifier="gst_discoverer_info_get_streams">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="480">Finds the #GstDiscovererStreamInfo contained in @info that match the
+             line="493">Finds the #GstDiscovererStreamInfo contained in @info that match the
 given @streamtype.</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="324"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="488">A #GList of
+               line="501">A #GList of
 matching #GstDiscovererStreamInfo. The caller should free it with
 gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1439,13 +1441,13 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="482">a #GstDiscovererInfo</doc>
+                 line="495">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
           <parameter name="streamtype" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="483">a #GType derived from #GstDiscovererStreamInfo</doc>
+                 line="496">a #GType derived from #GstDiscovererStreamInfo</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -1454,13 +1456,13 @@ gst_discoverer_stream_info_list_free().</doc>
               c:identifier="gst_discoverer_info_get_subtitle_streams">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="539">Finds all the #GstDiscovererSubtitleInfo contained in @info</doc>
+             line="552">Finds all the #GstDiscovererSubtitleInfo contained in @info</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="334"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="545">A #GList of
+               line="558">A #GList of
 matching #GstDiscovererStreamInfo. The caller should free it with
 gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1471,7 +1473,7 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="541">a #GstDiscovererInfo</doc>
+                 line="554">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1486,28 +1488,9 @@ gst_discoverer_stream_info_list_free().</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1112">all tags contained in the URI. If you wish to use
+               line="1125">all tags contained in the URI. If you wish to use
 the tags after the life-time of @info, you will need to copy them.</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="info" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1110">a #GstDiscovererInfo</doc>
-            <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
-          </instance-parameter>
-        </parameters>
-      </method>
-      <method name="get_toc" c:identifier="gst_discoverer_info_get_toc">
-        <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
-                         line="318"/>
-        <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve"
-               filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1125">TOC contained in the URI. If you wish to use
-the TOC after the life-time of @info, you will need to copy it.</doc>
-          <type name="Gst.Toc" c:type="const GstToc*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
@@ -1518,13 +1501,32 @@ the TOC after the life-time of @info, you will need to copy it.</doc>
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_toc" c:identifier="gst_discoverer_info_get_toc">
+        <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
+                         line="318"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
+               line="1138">TOC contained in the URI. If you wish to use
+the TOC after the life-time of @info, you will need to copy it.</doc>
+          <type name="Gst.Toc" c:type="const GstToc*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
+                 line="1136">a #GstDiscovererInfo</doc>
+            <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="get_uri" c:identifier="gst_discoverer_info_get_uri">
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="292"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1006">the URI to which this information corresponds to.
+               line="1019">the URI to which this information corresponds to.
 Copy it if you wish to use it after the life-time of @info.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1532,7 +1534,7 @@ Copy it if you wish to use it after the life-time of @info.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="1004">a #GstDiscovererInfo</doc>
+                 line="1017">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="const GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1541,13 +1543,13 @@ Copy it if you wish to use it after the life-time of @info.</doc>
               c:identifier="gst_discoverer_info_get_video_streams">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="523">Finds all the #GstDiscovererVideoInfo contained in @info</doc>
+             line="536">Finds all the #GstDiscovererVideoInfo contained in @info</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="331"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="529">A #GList of
+               line="542">A #GList of
 matching #GstDiscovererStreamInfo. The caller should free it with
 gst_discoverer_stream_info_list_free().</doc>
           <type name="GLib.List" c:type="GList*">
@@ -1558,7 +1560,7 @@ gst_discoverer_stream_info_list_free().</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="525">a #GstDiscovererInfo</doc>
+                 line="538">a #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
         </parameters>
@@ -1568,7 +1570,7 @@ gst_discoverer_stream_info_list_free().</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-             line="2701">Serializes @info to a #GVariant that can be parsed again
+             line="2712">Serializes @info to a #GVariant that can be parsed again
 through gst_discoverer_info_from_variant().
 
 Note that any #GstToc (s) that might have been discovered will not be serialized
@@ -1578,20 +1580,20 @@ for now.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-               line="2713">A newly-allocated #GVariant representing @info.</doc>
+               line="2724">A newly-allocated #GVariant representing @info.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2703">A #GstDiscovererInfo</doc>
+                 line="2714">A #GstDiscovererInfo</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer.c"
-                 line="2704">A combination of #GstDiscovererSerializeFlags to specify
+                 line="2715">A combination of #GstDiscovererSerializeFlags to specify
 what needs to be serialized.</doc>
             <type name="DiscovererSerializeFlags"
                   c:type="GstDiscovererSerializeFlags"/>
@@ -1752,7 +1754,7 @@ for the audio and video streams respectively.</doc>
                 c:identifier="gst_discoverer_stream_info_list_free">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-             line="463">Decrements the reference count of all contained #GstDiscovererStreamInfo
+             line="476">Decrements the reference count of all contained #GstDiscovererStreamInfo
 and fress the #GList.</doc>
         <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                          line="347"/>
@@ -1763,7 +1765,7 @@ and fress the #GList.</doc>
           <parameter name="infos" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="465">a #GList of #GstDiscovererStreamInfo</doc>
+                 line="478">a #GList of #GstDiscovererStreamInfo</doc>
             <type name="GLib.List" c:type="GList*">
               <type name="DiscovererStreamInfo"/>
             </type>
@@ -1777,7 +1779,7 @@ and fress the #GList.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="649">the #GstCaps of the stream. Unref with
+               line="662">the #GstCaps of the stream. Unref with
 #gst_caps_unref after usage.</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
@@ -1785,7 +1787,7 @@ and fress the #GList.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="647">a #GstDiscovererStreamInfo</doc>
+                 line="660">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1801,7 +1803,7 @@ and fress the #GList.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="715">additional information regarding the stream (for
+               line="728">additional information regarding the stream (for
 example codec version, profile, etc..). If you wish to use the #GstStructure
 after the life-time of @info you will need to copy it.</doc>
           <type name="Gst.Structure" c:type="const GstStructure*"/>
@@ -1810,7 +1812,7 @@ after the life-time of @info you will need to copy it.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="710">a #GstDiscovererStreamInfo</doc>
+                 line="723">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1823,7 +1825,7 @@ after the life-time of @info you will need to copy it.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="630">the next #GstDiscovererStreamInfo in a chain. %NULL
+               line="643">the next #GstDiscovererStreamInfo in a chain. %NULL
 for final streams.
 Unref with #gst_discoverer_stream_info_unref after usage.</doc>
           <type name="DiscovererStreamInfo" c:type="GstDiscovererStreamInfo*"/>
@@ -1832,7 +1834,7 @@ Unref with #gst_discoverer_stream_info_unref after usage.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="628">a #GstDiscovererStreamInfo</doc>
+                 line="641">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1845,7 +1847,7 @@ Unref with #gst_discoverer_stream_info_unref after usage.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="612">the previous #GstDiscovererStreamInfo in a chain.
+               line="625">the previous #GstDiscovererStreamInfo in a chain.
 %NULL for starting points. Unref with #gst_discoverer_stream_info_unref
 after usage.</doc>
           <type name="DiscovererStreamInfo" c:type="GstDiscovererStreamInfo*"/>
@@ -1854,7 +1856,7 @@ after usage.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="610">a #GstDiscovererStreamInfo</doc>
+                 line="623">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1867,7 +1869,7 @@ after usage.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="696">the stream ID of this stream. If you wish to
+               line="709">the stream ID of this stream. If you wish to
 use the stream ID after the life-time of @info you will need to copy it.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1875,7 +1877,7 @@ use the stream ID after the life-time of @info you will need to copy it.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="694">a #GstDiscovererStreamInfo</doc>
+                 line="707">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1889,7 +1891,7 @@ use the stream ID after the life-time of @info you will need to copy it.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="732">the stream number, -1 if no index could be determined. This property
+               line="745">the stream number, -1 if no index could be determined. This property
 acts as a unique identifier as a 'int' for the stream.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
@@ -1897,7 +1899,7 @@ acts as a unique identifier as a 'int' for the stream.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="730">a #GstDiscovererStreamInfo</doc>
+                 line="743">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1910,7 +1912,7 @@ acts as a unique identifier as a 'int' for the stream.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="577">a human readable name for the stream type of the given @info (ex : "audio",
+               line="590">a human readable name for the stream type of the given @info (ex : "audio",
 "container",...).</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -1918,7 +1920,7 @@ acts as a unique identifier as a 'int' for the stream.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="575">a #GstDiscovererStreamInfo</doc>
+                 line="588">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1931,7 +1933,7 @@ acts as a unique identifier as a 'int' for the stream.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="666">the tags contained in this stream. If you wish to
+               line="679">the tags contained in this stream. If you wish to
 use the tags after the life-time of @info you will need to copy them.</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </return-value>
@@ -1939,7 +1941,7 @@ use the tags after the life-time of @info you will need to copy them.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="664">a #GstDiscovererStreamInfo</doc>
+                 line="677">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1951,7 +1953,7 @@ use the tags after the life-time of @info you will need to copy them.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="681">the TOC contained in this stream. If you wish to
+               line="694">the TOC contained in this stream. If you wish to
 use the TOC after the life-time of @info you will need to copy it.</doc>
           <type name="Gst.Toc" c:type="const GstToc*"/>
         </return-value>
@@ -1959,7 +1961,7 @@ use the TOC after the life-time of @info you will need to copy it.</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="679">a #GstDiscovererStreamInfo</doc>
+                 line="692">a #GstDiscovererStreamInfo</doc>
             <type name="DiscovererStreamInfo"
                   c:type="GstDiscovererStreamInfo*"/>
           </instance-parameter>
@@ -1983,14 +1985,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="990">the language of the stream, or NULL if unknown.</doc>
+               line="1003">the language of the stream, or NULL if unknown.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="988">a #GstDiscovererSubtitleInfo</doc>
+                 line="1001">a #GstDiscovererSubtitleInfo</doc>
             <type name="DiscovererSubtitleInfo"
                   c:type="const GstDiscovererSubtitleInfo*"/>
           </instance-parameter>
@@ -2013,14 +2015,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="950">the average or nominal bitrate of the video stream in bits/second.</doc>
+               line="963">the average or nominal bitrate of the video stream in bits/second.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="948">a #GstDiscovererVideoInfo</doc>
+                 line="961">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2033,14 +2035,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="891">the depth in bits of the video stream.</doc>
+               line="904">the depth in bits of the video stream.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="889">a #GstDiscovererVideoInfo</doc>
+                 line="902">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2053,14 +2055,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="909">the framerate of the video stream (denominator).</doc>
+               line="922">the framerate of the video stream (denominator).</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="907">a #GstDiscovererVideoInfo</doc>
+                 line="920">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2073,14 +2075,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="900">the framerate of the video stream (numerator).</doc>
+               line="913">the framerate of the video stream (numerator).</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="898">a #GstDiscovererVideoInfo</doc>
+                 line="911">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2093,14 +2095,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="882">the height of the video stream in pixels.</doc>
+               line="895">the height of the video stream in pixels.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="880">a #GstDiscovererVideoInfo</doc>
+                 line="893">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2113,14 +2115,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="959">the maximum bitrate of the video stream in bits/second.</doc>
+               line="972">the maximum bitrate of the video stream in bits/second.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="957">a #GstDiscovererVideoInfo</doc>
+                 line="970">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2133,14 +2135,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="927">the Pixel Aspect Ratio (PAR) of the video stream (denominator).</doc>
+               line="940">the Pixel Aspect Ratio (PAR) of the video stream (denominator).</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="925">a #GstDiscovererVideoInfo</doc>
+                 line="938">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2153,14 +2155,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="918">the Pixel Aspect Ratio (PAR) of the video stream (numerator).</doc>
+               line="931">the Pixel Aspect Ratio (PAR) of the video stream (numerator).</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="916">a #GstDiscovererVideoInfo</doc>
+                 line="929">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2173,14 +2175,14 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="873">the width of the video stream in pixels.</doc>
+               line="886">the width of the video stream in pixels.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="871">a #GstDiscovererVideoInfo</doc>
+                 line="884">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2193,7 +2195,7 @@ image based ones).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="968">%TRUE if the video stream corresponds to an image (i.e. only contains
+               line="981">%TRUE if the video stream corresponds to an image (i.e. only contains
 one frame).</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2201,7 +2203,7 @@ one frame).</doc>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="966">a #GstDiscovererVideoInfo</doc>
+                 line="979">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2214,14 +2216,14 @@ one frame).</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="936">%TRUE if the stream is interlaced, else %FALSE.</doc>
+               line="949">%TRUE if the stream is interlaced, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-                 line="934">a #GstDiscovererVideoInfo</doc>
+                 line="947">a #GstDiscovererVideoInfo</doc>
             <type name="DiscovererVideoInfo"
                   c:type="const GstDiscovererVideoInfo*"/>
           </instance-parameter>
@@ -2356,7 +2358,7 @@ storage.</doc>
       <constructor name="new" c:identifier="gst_encoding_audio_profile_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1334">Creates a new #GstEncodingAudioProfile
+             line="1336">Creates a new #GstEncodingAudioProfile
 
 All provided allocatable arguments will be internally copied, so can be
 safely freed/unreferenced after calling this method.</doc>
@@ -2365,14 +2367,14 @@ safely freed/unreferenced after calling this method.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1348">the newly created #GstEncodingAudioProfile.</doc>
+               line="1350">the newly created #GstEncodingAudioProfile.</doc>
           <type name="EncodingAudioProfile" c:type="GstEncodingAudioProfile*"/>
         </return-value>
         <parameters>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1336">the #GstCaps</doc>
+                 line="1338">the #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="preset"
@@ -2381,7 +2383,7 @@ safely freed/unreferenced after calling this method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1337">the preset(s) to use on the encoder, can be %NULL</doc>
+                 line="1339">the preset(s) to use on the encoder, can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="restriction"
@@ -2390,14 +2392,14 @@ safely freed/unreferenced after calling this method.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1338">the #GstCaps used to restrict the input to the encoder, can be
+                 line="1340">the #GstCaps used to restrict the input to the encoder, can be
 NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="presence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1340">the number of time this stream must be used. 0 means any number of
+                 line="1342">the number of time this stream must be used. 0 means any number of
  times (including never)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -2428,13 +2430,13 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
                    c:identifier="gst_encoding_container_profile_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1280">Creates a new #GstEncodingContainerProfile.</doc>
+             line="1282">Creates a new #GstEncodingContainerProfile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="229"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1290">The newly created #GstEncodingContainerProfile.</doc>
+               line="1292">The newly created #GstEncodingContainerProfile.</doc>
           <type name="EncodingContainerProfile"
                 c:type="GstEncodingContainerProfile*"/>
         </return-value>
@@ -2445,7 +2447,7 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1282">The name of the container profile, can be %NULL</doc>
+                 line="1284">The name of the container profile, can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="description"
@@ -2454,14 +2456,14 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1283">The description of the container profile,
+                 line="1285">The description of the container profile,
     can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1285">The format to use for this profile</doc>
+                 line="1287">The format to use for this profile</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="preset"
@@ -2470,7 +2472,7 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1286">The preset to use for this profile.</doc>
+                 line="1288">The preset to use for this profile.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2479,7 +2481,7 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
               c:identifier="gst_encoding_container_profile_add_profile">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1228">Add a #GstEncodingProfile to the list of profiles handled by @container.
+             line="1230">Add a #GstEncodingProfile to the list of profiles handled by @container.
 
 No copy of @profile will be made, if you wish to use it elsewhere after this
 method you should increment its reference count.</doc>
@@ -2488,21 +2490,21 @@ method you should increment its reference count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1238">%TRUE if the @stream was properly added, else %FALSE.</doc>
+               line="1240">%TRUE if the @stream was properly added, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="container" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1230">the #GstEncodingContainerProfile to use</doc>
+                 line="1232">the #GstEncodingContainerProfile to use</doc>
             <type name="EncodingContainerProfile"
                   c:type="GstEncodingContainerProfile*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1231">the #GstEncodingProfile to add.</doc>
+                 line="1233">the #GstEncodingProfile to add.</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </parameter>
         </parameters>
@@ -2511,14 +2513,14 @@ method you should increment its reference count.</doc>
               c:identifier="gst_encoding_container_profile_contains_profile">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1206">Checks if @container contains a #GstEncodingProfile identical to
+             line="1208">Checks if @container contains a #GstEncodingProfile identical to
 @profile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="221"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1214">%TRUE if @container contains a #GstEncodingProfile identical
+               line="1216">%TRUE if @container contains a #GstEncodingProfile identical
 to @profile, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -2526,14 +2528,14 @@ to @profile, else %FALSE.</doc>
           <instance-parameter name="container" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1208">a #GstEncodingContainerProfile</doc>
+                 line="1210">a #GstEncodingContainerProfile</doc>
             <type name="EncodingContainerProfile"
                   c:type="GstEncodingContainerProfile*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1209">a #GstEncodingProfile</doc>
+                 line="1211">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </parameter>
         </parameters>
@@ -2545,7 +2547,7 @@ to @profile, else %FALSE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="998">
+               line="1000">
 the list of contained #GstEncodingProfile.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="EncodingProfile"/>
@@ -2555,7 +2557,7 @@ the list of contained #GstEncodingProfile.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="996">a #GstEncodingContainerProfile</doc>
+                 line="998">a #GstEncodingContainerProfile</doc>
             <type name="EncodingContainerProfile"
                   c:type="GstEncodingContainerProfile*"/>
           </instance-parameter>
@@ -2586,20 +2588,20 @@ information like name, description, format and preset.</doc>
       <function name="find" c:identifier="gst_encoding_profile_find">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1598">Find the #GstEncodingProfile with the specified name and category.</doc>
+             line="1600">Find the #GstEncodingProfile with the specified name and category.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="204"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1607">The matching #GstEncodingProfile or %NULL.</doc>
+               line="1609">The matching #GstEncodingProfile or %NULL.</doc>
           <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
         </return-value>
         <parameters>
           <parameter name="targetname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1600">The name of the target</doc>
+                 line="1602">The name of the target</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="profilename"
@@ -2608,7 +2610,7 @@ information like name, description, format and preset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1601">The name of the profile, if %NULL
+                 line="1603">The name of the profile, if %NULL
 provided, it will default to the encoding profile called `default`.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -2618,7 +2620,7 @@ provided, it will default to the encoding profile called `default`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1603">The target category. Can be %NULL</doc>
+                 line="1605">The target category. Can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -2627,7 +2629,7 @@ provided, it will default to the encoding profile called `default`.</doc>
                 c:identifier="gst_encoding_profile_from_discoverer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="2266">Creates a #GstEncodingProfile matching the formats from the given
+             line="2268">Creates a #GstEncodingProfile matching the formats from the given
 #GstDiscovererInfo. Streams other than audio or video (eg,
 subtitles), are currently ignored.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
@@ -2635,14 +2637,14 @@ subtitles), are currently ignored.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="2274">The new #GstEncodingProfile or %NULL.</doc>
+               line="2276">The new #GstEncodingProfile or %NULL.</doc>
           <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
         </return-value>
         <parameters>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="2268">The #GstDiscovererInfo to read from</doc>
+                 line="2270">The #GstDiscovererInfo to read from</doc>
             <type name="DiscovererInfo" c:type="GstDiscovererInfo*"/>
           </parameter>
         </parameters>
@@ -2652,20 +2654,20 @@ subtitles), are currently ignored.</doc>
               version="1.12">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="2302">Makes a deep copy of @self</doc>
+             line="2304">Makes a deep copy of @self</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="267"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="2308">The copy of @self</doc>
+               line="2310">The copy of @self</doc>
           <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="2304">The #GstEncodingProfile to copy</doc>
+                 line="2306">The #GstEncodingProfile to copy</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2674,7 +2676,7 @@ subtitles), are currently ignored.</doc>
               c:identifier="gst_encoding_profile_get_allow_dynamic_output">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="689">Get whether the format that has been negotiated in at some point can be renegotiated
+             line="691">Get whether the format that has been negotiated in at some point can be renegotiated
 later during the encoding.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="149"/>
@@ -2685,7 +2687,7 @@ later during the encoding.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="691">a #GstEncodingProfile</doc>
+                 line="693">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2697,14 +2699,14 @@ later during the encoding.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="532">the description of the profile, can be %NULL.</doc>
+               line="534">the description of the profile, can be %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="530">a #GstEncodingProfile</doc>
+                 line="532">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2718,14 +2720,14 @@ later during the encoding.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="916">The properties that are going to be set on the underlying element</doc>
+               line="918">The properties that are going to be set on the underlying element</doc>
           <type name="Gst.Structure" c:type="GstStructure*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="914">a #GstEncodingProfile</doc>
+                 line="916">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2737,14 +2739,14 @@ later during the encoding.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1497">a suitable file extension for @profile, or NULL.</doc>
+               line="1499">a suitable file extension for @profile, or NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1495">a #GstEncodingProfile</doc>
+                 line="1497">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2755,7 +2757,7 @@ later during the encoding.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="546">(nullable): the #GstCaps corresponding to the media format used
+               line="548">(nullable): the #GstCaps corresponding to the media format used
 in the profile. Unref after usage.</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
@@ -2763,7 +2765,7 @@ in the profile. Unref after usage.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="544">a #GstEncodingProfile</doc>
+                 line="546">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2772,13 +2774,13 @@ in the profile. Unref after usage.</doc>
               c:identifier="gst_encoding_profile_get_input_caps">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1379">Computes the full output caps that this @profile will be able to consume.</doc>
+             line="1381">Computes the full output caps that this @profile will be able to consume.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="195"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1385">The full caps the given @profile can consume. Call
+               line="1387">The full caps the given @profile can consume. Call
 gst_caps_unref() when you are done with the caps.</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
@@ -2786,7 +2788,7 @@ gst_caps_unref() when you are done with the caps.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1381">a #GstEncodingProfile</doc>
+                 line="1383">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2797,14 +2799,14 @@ gst_caps_unref() when you are done with the caps.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="518">the name of the profile, can be %NULL.</doc>
+               line="520">the name of the profile, can be %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="516">a #GstEncodingProfile</doc>
+                 line="518">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2816,7 +2818,7 @@ gst_caps_unref() when you are done with the caps.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="590">The number of times the profile is used in its parent
+               line="592">The number of times the profile is used in its parent
 container profile. If 0, it is not a mandatory stream.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -2824,7 +2826,7 @@ container profile. If 0, it is not a mandatory stream.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="588">a #GstEncodingProfile</doc>
+                 line="590">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2835,7 +2837,7 @@ container profile. If 0, it is not a mandatory stream.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="561">the name of the #GstPreset to be used in the profile.
+               line="563">the name of the #GstPreset to be used in the profile.
 This is the name that has been set when saving the preset.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -2843,7 +2845,7 @@ This is the name that has been set when saving the preset.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="559">a #GstEncodingProfile</doc>
+                 line="561">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2855,14 +2857,14 @@ This is the name that has been set when saving the preset.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="576">the name of the #GstPreset factory to be used in the profile.</doc>
+               line="578">the name of the #GstPreset factory to be used in the profile.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="574">a #GstEncodingProfile</doc>
+                 line="576">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2874,7 +2876,7 @@ This is the name that has been set when saving the preset.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="621">The restriction #GstCaps to apply before the encoder
+               line="623">The restriction #GstCaps to apply before the encoder
 that will be used in the profile. The fields present in restriction caps are
 properties of the raw stream (that is before encoding), such as height and
 width for video and depth and sampling rate for audio. Does not apply to
@@ -2886,7 +2888,7 @@ Can be %NULL. Unref after usage.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="619">a #GstEncodingProfile</doc>
+                 line="621">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2899,7 +2901,7 @@ Can be %NULL. Unref after usage.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="726">#TRUE if the stream represented by @profile should use a single
+               line="728">#TRUE if the stream represented by @profile should use a single
 segment before the encoder, #FALSE otherwise. This means that buffers will be retimestamped
 and segments will be eat so as to appear as one segment.</doc>
           <type name="gboolean" c:type="gboolean"/>
@@ -2908,7 +2910,7 @@ and segments will be eat so as to appear as one segment.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="724">a #GstEncodingProfile</doc>
+                 line="726">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2920,14 +2922,14 @@ and segments will be eat so as to appear as one segment.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1439">the human-readable name of the type of @profile.</doc>
+               line="1441">the human-readable name of the type of @profile.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1437">a #GstEncodingProfile</doc>
+                 line="1439">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
         </parameters>
@@ -2947,26 +2949,26 @@ and segments will be eat so as to appear as one segment.</doc>
       <method name="is_equal" c:identifier="gst_encoding_profile_is_equal">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1360">Checks whether the two #GstEncodingProfile are equal</doc>
+             line="1362">Checks whether the two #GstEncodingProfile are equal</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1367">%TRUE if @a and @b are equal, else %FALSE.</doc>
+               line="1369">%TRUE if @a and @b are equal, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="a" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1362">a #GstEncodingProfile</doc>
+                 line="1364">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="b" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1363">a #GstEncodingProfile</doc>
+                 line="1365">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </parameter>
         </parameters>
@@ -2975,7 +2977,7 @@ and segments will be eat so as to appear as one segment.</doc>
               c:identifier="gst_encoding_profile_set_allow_dynamic_output">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="704">Sets whether the format that has been negotiated in at some point can be renegotiated
+             line="706">Sets whether the format that has been negotiated in at some point can be renegotiated
 later during the encoding.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="152"/>
@@ -2986,13 +2988,13 @@ later during the encoding.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="706">a #GstEncodingProfile</doc>
+                 line="708">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="allow_dynamic_output" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="707">Whether the format that has been negotiated first can be renegotiated
+                 line="709">Whether the format that has been negotiated first can be renegotiated
 during the encoding</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3002,7 +3004,7 @@ during the encoding</doc>
               c:identifier="gst_encoding_profile_set_description">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="654">Set @description as the given description for the @profile. A copy of
+             line="656">Set @description as the given description for the @profile. A copy of
 @description will be made internally.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="138"/>
@@ -3013,7 +3015,7 @@ during the encoding</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="656">a #GstEncodingProfile</doc>
+                 line="658">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="description"
@@ -3022,7 +3024,7 @@ during the encoding</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="657">the description to set on the profile</doc>
+                 line="659">the description to set on the profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3033,7 +3035,7 @@ during the encoding</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="857">This allows setting the muxing/encoding element properties.
+             line="859">This allows setting the muxing/encoding element properties.
 
 **Set properties generically**
 
@@ -3058,13 +3060,13 @@ element-properties-map, map = {
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="859">a #GstEncodingProfile</doc>
+                 line="861">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="element_properties" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="860">A #GstStructure defining the properties
+                 line="862">A #GstStructure defining the properties
 to be set to the element the profile represents.</doc>
             <type name="Gst.Structure" c:type="GstStructure*"/>
           </parameter>
@@ -3075,7 +3077,7 @@ to be set to the element the profile represents.</doc>
               version="1.6">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="815">Set whether the profile should be used or not.</doc>
+             line="817">Set whether the profile should be used or not.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="212"/>
         <return-value transfer-ownership="none">
@@ -3085,13 +3087,13 @@ to be set to the element the profile represents.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="817">a #GstEncodingProfile</doc>
+                 line="819">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="818">%FALSE to disable @profile, %TRUE to enable it</doc>
+                 line="820">%FALSE to disable @profile, %TRUE to enable it</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -3099,7 +3101,7 @@ to be set to the element the profile represents.</doc>
       <method name="set_format" c:identifier="gst_encoding_profile_set_format">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="672">Sets the media format used in the profile.</doc>
+             line="674">Sets the media format used in the profile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="145"/>
         <return-value transfer-ownership="none">
@@ -3109,13 +3111,13 @@ to be set to the element the profile represents.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="674">a #GstEncodingProfile</doc>
+                 line="676">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="675">the media format to use in the profile.</doc>
+                 line="677">the media format to use in the profile.</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -3123,7 +3125,7 @@ to be set to the element the profile represents.</doc>
       <method name="set_name" c:identifier="gst_encoding_profile_set_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="637">Set @name as the given name for the @profile. A copy of @name will be made
+             line="639">Set @name as the given name for the @profile. A copy of @name will be made
 internally.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="131"/>
@@ -3134,7 +3136,7 @@ internally.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="639">a #GstEncodingProfile</doc>
+                 line="641">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="name"
@@ -3143,7 +3145,7 @@ internally.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="640">the name to set on the profile</doc>
+                 line="642">the name to set on the profile</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3152,7 +3154,7 @@ internally.</doc>
               c:identifier="gst_encoding_profile_set_presence">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="799">Set the number of time the profile is used in its parent
+             line="801">Set the number of time the profile is used in its parent
 container profile. If 0, it is not a mandatory stream</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="176"/>
@@ -3163,13 +3165,13 @@ container profile. If 0, it is not a mandatory stream</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="801">a #GstEncodingProfile</doc>
+                 line="803">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="presence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="802">the number of time the profile can be used</doc>
+                 line="804">the number of time the profile can be used</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3177,7 +3179,7 @@ container profile. If 0, it is not a mandatory stream</doc>
       <method name="set_preset" c:identifier="gst_encoding_profile_set_preset">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="763">Sets the name of the #GstElement that implements the #GstPreset interface
+             line="765">Sets the name of the #GstElement that implements the #GstPreset interface
 to use for the profile.
 This is the name that has been set when saving the preset.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
@@ -3189,7 +3191,7 @@ This is the name that has been set when saving the preset.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="765">a #GstEncodingProfile</doc>
+                 line="767">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="preset"
@@ -3198,7 +3200,7 @@ This is the name that has been set when saving the preset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="766">the element preset to use</doc>
+                 line="768">the element preset to use</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3207,7 +3209,7 @@ This is the name that has been set when saving the preset.</doc>
               c:identifier="gst_encoding_profile_set_preset_name">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="782">Sets the name of the #GstPreset's factory to be used in the profile.</doc>
+             line="784">Sets the name of the #GstPreset's factory to be used in the profile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="180"/>
         <return-value transfer-ownership="none">
@@ -3217,7 +3219,7 @@ This is the name that has been set when saving the preset.</doc>
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="784">a #GstEncodingProfile</doc>
+                 line="786">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="preset_name"
@@ -3226,7 +3228,7 @@ This is the name that has been set when saving the preset.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="785">The name of the preset to use in this @profile.</doc>
+                 line="787">The name of the preset to use in this @profile.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3235,7 +3237,7 @@ This is the name that has been set when saving the preset.</doc>
               c:identifier="gst_encoding_profile_set_restriction">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="833">Set the restriction #GstCaps to apply before the encoder
+             line="835">Set the restriction #GstCaps to apply before the encoder
 that will be used in the profile. See gst_encoding_profile_get_restriction()
 for more about restrictions. Does not apply to #GstEncodingContainerProfile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
@@ -3247,7 +3249,7 @@ for more about restrictions. Does not apply to #GstEncodingContainerProfile.</do
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="835">a #GstEncodingProfile</doc>
+                 line="837">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="restriction"
@@ -3256,7 +3258,7 @@ for more about restrictions. Does not apply to #GstEncodingContainerProfile.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="836">the restriction to apply</doc>
+                 line="838">the restriction to apply</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -3266,7 +3268,7 @@ for more about restrictions. Does not apply to #GstEncodingContainerProfile.</do
               version="1.18">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="740">If using a single segment, buffers will be retimestamped and segments will be
+             line="742">If using a single segment, buffers will be retimestamped and segments will be
 eat so as to appear as one segment.
 
 &gt; *NOTE*: Single segment is not property supported when using
@@ -3280,13 +3282,13 @@ eat so as to appear as one segment.
           <instance-parameter name="profile" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="742">a #GstEncodingProfile</doc>
+                 line="744">a #GstEncodingProfile</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </instance-parameter>
           <parameter name="single_segment" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="743">#TRUE if the stream represented by @profile should use a
+                 line="745">#TRUE if the stream represented by @profile should use a
 single segment before the encoder, #FALSE otherwise.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -3300,7 +3302,7 @@ single segment before the encoder, #FALSE otherwise.</doc>
                 getter="get_element_properties">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="490">A #GstStructure defining the properties to be set to the element
+             line="492">A #GstStructure defining the properties to be set to the element
 the profile represents.
 
 For example for `av1enc`:
@@ -3337,7 +3339,7 @@ When being stored/loaded, targets come from a specific category, like
       <constructor name="new" c:identifier="gst_encoding_target_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="291">Creates a new #GstEncodingTarget.
+             line="293">Creates a new #GstEncodingTarget.
 
 The name and category can only consist of lowercase ASCII letters for the
 first character, followed by either lowercase ASCII letters, digits or
@@ -3352,7 +3354,7 @@ needed.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="312">The newly created #GstEncodingTarget or %NULL if
+               line="314">The newly created #GstEncodingTarget or %NULL if
 there was an error.</doc>
           <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
         </return-value>
@@ -3360,27 +3362,27 @@ there was an error.</doc>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="293">The name of the target.</doc>
+                 line="295">The name of the target.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="category" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="294">The name of the category to which this @target
+                 line="296">The name of the category to which this @target
 belongs. For example: #GST_ENCODING_CATEGORY_DEVICE.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="description" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="296">A description of #GstEncodingTarget in the
+                 line="298">A description of #GstEncodingTarget in the
 current locale.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="profiles" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="298">A #GList of
+                 line="300">A #GList of
 #GstEncodingProfile.</doc>
             <type name="GLib.List" c:type="const GList*">
               <type name="EncodingProfile"/>
@@ -3391,7 +3393,7 @@ current locale.</doc>
       <function name="load" c:identifier="gst_encoding_target_load" throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="898">Searches for the #GstEncodingTarget with the given name, loads it
+             line="900">Searches for the #GstEncodingTarget with the given name, loads it
 and returns it.
 
 If the category name is specified only targets from that category will be
@@ -3401,14 +3403,14 @@ searched for.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="913">The #GstEncodingTarget if available, else %NULL.</doc>
+               line="915">The #GstEncodingTarget if available, else %NULL.</doc>
           <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
         </return-value>
         <parameters>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="900">the name of the #GstEncodingTarget to load (automatically
+                 line="902">the name of the #GstEncodingTarget to load (automatically
 converted to lower case internally as capital letters are not
 valid for target names).</doc>
             <type name="utf8" c:type="const gchar*"/>
@@ -3419,7 +3421,7 @@ valid for target names).</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="903">the name of the target category, like
+                 line="905">the name of the target category, like
 #GST_ENCODING_CATEGORY_DEVICE. Can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
@@ -3430,13 +3432,13 @@ valid for target names).</doc>
                 throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="798">Opens the provided file and returns the contained #GstEncodingTarget.</doc>
+             line="800">Opens the provided file and returns the contained #GstEncodingTarget.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-target.h"
                          line="168"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="805">The #GstEncodingTarget contained in the file, else
+               line="807">The #GstEncodingTarget contained in the file, else
 %NULL</doc>
           <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
         </return-value>
@@ -3444,7 +3446,7 @@ valid for target names).</doc>
           <parameter name="filepath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="800">The file location to load the #GstEncodingTarget from</doc>
+                 line="802">The file location to load the #GstEncodingTarget from</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3453,7 +3455,7 @@ valid for target names).</doc>
               c:identifier="gst_encoding_target_add_profile">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="360">Adds the given @profile to the @target. Each added profile must have
+             line="362">Adds the given @profile to the @target. Each added profile must have
 a unique name within the profile.
 
 The @target will steal a reference to the @profile. If you wish to use
@@ -3464,20 +3466,20 @@ count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="372">%TRUE if the profile was added, else %FALSE.</doc>
+               line="374">%TRUE if the profile was added, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="362">the #GstEncodingTarget to add a profile to</doc>
+                 line="364">the #GstEncodingTarget to add a profile to</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
           <parameter name="profile" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="363">the #GstEncodingProfile to add</doc>
+                 line="365">the #GstEncodingProfile to add</doc>
             <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
           </parameter>
         </parameters>
@@ -3489,7 +3491,7 @@ count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="176">The category of the @target. For example:
+               line="178">The category of the @target. For example:
 #GST_ENCODING_CATEGORY_DEVICE.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3497,7 +3499,7 @@ count.</doc>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="174">a #GstEncodingTarget</doc>
+                 line="176">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3509,14 +3511,14 @@ count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="189">The description of the @target.</doc>
+               line="191">The description of the @target.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="187">a #GstEncodingTarget</doc>
+                 line="189">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3527,14 +3529,14 @@ count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="164">The name of the @target.</doc>
+               line="166">The name of the @target.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="162">a #GstEncodingTarget</doc>
+                 line="164">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3547,14 +3549,14 @@ count.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="201">The path to the @target file.</doc>
+               line="203">The path to the @target file.</doc>
           <type name="filename" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="199">a #GstEncodingTarget</doc>
+                 line="201">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3566,20 +3568,20 @@ count.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="230">The matching #GstEncodingProfile, or %NULL.</doc>
+               line="232">The matching #GstEncodingProfile, or %NULL.</doc>
           <type name="EncodingProfile" c:type="GstEncodingProfile*"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="227">a #GstEncodingTarget</doc>
+                 line="229">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="228">the name of the profile to retrieve</doc>
+                 line="230">the name of the profile to retrieve</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3591,7 +3593,7 @@ count.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="216">A list of
+               line="218">A list of
 #GstEncodingProfile(s) this @target handles.</doc>
           <type name="GLib.List" c:type="const GList*">
             <type name="EncodingProfile"/>
@@ -3601,7 +3603,7 @@ count.</doc>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="214">a #GstEncodingTarget</doc>
+                 line="216">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3609,20 +3611,20 @@ count.</doc>
       <method name="save" c:identifier="gst_encoding_target_save" throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="1084">Saves the @target to a default user-local directory.</doc>
+             line="1086">Saves the @target to a default user-local directory.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-target.h"
                          line="154"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="1091">%TRUE if the target was correctly saved, else %FALSE.</doc>
+               line="1093">%TRUE if the target was correctly saved, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="1086">a #GstEncodingTarget</doc>
+                 line="1088">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
         </parameters>
@@ -3632,26 +3634,26 @@ count.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="1014">Saves the @target to the provided file location.</doc>
+             line="1016">Saves the @target to the provided file location.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-target.h"
                          line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="1022">%TRUE if the target was correctly saved, else %FALSE.</doc>
+               line="1024">%TRUE if the target was correctly saved, else %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="target" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="1016">a #GstEncodingTarget</doc>
+                 line="1018">a #GstEncodingTarget</doc>
             <type name="EncodingTarget" c:type="GstEncodingTarget*"/>
           </instance-parameter>
           <parameter name="filepath" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-target.c"
-                 line="1017">the location to store the @target at.</doc>
+                 line="1019">the location to store the @target at.</doc>
             <type name="filename" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3672,7 +3674,7 @@ count.</doc>
       <constructor name="new" c:identifier="gst_encoding_video_profile_new">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1303">Creates a new #GstEncodingVideoProfile
+             line="1305">Creates a new #GstEncodingVideoProfile
 
 All provided allocatable arguments will be internally copied, so can be
 safely freed/unreferenced after calling this method.
@@ -3687,14 +3689,14 @@ gst_encoding_video_profile_set_variableframerate() documentation.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1323">the newly created #GstEncodingVideoProfile.</doc>
+               line="1325">the newly created #GstEncodingVideoProfile.</doc>
           <type name="EncodingVideoProfile" c:type="GstEncodingVideoProfile*"/>
         </return-value>
         <parameters>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1305">the #GstCaps</doc>
+                 line="1307">the #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="preset"
@@ -3703,7 +3705,7 @@ gst_encoding_video_profile_set_variableframerate() documentation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1306">the preset(s) to use on the encoder, can be %NULL</doc>
+                 line="1308">the preset(s) to use on the encoder, can be %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="restriction"
@@ -3712,14 +3714,14 @@ gst_encoding_video_profile_set_variableframerate() documentation.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1307">the #GstCaps used to restrict the input to the encoder, can be
+                 line="1309">the #GstCaps used to restrict the input to the encoder, can be
 NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="presence" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1309">the number of time this stream must be used. 0 means any number of
+                 line="1311">the number of time this stream must be used. 0 means any number of
  times (including never)</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -3729,13 +3731,13 @@ NULL. See gst_encoding_profile_get_restriction() for more details.</doc>
               c:identifier="gst_encoding_video_profile_get_pass">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1051">Get the pass number if this is part of a multi-pass profile.</doc>
+             line="1053">Get the pass number if this is part of a multi-pass profile.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="250"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1057">The pass number. Starts at 1 for multi-pass. 0 if this is
+               line="1059">The pass number. Starts at 1 for multi-pass. 0 if this is
 not a multi-pass profile</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -3743,7 +3745,7 @@ not a multi-pass profile</doc>
           <instance-parameter name="prof" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1053">a #GstEncodingVideoProfile</doc>
+                 line="1055">a #GstEncodingVideoProfile</doc>
             <type name="EncodingVideoProfile"
                   c:type="GstEncodingVideoProfile*"/>
           </instance-parameter>
@@ -3753,21 +3755,21 @@ not a multi-pass profile</doc>
               c:identifier="gst_encoding_video_profile_get_variableframerate">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1068">&gt; *NOTE*: Fixed framerate won't be enforced when #encodebin:avoid-reencoding
+             line="1070">&gt; *NOTE*: Fixed framerate won't be enforced when #encodebin:avoid-reencoding
 &gt; is set.</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
                          line="253"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-profile.c"
-               line="1075">Whether non-constant video framerate is allowed for encoding.</doc>
+               line="1077">Whether non-constant video framerate is allowed for encoding.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="prof" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1070">a #GstEncodingVideoProfile</doc>
+                 line="1072">a #GstEncodingVideoProfile</doc>
             <type name="EncodingVideoProfile"
                   c:type="GstEncodingVideoProfile*"/>
           </instance-parameter>
@@ -3777,7 +3779,7 @@ not a multi-pass profile</doc>
               c:identifier="gst_encoding_video_profile_set_pass">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1086">Sets the pass number of this video profile. The first pass profile should have
+             line="1088">Sets the pass number of this video profile. The first pass profile should have
 this value set to 1. If this video profile isn't part of a multi-pass profile,
 you may set it to 0 (the default value).</doc>
         <source-position filename="gst-libs/gst/pbutils/encoding-profile.h"
@@ -3789,14 +3791,14 @@ you may set it to 0 (the default value).</doc>
           <instance-parameter name="prof" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1088">a #GstEncodingVideoProfile</doc>
+                 line="1090">a #GstEncodingVideoProfile</doc>
             <type name="EncodingVideoProfile"
                   c:type="GstEncodingVideoProfile*"/>
           </instance-parameter>
           <parameter name="pass" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1089">the pass number for this profile</doc>
+                 line="1091">the pass number for this profile</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -3805,7 +3807,7 @@ you may set it to 0 (the default value).</doc>
               c:identifier="gst_encoding_video_profile_set_variableframerate">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-profile.c"
-             line="1103">If set to %TRUE, then the incoming stream will be allowed to have non-constant
+             line="1105">If set to %TRUE, then the incoming stream will be allowed to have non-constant
 framerate. If set to %FALSE (default value), then the incoming stream will
 be normalized by dropping/duplicating frames in order to produce a
 constance framerate.</doc>
@@ -3818,14 +3820,14 @@ constance framerate.</doc>
           <instance-parameter name="prof" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1105">a #GstEncodingVideoProfile</doc>
+                 line="1107">a #GstEncodingVideoProfile</doc>
             <type name="EncodingVideoProfile"
                   c:type="GstEncodingVideoProfile*"/>
           </instance-parameter>
           <parameter name="variableframerate" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/pbutils/encoding-profile.c"
-                 line="1106">a boolean</doc>
+                 line="1108">a boolean</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -4420,7 +4422,7 @@ in debugging.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="PLUGINS_BASE_VERSION_MICRO"
-              value="5"
+              value="12"
               c:type="GST_PLUGINS_BASE_VERSION_MICRO">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/gstpluginsbaseversion.h"
@@ -5692,14 +5694,14 @@ invalid Opus caps.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-           line="1131">Increments the reference count of @info.</doc>
+           line="1144">Increments the reference count of @info.</doc>
       <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                        line="280"/>
       <parameters>
         <parameter name="info">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1133">a #GstDiscovererInfo</doc>
+               line="1146">a #GstDiscovererInfo</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -5708,14 +5710,14 @@ invalid Opus caps.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-           line="1140">Decrements the reference count of @info.</doc>
+           line="1153">Decrements the reference count of @info.</doc>
       <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                        line="279"/>
       <parameters>
         <parameter name="info">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1142">a #GstDiscovererInfo</doc>
+               line="1155">a #GstDiscovererInfo</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -5724,14 +5726,14 @@ invalid Opus caps.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-           line="1147">Increments the reference count of @info.</doc>
+           line="1160">Increments the reference count of @info.</doc>
       <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                        line="59"/>
       <parameters>
         <parameter name="info">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1149">a #GstDiscovererStreamInfo</doc>
+               line="1162">a #GstDiscovererStreamInfo</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -5740,14 +5742,14 @@ invalid Opus caps.</doc>
                     introspectable="0">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-           line="1156">Decrements the reference count of @info.</doc>
+           line="1169">Decrements the reference count of @info.</doc>
       <source-position filename="gst-libs/gst/pbutils/gstdiscoverer.h"
                        line="60"/>
       <parameters>
         <parameter name="info">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/gstdiscoverer-types.c"
-               line="1158">a #GstDiscovererStreamInfo</doc>
+               line="1171">a #GstDiscovererStreamInfo</doc>
         </parameter>
       </parameters>
     </function-macro>
@@ -6077,14 +6079,14 @@ defining a list of folder containing encoding target files.
               c:identifier="gst_encoding_list_all_targets">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/encoding-target.c"
-           line="1283">List all available #GstEncodingTarget for the specified category, or all categories
+           line="1285">List all available #GstEncodingTarget for the specified category, or all categories
 if @categoryname is %NULL.</doc>
       <source-position filename="gst-libs/gst/pbutils/encoding-target.h"
                        line="175"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="1291">The list of #GstEncodingTarget</doc>
+             line="1293">The list of #GstEncodingTarget</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="EncodingTarget"/>
         </type>
@@ -6096,7 +6098,7 @@ if @categoryname is %NULL.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/pbutils/encoding-target.c"
-               line="1285">The category, for ex: #GST_ENCODING_CATEGORY_DEVICE.
+               line="1287">The category, for ex: #GST_ENCODING_CATEGORY_DEVICE.
 Can be %NULL.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
@@ -6106,13 +6108,13 @@ Can be %NULL.</doc>
               c:identifier="gst_encoding_list_available_categories">
       <doc xml:space="preserve"
            filename="gst-libs/gst/pbutils/encoding-target.c"
-           line="1150">Lists all #GstEncodingTarget categories present on disk.</doc>
+           line="1152">Lists all #GstEncodingTarget categories present on disk.</doc>
       <source-position filename="gst-libs/gst/pbutils/encoding-target.h"
                        line="172"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/pbutils/encoding-target.c"
-             line="1155">A list
+             line="1157">A list
 of #GstEncodingTarget categories.</doc>
         <type name="GLib.List" c:type="GList*">
           <type name="utf8"/>

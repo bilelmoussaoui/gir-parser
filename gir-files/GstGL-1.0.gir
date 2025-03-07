@@ -5,12 +5,14 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstBase" version="1.0"/>
   <include name="GstVideo" version="1.0"/>
   <package name="gstreamer-gl-1.0"/>
   <c:include name="gst/gl/gl.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstGL"
              version="1.0"
              shared-library="libgstgl-1.0.so.0"
@@ -1336,6 +1338,135 @@ multiple times.  This must be called before any other GstGLBaseMemory operation.
                  filename="gst-libs/gst/gl/gstglbasememory.h"
                  line="260">the #GstGLAllocationParams to allocate the memory with</doc>
             <type name="GLAllocationParams" c:type="GstGLAllocationParams*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="copy" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasememory.h"
+             line="362">a #GstGLBaseMemoryAllocatorCopyFunction</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="325"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasememory.h"
+               line="321">the newly copied #GstGLMemory or %NULL</doc>
+          <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="315">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="316">the offset to copy from</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="317">the number of bytes to copy</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="create" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasememory.h"
+             line="359">a #GstGLBaseMemoryAllocatorCreateFunction</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="283"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasememory.h"
+               line="279">whether the creation succeeded</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="273">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="destroy" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasememory.h"
+             line="363">a #GstGLBaseMemoryAllocatorDestroyFunction</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="337"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="331">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="map" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasememory.h"
+             line="360">a #GstGLBaseMemoryAllocatorMapFunction</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="298"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasememory.h"
+               line="294">the mapped pointer</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="288">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="289">a #GstMapInfo to map with</doc>
+            <type name="Gst.MapInfo" c:type="GstMapInfo*"/>
+          </parameter>
+          <parameter name="maxsize" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="290">the size to map</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unmap" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglbasememory.h"
+             line="361">a #GstGLBaseMemoryAllocatorUnmapFunction</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="310"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="303">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="304">a #GstMapInfo to map with</doc>
+            <type name="Gst.MapInfo" c:type="GstMapInfo*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -3128,6 +3259,12 @@ return %NULL when not supported.</doc>
           </instance-parameter>
         </parameters>
       </virtual-method>
+      <virtual-method name="get_current_context" glib:static="1">
+        <source-position filename="gst-libs/gst/gl/gstglcontext.h" line="151"/>
+        <return-value transfer-ownership="none">
+          <type name="guintptr" c:type="guintptr"/>
+        </return-value>
+      </virtual-method>
       <virtual-method name="get_gl_api" invoker="get_gl_api" version="1.4">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglcontext.c"
@@ -3229,6 +3366,23 @@ after a call to gst_gl_context_create().</doc>
                  filename="gst-libs/gst/gl/gstglcontext.c"
                  line="1854">return for the minor version</doc>
             <type name="gint" c:type="gint*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="get_proc_address" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglcontext.h"
+             line="113">get an function pointer to an OpenGL function</doc>
+        <source-position filename="gst-libs/gst/gl/gstglcontext.h" line="155"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="gl_api" transfer-ownership="none">
+            <type name="GLAPI" c:type="GstGLAPI"/>
+          </parameter>
+          <parameter name="name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </virtual-method>
@@ -4239,7 +4393,7 @@ MT-safe</doc>
         <callback name="get_proc_address">
           <source-position filename="gst-libs/gst/gl/gstglcontext.h"
                            line="155"/>
-          <return-value transfer-ownership="none">
+          <return-value transfer-ownership="none" nullable="1">
             <type name="gpointer" c:type="gpointer"/>
           </return-value>
           <parameters>
@@ -6419,14 +6573,14 @@ with.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglframebuffer.c"
-               line="591">the OpenGL id for @fb</doc>
+               line="597">the OpenGL id for @fb</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="fb" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglframebuffer.c"
-                 line="589">a #GstGLFramebuffer</doc>
+                 line="595">a #GstGLFramebuffer</doc>
             <type name="GLFramebuffer" c:type="GstGLFramebuffer*"/>
           </instance-parameter>
         </parameters>
@@ -7065,6 +7219,96 @@ multiple times.  This must be called before any other GstGLMemory operation.</do
           </parameter>
         </parameters>
       </function>
+      <virtual-method name="copy" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmemory.h"
+             line="230">provide a custom copy implementation</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="325"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasememory.h"
+               line="321">the newly copied #GstGLMemory or %NULL</doc>
+          <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="315">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="316">the offset to copy from</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="317">the number of bytes to copy</doc>
+            <type name="gssize" c:type="gssize"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="map" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmemory.h"
+             line="229">provide a custom map implementation</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="298"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="gst-libs/gst/gl/gstglbasememory.h"
+               line="294">the mapped pointer</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="288">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="289">a #GstMapInfo to map with</doc>
+            <type name="Gst.MapInfo" c:type="GstMapInfo*"/>
+          </parameter>
+          <parameter name="maxsize" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="290">the size to map</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="unmap" glib:static="1">
+        <doc xml:space="preserve"
+             filename="gst-libs/gst/gl/gstglmemory.h"
+             line="231">provide a custom unmap implementation</doc>
+        <source-position filename="gst-libs/gst/gl/gstglbasememory.h"
+                         line="310"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="mem" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="303">a #GstGLBaseMemory</doc>
+            <type name="GLBaseMemory" c:type="GstGLBaseMemory*"/>
+          </parameter>
+          <parameter name="info" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="gst-libs/gst/gl/gstglbasememory.h"
+                 line="304">a #GstMapInfo to map with</doc>
+            <type name="Gst.MapInfo" c:type="GstMapInfo*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
       <field name="parent" readable="0" private="1">
         <type name="GLBaseMemoryAllocator" c:type="GstGLBaseMemoryAllocator"/>
       </field>
@@ -11252,7 +11496,7 @@ targets with #GValue's when e.g. dealing with #GstCaps.</doc>
            glib:type-struct="GLUploadClass">
       <doc xml:space="preserve"
            filename="gst-libs/gst/gl/gstglupload.c"
-           line="52">#GstGLUpload is an object that uploads data from system memory into GL textures.
+           line="54">#GstGLUpload is an object that uploads data from system memory into GL textures.
 
 A #GstGLUpload can be created with gst_gl_upload_new()</doc>
       <source-position filename="gst-libs/gst/gl/gstglupload.h" line="86"/>
@@ -11261,14 +11505,14 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3262">a new #GstGLUpload object</doc>
+               line="3265">a new #GstGLUpload object</doc>
           <type name="GLUpload" c:type="GstGLUpload*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3260">a #GstGLContext</doc>
+                 line="3263">a #GstGLContext</doc>
             <type name="GLContext" c:type="GstGLContext*"/>
           </parameter>
         </parameters>
@@ -11285,37 +11529,37 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3631">Fixate the @othercaps based on the information of the @caps.</doc>
+             line="3634">Fixate the @othercaps based on the information of the @caps.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3640">the fixated caps</doc>
+               line="3643">the fixated caps</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3633">a #GstGLUpload</doc>
+                 line="3636">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3634">the pad #GstPadDirection</doc>
+                 line="3637">the pad #GstPadDirection</doc>
             <type name="Gst.PadDirection" c:type="GstPadDirection"/>
           </parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3635">a #GstCaps as the reference</doc>
+                 line="3638">a #GstCaps as the reference</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="othercaps" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3636">a #GstCaps to fixate</doc>
+                 line="3639">a #GstCaps to fixate</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -11329,7 +11573,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3470">a #GstGLUpload</doc>
+                 line="3473">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps"
@@ -11340,7 +11584,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3471">the input #GstCaps</doc>
+                 line="3474">the input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
           <parameter name="out_caps"
@@ -11351,7 +11595,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3472">the output #GstCaps</doc>
+                 line="3475">the output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
         </parameters>
@@ -11360,26 +11604,26 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
               c:identifier="gst_gl_upload_perform_with_buffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3523">Uploads @buffer using the transformation specified by
+             line="3526">Uploads @buffer using the transformation specified by
 gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3532">whether the upload was successful</doc>
+               line="3535">whether the upload was successful</doc>
           <type name="GLUploadReturn" c:type="GstGLUploadReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3525">a #GstGLUpload</doc>
+                 line="3528">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3526">input #GstBuffer</doc>
+                 line="3529">input #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
           <parameter name="outbuf_ptr"
@@ -11388,7 +11632,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3527">resulting #GstBuffer</doc>
+                 line="3530">resulting #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer**"/>
           </parameter>
         </parameters>
@@ -11397,7 +11641,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
               c:identifier="gst_gl_upload_propose_allocation">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3394">Adds the required allocation parameters to support uploading.</doc>
+             line="3397">Adds the required allocation parameters to support uploading.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11406,7 +11650,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3396">a #GstGLUpload</doc>
+                 line="3399">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="decide_query"
@@ -11415,13 +11659,13 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3397">a #GstQuery from a decide allocation</doc>
+                 line="3400">a #GstQuery from a decide allocation</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3398">the proposed allocation query</doc>
+                 line="3401">the proposed allocation query</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -11429,31 +11673,31 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
       <method name="set_caps" c:identifier="gst_gl_upload_set_caps">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3445">Initializes @upload with the information required for upload.</doc>
+             line="3448">Initializes @upload with the information required for upload.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3453">whether @in_caps and @out_caps could be set on @upload</doc>
+               line="3456">whether @in_caps and @out_caps could be set on @upload</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3447">a #GstGLUpload</doc>
+                 line="3450">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3448">input #GstCaps</doc>
+                 line="3451">input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="out_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3449">output #GstCaps</doc>
+                 line="3452">output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>

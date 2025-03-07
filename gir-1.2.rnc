@@ -1,5 +1,6 @@
 default namespace core = "http://www.gtk.org/introspection/core/1.0"
 namespace c = "http://www.gtk.org/introspection/c/1.0"
+namespace doc = "http://www.gtk.org/introspection/doc/1.0"
 namespace glib = "http://www.gtk.org/introspection/glib/1.0"
 
 start = Repository
@@ -18,7 +19,8 @@ Repository =
     (Include*
      & CInclude*
      & Package*
-     & Namespace*)
+     & Namespace*
+     & DocFormat*)
   }
 
 Namespace =
@@ -73,6 +75,15 @@ CInclude =
     empty
   }
 
+DocFormat =
+  ## Format used for the included documentation.
+  element doc:format {
+    ## Name of the documentation format. For example, 'gi-docgen' or 'gtk-doc'.
+    attribute name { xsd:string },
+
+    empty
+  }
+
 Include =
   # Dependant namespace to include with the current namespace. For example, Gtk will need the namespace GLib
   element include {
@@ -85,9 +96,9 @@ Include =
   }
 
 Package =
-  # Deprecated: package name containing the library
+  # The pkg-config file provided by the library
   element package {
-    ## name of the package
+    ## name of the pkg-config file, minus the extension
     attribute name { xsd:string },
 
     empty
@@ -673,6 +684,7 @@ VirtualMethod =
     Callable.attrs,
     ## name of the callable called when invoking this virtual method
     attribute invoker { xsd:string }?,
+    attribute glib:static { "0" | "1" }?,
 
     (Info.elements
      & Callable.params?

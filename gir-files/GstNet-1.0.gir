@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GLib" version="2.0"/>
   <include name="GModule" version="2.0"/>
@@ -13,6 +14,7 @@ and/or use gtk-doc annotations.  -->
   <include name="Gst" version="1.0"/>
   <package name="gstreamer-net-1.0"/>
   <c:include name="gst/net/net.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstNet"
              version="1.0"
              shared-library="libgstnet-1.0.so.0"
@@ -215,7 +217,7 @@ statistics about clock accuracy and network traffic.</doc>
       <constructor name="new" c:identifier="gst_net_client_clock_new">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstnetclientclock.c"
-             line="1452">Create a new #GstNetClientClock that will report the time
+             line="1473">Create a new #GstNetClientClock that will report the time
 provided by the #GstNetTimeProvider on @remote_address and
 @remote_port.</doc>
         <source-position filename="libs/gst/net/gstnetclientclock.h"
@@ -223,7 +225,7 @@ provided by the #GstNetTimeProvider on @remote_address and
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstnetclientclock.c"
-               line="1463">a new #GstClock that receives a time from the remote
+               line="1484">a new #GstClock that receives a time from the remote
 clock.</doc>
           <type name="Gst.Clock" c:type="GstClock*"/>
         </return-value>
@@ -234,25 +236,25 @@ clock.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1454">a name for the clock</doc>
+                 line="1475">a name for the clock</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="remote_address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1455">the address or hostname of the remote clock provider</doc>
+                 line="1476">the address or hostname of the remote clock provider</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="remote_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1456">the port of the remote clock provider</doc>
+                 line="1477">the port of the remote clock provider</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="base_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1457">initial time of the clock</doc>
+                 line="1478">initial time of the clock</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>
@@ -684,14 +686,14 @@ The #GstNetTimeProvider typically wraps the clock used by a #GstPipeline.</doc>
       <constructor name="new" c:identifier="gst_ntp_clock_new" version="1.6">
         <doc xml:space="preserve"
              filename="libs/gst/net/gstnetclientclock.c"
-             line="1500">Create a new #GstNtpClock that will report the time provided by
+             line="1521">Create a new #GstNtpClock that will report the time provided by
 the NTPv4 server on @remote_address and @remote_port.</doc>
         <source-position filename="libs/gst/net/gstnetclientclock.h"
                          line="97"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="libs/gst/net/gstnetclientclock.c"
-               line="1510">a new #GstClock that receives a time from the remote
+               line="1531">a new #GstClock that receives a time from the remote
 clock.</doc>
           <type name="Gst.Clock" c:type="GstClock*"/>
         </return-value>
@@ -702,25 +704,25 @@ clock.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1502">a name for the clock</doc>
+                 line="1523">a name for the clock</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="remote_address" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1503">the address or hostname of the remote clock provider</doc>
+                 line="1524">the address or hostname of the remote clock provider</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="remote_port" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1504">the port of the remote clock provider</doc>
+                 line="1525">the port of the remote clock provider</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="base_time" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="libs/gst/net/gstnetclientclock.c"
-                 line="1505">initial time of the clock</doc>
+                 line="1526">initial time of the clock</doc>
             <type name="Gst.ClockTime" c:type="GstClockTime"/>
           </parameter>
         </parameters>

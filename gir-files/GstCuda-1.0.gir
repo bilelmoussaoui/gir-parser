@@ -5,6 +5,7 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="CudaGst" version="1.0"/>
   <include name="Gst" version="1.0"/>
@@ -12,6 +13,7 @@ and/or use gtk-doc annotations.  -->
   <include name="GstGL" version="1.0"/>
   <include name="GstVideo" version="1.0"/>
   <package name="gstreamer-cuda-1.0"/>
+  <doc:format name="unknown"/>
   <namespace name="GstCuda"
              version="1.0"
              shared-library="libgstcuda-1.0.so.0"
@@ -2146,7 +2148,7 @@ Retrieves the #GstCudaContext in @context and places the result in @cuda_ctx.</d
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-               line="279">Source code to compile</doc>
+               line="290">Source code to compile</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -2158,7 +2160,7 @@ Retrieves the #GstCudaContext in @context and places the result in @cuda_ctx.</d
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-             line="370">Compiled CUDA assembly code if successful,
+             line="381">Compiled CUDA assembly code if successful,
 otherwise %NULL</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
@@ -2166,13 +2168,13 @@ otherwise %NULL</doc>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-               line="367">Source code to compile</doc>
+               line="378">Source code to compile</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-               line="368">CUDA device</doc>
+               line="379">CUDA device</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -2182,12 +2184,12 @@ otherwise %NULL</doc>
               version="1.22">
       <doc xml:space="preserve"
            filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-           line="178">Loads the nvrtc library.</doc>
+           line="189">Loads the nvrtc library.</doc>
       <source-position filename="gst-libs/gst/cuda/gstcudanvrtc.h" line="28"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/cuda/gstcudanvrtc.cpp"
-             line="183">%TRUE if the library could be loaded, %FALSE otherwise</doc>
+             line="194">%TRUE if the library could be loaded, %FALSE otherwise</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
     </function>

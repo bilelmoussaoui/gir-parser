@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="Gst" version="1.0"/>
   <include name="GstBase" version="1.0"/>
   <package name="gstreamer-tag-1.0"/>
   <c:include name="gst/tag/tag.h"/>
+  <doc:format name="unknown"/>
   <namespace name="GstTag"
              version="1.0"
              shared-library="libgsttag-1.0.so.0"
@@ -2168,7 +2170,7 @@ more information on image tags in GStreamer.</doc>
               c:identifier="gst_tag_list_from_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1956">Parses the IFD and IFD tags data contained in the buffer and puts it
+           line="1960">Parses the IFD and IFD tags data contained in the buffer and puts it
 on a taglist. The base_offset is used to subtract from the offset in
 the tag entries and be able to get the offset relative to the buffer
 start</doc>
@@ -2176,26 +2178,26 @@ start</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1967">The parsed taglist</doc>
+             line="1971">The parsed taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1958">The exif buffer</doc>
+               line="1962">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1959">byte order of the data</doc>
+               line="1963">byte order of the data</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1960">Offset from the tiff header to this buffer</doc>
+               line="1964">Offset from the tiff header to this buffer</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2204,19 +2206,19 @@ start</doc>
               c:identifier="gst_tag_list_from_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1992">Parses the exif tags starting with a tiff header structure.</doc>
+           line="1996">Parses the exif tags starting with a tiff header structure.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="568"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1998">The taglist</doc>
+             line="2002">The taglist</doc>
         <type name="Gst.TagList" c:type="GstTagList*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1994">The exif buffer</doc>
+               line="1998">The exif buffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -2399,32 +2401,32 @@ parsed data.</doc>
               c:identifier="gst_tag_list_to_exif_buffer">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1873">Formats the tags in taglist on exif format. The resulting buffer contains
+           line="1877">Formats the tags in taglist on exif format. The resulting buffer contains
 the tags IFD and is followed by the data pointed by the tag entries.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="555"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1882">A GstBuffer containing the tag entries followed by the tag data</doc>
+             line="1886">A GstBuffer containing the tag entries followed by the tag data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1875">The taglist</doc>
+               line="1879">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
         <parameter name="byte_order" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1876">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
+               line="1880">byte order used in writing (G_LITTLE_ENDIAN or G_BIG_ENDIAN)</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
         <parameter name="base_offset" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1877">Offset from the tiff header first byte</doc>
+               line="1881">Offset from the tiff header first byte</doc>
           <type name="guint32" c:type="guint32"/>
         </parameter>
       </parameters>
@@ -2433,20 +2435,20 @@ the tags IFD and is followed by the data pointed by the tag entries.</doc>
               c:identifier="gst_tag_list_to_exif_buffer_with_tiff_header">
       <doc xml:space="preserve"
            filename="gst-libs/gst/tag/gstexiftag.c"
-           line="1891">Formats the tags in taglist into exif structure, a tiff header
+           line="1895">Formats the tags in taglist into exif structure, a tiff header
 is put in the beginning of the buffer.</doc>
       <source-position filename="gst-libs/gst/tag/tag.h" line="560"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gst-libs/gst/tag/gstexiftag.c"
-             line="1898">A GstBuffer containing the data</doc>
+             line="1902">A GstBuffer containing the data</doc>
         <type name="Gst.Buffer" c:type="GstBuffer*"/>
       </return-value>
       <parameters>
         <parameter name="taglist" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/tag/gstexiftag.c"
-               line="1893">The taglist</doc>
+               line="1897">The taglist</doc>
           <type name="Gst.TagList" c:type="const GstTagList*"/>
         </parameter>
       </parameters>

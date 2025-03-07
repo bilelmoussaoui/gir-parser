@@ -5,11 +5,13 @@ and/or use gtk-doc annotations.  -->
 <repository version="1.2"
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
   <include name="GObject" version="2.0"/>
   <include name="Gio" version="2.0"/>
   <package name="gck-2"/>
   <c:include name="gck/gck.h"/>
+  <doc:format name="unknown"/>
   <namespace name="Gck"
              version="2"
              shared-library="libgck-2.so.2"
@@ -2935,7 +2937,7 @@ member of the error then contains the raw PKCS#11 `CK_RV` result value.</doc>
       <source-position filename="gck/gck-version.h" line="31"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="0" c:type="GCK_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="91" c:type="GCK_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gck/gck-misc.c"
            line="68">The micro version number of the Gck library.</doc>
@@ -9591,7 +9593,8 @@ then this may be a recycled session with the same flags.</doc>
       <method name="open_session_full"
               c:identifier="gck_slot_open_session_full"
               introspectable="0"
-              throws="1">
+              throws="1"
+              glib:async-func="open_session_full_async">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="965">Open a session on the slot. If the 'auto reuse' setting is set,
@@ -9661,7 +9664,9 @@ This call may block for an indefinite period.</doc>
       </method>
       <method name="open_session_full_async"
               c:identifier="gck_slot_open_session_full_async"
-              introspectable="0">
+              introspectable="0"
+              glib:finish-func="open_session_finish"
+              glib:sync-func="open_session_full">
         <doc xml:space="preserve"
              filename="gck/gck-slot.c"
              line="1045">Open a session on the slot. If the 'auto reuse' setting is set,
