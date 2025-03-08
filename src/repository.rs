@@ -62,25 +62,33 @@ impl Package {
 
 #[derive(Clone, Debug)]
 pub enum DocFormat {
-    GtkDoc,
+    GtkDocMarkdown,
+    GtkDocDocbook,
     GiDocgen,
-    Other(String),
+    HotDoc,
+    Unknown,
 }
 
 impl xmlserde::XmlValue for DocFormat {
     fn serialize(&self) -> String {
         match self {
-            Self::GtkDoc => "gtk-doc".to_owned(),
-            Self::GiDocgen => "gi-docgen".to_owned(),
-            Self::Other(e) => e.to_owned(),
+            Self::GtkDocMarkdown => "gtk-doc-markdown",
+            Self::GtkDocDocbook => "gtk-doc-docbook",
+            Self::GiDocgen => "gi-docgen",
+            Self::HotDoc => "hotdoc",
+            Self::Unknown => "unknown",
         }
+        .to_owned()
     }
 
     fn deserialize(s: &str) -> Result<Self, String> {
         match s {
-            "gtk-doc" => Ok(Self::GtkDoc),
+            "gtk-doc-markdown" => Ok(Self::GtkDocMarkdown),
+            "gtk-doc-docbook" => Ok(Self::GtkDocDocbook),
             "gi-docgen" => Ok(Self::GiDocgen),
-            e => Ok(Self::Other(e.to_owned())),
+            "hotdoc" => Ok(Self::HotDoc),
+            "unknown" => Ok(Self::Unknown),
+            e => Err(format!("Invalid doc:format {e}")),
         }
     }
 }
