@@ -173,14 +173,22 @@ impl Repository {
         self.version.as_ref()
     }
 
-    // TODO: split this by ","
-    pub fn c_identifier_prefixes(&self) -> Option<&str> {
-        self.c_identifier_prefixes.as_deref()
+    pub fn c_identifier_prefixes(&self) -> impl Iterator<Item = &str> {
+        self.c_identifier_prefixes
+            .as_ref()
+            .filter(|ps| !ps.is_empty())
+            .map(|ps| ps.split(','))
+            .into_iter()
+            .flatten()
     }
 
-    // TODO: split this by ","
-    pub fn c_symbol_prefixes(&self) -> Option<&str> {
-        self.c_symbol_prefixes.as_deref()
+    pub fn c_symbol_prefixes(&self) -> impl Iterator<Item = &str> {
+        self.c_symbol_prefixes
+            .as_ref()
+            .filter(|ps| !ps.is_empty())
+            .map(|ps| ps.split(','))
+            .into_iter()
+            .flatten()
     }
 
     pub fn namespace_includes(&self) -> &[NamespaceInclude] {

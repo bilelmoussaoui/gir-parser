@@ -77,15 +77,23 @@ impl Namespace {
         &self.version
     }
 
-    pub fn c_identifier_prefixes(&self) -> &str {
+    pub fn c_identifier_prefixes(&self) -> impl Iterator<Item = &str> {
         self.c_identifier_prefixes
             .as_ref()
             .or(self.c_prefix.as_ref())
-            .unwrap()
+            .filter(|ps| !ps.is_empty())
+            .map(|ps| ps.split(','))
+            .into_iter()
+            .flatten()
     }
 
-    pub fn c_symbol_prefixes(&self) -> Option<&str> {
-        self.c_symbol_prefixes.as_deref()
+    pub fn c_symbol_prefixes(&self) -> impl Iterator<Item = &str> {
+        self.c_symbol_prefixes
+            .as_ref()
+            .filter(|ps| !ps.is_empty())
+            .map(|ps| ps.split(','))
+            .into_iter()
+            .flatten()
     }
 
     pub fn shared_library(&self) -> Option<&str> {

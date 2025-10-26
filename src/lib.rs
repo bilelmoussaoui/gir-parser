@@ -214,8 +214,14 @@ mod tests {
         let namespace = repo.namespace();
         assert_eq!(namespace.version(), "2.0");
         assert_eq!(namespace.name(), "xft");
-        assert_eq!(namespace.c_identifier_prefixes(), "Xft");
-        assert_eq!(namespace.c_symbol_prefixes(), Some("Xft"));
+        assert_eq!(
+            namespace.c_identifier_prefixes().collect::<Vec<_>>(),
+            vec!["Xft"]
+        );
+        assert_eq!(
+            namespace.c_symbol_prefixes().collect::<Vec<_>>(),
+            vec!["Xft"]
+        );
     }
 
     #[test]
@@ -225,8 +231,11 @@ mod tests {
         let namespace = repo.namespace();
         assert_eq!(namespace.version(), "2.0");
         assert_eq!(namespace.name(), "xlib");
-        assert_eq!(namespace.c_identifier_prefixes(), "");
-        assert_eq!(namespace.c_symbol_prefixes(), Some("X"));
+        assert!(namespace
+            .c_identifier_prefixes()
+            .collect::<Vec<_>>()
+            .is_empty());
+        assert_eq!(namespace.c_symbol_prefixes().collect::<Vec<_>>(), vec!["X"]);
         let aliases = namespace.aliases();
         assert_eq!(aliases[0].name(), "Atom");
         assert_eq!(aliases[0].c_type(), "Atom");
@@ -259,8 +268,14 @@ mod tests {
         let namespace = repo.namespace();
         assert_eq!(namespace.version(), "1.3");
         assert_eq!(namespace.name(), "xrandr");
-        assert_eq!(namespace.c_identifier_prefixes(), "XRR");
-        assert_eq!(namespace.c_symbol_prefixes(), Some("XRR"));
+        assert_eq!(
+            namespace.c_identifier_prefixes().collect::<Vec<_>>(),
+            vec!["XRR"]
+        );
+        assert_eq!(
+            namespace.c_symbol_prefixes().collect::<Vec<_>>(),
+            vec!["XRR"]
+        );
         let records = namespace.records();
         assert_eq!(records[0].name(), Some("ScreenSize"));
         assert_eq!(records[0].c_type(), Some("XRRScreenSize"));
