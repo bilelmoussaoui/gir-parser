@@ -9,8 +9,20 @@ use crate::{
     prelude::*,
     record::Record,
     version::Version,
-    Stability,
+    Callback, Stability,
 };
+
+#[derive(Clone, Debug, XmlDeserialize)]
+pub enum UnionField {
+    #[xmlserde(name = b"field")]
+    Field(Field),
+    #[xmlserde(name = b"union")]
+    Union(Union),
+    #[xmlserde(name = b"record")]
+    Record(Record),
+    #[xmlserde(name = b"callback")]
+    Callback(Callback),
+}
 
 #[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"union")]
@@ -55,20 +67,21 @@ pub struct Union {
     // Attributes: 0 or more
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
-    #[xmlserde(name = b"field", ty = "child")]
-    fields: Vec<Field>,
+
+    #[xmlserde(name = b"constructor", ty = "child")]
+    constructors: Vec<Function>,
     #[xmlserde(name = b"function", ty = "child")]
     functions: Vec<Function>,
     #[xmlserde(name = b"function-inline", ty = "child")]
     inline_functions: Vec<FunctionInline>,
-    #[xmlserde(name = b"constructor", ty = "child")]
-    constructors: Vec<Function>,
+
     #[xmlserde(name = b"method", ty = "child")]
     methods: Vec<Method>,
     #[xmlserde(name = b"method-inline", ty = "child")]
     inline_methods: Vec<MethodInline>,
-    #[xmlserde(name = b"record", ty = "child")]
-    records: Vec<Record>,
+
+    #[xmlserde(ty = "untag")]
+    fields: Vec<UnionField>,
 }
 
 impl Union {
@@ -100,7 +113,7 @@ impl Union {
         self.free_function.as_deref()
     }
 
-    pub fn fields(&self) -> &[Field] {
+    pub fn fields(&self) -> &[UnionField] {
         &self.fields
     }
 
@@ -122,10 +135,6 @@ impl Union {
 
     pub fn functions(&self) -> &[Function] {
         &self.functions
-    }
-
-    pub fn records(&self) -> &[Record] {
-        &self.records
     }
 }
 

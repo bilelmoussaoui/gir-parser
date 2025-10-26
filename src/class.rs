@@ -33,6 +33,18 @@ impl Implements {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+pub enum ClassField {
+    #[xmlserde(name = b"field")]
+    Field(Field),
+    #[xmlserde(name = b"union")]
+    Union(Union),
+    #[xmlserde(name = b"record")]
+    Record(Record),
+    #[xmlserde(name = b"callback")]
+    Callback(Callback),
+}
+
+#[derive(Clone, Debug, XmlDeserialize)]
 #[xmlserde(root = b"class")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Class {
@@ -92,6 +104,7 @@ pub struct Class {
     g_get_value_func: Option<String>,
     #[xmlserde(name = b"implements", ty = "child")]
     implements: Vec<Implements>,
+
     #[xmlserde(name = b"constructor", ty = "child")]
     constructors: Vec<Function>,
     #[xmlserde(name = b"function", ty = "child")]
@@ -110,16 +123,11 @@ pub struct Class {
     signals: Vec<Signal>,
     #[xmlserde(name = b"virtual-method", ty = "child")]
     virtual_methods: Vec<VirtualMethod>,
-    #[xmlserde(name = b"field", ty = "child")]
-    fields: Vec<Field>,
-    #[xmlserde(name = b"record", ty = "child")]
-    records: Vec<Record>,
     #[xmlserde(name = b"constant", ty = "child")]
     constants: Vec<Constant>,
-    #[xmlserde(name = b"union", ty = "child")]
-    unions: Vec<Union>,
-    #[xmlserde(name = b"callback", ty = "child")]
-    callbacks: Vec<Callback>,
+
+    #[xmlserde(ty = "untag")]
+    fields: Vec<ClassField>,
 }
 
 impl Class {
@@ -207,7 +215,7 @@ impl Class {
         &self.virtual_methods
     }
 
-    pub fn fields(&self) -> &[Field] {
+    pub fn fields(&self) -> &[ClassField] {
         &self.fields
     }
 
@@ -219,20 +227,8 @@ impl Class {
         &self.signals
     }
 
-    pub fn unions(&self) -> &[Union] {
-        &self.unions
-    }
-
     pub fn constants(&self) -> &[Constant] {
         &self.constants
-    }
-
-    pub fn records(&self) -> &[Record] {
-        &self.records
-    }
-
-    pub fn callbacks(&self) -> &[Callback] {
-        &self.callbacks
     }
 }
 
