@@ -104,7 +104,7 @@ pub struct Field {
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
     #[xmlserde(ty = "untag")]
-    inner: FieldType,
+    type_: FieldType,
 }
 
 impl Field {
@@ -129,7 +129,7 @@ impl Field {
     }
 
     pub fn ty(&self) -> &FieldType {
-        &self.inner
+        &self.type_
     }
 }
 
