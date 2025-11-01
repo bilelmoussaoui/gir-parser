@@ -119,7 +119,7 @@ pub struct Parameter {
     // Attributes: 0 or more
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
-    #[xmlserde(name = b"type", ty = "child")]
+    #[xmlserde(ty = "untag")]
     type_: Option<ParameterType>,
 }
 
