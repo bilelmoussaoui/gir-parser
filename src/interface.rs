@@ -14,7 +14,7 @@ use crate::{
     signal::Signal,
     version::Version,
     virtual_method::VirtualMethod,
-    Stability,
+    Record, Stability, Union,
 };
 
 #[derive(Clone, Debug, XmlDeserialize)]
@@ -29,6 +29,18 @@ impl Prerequisite {
     pub fn name(&self) -> &str {
         &self.name
     }
+}
+
+#[derive(Clone, Debug, XmlDeserialize)]
+pub enum InterfaceField {
+    #[xmlserde(name = b"field")]
+    Field(Field),
+    #[xmlserde(name = b"union")]
+    Union(Union),
+    #[xmlserde(name = b"record")]
+    Record(Record),
+    #[xmlserde(name = b"callback")]
+    Callback(Callback),
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
@@ -97,17 +109,14 @@ pub struct Interface {
     #[xmlserde(name = b"virtual-method", ty = "child")]
     virtual_methods: Vec<VirtualMethod>,
 
-    #[xmlserde(name = b"field", ty = "child")]
-    fields: Vec<Field>,
+    #[xmlserde(ty = "untag")]
+    fields: Vec<InterfaceField>,
 
     #[xmlserde(name = b"property", ty = "child")]
     properties: Vec<Property>,
 
     #[xmlserde(name = b"glib:signal", ty = "child")]
     signals: Vec<Signal>,
-
-    #[xmlserde(name = b"callback", ty = "child")]
-    callbacks: Vec<Callback>,
 
     #[xmlserde(name = b"constant", ty = "child")]
     constants: Vec<Constant>,
@@ -170,7 +179,7 @@ impl Interface {
         &self.virtual_methods
     }
 
-    pub fn fields(&self) -> &[Field] {
+    pub fn fields(&self) -> &[InterfaceField] {
         &self.fields
     }
 
@@ -184,10 +193,6 @@ impl Interface {
 
     pub fn constants(&self) -> &[Constant] {
         &self.constants
-    }
-
-    pub fn callbacks(&self) -> &[Callback] {
-        &self.callbacks
     }
 }
 
