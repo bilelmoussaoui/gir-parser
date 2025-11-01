@@ -45,8 +45,8 @@ pub struct ReturnValue {
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
 
-    #[xmlserde(name = b"type", ty = "child")]
-    type_: AnyType, // TODO: should this be AnyType?
+    #[xmlserde(ty = "untag")]
+    type_: AnyType,
 }
 
 impl ReturnValue {
