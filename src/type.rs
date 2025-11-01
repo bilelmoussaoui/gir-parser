@@ -27,7 +27,8 @@ pub struct Type {
     doc_version: Option<DocVersion>,
     #[xmlserde(name = b"source-position", ty = "child")]
     source_position: Option<SourcePosition>,
-    // TODO: Does Type really take also a AnyType child? as that would cause an infinite recursion
+    #[xmlserde(name = b"type", ty = "child")]
+    types: Vec<Type>,
 }
 
 impl Type {
@@ -41,6 +42,10 @@ impl Type {
 
     pub fn is_introspectable(&self) -> bool {
         self.introspectable.unwrap_or(true)
+    }
+
+    pub fn types(&self) -> &[Type] {
+        &self.types
     }
 }
 
