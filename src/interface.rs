@@ -32,6 +32,9 @@ impl Prerequisite {
 }
 
 #[derive(Clone, Debug, XmlDeserialize)]
+// FIXME: The `Type` / `AnyType` fields are quite huge and some boxing would
+// probably be useful here but `xmlserde` does not seem to support that.
+#[allow(clippy::large_enum_variant)]
 pub enum InterfaceField {
     #[xmlserde(name = b"field")]
     Field(Field),
