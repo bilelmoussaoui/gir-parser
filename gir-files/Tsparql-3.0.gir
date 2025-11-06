@@ -335,7 +335,7 @@ update statements loaded through [method@SparqlConnection.load_statement_from_gr
               glib:sync-func="execute">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-batch.c"
-             line="436">Executes the batch. This operation happens asynchronously, when
+             line="439">Executes the batch. This operation happens asynchronously, when
 finished @callback will be executed.</doc>
         <source-position filename="src/libtinysparql/tracker-batch.h"
                          line="82"/>
@@ -346,7 +346,7 @@ finished @callback will be executed.</doc>
           <instance-parameter name="batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="438">A `TrackerBatch`</doc>
+                 line="441">A `TrackerBatch`</doc>
             <type name="Batch" c:type="TrackerBatch*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -355,7 +355,7 @@ finished @callback will be executed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="439">Optional [type@Gio.Cancellable]</doc>
+                 line="442">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -366,7 +366,7 @@ finished @callback will be executed.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="440">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="443">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -376,7 +376,7 @@ finished @callback will be executed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="442">User-defined data to be passed to @callback</doc>
+                 line="445">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -387,26 +387,26 @@ finished @callback will be executed.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-batch.c"
-             line="466">Finishes the operation started with [method@Batch.execute_async].</doc>
+             line="475">Finishes the operation started with [method@Batch.execute_async].</doc>
         <source-position filename="src/libtinysparql/tracker-batch.h"
                          line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-batch.c"
-               line="474">%TRUE of there were no errors, %FALSE otherwise</doc>
+               line="483">%TRUE of there were no errors, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="batch" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="468">A `TrackerBatch`</doc>
+                 line="477">A `TrackerBatch`</doc>
             <type name="Batch" c:type="TrackerBatch*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-batch.c"
-                 line="469">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="478">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -582,7 +582,7 @@ if (!TRACKER_CHECK_VERSION (0, 10, 7)) {
                  c:type="TrackerDeserializeFlags">
       <doc xml:space="preserve"
            filename="src/libtinysparql/tracker-connection.h"
-           line="69">Flags affecting deserialization from a RDF data format.</doc>
+           line="90">Flags affecting deserialization from a RDF data format.</doc>
       <member name="none"
               value="0"
               c:identifier="TRACKER_DESERIALIZE_FLAGS_NONE"
@@ -590,7 +590,7 @@ if (!TRACKER_CHECK_VERSION (0, 10, 7)) {
               glib:name="TRACKER_DESERIALIZE_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.h"
-             line="71">No flags.</doc>
+             line="92">No flags.</doc>
       </member>
     </enumeration>
     <function-macro name="ENDPOINT_DBUS"
@@ -1008,27 +1008,27 @@ context from the one that created [class@SparqlConnection].</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-endpoint-dbus.c"
-             line="1188">Registers a Tracker endpoint object at @object_path on @dbus_connection.
+             line="1197">Registers a Tracker endpoint object at @object_path on @dbus_connection.
 The default object path is `/org/freedesktop/Tracker3/Endpoint`.</doc>
         <source-position filename="src/libtinysparql/tracker-endpoint-dbus.h"
                          line="49"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-endpoint-dbus.c"
-               line="1199">a `TrackerEndpointDBus` object.</doc>
+               line="1208">a `TrackerEndpointDBus` object.</doc>
           <type name="EndpointDBus" c:type="TrackerEndpointDBus*"/>
         </return-value>
         <parameters>
           <parameter name="sparql_connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-endpoint-dbus.c"
-                 line="1190">The [class@SparqlConnection] being made public</doc>
+                 line="1199">The [class@SparqlConnection] being made public</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </parameter>
           <parameter name="dbus_connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-endpoint-dbus.c"
-                 line="1191">#GDBusConnection to expose the DBus object over</doc>
+                 line="1200">#GDBusConnection to expose the DBus object over</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="object_path"
@@ -1037,7 +1037,7 @@ The default object path is `/org/freedesktop/Tracker3/Endpoint`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-endpoint-dbus.c"
-                 line="1192">The object path to use, or %NULL to use the default</doc>
+                 line="1201">The object path to use, or %NULL to use the default</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -1046,7 +1046,7 @@ The default object path is `/org/freedesktop/Tracker3/Endpoint`.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-endpoint-dbus.c"
-                 line="1193">Optional [type@Gio.Cancellable]</doc>
+                 line="1202">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -1057,7 +1057,7 @@ The default object path is `/org/freedesktop/Tracker3/Endpoint`.</doc>
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-endpoint-dbus.c"
-             line="1156">The [class@Gio.DBusConnection] where the connection is proxied through.</doc>
+             line="1165">The [class@Gio.DBusConnection] where the connection is proxied through.</doc>
         <type name="Gio.DBusConnection"/>
       </property>
       <property name="object-path"
@@ -1067,7 +1067,7 @@ The default object path is `/org/freedesktop/Tracker3/Endpoint`.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-endpoint-dbus.c"
-             line="1167">The DBus object path that this endpoint manages.</doc>
+             line="1176">The DBus object path that this endpoint manages.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <glib:signal name="block-call">
@@ -1271,7 +1271,7 @@ Like #tracker_micro_version, but intended to be used at application compile time
                        line="28"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="9" c:type="TRACKER_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="11" c:type="TRACKER_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="src/libtinysparql/tracker-version-generated.h"
            line="12">The minor version of the Tracker library.
@@ -1342,10 +1342,7 @@ ontologies, if they have been modified since they were installed.</doc>
               c:identifier="tracker_namespace_manager_add_prefix">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-namespace-manager.c"
-             line="208">Adds @prefix as the recognised abbreviaton of @namespace.
-
-Only one prefix is allowed for a given namespace, and all prefixes must
-be unique.
+             line="208">Adds @prefix as the recognised abbreviation of @namespace.
 
 Since 3.3, The `TrackerNamespaceManager` instances obtained through
 [method@SparqlConnection.get_namespace_manager] are "sealed",
@@ -1381,7 +1378,7 @@ this API call should not performed on those.</doc>
               version="3.3">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-namespace-manager.c"
-             line="313">If @uri begins with one of the namespaces known to this
+             line="293">If @uri begins with one of the namespaces known to this
 `TrackerNamespaceManager`, then the return value will be the
 compressed URI. Otherwise, %NULL will be returned.</doc>
         <source-position filename="src/libtinysparql/tracker-namespace-manager.h"
@@ -1389,20 +1386,20 @@ compressed URI. Otherwise, %NULL will be returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-namespace-manager.c"
-               line="322">(nullable): the compressed URI</doc>
+               line="302">(nullable): the compressed URI</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="315">a `TrackerNamespaceManager`</doc>
+                 line="295">a `TrackerNamespaceManager`</doc>
             <type name="NamespaceManager" c:type="TrackerNamespaceManager*"/>
           </instance-parameter>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="316">a URI or compact URI</doc>
+                 line="296">a URI or compact URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1411,7 +1408,7 @@ compressed URI. Otherwise, %NULL will be returned.</doc>
               c:identifier="tracker_namespace_manager_expand_uri">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-namespace-manager.c"
-             line="269">If @compact_uri begins with one of the prefixes known to this
+             line="249">If @compact_uri begins with one of the prefixes known to this
 `TrackerNamespaceManager`, then the return value will be the
 expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
         <source-position filename="src/libtinysparql/tracker-namespace-manager.h"
@@ -1419,20 +1416,20 @@ expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-namespace-manager.c"
-               line="278">The possibly expanded URI in a newly-allocated string.</doc>
+               line="258">The possibly expanded URI in a newly-allocated string.</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="271">a `TrackerNamespaceManager`</doc>
+                 line="251">a `TrackerNamespaceManager`</doc>
             <type name="NamespaceManager" c:type="TrackerNamespaceManager*"/>
           </instance-parameter>
           <parameter name="compact_uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="272">a URI or compact URI</doc>
+                 line="252">a URI or compact URI</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1440,7 +1437,7 @@ expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
       <method name="foreach" c:identifier="tracker_namespace_manager_foreach">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-namespace-manager.c"
-             line="391">Calls @func for each known prefix / URI pair.</doc>
+             line="371">Calls @func for each known prefix / URI pair.</doc>
         <source-position filename="src/libtinysparql/tracker-namespace-manager.h"
                          line="59"/>
         <return-value transfer-ownership="none">
@@ -1450,7 +1447,7 @@ expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="393">a `TrackerNamespaceManager`</doc>
+                 line="373">a `TrackerNamespaceManager`</doc>
             <type name="NamespaceManager" c:type="TrackerNamespaceManager*"/>
           </instance-parameter>
           <parameter name="func"
@@ -1459,7 +1456,7 @@ expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
                      closure="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="394">the function to call for each prefix / URI pair</doc>
+                 line="374">the function to call for each prefix / URI pair</doc>
             <type name="GLib.HFunc" c:type="GHFunc"/>
           </parameter>
           <parameter name="user_data"
@@ -1468,7 +1465,7 @@ expanded URI. Otherwise, a copy of @compact_uri will be returned.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="395">user data to pass to the function</doc>
+                 line="375">user data to pass to the function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -1534,21 +1531,21 @@ is not known.</doc>
               c:identifier="tracker_namespace_manager_print_turtle">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-namespace-manager.c"
-             line="359">Writes out all namespaces as `@prefix` statements in
+             line="339">Writes out all namespaces as `@prefix` statements in
 the [Turtle](https://www.w3.org/TR/turtle/) RDF format.</doc>
         <source-position filename="src/libtinysparql/tracker-namespace-manager.h"
                          line="56"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-namespace-manager.c"
-               line="366">a newly-allocated string</doc>
+               line="346">a newly-allocated string</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-namespace-manager.c"
-                 line="361">a `TrackerNamespaceManager`</doc>
+                 line="341">a `TrackerNamespaceManager`</doc>
             <type name="NamespaceManager" c:type="TrackerNamespaceManager*"/>
           </instance-parameter>
         </parameters>
@@ -1609,7 +1606,7 @@ main context of the thread where the `TrackerNotifier` instance was created.</do
               c:identifier="tracker_notifier_signal_subscribe">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="844">Listens to notification events from a remote DBus SPARQL endpoint.
+             line="808">Listens to notification events from a remote DBus SPARQL endpoint.
 
 If @connection refers to a message bus (system/session), @service must refer
 to a D-Bus name (either unique or well-known). If @connection is a non-message
@@ -1630,20 +1627,20 @@ only to listen to update notifications from additional DBus endpoints.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-notifier.c"
-               line="869">An ID for this subscription</doc>
+               line="833">An ID for this subscription</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="notifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="846">A `TrackerNotifier`</doc>
+                 line="810">A `TrackerNotifier`</doc>
             <type name="Notifier" c:type="TrackerNotifier*"/>
           </instance-parameter>
           <parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="847">A [class@Gio.DBusConnection]</doc>
+                 line="811">A [class@Gio.DBusConnection]</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="service"
@@ -1652,7 +1649,7 @@ only to listen to update notifications from additional DBus endpoints.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="848">DBus service name to subscribe to events for, or %NULL</doc>
+                 line="812">DBus service name to subscribe to events for, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path"
@@ -1661,7 +1658,7 @@ only to listen to update notifications from additional DBus endpoints.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="849">DBus object path to subscribe to events for, or %NULL</doc>
+                 line="813">DBus object path to subscribe to events for, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="graph"
@@ -1670,7 +1667,7 @@ only to listen to update notifications from additional DBus endpoints.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="850">Graph to listen events for, or %NULL</doc>
+                 line="814">Graph to listen events for, or %NULL</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -1679,7 +1676,7 @@ only to listen to update notifications from additional DBus endpoints.</doc>
               c:identifier="tracker_notifier_signal_unsubscribe">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="934">Undoes a signal subscription done through [method@Notifier.signal_subscribe].
+             line="898">Undoes a signal subscription done through [method@Notifier.signal_subscribe].
 
 The @handler_id argument was previously obtained during signal subscription creation.</doc>
         <source-position filename="src/libtinysparql/tracker-notifier.h"
@@ -1691,13 +1688,13 @@ The @handler_id argument was previously obtained during signal subscription crea
           <instance-parameter name="notifier" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="936">A `TrackerNotifier`</doc>
+                 line="900">A `TrackerNotifier`</doc>
             <type name="Notifier" c:type="TrackerNotifier*"/>
           </instance-parameter>
           <parameter name="handler_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="937">A signal subscription handler ID</doc>
+                 line="901">A signal subscription handler ID</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1708,7 +1705,7 @@ The @handler_id argument was previously obtained during signal subscription crea
                 transfer-ownership="none">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="814">SPARQL connection to listen to.</doc>
+             line="778">SPARQL connection to listen to.</doc>
         <type name="SparqlConnection"/>
       </property>
       <field name="parent_instance">
@@ -1717,7 +1714,7 @@ The @handler_id argument was previously obtained during signal subscription crea
       <glib:signal name="events">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="795">Notifies of changes in the Tracker database.</doc>
+             line="759">Notifies of changes in the Tracker database.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1725,19 +1722,19 @@ The @handler_id argument was previously obtained during signal subscription crea
           <parameter name="service" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="798">The SPARQL service that originated the events, %NULL for the local store</doc>
+                 line="762">The SPARQL service that originated the events, %NULL for the local store</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="graph" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="799">The graph where the events happened on, %NULL for the default anonymous graph</doc>
+                 line="763">The graph where the events happened on, %NULL for the default anonymous graph</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="events" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="800">A [type@GLib.PtrArray] of [struct@NotifierEvent]</doc>
+                 line="764">A [type@GLib.PtrArray] of [struct@NotifierEvent]</doc>
             <array name="GLib.PtrArray">
               <type name="NotifierEvent"/>
             </array>
@@ -1769,20 +1766,20 @@ change event in the stored data.</doc>
               c:identifier="tracker_notifier_event_get_event_type">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="967">Returns the event type.</doc>
+             line="931">Returns the event type.</doc>
         <source-position filename="src/libtinysparql/tracker-notifier.h"
                          line="74"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-notifier.c"
-               line="973">The event type</doc>
+               line="937">The event type</doc>
           <type name="NotifierEventType" c:type="TrackerNotifierEventType"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="969">A `TrackerNotifierEvent`</doc>
+                 line="933">A `TrackerNotifierEvent`</doc>
             <type name="NotifierEvent" c:type="TrackerNotifierEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1790,21 +1787,21 @@ change event in the stored data.</doc>
       <method name="get_id" c:identifier="tracker_notifier_event_get_id">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="982">Returns the tracker:id of the element being notified upon. This is a #gint64
+             line="946">Returns the tracker:id of the element being notified upon. This is a #gint64
 which is used as efficient internal identifier for the resource.</doc>
         <source-position filename="src/libtinysparql/tracker-notifier.h"
                          line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-notifier.c"
-               line="989">the resource ID</doc>
+               line="953">the resource ID</doc>
           <type name="gint64" c:type="gint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="984">A `TrackerNotifierEvent`</doc>
+                 line="948">A `TrackerNotifierEvent`</doc>
             <type name="NotifierEvent" c:type="TrackerNotifierEvent*"/>
           </instance-parameter>
         </parameters>
@@ -1812,7 +1809,7 @@ which is used as efficient internal identifier for the resource.</doc>
       <method name="get_urn" c:identifier="tracker_notifier_event_get_urn">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-notifier.c"
-             line="998">Returns the Uniform Resource Name of the element. This is Tracker's
+             line="962">Returns the Uniform Resource Name of the element. This is Tracker's
 public identifier for the resource.
 
 This URN is an unique string identifier for the resource being
@@ -1822,14 +1819,14 @@ notified upon, typically of the form `urn:uuid:...`.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-notifier.c"
-               line="1008">The element URN</doc>
+               line="972">The element URN</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="event" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-notifier.c"
-                 line="1000">A `TrackerNotifierEvent`</doc>
+                 line="964">A `TrackerNotifierEvent`</doc>
             <type name="NotifierEvent" c:type="TrackerNotifierEvent*"/>
           </instance-parameter>
         </parameters>
@@ -3500,7 +3497,7 @@ blank node.</doc>
                  c:type="TrackerSerializeFlags">
       <doc xml:space="preserve"
            filename="src/libtinysparql/tracker-connection.h"
-           line="59">Flags affecting serialization into a RDF data format.</doc>
+           line="80">Flags affecting serialization into a RDF data format.</doc>
       <member name="none"
               value="0"
               c:identifier="TRACKER_SERIALIZE_FLAGS_NONE"
@@ -3508,7 +3505,7 @@ blank node.</doc>
               glib:name="TRACKER_SERIALIZE_FLAGS_NONE">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.h"
-             line="61">No flags.</doc>
+             line="82">No flags.</doc>
       </member>
     </enumeration>
     <class name="SparqlConnection"
@@ -3581,13 +3578,13 @@ If you ever have the need to procedurally compose SPARQL query strings, consider
 the use of [func@sparql_escape_string] for literal strings and
 the [func@sparql_escape_uri] family of functions for URIs.</doc>
       <source-position filename="src/libtinysparql/tracker-connection.h"
-                       line="83"/>
+                       line="104"/>
       <constructor name="bus_new"
                    c:identifier="tracker_sparql_connection_bus_new"
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1329">@service_name (nullable): The name of the D-Bus service to connect to, or %NULL if not using a message bus.
+             line="1442">@service_name (nullable): The name of the D-Bus service to connect to, or %NULL if not using a message bus.
 Connects to a database owned by another process on the
 local machine via DBus.
 
@@ -3604,11 +3601,11 @@ The D-Bus connection used to set up the connection may be given through
 the @dbus_connection argument. Using %NULL will resort to the default session
 bus.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="112"/>
+                         line="133"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1352">a new `TrackerSparqlConnection`.</doc>
+               line="1465">a new `TrackerSparqlConnection`.</doc>
           <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
         </return-value>
         <parameters>
@@ -3621,7 +3618,7 @@ bus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1332">The path to the object, or %NULL to use the default.</doc>
+                 line="1445">The path to the object, or %NULL to use the default.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dbus_connection"
@@ -3630,7 +3627,7 @@ bus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1333">The [type@Gio.DBusConnection] to use, or %NULL to use the session bus</doc>
+                 line="1446">The [type@Gio.DBusConnection] to use, or %NULL to use the session bus</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
         </parameters>
@@ -3641,20 +3638,20 @@ bus.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1431">Finishes the operation started with [func@SparqlConnection.bus_new_async].</doc>
+             line="1544">Finishes the operation started with [func@SparqlConnection.bus_new_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="124"/>
+                         line="145"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1438">a new `TrackerSparqlConnection`.</doc>
+               line="1551">a new `TrackerSparqlConnection`.</doc>
           <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
         </return-value>
         <parameters>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1433">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="1546">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3664,13 +3661,18 @@ bus.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1188">Creates or opens a process-local database.
+             line="1296">Creates or opens a process-local database.
 
 This method should only be used for databases owned by the current process.
 To connect to databases managed by other processes, use
 [ctor@SparqlConnection.bus_new].
 
-If @store is %NULL, the database will be created in memory.
+The @store argument determines where in the local filesystem the database
+will be stored. If @store is %NULL, the database will be created in memory.
+Traditionally, @store describes a directory where a file named `meta.db`
+contains the data. Starting with version 3.10, if the basename of @store
+contains a `.` extension separator, it will be considered as the database
+file itself.
 
 If defined, the @ontology argument must point to a location containing
 suitable `.ontology` files in Turtle format. These define the structure of
@@ -3692,7 +3694,7 @@ to migration.
 
 Operations on a [class@SparqlConnection] resulting on a
 `CORRUPT` [error@SparqlError] will have the event recorded
-persistently through a `.meta.corrupted` file alongside the database files.
+persistently through a `.$DB_BASENAME.corrupted` file alongside the database file.
 If the database is opened without the `READONLY` [flags@SparqlConnectionFlags]
 flag enabled and the file is found, this constructor will attempt to repair the
 database. In that situation, this constructor will either return a valid
@@ -3708,18 +3710,18 @@ possible, so the triple store structure is tied to the executable binary,
 and in order to minimize disk seeks during `TrackerSparqlConnection`
 initialization.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="95"/>
+                         line="116"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1240">a new `TrackerSparqlConnection`.</doc>
+               line="1353">a new `TrackerSparqlConnection`.</doc>
           <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
         </return-value>
         <parameters>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1190">Connection flags to define the SPARQL connection behavior</doc>
+                 line="1298">Connection flags to define the SPARQL connection behavior</doc>
             <type name="SparqlConnectionFlags"
                   c:type="TrackerSparqlConnectionFlags"/>
           </parameter>
@@ -3729,7 +3731,7 @@ initialization.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1191">The directory that contains the database as a [iface@Gio.File], or %NULL</doc>
+                 line="1299">The database location as a [iface@Gio.File], or %NULL</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="ontology"
@@ -3738,7 +3740,7 @@ initialization.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1192">The directory that contains the database schemas as a [iface@Gio.File], or %NULL</doc>
+                 line="1300">The directory that contains the database schemas as a [iface@Gio.File], or %NULL</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3747,7 +3749,7 @@ initialization.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1193">Optional [type@Gio.Cancellable]</doc>
+                 line="1301">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -3757,9 +3759,9 @@ initialization.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1310">Finishes the operation started with [func@SparqlConnection.new_async].</doc>
+             line="1423">Finishes the operation started with [func@SparqlConnection.new_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="108"/>
+                         line="129"/>
         <return-value transfer-ownership="full">
           <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
         </return-value>
@@ -3767,7 +3769,7 @@ initialization.</doc>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1312">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="1425">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3776,23 +3778,23 @@ initialization.</doc>
                    c:identifier="tracker_sparql_connection_remote_new">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1171">Creates a connection to a remote HTTP SPARQL endpoint.
+             line="1279">Creates a connection to a remote HTTP SPARQL endpoint.
 
 The connection is made using the libsoup HTTP library. The connection will
 normally use the `https://` or `http://` protocols.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="128"/>
+                         line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1180">a new remote `TrackerSparqlConnection`.</doc>
+               line="1288">a new remote `TrackerSparqlConnection`.</doc>
           <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
         </return-value>
         <parameters>
           <parameter name="uri_base" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1173">Base URI of the remote connection</doc>
+                 line="1281">Base URI of the remote connection</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3803,10 +3805,10 @@ normally use the `https://` or `http://` protocols.</doc>
                 glib:finish-func="bus_new_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1391">Connects asynchronously to a database owned by another process on the
+             line="1504">Connects asynchronously to a database owned by another process on the
 local machine via DBus.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="117"/>
+                         line="138"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3814,7 +3816,7 @@ local machine via DBus.</doc>
           <parameter name="service_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1393">The name of the D-Bus service to connect to.</doc>
+                 line="1506">The name of the D-Bus service to connect to.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="object_path"
@@ -3823,7 +3825,7 @@ local machine via DBus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1394">The path to the object, or %NULL to use the default.</doc>
+                 line="1507">The path to the object, or %NULL to use the default.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="dbus_connection"
@@ -3832,7 +3834,7 @@ local machine via DBus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1395">The [class@Gio.DBusConnection] to use, or %NULL to use the session bus</doc>
+                 line="1508">The [class@Gio.DBusConnection] to use, or %NULL to use the session bus</doc>
             <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3841,7 +3843,7 @@ local machine via DBus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1396">Optional [type@Gio.Cancellable]</doc>
+                 line="1509">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3852,7 +3854,7 @@ local machine via DBus.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1397">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="1510">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -3862,7 +3864,7 @@ local machine via DBus.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1399">User-defined data to be passed to @callback</doc>
+                 line="1512">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3872,11 +3874,11 @@ local machine via DBus.</doc>
                 glib:finish-func="new_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1274">Creates or opens a process-local database asynchronously.
+             line="1387">Creates or opens a process-local database asynchronously.
 
 See [ctor@SparqlConnection.new] for more information.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="101"/>
+                         line="122"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3884,7 +3886,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1276">Connection flags to define the SPARQL connection behavior</doc>
+                 line="1389">Connection flags to define the SPARQL connection behavior</doc>
             <type name="SparqlConnectionFlags"
                   c:type="TrackerSparqlConnectionFlags"/>
           </parameter>
@@ -3894,7 +3896,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1277">The directory that contains the database as a [iface@Gio.File], or %NULL</doc>
+                 line="1390">The database location as a [iface@Gio.File], or %NULL</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="ontology"
@@ -3903,7 +3905,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1278">The directory that contains the database schemas as a [iface@Gio.File], or %NULL</doc>
+                 line="1391">The directory that contains the database schemas as a [iface@Gio.File], or %NULL</doc>
             <type name="Gio.File" c:type="GFile*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3912,7 +3914,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1279">Optional [type@Gio.Cancellable]</doc>
+                 line="1392">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3923,7 +3925,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1280">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="1393">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -3933,7 +3935,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1282">User-defined data to be passed to @callback</doc>
+                 line="1395">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3941,7 +3943,7 @@ See [ctor@SparqlConnection.new] for more information.</doc>
       <method name="close" c:identifier="tracker_sparql_connection_close">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="800">Closes a SPARQL connection.
+             line="885">Closes a SPARQL connection.
 
 No other API calls than g_object_unref() should happen after this call.
 
@@ -3949,7 +3951,7 @@ This call is blocking. All pending updates will be flushed, and the
 store databases will be closed orderly. All ongoing SELECT queries
 will be cancelled. Notifiers will no longer emit events.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="228"/>
+                         line="249"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3957,7 +3959,7 @@ will be cancelled. Notifiers will no longer emit events.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="802">A `TrackerSparqlConnection`</doc>
+                 line="887">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
         </parameters>
@@ -3967,11 +3969,11 @@ will be cancelled. Notifiers will no longer emit events.</doc>
               glib:finish-func="close_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="820">Closes a SPARQL connection asynchronously.
+             line="910">Closes a SPARQL connection asynchronously.
 
 No other API calls than g_object_unref() should happen after this call.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="258"/>
+                         line="279"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3979,7 +3981,7 @@ No other API calls than g_object_unref() should happen after this call.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="822">A `TrackerSparqlConnection`</doc>
+                 line="912">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -3988,7 +3990,7 @@ No other API calls than g_object_unref() should happen after this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="823">Optional [type@Gio.Cancellable]</doc>
+                 line="913">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3999,7 +4001,7 @@ No other API calls than g_object_unref() should happen after this call.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="824">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="914">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4009,7 +4011,7 @@ No other API calls than g_object_unref() should happen after this call.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="826">User-defined data to be passed to @callback</doc>
+                 line="916">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4019,26 +4021,26 @@ No other API calls than g_object_unref() should happen after this call.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="846">Finishes the operation started with [method@SparqlConnection.close_async].</doc>
+             line="941">Finishes the operation started with [method@SparqlConnection.close_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="264"/>
+                         line="285"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="854">%FALSE if some error occurred, %TRUE otherwise</doc>
+               line="949">%FALSE if some error occurred, %TRUE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="848">A `TrackerSparqlConnection`</doc>
+                 line="943">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="849">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="944">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4047,22 +4049,22 @@ No other API calls than g_object_unref() should happen after this call.</doc>
               c:identifier="tracker_sparql_connection_create_batch">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="867">Creates a new [class@Batch] to store and execute SPARQL updates.
+             line="962">Creates a new [class@Batch] to store and execute SPARQL updates.
 
 If the connection is readonly or cannot issue SPARQL updates, %NULL will be returned.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="191"/>
+                         line="212"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="875">(nullable): A new [class@Batch]</doc>
+               line="970">(nullable): A new [class@Batch]</doc>
           <type name="Batch" c:type="TrackerBatch*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="869">a `TrackerSparqlConnection`</doc>
+                 line="964">a `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
         </parameters>
@@ -4071,25 +4073,25 @@ If the connection is readonly or cannot issue SPARQL updates, %NULL will be retu
               c:identifier="tracker_sparql_connection_create_notifier">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="776">Creates a new [class@Notifier] to receive notifications about changes in @connection.
+             line="861">Creates a new [class@Notifier] to receive notifications about changes in @connection.
 
 See [class@Notifier] documentation for information about how to use this
 object.
 
 Connections to HTTP endpoints will return %NULL.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="225"/>
+                         line="246"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="787">A newly created notifier.</doc>
+               line="872">A newly created notifier.</doc>
           <type name="Notifier" c:type="TrackerNotifier*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="778">A `TrackerSparqlConnection`</doc>
+                 line="863">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
         </parameters>
@@ -4100,7 +4102,7 @@ Connections to HTTP endpoints will return %NULL.</doc>
               glib:finish-func="deserialize_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1028">Loads the RDF data contained in @stream into the given @connection.
+             line="1131">Loads the RDF data contained in @stream into the given @connection.
 
 This is an asynchronous operation, @callback will be invoked when the
 data has been fully inserted to @connection.
@@ -4113,7 +4115,7 @@ be inserted in the specified graph instead of @default_graph.
 The @flags argument is reserved for future expansions, currently
 %TRACKER_DESERIALIZE_FLAGS_NONE must be passed.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="244"/>
+                         line="265"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4121,31 +4123,31 @@ The @flags argument is reserved for future expansions, currently
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1030">A `TrackerSparqlConnection`</doc>
+                 line="1133">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1031">Deserialization flags</doc>
+                 line="1134">Deserialization flags</doc>
             <type name="DeserializeFlags" c:type="TrackerDeserializeFlags"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1032">RDF format of data in stream</doc>
+                 line="1135">RDF format of data in stream</doc>
             <type name="RdfFormat" c:type="TrackerRdfFormat"/>
           </parameter>
           <parameter name="default_graph" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1033">Default graph that will receive the RDF data</doc>
+                 line="1136">Default graph that will receive the RDF data</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="stream" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1034">Input stream with RDF data</doc>
+                 line="1137">Input stream with RDF data</doc>
             <type name="Gio.InputStream" c:type="GInputStream*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4154,7 +4156,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1035">Optional [type@Gio.Cancellable]</doc>
+                 line="1138">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4165,7 +4167,7 @@ The @flags argument is reserved for future expansions, currently
                      closure="6">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1036">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="1139">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4175,7 +4177,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1038">User-defined data to be passed to @callback</doc>
+                 line="1141">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4186,26 +4188,26 @@ The @flags argument is reserved for future expansions, currently
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1091">Finishes the operation started with [method@SparqlConnection.deserialize_async].</doc>
+             line="1199">Finishes the operation started with [method@SparqlConnection.deserialize_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="253"/>
+                         line="274"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1099">%TRUE if all data was inserted successfully.</doc>
+               line="1207">%TRUE if all data was inserted successfully.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1093">A `TrackerSparqlConnection`</doc>
+                 line="1201">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1094">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="1202">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4214,21 +4216,21 @@ The @flags argument is reserved for future expansions, currently
               c:identifier="tracker_sparql_connection_get_namespace_manager">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="681">Returns a [class@NamespaceManager] that contains all
+             line="760">Returns a [class@NamespaceManager] that contains all
 prefixes in the ontology of @connection.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="210"/>
+                         line="231"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="688">a [class@NamespaceManager] with the prefixes of @connection.</doc>
+               line="767">a [class@NamespaceManager] with the prefixes of @connection.</doc>
           <type name="NamespaceManager" c:type="TrackerNamespaceManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="683">A `TrackerSparqlConnection`</doc>
+                 line="762">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
         </parameters>
@@ -4239,31 +4241,31 @@ prefixes in the ontology of @connection.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="888">Prepares a [class@SparqlStatement] for the SPARQL contained as a [struct@Gio.Resource]
+             line="983">Prepares a [class@SparqlStatement] for the SPARQL contained as a [struct@Gio.Resource]
 file at @resource_path.
 
 SPARQL Query files typically have the .rq extension. This will use
 [method@SparqlConnection.query_statement] or [method@SparqlConnection.update_statement]
 underneath to indistinctly return SPARQL query or update statements.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="269"/>
-        <return-value transfer-ownership="full" nullable="1">
+                         line="290"/>
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="902">A prepared statement</doc>
+               line="997">A prepared statement</doc>
           <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="890">A `TrackerSparqlConnection`</doc>
+                 line="985">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="891">The resource path of the file to parse.</doc>
+                 line="986">The resource path of the file to parse.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4272,7 +4274,7 @@ underneath to indistinctly return SPARQL query or update statements.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="892">Optional [type@Gio.Cancellable]</doc>
+                 line="987">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4282,7 +4284,7 @@ underneath to indistinctly return SPARQL query or update statements.</doc>
               version="3.3">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1120">Maps a `TrackerSparqlConnection` onto another through a `private:@handle_name` URI.
+             line="1228">Maps a `TrackerSparqlConnection` onto another through a `private:@handle_name` URI.
 
 This can be accessed via the SERVICE SPARQL syntax in
 queries from @connection. E.g.:
@@ -4308,7 +4310,7 @@ without creating a public endpoint for @service_connection.
 @connection may only be a `TrackerSparqlConnection` created via
 [ctor@SparqlConnection.new] and [func@SparqlConnection.new_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="275"/>
+                         line="296"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4316,19 +4318,19 @@ without creating a public endpoint for @service_connection.
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1122">A `TrackerSparqlConnection`</doc>
+                 line="1230">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="handle_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1123">Handle name for @service_connection</doc>
+                 line="1231">Handle name for @service_connection</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="service_connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1124">a `TrackerSparqlConnection` to use from @connection</doc>
+                 line="1232">a `TrackerSparqlConnection` to use from @connection</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </parameter>
         </parameters>
@@ -4339,7 +4341,7 @@ without creating a public endpoint for @service_connection.
               glib:async-func="query_async">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="143">Executes a SPARQL query on @connection.
+             line="185">Executes a SPARQL query on @connection.
 
 This method is synchronous and will block until the query
 is executed. See [method@SparqlConnection.query_async]
@@ -4352,24 +4354,24 @@ to use [class@SparqlStatement]. The function
 [func@sparql_escape_string] exists as a last resort,
 but its use is not recommended.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="131"/>
+                         line="152"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="163">a [class@SparqlCursor] with the results.</doc>
+               line="205">a [class@SparqlCursor] with the results.</doc>
           <type name="SparqlCursor" c:type="TrackerSparqlCursor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="145">A `TrackerSparqlConnection`</doc>
+                 line="187">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="146">String containing the SPARQL query</doc>
+                 line="188">String containing the SPARQL query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4378,7 +4380,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="147">Optional [type@Gio.Cancellable]</doc>
+                 line="189">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4389,7 +4391,7 @@ but its use is not recommended.</doc>
               glib:sync-func="query">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="188">Executes asynchronously a SPARQL query on @connection
+             line="233">Executes asynchronously a SPARQL query on @connection
 
 If the query is partially built from user input or other
 untrusted sources, special care is required about possible
@@ -4398,7 +4400,7 @@ to use [class@SparqlStatement]. The function
 [func@sparql_escape_string] exists as a last resort,
 but its use is not recommended.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="137"/>
+                         line="158"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4406,13 +4408,13 @@ but its use is not recommended.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="190">A `TrackerSparqlConnection`</doc>
+                 line="235">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="191">String containing the SPARQL query</doc>
+                 line="236">String containing the SPARQL query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4421,7 +4423,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="192">Optional [type@Gio.Cancellable]</doc>
+                 line="237">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4432,7 +4434,7 @@ but its use is not recommended.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="193">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="238">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4442,7 +4444,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="195">User-defined data to be passed to @callback</doc>
+                 line="240">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4452,26 +4454,26 @@ but its use is not recommended.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="224">Finishes the operation started with [method@SparqlConnection.query_async].</doc>
+             line="274">Finishes the operation started with [method@SparqlConnection.query_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="143"/>
+                         line="164"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="232">a [class@SparqlCursor] with the results.</doc>
+               line="282">a [class@SparqlCursor] with the results.</doc>
           <type name="SparqlCursor" c:type="TrackerSparqlCursor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="226">A `TrackerSparqlConnection`</doc>
+                 line="276">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="227">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="277">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4481,30 +4483,30 @@ but its use is not recommended.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="703">Prepares the given `SELECT`/`ASK`/`DESCRIBE`/`CONSTRUCT` SPARQL query as a
+             line="782">Prepares the given `SELECT`/`ASK`/`DESCRIBE`/`CONSTRUCT` SPARQL query as a
 [class@SparqlStatement].
 
 This prepared statement can be executed through [method@SparqlStatement.execute]
 or [method@SparqlStatement.serialize_async] families of functions.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="213"/>
-        <return-value transfer-ownership="full" nullable="1">
+                         line="234"/>
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="716">A prepared statement</doc>
+               line="795">A prepared statement</doc>
           <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="705">A `TrackerSparqlConnection`</doc>
+                 line="784">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="706">The SPARQL query</doc>
+                 line="785">The SPARQL query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4513,7 +4515,7 @@ or [method@SparqlStatement.serialize_async] families of functions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="707">Optional [type@Gio.Cancellable]</doc>
+                 line="786">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4524,7 +4526,7 @@ or [method@SparqlStatement.serialize_async] families of functions.</doc>
               glib:finish-func="serialize_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="953">Serializes a `DESCRIBE` or `CONSTRUCT` query into the specified RDF format.
+             line="1051">Serializes a `DESCRIBE` or `CONSTRUCT` query into the specified RDF format.
 
 This is an asynchronous operation, @callback will be invoked when
 the data is available for reading.
@@ -4535,7 +4537,7 @@ an error will be raised.
 The @flags argument is reserved for future expansions, currently
 %TRACKER_SERIALIZE_FLAGS_NONE must be passed.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="231"/>
+                         line="252"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4543,25 +4545,25 @@ The @flags argument is reserved for future expansions, currently
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="955">A `TrackerSparqlConnection`</doc>
+                 line="1053">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="956">Serialization flags</doc>
+                 line="1054">Serialization flags</doc>
             <type name="SerializeFlags" c:type="TrackerSerializeFlags"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="957">Output RDF format</doc>
+                 line="1055">Output RDF format</doc>
             <type name="RdfFormat" c:type="TrackerRdfFormat"/>
           </parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="958">SPARQL query</doc>
+                 line="1056">SPARQL query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4570,7 +4572,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="959">Optional [type@Gio.Cancellable]</doc>
+                 line="1057">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4581,7 +4583,7 @@ The @flags argument is reserved for future expansions, currently
                      closure="5">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="960">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="1058">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4591,7 +4593,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="962">User-defined data to be passed to @callback</doc>
+                 line="1060">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4602,26 +4604,26 @@ The @flags argument is reserved for future expansions, currently
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="1002">Finishes the operation started with [method@SparqlConnection.serialize_async].</doc>
+             line="1105">Finishes the operation started with [method@SparqlConnection.serialize_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="239"/>
+                         line="260"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="1010">A [class@Gio.InputStream] to read RDF content.</doc>
+               line="1113">A [class@Gio.InputStream] to read RDF content.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1004">A `TrackerSparqlConnection`</doc>
+                 line="1107">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="1005">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="1108">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4632,7 +4634,7 @@ The @flags argument is reserved for future expansions, currently
               glib:async-func="update_async">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="254">Executes a SPARQL update on @connection.
+             line="304">Executes a SPARQL update on @connection.
 
 This method is synchronous and will block until the update
 is finished. See [method@SparqlConnection.update_async]
@@ -4650,7 +4652,7 @@ input through [class@Resource]. The function
 [func@sparql_escape_string] exists as a last resort,
 but its use is not recommended.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="148"/>
+                         line="169"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4658,13 +4660,13 @@ but its use is not recommended.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="256">A `TrackerSparqlConnection`</doc>
+                 line="306">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="257">String containing the SPARQL update query</doc>
+                 line="307">String containing the SPARQL update query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4673,7 +4675,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="258">Optional [type@Gio.Cancellable]</doc>
+                 line="308">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4683,7 +4685,7 @@ but its use is not recommended.</doc>
               glib:finish-func="update_array_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="359">Executes asynchronously an array of SPARQL updates. All updates in the
+             line="417">Executes asynchronously an array of SPARQL updates. All updates in the
 array are handled within a single transaction.
 
 If the query is partially built from user input or other
@@ -4694,7 +4696,7 @@ input through [class@Resource]. The function
 [func@sparql_escape_string] exists as a last resort,
 but its use is not recommended.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="163"/>
+                         line="184"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4702,19 +4704,19 @@ but its use is not recommended.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="361">A `TrackerSparqlConnection`</doc>
+                 line="419">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="362">An array of strings containing the SPARQL update queries</doc>
+                 line="420">An array of strings containing the SPARQL update queries</doc>
             <type name="utf8" c:type="gchar**"/>
           </parameter>
           <parameter name="sparql_length" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="363">The amount of strings you pass as @sparql</doc>
+                 line="421">The amount of strings you pass as @sparql</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
           <parameter name="cancellable"
@@ -4723,7 +4725,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="364">Optional [type@Gio.Cancellable]</doc>
+                 line="422">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4734,7 +4736,7 @@ but its use is not recommended.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="365">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="423">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4744,7 +4746,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="367">User-defined data to be passed to @callback</doc>
+                 line="425">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4754,26 +4756,26 @@ but its use is not recommended.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="409">Finishes the operation started with [method@SparqlConnection.update_array_async].</doc>
+             line="472">Finishes the operation started with [method@SparqlConnection.update_array_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="170"/>
+                         line="191"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="417">#TRUE if there were no errors.</doc>
+               line="480">#TRUE if there were no errors.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="411">A `TrackerSparqlConnection`</doc>
+                 line="474">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="412">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="475">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -4784,7 +4786,7 @@ but its use is not recommended.</doc>
               glib:sync-func="update">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="296">Executes asynchronously a SPARQL update.
+             line="349">Executes asynchronously a SPARQL update.
 
 It is recommented to consider the usage of [class@Batch]
 to cluster database updates. Frequent isolated SPARQL updates
@@ -4798,7 +4800,7 @@ input through [class@Resource]. The function
 [func@sparql_escape_string] exists as a last resort,
 but its use is not recommended.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="153"/>
+                         line="174"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4806,13 +4808,13 @@ but its use is not recommended.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="298">A `TrackerSparqlConnection`</doc>
+                 line="351">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="299">String containing the SPARQL update query</doc>
+                 line="352">String containing the SPARQL update query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4821,7 +4823,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="300">Optional [type@Gio.Cancellable]</doc>
+                 line="353">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4832,7 +4834,7 @@ but its use is not recommended.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="301">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="354">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4842,7 +4844,7 @@ but its use is not recommended.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="303">User-defined data to be passed to @callback</doc>
+                 line="356">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4855,7 +4857,7 @@ but its use is not recommended.</doc>
               glib:async-func="update_blank_async">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="437">Executes a SPARQL update and returns the names of the generated blank nodes.
+             line="500">Executes a SPARQL update and returns the names of the generated blank nodes.
 
 This method is synchronous and will block until the update
 is finished. See [method@SparqlConnection.update_blank_async]
@@ -4881,24 +4883,24 @@ is defined in the connection.
 Users that want names generated for them, should look for other methods
 (e.g. IRIs containing UUIDv4 strings).</doc-deprecated>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="194"/>
+                         line="215"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="461">a [type@GLib.Variant] with the generated URNs.</doc>
+               line="524">a [type@GLib.Variant] with the generated URNs.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="439">A `TrackerSparqlConnection`</doc>
+                 line="502">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="440">String containing the SPARQL update query</doc>
+                 line="503">String containing the SPARQL update query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4907,7 +4909,7 @@ Users that want names generated for them, should look for other methods
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="441">Optional [type@Gio.Cancellable]</doc>
+                 line="504">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -4920,13 +4922,13 @@ Users that want names generated for them, should look for other methods
               glib:sync-func="update_blank">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="490">Executes asynchronously a SPARQL update and returns the names of the generated blank nodes.
+             line="556">Executes asynchronously a SPARQL update and returns the names of the generated blank nodes.
 
 See the [method@SparqlConnection.update_blank] documentation to
 learn the differences with [method@SparqlConnection.update].</doc>
         <doc-deprecated xml:space="preserve">See [method@SparqlConnection.update_blank].</doc-deprecated>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="199"/>
+                         line="220"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -4934,13 +4936,13 @@ learn the differences with [method@SparqlConnection.update].</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="492">A `TrackerSparqlConnection`</doc>
+                 line="558">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="493">String containing the SPARQL update query</doc>
+                 line="559">String containing the SPARQL update query</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -4949,7 +4951,7 @@ learn the differences with [method@SparqlConnection.update].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="494">Optional [type@Gio.Cancellable]</doc>
+                 line="560">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -4960,7 +4962,7 @@ learn the differences with [method@SparqlConnection.update].</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="495">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="561">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -4970,7 +4972,7 @@ learn the differences with [method@SparqlConnection.update].</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="497">User-defined data to be passed to @callback</doc>
+                 line="563">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -4982,31 +4984,31 @@ learn the differences with [method@SparqlConnection.update].</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="525">Finishes the operation started with [method@SparqlConnection.update_blank_async].
+             line="596">Finishes the operation started with [method@SparqlConnection.update_blank_async].
 
 This method returns the URNs of the generated nodes, if any. See the
 [method@SparqlConnection.update_blank] documentation for the interpretation
 of the returned [type@GLib.Variant].</doc>
         <doc-deprecated xml:space="preserve">See [method@SparqlConnection.update_blank].</doc-deprecated>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="205"/>
+                         line="226"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="537">a [type@GLib.Variant] with the generated URNs.</doc>
+               line="608">a [type@GLib.Variant] with the generated URNs.</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="527">A `TrackerSparqlConnection`</doc>
+                 line="598">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="528">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="599">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5016,9 +5018,9 @@ of the returned [type@GLib.Variant].</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="337">Finishes the operation started with [method@SparqlConnection.update_async].</doc>
+             line="395">Finishes the operation started with [method@SparqlConnection.update_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="159"/>
+                         line="180"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5026,13 +5028,13 @@ of the returned [type@GLib.Variant].</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="339">A `TrackerSparqlConnection`</doc>
+                 line="397">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="340">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="398">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5044,7 +5046,7 @@ of the returned [type@GLib.Variant].</doc>
               glib:async-func="update_resource_async">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="555">Inserts a resource as described by @resource on the given @graph.
+             line="626">Inserts a resource as described by @resource on the given @graph.
 
 This method is synchronous and will block until the update
 is finished. See [method@SparqlConnection.update_resource_async]
@@ -5054,18 +5056,18 @@ It is recommented to consider the usage of [class@Batch]
 to cluster database updates. Frequent isolated SPARQL updates
 through this method will have a degraded performance in comparison.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="174"/>
+                         line="195"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="573">#TRUE if there were no errors.</doc>
+               line="644">#TRUE if there were no errors.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="557">A `TrackerSparqlConnection`</doc>
+                 line="628">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="graph"
@@ -5074,13 +5076,13 @@ through this method will have a degraded performance in comparison.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="558">RDF graph where the resource should be inserted/updated, or %NULL for the default graph</doc>
+                 line="629">RDF graph where the resource should be inserted/updated, or %NULL for the default graph</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="559">A [class@Resource]</doc>
+                 line="630">A [class@Resource]</doc>
             <type name="Resource" c:type="TrackerResource*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5089,7 +5091,7 @@ through this method will have a degraded performance in comparison.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="560">Optional [type@Gio.Cancellable]</doc>
+                 line="631">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5101,13 +5103,13 @@ through this method will have a degraded performance in comparison.</doc>
               glib:sync-func="update_resource">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="604">Inserts asynchronously a resource as described by @resource on the given @graph.
+             line="678">Inserts asynchronously a resource as described by @resource on the given @graph.
 
 It is recommented to consider the usage of [class@Batch]
 to cluster database updates. Frequent isolated SPARQL updates
 through this method will have a degraded performance in comparison.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="180"/>
+                         line="201"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -5115,7 +5117,7 @@ through this method will have a degraded performance in comparison.</doc>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="606">A `TrackerSparqlConnection`</doc>
+                 line="680">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="graph"
@@ -5124,13 +5126,13 @@ through this method will have a degraded performance in comparison.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="607">RDF graph where the resource should be inserted/updated, or %NULL for the default graph</doc>
+                 line="681">RDF graph where the resource should be inserted/updated, or %NULL for the default graph</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="resource" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="608">A [class@Resource]</doc>
+                 line="682">A [class@Resource]</doc>
             <type name="Resource" c:type="TrackerResource*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5139,7 +5141,7 @@ through this method will have a degraded performance in comparison.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="609">Optional [type@Gio.Cancellable]</doc>
+                 line="683">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -5150,7 +5152,7 @@ through this method will have a degraded performance in comparison.</doc>
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="610">User-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="684">User-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -5160,7 +5162,7 @@ through this method will have a degraded performance in comparison.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="612">User-defined data to be passed to @callback</doc>
+                 line="686">User-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -5171,26 +5173,26 @@ through this method will have a degraded performance in comparison.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="652">Finishes the operation started with [method@SparqlConnection.update_resource_async].</doc>
+             line="731">Finishes the operation started with [method@SparqlConnection.update_resource_async].</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="187"/>
+                         line="208"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="660">#TRUE if there were no errors.</doc>
+               line="739">#TRUE if there were no errors.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="654">A `TrackerSparqlConnection`</doc>
+                 line="733">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="655">A [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="734">A [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -5201,29 +5203,29 @@ through this method will have a degraded performance in comparison.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-connection.c"
-             line="735">Prepares the given `INSERT`/`DELETE` SPARQL as a [class@SparqlStatement].
+             line="817">Prepares the given `INSERT`/`DELETE` SPARQL as a [class@SparqlStatement].
 
 This prepared statement can be executed through
 the [method@SparqlStatement.update] family of functions.</doc>
         <source-position filename="src/libtinysparql/tracker-connection.h"
-                         line="219"/>
-        <return-value transfer-ownership="full" nullable="1">
+                         line="240"/>
+        <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-connection.c"
-               line="747">A prepared statement</doc>
+               line="829">A prepared statement</doc>
           <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
         </return-value>
         <parameters>
           <instance-parameter name="connection" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="737">A `TrackerSparqlConnection`</doc>
+                 line="819">A `TrackerSparqlConnection`</doc>
             <type name="SparqlConnection" c:type="TrackerSparqlConnection*"/>
           </instance-parameter>
           <parameter name="sparql" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="738">The SPARQL update</doc>
+                 line="820">The SPARQL update</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="cancellable"
@@ -5232,7 +5234,7 @@ the [method@SparqlStatement.update] family of functions.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-connection.c"
-                 line="739">Optional [type@Gio.Cancellable]</doc>
+                 line="821">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -5247,7 +5249,7 @@ the [method@SparqlStatement.update] family of functions.</doc>
             opaque="1"
             glib:is-gtype-struct-for="SparqlConnection">
       <source-position filename="src/libtinysparql/tracker-connection.h"
-                       line="83"/>
+                       line="104"/>
     </record>
     <bitfield name="SparqlConnectionFlags"
               glib:type-name="TrackerSparqlConnectionFlags"
@@ -5319,6 +5321,29 @@ the [method@SparqlStatement.update] family of functions.</doc>
              filename="src/libtinysparql/tracker-connection.h"
              line="44">Treat blank nodes as specified in
   SPARQL 1.1 syntax. Namely, they cannot be used as URIs. This flag is available since Tracker 3.3.</doc>
+      </member>
+      <member name="disable_syntax_extensions"
+              value="64"
+              c:identifier="TRACKER_SPARQL_CONNECTION_FLAGS_DISABLE_SYNTAX_EXTENSIONS"
+              version="3.11"
+              glib:nick="disable-syntax-extensions"
+              glib:name="TRACKER_SPARQL_CONNECTION_FLAGS_DISABLE_SYNTAX_EXTENSIONS">
+        <doc xml:space="preserve"
+             filename="src/libtinysparql/tracker-connection.h"
+             line="49">Disables no longer recommended [legacy syntax extensions to the SPARQL 1.1
+specifications](sparql-and-tracker.md#legacy-syntax-extensions).</doc>
+      </member>
+      <member name="sparql_strict"
+              value="96"
+              c:identifier="TRACKER_SPARQL_CONNECTION_FLAGS_SPARQL_STRICT"
+              version="3.11"
+              glib:nick="sparql-strict"
+              glib:name="TRACKER_SPARQL_CONNECTION_FLAGS_SPARQL_STRICT">
+        <doc xml:space="preserve"
+             filename="src/libtinysparql/tracker-connection.h"
+             line="57">Enables all behavior that provides most adherence to SPARQL 1.1 standards.
+Currently this is equivalent to `ANONYMOUS_BNODES | DISABLE_SYNTAX_EXTENSIONS`.
+More flags may be added in the future.</doc>
       </member>
     </bitfield>
     <class name="SparqlCursor"
@@ -6346,7 +6371,7 @@ will be represented as a [`rdf:langString`](rdf-ontology.html#rdf:langString).</
               c:identifier="tracker_sparql_statement_clear_bindings">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="559">Clears all bindings.</doc>
+             line="584">Clears all bindings.</doc>
         <source-position filename="src/libtinysparql/tracker-statement.h"
                          line="107"/>
         <return-value transfer-ownership="none">
@@ -6356,7 +6381,7 @@ will be represented as a [`rdf:langString`](rdf-ontology.html#rdf:langString).</
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="561">a `TrackerSparqlStatement`</doc>
+                 line="586">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
         </parameters>
@@ -6411,7 +6436,7 @@ SPARQL query.</doc>
               glib:sync-func="execute">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="395">Executes asynchronously the `SELECT` or `ASK` SPARQL query with the currently bound values.
+             line="398">Executes asynchronously the `SELECT` or `ASK` SPARQL query with the currently bound values.
 
 This function also works for `DESCRIBE` and `CONSTRUCT` queries that
 retrieve data from the triple store. These query forms that return
@@ -6432,7 +6457,7 @@ SPARQL query.</doc>
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="397">a `TrackerSparqlStatement`</doc>
+                 line="400">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -6441,7 +6466,7 @@ SPARQL query.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="398">Optional [type@Gio.Cancellable]</doc>
+                 line="401">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -6452,7 +6477,7 @@ SPARQL query.</doc>
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="399">user-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="402">user-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -6462,7 +6487,7 @@ SPARQL query.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="401">user-defined data to be passed to @callback</doc>
+                 line="404">user-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6472,27 +6497,27 @@ SPARQL query.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="431">Finishes the asynchronous operation started through
+             line="442">Finishes the asynchronous operation started through
 [method@SparqlStatement.execute_async].</doc>
         <source-position filename="src/libtinysparql/tracker-statement.h"
                          line="89"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-statement.c"
-               line="440">A `TrackerSparqlCursor` with the query results.</doc>
+               line="451">A `TrackerSparqlCursor` with the query results.</doc>
           <type name="SparqlCursor" c:type="TrackerSparqlCursor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="433">a `TrackerSparqlStatement`</doc>
+                 line="444">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="res" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="434">a [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="445">a [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -6549,7 +6574,7 @@ SPARQL query.</doc>
               glib:finish-func="serialize_finish">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="573">Serializes a `DESCRIBE` or `CONSTRUCT` query into the given RDF @format.
+             line="598">Serializes a `DESCRIBE` or `CONSTRUCT` query into the given RDF @format.
 
 The query @stmt was created from must be either a `DESCRIBE` or `CONSTRUCT`
 query, an error will be raised otherwise.
@@ -6571,19 +6596,19 @@ The @flags argument is reserved for future expansions, currently
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="575">a `TrackerSparqlStatement`</doc>
+                 line="600">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="576">serialization flags</doc>
+                 line="601">serialization flags</doc>
             <type name="SerializeFlags" c:type="TrackerSerializeFlags"/>
           </parameter>
           <parameter name="format" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="577">RDF format of the serialized data</doc>
+                 line="602">RDF format of the serialized data</doc>
             <type name="RdfFormat" c:type="TrackerRdfFormat"/>
           </parameter>
           <parameter name="cancellable"
@@ -6592,7 +6617,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="578">Optional [type@Gio.Cancellable]</doc>
+                 line="603">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -6603,7 +6628,7 @@ The @flags argument is reserved for future expansions, currently
                      closure="4">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="579">user-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="604">user-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -6613,7 +6638,7 @@ The @flags argument is reserved for future expansions, currently
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="581">user-defined data to be passed to @callback</doc>
+                 line="606">user-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6624,27 +6649,27 @@ The @flags argument is reserved for future expansions, currently
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="620">Finishes the asynchronous operation started through
+             line="653">Finishes the asynchronous operation started through
 [method@SparqlStatement.serialize_async].</doc>
         <source-position filename="src/libtinysparql/tracker-statement.h"
                          line="102"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-statement.c"
-               line="629">a [class@Gio.InputStream] to read RDF content.</doc>
+               line="662">a [class@Gio.InputStream] to read RDF content.</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="622">a `TrackerSparqlStatement`</doc>
+                 line="655">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="623">a [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="656">a [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -6656,7 +6681,7 @@ The @flags argument is reserved for future expansions, currently
               glib:async-func="update_async">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="464">Executes the `INSERT`/`DELETE` SPARQL query series with the currently bound values.
+             line="475">Executes the `INSERT`/`DELETE` SPARQL query series with the currently bound values.
 
 This function should only be called on `TrackerSparqlStatement` objects
 obtained through [method@SparqlConnection.update_statement] or
@@ -6669,14 +6694,14 @@ An error will be raised if this method is called on
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-statement.c"
-               line="479">%TRUE if the update finished with no errors, %FALSE otherwise</doc>
+               line="490">%TRUE if the update finished with no errors, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="466">a `TrackerSparqlStatement`</doc>
+                 line="477">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -6685,7 +6710,7 @@ An error will be raised if this method is called on
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="467">Optional [type@Gio.Cancellable]</doc>
+                 line="478">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
@@ -6697,7 +6722,7 @@ An error will be raised if this method is called on
               glib:sync-func="update">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="497">Executes asynchronously the `INSERT`/`DELETE` SPARQL query series with the currently bound values.
+             line="514">Executes asynchronously the `INSERT`/`DELETE` SPARQL query series with the currently bound values.
 
 This function should only be called on `TrackerSparqlStatement` objects
 obtained through [method@SparqlConnection.update_statement] or
@@ -6714,7 +6739,7 @@ An error will be raised if this method is called on
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="499">a `TrackerSparqlStatement`</doc>
+                 line="516">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="cancellable"
@@ -6723,7 +6748,7 @@ An error will be raised if this method is called on
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="500">Optional [type@Gio.Cancellable]</doc>
+                 line="517">Optional [type@Gio.Cancellable]</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -6734,7 +6759,7 @@ An error will be raised if this method is called on
                      closure="2">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="501">user-defined [type@Gio.AsyncReadyCallback] to be called when
+                 line="518">user-defined [type@Gio.AsyncReadyCallback] to be called when
            the asynchronous operation is finished.</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
@@ -6744,7 +6769,7 @@ An error will be raised if this method is called on
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="503">user-defined data to be passed to @callback</doc>
+                 line="520">user-defined data to be passed to @callback</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -6755,27 +6780,27 @@ An error will be raised if this method is called on
               throws="1">
         <doc xml:space="preserve"
              filename="src/libtinysparql/tracker-statement.c"
-             line="531">Finishes the asynchronous update started through
+             line="556">Finishes the asynchronous update started through
 [method@SparqlStatement.update_async].</doc>
         <source-position filename="src/libtinysparql/tracker-statement.h"
                          line="121"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/libtinysparql/tracker-statement.c"
-               line="540">%TRUE if the update finished with no errors, %FALSE otherwise</doc>
+               line="565">%TRUE if the update finished with no errors, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="stmt" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="533">a `TrackerSparqlStatement`</doc>
+                 line="558">a `TrackerSparqlStatement`</doc>
             <type name="SparqlStatement" c:type="TrackerSparqlStatement*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/libtinysparql/tracker-statement.c"
-                 line="534">a [type@Gio.AsyncResult] with the result of the operation</doc>
+                 line="559">a [type@Gio.AsyncResult] with the result of the operation</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>

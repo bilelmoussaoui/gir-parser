@@ -1,0 +1,1107 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:doc="http://www.gtk.org/introspection/doc/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GObject" version="2.0"/>
+  <include name="GUdev" version="1.0"/>
+  <include name="Gio" version="2.0"/>
+  <package name="manette-1"/>
+  <c:include name="libmanette.h"/>
+  <doc:format name="gi-docgen"/>
+  <namespace name="Manette"
+             version="1"
+             shared-library="libmanette-1.so.0"
+             c:identifier-prefixes="Manette"
+             c:symbol-prefixes="manette">
+    <enumeration name="Axis"
+                 glib:type-name="ManetteAxis"
+                 glib:get-type="manette_axis_get_type"
+                 c:type="ManetteAxis">
+      <doc xml:space="preserve"
+           filename="src/manette-inputs.c"
+           line="66">Describes available axes a [class@Device] can have.
+
+More values may be added to this enumeration over time.</doc>
+      <member name="left_x"
+              value="0"
+              c:identifier="MANETTE_AXIS_LEFT_X"
+              glib:nick="left-x"
+              glib:name="MANETTE_AXIS_LEFT_X">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="68">Left analog stick, horizontal axis</doc>
+      </member>
+      <member name="left_y"
+              value="1"
+              c:identifier="MANETTE_AXIS_LEFT_Y"
+              glib:nick="left-y"
+              glib:name="MANETTE_AXIS_LEFT_Y">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="69">Left analog stick, vertical axis</doc>
+      </member>
+      <member name="right_x"
+              value="2"
+              c:identifier="MANETTE_AXIS_RIGHT_X"
+              glib:nick="right-x"
+              glib:name="MANETTE_AXIS_RIGHT_X">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="70">Right analog stick, horizontal axis</doc>
+      </member>
+      <member name="right_y"
+              value="3"
+              c:identifier="MANETTE_AXIS_RIGHT_Y"
+              glib:nick="right-y"
+              glib:name="MANETTE_AXIS_RIGHT_Y">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="71">Right analog stick, vertical axis</doc>
+      </member>
+      <member name="left_trigger"
+              value="4"
+              c:identifier="MANETTE_AXIS_LEFT_TRIGGER"
+              glib:nick="left-trigger"
+              glib:name="MANETTE_AXIS_LEFT_TRIGGER">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="72">Left trigger (L2, LT or ZL)</doc>
+      </member>
+      <member name="right_trigger"
+              value="5"
+              c:identifier="MANETTE_AXIS_RIGHT_TRIGGER"
+              glib:nick="right-trigger"
+              glib:name="MANETTE_AXIS_RIGHT_TRIGGER">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="73">Right trigger (R2, RT or ZR)</doc>
+      </member>
+    </enumeration>
+    <enumeration name="Button"
+                 glib:type-name="ManetteButton"
+                 glib:get-type="manette_button_get_type"
+                 c:type="ManetteButton">
+      <doc xml:space="preserve"
+           filename="src/manette-inputs.c"
+           line="23">Describes available buttons a [class@Device] can have.
+
+More values may be added to this enumeration over time.</doc>
+      <member name="dpad_up"
+              value="0"
+              c:identifier="MANETTE_BUTTON_DPAD_UP"
+              glib:nick="dpad-up"
+              glib:name="MANETTE_BUTTON_DPAD_UP">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="25">D-pad (up)</doc>
+      </member>
+      <member name="dpad_down"
+              value="1"
+              c:identifier="MANETTE_BUTTON_DPAD_DOWN"
+              glib:nick="dpad-down"
+              glib:name="MANETTE_BUTTON_DPAD_DOWN">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="26">D-pad (down)</doc>
+      </member>
+      <member name="dpad_left"
+              value="2"
+              c:identifier="MANETTE_BUTTON_DPAD_LEFT"
+              glib:nick="dpad-left"
+              glib:name="MANETTE_BUTTON_DPAD_LEFT">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="27">D-pad (left)</doc>
+      </member>
+      <member name="dpad_right"
+              value="3"
+              c:identifier="MANETTE_BUTTON_DPAD_RIGHT"
+              glib:nick="dpad-right"
+              glib:name="MANETTE_BUTTON_DPAD_RIGHT">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="28">D-pad (right)</doc>
+      </member>
+      <member name="north"
+              value="4"
+              c:identifier="MANETTE_BUTTON_NORTH"
+              glib:nick="north"
+              glib:name="MANETTE_BUTTON_NORTH">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="29">Top face button
+    (XBox Y, Nintendo X, PlayStation triangle)</doc>
+      </member>
+      <member name="south"
+              value="5"
+              c:identifier="MANETTE_BUTTON_SOUTH"
+              glib:nick="south"
+              glib:name="MANETTE_BUTTON_SOUTH">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="31">Bottom face button
+    (XBox A, Nintendo B, PlayStation X)</doc>
+      </member>
+      <member name="west"
+              value="6"
+              c:identifier="MANETTE_BUTTON_WEST"
+              glib:nick="west"
+              glib:name="MANETTE_BUTTON_WEST">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="33">Left face button
+    (XBox X, Nintendo Y, PlayStation square)</doc>
+      </member>
+      <member name="east"
+              value="7"
+              c:identifier="MANETTE_BUTTON_EAST"
+              glib:nick="east"
+              glib:name="MANETTE_BUTTON_EAST">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="35">Right face button
+    (XBox B, Nintendo A, PlayStation circle)</doc>
+      </member>
+      <member name="select"
+              value="8"
+              c:identifier="MANETTE_BUTTON_SELECT"
+              glib:nick="select"
+              glib:name="MANETTE_BUTTON_SELECT">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="37">Left menu button</doc>
+      </member>
+      <member name="start"
+              value="9"
+              c:identifier="MANETTE_BUTTON_START"
+              glib:nick="start"
+              glib:name="MANETTE_BUTTON_START">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="38">Right menu button</doc>
+      </member>
+      <member name="mode"
+              value="10"
+              c:identifier="MANETTE_BUTTON_MODE"
+              glib:nick="mode"
+              glib:name="MANETTE_BUTTON_MODE">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="39">Center menu button (Home, Guide, Steam etc)</doc>
+      </member>
+      <member name="left_shoulder"
+              value="11"
+              c:identifier="MANETTE_BUTTON_LEFT_SHOULDER"
+              glib:nick="left-shoulder"
+              glib:name="MANETTE_BUTTON_LEFT_SHOULDER">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="40">Left shoulder button (L, L1 or LB)</doc>
+      </member>
+      <member name="right_shoulder"
+              value="12"
+              c:identifier="MANETTE_BUTTON_RIGHT_SHOULDER"
+              glib:nick="right-shoulder"
+              glib:name="MANETTE_BUTTON_RIGHT_SHOULDER">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="41">Right shoulder button (R, R1 or RB)</doc>
+      </member>
+      <member name="left_stick"
+              value="13"
+              c:identifier="MANETTE_BUTTON_LEFT_STICK"
+              glib:nick="left-stick"
+              glib:name="MANETTE_BUTTON_LEFT_STICK">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="42">Left stick</doc>
+      </member>
+      <member name="right_stick"
+              value="14"
+              c:identifier="MANETTE_BUTTON_RIGHT_STICK"
+              glib:nick="right-stick"
+              glib:name="MANETTE_BUTTON_RIGHT_STICK">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="43">Right stick</doc>
+      </member>
+      <member name="left_paddle1"
+              value="15"
+              c:identifier="MANETTE_BUTTON_LEFT_PADDLE1"
+              glib:nick="left-paddle1"
+              glib:name="MANETTE_BUTTON_LEFT_PADDLE1">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="44">Upper left paddle
+    (Steam Deck L4 or XBox Elite P3)</doc>
+      </member>
+      <member name="left_paddle2"
+              value="16"
+              c:identifier="MANETTE_BUTTON_LEFT_PADDLE2"
+              glib:nick="left-paddle2"
+              glib:name="MANETTE_BUTTON_LEFT_PADDLE2">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="46">Lower left paddle
+    (Steam Deck L5 or XBox Elite P4)</doc>
+      </member>
+      <member name="right_paddle1"
+              value="17"
+              c:identifier="MANETTE_BUTTON_RIGHT_PADDLE1"
+              glib:nick="right-paddle1"
+              glib:name="MANETTE_BUTTON_RIGHT_PADDLE1">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="48">Upper right paddle
+    (Steam Deck R4 or XBox Elite P1)</doc>
+      </member>
+      <member name="right_paddle2"
+              value="18"
+              c:identifier="MANETTE_BUTTON_RIGHT_PADDLE2"
+              glib:nick="right-paddle2"
+              glib:name="MANETTE_BUTTON_RIGHT_PADDLE2">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="50">Lower right paddle
+    (Steam Deck R5 or XBox Elite P2)</doc>
+      </member>
+      <member name="misc1"
+              value="19"
+              c:identifier="MANETTE_BUTTON_MISC1"
+              glib:nick="misc1"
+              glib:name="MANETTE_BUTTON_MISC1">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="52">Additional button
+    (Steam Deck QAM button, Xbox Series X share button etc)</doc>
+      </member>
+      <member name="misc2"
+              value="20"
+              c:identifier="MANETTE_BUTTON_MISC2"
+              glib:nick="misc2"
+              glib:name="MANETTE_BUTTON_MISC2">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="54">Additional button</doc>
+      </member>
+      <member name="misc3"
+              value="21"
+              c:identifier="MANETTE_BUTTON_MISC3"
+              glib:nick="misc3"
+              glib:name="MANETTE_BUTTON_MISC3">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="55">Additional button</doc>
+      </member>
+      <member name="misc4"
+              value="22"
+              c:identifier="MANETTE_BUTTON_MISC4"
+              glib:nick="misc4"
+              glib:name="MANETTE_BUTTON_MISC4">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="56">Additional button</doc>
+      </member>
+      <member name="misc5"
+              value="23"
+              c:identifier="MANETTE_BUTTON_MISC5"
+              glib:nick="misc5"
+              glib:name="MANETTE_BUTTON_MISC5">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="57">Additional button</doc>
+      </member>
+      <member name="misc6"
+              value="24"
+              c:identifier="MANETTE_BUTTON_MISC6"
+              glib:nick="misc6"
+              glib:name="MANETTE_BUTTON_MISC6">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="58">Additional button</doc>
+      </member>
+      <member name="touchpad"
+              value="25"
+              c:identifier="MANETTE_BUTTON_TOUCHPAD"
+              glib:nick="touchpad"
+              glib:name="MANETTE_BUTTON_TOUCHPAD">
+        <doc xml:space="preserve"
+             filename="src/manette-inputs.c"
+             line="59">PS4/PS5 touchpad button</doc>
+      </member>
+    </enumeration>
+    <function-macro name="CHECK_VERSION"
+                    c:identifier="MANETTE_CHECK_VERSION"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="77">Compile-time version checking. Evaluates to `TRUE` if the version
+of libmanette is greater than the required one.</doc>
+      <source-position filename="src/manette-version.h" line="85"/>
+      <parameters>
+        <parameter name="major">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="79">required major version</doc>
+        </parameter>
+        <parameter name="minor">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="80">required minor version</doc>
+        </parameter>
+        <parameter name="micro">
+          <doc xml:space="preserve"
+               filename="src/manette-version.h"
+               line="81">required micro version</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Device"
+           c:symbol-prefix="device"
+           c:type="ManetteDevice"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="ManetteDevice"
+           glib:get-type="manette_device_get_type"
+           glib:type-struct="DeviceClass">
+      <doc xml:space="preserve"
+           filename="src/manette-device.c"
+           line="32">An object representing a physical gamepad.
+
+See also: [class@Monitor].</doc>
+      <source-position filename="src/manette-device.h" line="37"/>
+      <method name="get_current_event_time"
+              c:identifier="manette_device_get_current_event_time">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="515">Gets the timestamp of when the current event was emitted on @self.
+
+Use this timestamp to ensure external factors such as synchronous disk writes
+don't influence your timing computations.</doc>
+        <source-position filename="src/manette-device.h" line="62"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="524">the timestamp of when the current event was emitted</doc>
+          <type name="guint64" c:type="guint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="517">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_device_type"
+              c:identifier="manette_device_get_device_type">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="499">Gets the device type of @self.</doc>
+        <source-position filename="src/manette-device.h" line="59"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="505">the device type</doc>
+          <type name="DeviceType" c:type="ManetteDeviceType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="501">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_guid" c:identifier="manette_device_get_guid">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="330">Gets the identifier used by SDL mappings to discriminate game controller
+devices.</doc>
+        <source-position filename="src/manette-device.h" line="56"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="337">the identifier used by SDL mappings</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="332">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_mapping" c:identifier="manette_device_get_mapping">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="568">Gets the user mapping for @self, or default mapping if there isn't any.
+
+Can return `NULL` if there's no mapping or @self doesn't support mappings.</doc>
+        <source-position filename="src/manette-device.h" line="68"/>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="576">the mapping for @self</doc>
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="570">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="manette_device_get_name">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="409">Gets the device's name.</doc>
+        <source-position filename="src/manette-device.h" line="53"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="415">the name of @self</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="411">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_axis" c:identifier="manette_device_has_axis">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="368">Gets whether the device has @axis.</doc>
+        <source-position filename="src/manette-device.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="375">whether the device has @axis</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="370">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+          <parameter name="axis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="371">an axis</doc>
+            <type name="Axis" c:type="ManetteAxis"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_button" c:identifier="manette_device_has_button">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="350">Gets whether the device has @button.</doc>
+        <source-position filename="src/manette-device.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="357">whether the device has @button</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="352">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="353">a button</doc>
+            <type name="Button" c:type="ManetteButton"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_input" c:identifier="manette_device_has_input">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="386">Gets whether the device has the given input.
+
+If the input is present, it means that the device can send events for it
+regardless of whether the device is mapped or not.</doc>
+        <source-position filename="src/manette-device.h" line="48"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="397">whether the device has the given input</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="388">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+          <parameter name="type" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="389">the input type</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="code" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="390">the input code</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_rumble" c:identifier="manette_device_has_rumble">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="668">Gets whether @self supports rumble.</doc>
+        <source-position filename="src/manette-device.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="674">whether @self supports rumble</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="670">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="has_user_mapping"
+              c:identifier="manette_device_has_user_mapping">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="595">Gets whether @self has a user mapping.</doc>
+        <source-position filename="src/manette-device.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="601">whether @self has a user mapping</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="597">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="remove_user_mapping"
+              c:identifier="manette_device_remove_user_mapping">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="648">Removes the user mapping for @self.</doc>
+        <source-position filename="src/manette-device.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="650">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="rumble" c:identifier="manette_device_rumble">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="684">Make @self rumble during @milliseconds milliseconds.
+
+The heavy and light motors will rumble at their respectively defined
+magnitudes.
+
+The duration cannot exceed 32767 milliseconds.</doc>
+        <source-position filename="src/manette-device.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="698">whether the rumble effect was played</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="686">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+          <parameter name="strong_magnitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="687">the magnitude for the heavy motor</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="weak_magnitude" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="688">the magnitude for the light motor</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+          <parameter name="milliseconds" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="689">the rumble effect play time in milliseconds</doc>
+            <type name="guint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_user_mapping"
+              c:identifier="manette_device_save_user_mapping">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="620">Saves @mapping_string as the user mapping for @self.</doc>
+        <source-position filename="src/manette-device.h" line="74"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="622">a device</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+          <parameter name="mapping_string" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="623">the mapping string</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="supports_mapping"
+              c:identifier="manette_device_supports_mapping">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="534">Gets whether @self supports mapping.</doc>
+        <source-position filename="src/manette-device.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/manette-device.c"
+               line="540">whether @self supports mapping</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="536">a #ManetteDevice</doc>
+            <type name="Device" c:type="ManetteDevice*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <glib:signal name="absolute-axis-changed" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="134">Emitted when value of @axis changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="axis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="137">the axis</doc>
+            <type name="Axis"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="138">the axis value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="button-pressed" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="102">Emitted when @button is pressed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="105">the button</doc>
+            <type name="Button"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="button-released" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="118">Emitted when @button is released.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="121">the button</doc>
+            <type name="Button"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="disconnected" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="88">Emitted when the device is disconnected.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="unmapped-absolute-axis-changed" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="183">Emitted when an unmapped absolute axis' value changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="axis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="186">the axis hardware index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="187">the axis value</doc>
+            <type name="gdouble" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="unmapped-button-pressed" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="151">Emitted when an unmapped button is pressed.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="154">the button hardware index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="unmapped-button-released" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="167">Emitted when an unmapped button is released.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="index" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="170">the button hardware index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="unmapped-hat-axis-changed" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-device.c"
+             line="200">Emitted when an unmapped hat axis' value changes.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="axis" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="203">the axis hardware index</doc>
+            <type name="guint" c:type="guint"/>
+          </parameter>
+          <parameter name="value" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-device.c"
+                 line="204">the axis value</doc>
+            <type name="gint8" c:type="gchar"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="DeviceClass"
+            c:type="ManetteDeviceClass"
+            glib:is-gtype-struct-for="Device">
+      <source-position filename="src/manette-device.h" line="37"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <enumeration name="DeviceType"
+                 glib:type-name="ManetteDeviceType"
+                 glib:get-type="manette_device_type_get_type"
+                 c:type="ManetteDeviceType">
+      <doc xml:space="preserve"
+           filename="src/manette-device-type.c"
+           line="23">Describes available types of a [class@Device].
+
+More values may be added to this enumeration over time.</doc>
+      <member name="generic"
+              value="0"
+              c:identifier="MANETTE_DEVICE_GENERIC"
+              glib:nick="generic"
+              glib:name="MANETTE_DEVICE_GENERIC">
+        <doc xml:space="preserve"
+             filename="src/manette-device-type.c"
+             line="25">Generic gamepads</doc>
+      </member>
+      <member name="steam_deck"
+              value="1"
+              c:identifier="MANETTE_DEVICE_STEAM_DECK"
+              glib:nick="steam-deck"
+              glib:name="MANETTE_DEVICE_STEAM_DECK">
+        <doc xml:space="preserve"
+             filename="src/manette-device-type.c"
+             line="26">Steam Deck</doc>
+      </member>
+    </enumeration>
+    <function-macro name="ENCODE_VERSION"
+                    c:identifier="MANETTE_ENCODE_VERSION"
+                    introspectable="0">
+      <source-position filename="src/manette-version.h" line="65"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+        <parameter name="micro">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MAJOR_VERSION" value="1" c:type="MANETTE_MAJOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="29">libmanette major version component (e.g. 1 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="34"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MICRO_VERSION" value="0" c:type="MANETTE_MICRO_VERSION">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="43">libmanette micro version component (e.g. 3 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="48"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <constant name="MINOR_VERSION" value="0" c:type="MANETTE_MINOR_VERSION">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="36">libmanette minor version component (e.g. 2 if the version is 1.2.3).</doc>
+      <source-position filename="src/manette-version.h" line="41"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <class name="Monitor"
+           c:symbol-prefix="monitor"
+           c:type="ManetteMonitor"
+           parent="GObject.Object"
+           final="1"
+           glib:type-name="ManetteMonitor"
+           glib:get-type="manette_monitor_get_type"
+           glib:type-struct="MonitorClass">
+      <doc xml:space="preserve"
+           filename="src/manette-monitor.c"
+           line="39">An object monitoring the availability of devices.
+
+See also: [class@Device].</doc>
+      <source-position filename="src/manette-monitor.h" line="36"/>
+      <constructor name="new" c:identifier="manette_monitor_new">
+        <doc xml:space="preserve"
+             filename="src/manette-monitor.c"
+             line="482">Creates a new `ManetteMonitor`.</doc>
+        <source-position filename="src/manette-monitor.h" line="39"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/manette-monitor.c"
+               line="487">a new `ManetteMonitor`</doc>
+          <type name="Monitor" c:type="ManetteMonitor*"/>
+        </return-value>
+      </constructor>
+      <method name="list_devices" c:identifier="manette_monitor_list_devices">
+        <doc xml:space="preserve"
+             filename="src/manette-monitor.c"
+             line="588">Lists the currently connected devices.</doc>
+        <source-position filename="src/manette-monitor.h" line="42"/>
+        <return-value transfer-ownership="container">
+          <doc xml:space="preserve"
+               filename="src/manette-monitor.c"
+               line="595">the list of devices</doc>
+          <array length="0" zero-terminated="0" c:type="ManetteDevice**">
+            <type name="Device" c:type="ManetteDevice*"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-monitor.c"
+                 line="590">a monitor</doc>
+            <type name="Monitor" c:type="ManetteMonitor*"/>
+          </instance-parameter>
+          <parameter name="n_devices"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/manette-monitor.c"
+                 line="591">return location for the length of the array</doc>
+            <type name="gsize" c:type="gsize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <glib:signal name="device-connected" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-monitor.c"
+             line="555">Emitted when @device is connected.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-monitor.c"
+                 line="558">a device</doc>
+            <type name="Device"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="device-disconnected" when="last">
+        <doc xml:space="preserve"
+             filename="src/manette-monitor.c"
+             line="571">Emitted when @device is disconnected.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/manette-monitor.c"
+                 line="574">a device</doc>
+            <type name="Device"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="MonitorClass"
+            c:type="ManetteMonitorClass"
+            glib:is-gtype-struct-for="Monitor">
+      <source-position filename="src/manette-monitor.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <function-macro name="UNAVAILABLE"
+                    c:identifier="MANETTE_UNAVAILABLE"
+                    introspectable="0">
+      <source-position filename="src/manette-version.h" line="107"/>
+      <parameters>
+        <parameter name="major">
+        </parameter>
+        <parameter name="minor">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="VERSION_S" value="1.0.alpha" c:type="MANETTE_VERSION_S">
+      <doc xml:space="preserve"
+           filename="src/manette-version.h"
+           line="57">libmanette version, encoded as a string, useful for printing and
+concatenation.</doc>
+      <source-position filename="src/manette-version.h" line="63"/>
+      <type name="utf8" c:type="gchar*"/>
+    </constant>
+    <function name="get_major_version"
+              c:identifier="manette_get_major_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="11">Returns the major version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 1.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the major version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="113"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="23">the major version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_micro_version"
+              c:identifier="manette_get_micro_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="51">Returns the micro version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 3.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the micro version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="117"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="63">the micro version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="get_minor_version"
+              c:identifier="manette_get_minor_version">
+      <doc xml:space="preserve"
+           filename="src/manette-version.c"
+           line="31">Returns the minor version number of the libmanette library.
+
+For example, in libmanette version 1.2.3 this is 2.
+
+This function is in the library, so it represents the libmanette library your
+code is running against. Contrast with the [const@MAJOR_VERSION] constant,
+which represents the minor version of the libmanette headers you have
+included when compiling your code.</doc>
+      <source-position filename="src/manette-version.h" line="115"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="src/manette-version.c"
+             line="43">the minor version number of the libmanette library</doc>
+        <type name="guint" c:type="guint"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

@@ -21,8 +21,8 @@ and/or use gtk-doc annotations.  -->
               c:type="GDK_PIXBUF_MAGIC_NUMBER">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixdata.h"
-           line="25">Magic number for #GdkPixdata structures.</doc>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="30"/>
+           line="24">Magic number for #GdkPixdata structures.</doc>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="29"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="PIXDATA_HEADER_LENGTH"
@@ -32,8 +32,8 @@ and/or use gtk-doc annotations.  -->
               deprecated-version="2.32">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixdata.h"
-           line="83">The length of a #GdkPixdata structure without the @pixel_data pointer.</doc>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="90"/>
+           line="82">The length of a #GdkPixdata structure without the @pixel_data pointer.</doc>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="89"/>
       <type name="gint" c:type="gint"/>
     </constant>
     <record name="Pixdata"
@@ -54,7 +54,7 @@ into a `GdkPixbuf`, use `gdk_pixbuf_from_pixdata()`.</doc>
       <doc-deprecated xml:space="preserve">`GdkPixdata` should not be used any more. `GResource`
   should be used to save the original compressed images inside the
   program's binary</doc-deprecated>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="81"/>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="80"/>
       <field name="magic" writable="1">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.c"
@@ -122,7 +122,7 @@ for validity.
 This function may fail with `GDK_PIXBUF_ERROR_CORRUPT_IMAGE`
 or `GDK_PIXBUF_ERROR_UNKNOWN_TYPE`.</doc>
         <doc-deprecated xml:space="preserve">Use `GResource` instead.</doc-deprecated>
-        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="97"/>
+        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="96"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixdata.c"
@@ -166,7 +166,7 @@ or `GDK_PIXBUF_ERROR_UNKNOWN_TYPE`.</doc>
 If `use_rle` is `TRUE`, the pixel data is run-length encoded into
 newly-allocated memory and a pointer to that memory is returned.</doc>
         <doc-deprecated xml:space="preserve">Use #GResource instead.</doc-deprecated>
-        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="102"/>
+        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="101"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixdata.c"
@@ -209,7 +209,7 @@ The byte stream consists of a straightforward writeout of the
 #GdkPixdata fields in network byte order, plus the @pixel_data
 bytes the structure points to.</doc>
         <doc-deprecated xml:space="preserve">Use #GResource instead.</doc-deprecated>
-        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="94"/>
+        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="93"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixdata.c"
@@ -250,7 +250,7 @@ into programs.
 GdkPixbuf ships with a program called `gdk-pixbuf-csource`, which offers
 a command line interface to this function.</doc>
         <doc-deprecated xml:space="preserve">Use #GResource instead.</doc-deprecated>
-        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="156"/>
+        <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="155"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gdk-pixbuf/gdk-pixdata.c"
@@ -286,19 +286,19 @@ a command line interface to this function.</doc>
               c:type="GdkPixdataDumpType">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixdata.h"
-           line="109">An enumeration which is used by gdk_pixdata_to_csource() to
+           line="108">An enumeration which is used by gdk_pixdata_to_csource() to
 determine the form of C source to be generated. The three values
 @GDK_PIXDATA_DUMP_PIXDATA_STREAM, @GDK_PIXDATA_DUMP_PIXDATA_STRUCT
 and @GDK_PIXDATA_DUMP_MACROS are mutually exclusive, as are
 @GDK_PIXBUF_DUMP_GTYPES and @GDK_PIXBUF_DUMP_CTYPES. The remaining
 elements are optional flags that can be freely added.</doc>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="152"/>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="151"/>
       <member name="pixdata_stream"
               value="0"
               c:identifier="GDK_PIXDATA_DUMP_PIXDATA_STREAM">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="111">Generate pixbuf data stream (a single
+             line="110">Generate pixbuf data stream (a single
    string containing a serialized #GdkPixdata structure in network byte
    order).</doc>
       </member>
@@ -307,13 +307,13 @@ elements are optional flags that can be freely added.</doc>
               c:identifier="GDK_PIXDATA_DUMP_PIXDATA_STRUCT">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="114">Generate #GdkPixdata structure (needs
+             line="113">Generate #GdkPixdata structure (needs
    the #GdkPixdata structure definition from gdk-pixdata.h).</doc>
       </member>
       <member name="macros" value="2" c:identifier="GDK_PIXDATA_DUMP_MACROS">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="116">Generate &lt;function&gt;*_ROWSTRIDE&lt;/function&gt;,
+             line="115">Generate &lt;function&gt;*_ROWSTRIDE&lt;/function&gt;,
    &lt;function&gt;*_WIDTH&lt;/function&gt;, &lt;function&gt;*_HEIGHT&lt;/function&gt;,
    &lt;function&gt;*_BYTES_PER_PIXEL&lt;/function&gt; and
    &lt;function&gt;*_RLE_PIXEL_DATA&lt;/function&gt; or &lt;function&gt;*_PIXEL_DATA&lt;/function&gt;
@@ -322,31 +322,31 @@ elements are optional flags that can be freely added.</doc>
       <member name="gtypes" value="0" c:identifier="GDK_PIXDATA_DUMP_GTYPES">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="121">Generate GLib data types instead of
+             line="120">Generate GLib data types instead of
    standard C data types.</doc>
       </member>
       <member name="ctypes" value="256" c:identifier="GDK_PIXDATA_DUMP_CTYPES">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="123">Generate standard C data types instead of
+             line="122">Generate standard C data types instead of
    GLib data types.</doc>
       </member>
       <member name="static" value="512" c:identifier="GDK_PIXDATA_DUMP_STATIC">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="125">Generate static symbols.</doc>
+             line="124">Generate static symbols.</doc>
       </member>
       <member name="const" value="1024" c:identifier="GDK_PIXDATA_DUMP_CONST">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="126">Generate const symbols.</doc>
+             line="125">Generate const symbols.</doc>
       </member>
       <member name="rle_decoder"
               value="65536"
               c:identifier="GDK_PIXDATA_DUMP_RLE_DECODER">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="127">Provide a &lt;function&gt;*_RUN_LENGTH_DECODE(image_buf, rle_data, size, bpp)&lt;/function&gt;
+             line="126">Provide a &lt;function&gt;*_RUN_LENGTH_DECODE(image_buf, rle_data, size, bpp)&lt;/function&gt;
    macro definition  to  decode  run-length encoded image data.</doc>
       </member>
     </bitfield>
@@ -356,23 +356,23 @@ elements are optional flags that can be freely added.</doc>
               c:type="GdkPixdataType">
       <doc xml:space="preserve"
            filename="gdk-pixbuf/gdk-pixdata.h"
-           line="32">An enumeration containing three sets of flags for a #GdkPixdata struct:
+           line="31">An enumeration containing three sets of flags for a #GdkPixdata struct:
 one for the used colorspace, one for the width of the samples and one
 for the encoding of the pixel data.</doc>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="67"/>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="66"/>
       <member name="color_type_rgb"
               value="1"
               c:identifier="GDK_PIXDATA_COLOR_TYPE_RGB">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="34">each pixel has red, green and blue samples.</doc>
+             line="33">each pixel has red, green and blue samples.</doc>
       </member>
       <member name="color_type_rgba"
               value="2"
               c:identifier="GDK_PIXDATA_COLOR_TYPE_RGBA">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="35">each pixel has red, green and blue samples
+             line="34">each pixel has red, green and blue samples
    and an alpha value.</doc>
       </member>
       <member name="color_type_mask"
@@ -380,35 +380,35 @@ for the encoding of the pixel data.</doc>
               c:identifier="GDK_PIXDATA_COLOR_TYPE_MASK">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="37">mask for the colortype flags of the enum.</doc>
+             line="36">mask for the colortype flags of the enum.</doc>
       </member>
       <member name="sample_width_8"
               value="65536"
               c:identifier="GDK_PIXDATA_SAMPLE_WIDTH_8">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="38">each sample has 8 bits.</doc>
+             line="37">each sample has 8 bits.</doc>
       </member>
       <member name="sample_width_mask"
               value="983040"
               c:identifier="GDK_PIXDATA_SAMPLE_WIDTH_MASK">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="39">mask for the sample width flags of the enum.</doc>
+             line="38">mask for the sample width flags of the enum.</doc>
       </member>
       <member name="encoding_raw"
               value="16777216"
               c:identifier="GDK_PIXDATA_ENCODING_RAW">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="40">the pixel data is in raw form.</doc>
+             line="39">the pixel data is in raw form.</doc>
       </member>
       <member name="encoding_rle"
               value="33554432"
               c:identifier="GDK_PIXDATA_ENCODING_RLE">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="41">the pixel data is run-length encoded. Runs may
+             line="40">the pixel data is run-length encoded. Runs may
    be up to 127 bytes long; their length is stored in a single byte
    preceding the pixel data for the run. If a run is constant, its length
    byte has the high bit set and the pixel data consists of a single pixel
@@ -419,7 +419,7 @@ for the encoding of the pixel data.</doc>
               c:identifier="GDK_PIXDATA_ENCODING_MASK">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.h"
-             line="46">mask for the encoding flags of the enum.</doc>
+             line="45">mask for the encoding flags of the enum.</doc>
       </member>
     </bitfield>
     <function name="pixbuf_from_pixdata"
@@ -435,7 +435,7 @@ If `copy_pixels` is `TRUE` or if the pixel data is run-length-encoded,
 the pixel data is copied into newly-allocated memory; otherwise it is
 reused.</doc>
       <doc-deprecated xml:space="preserve">Use `GResource` instead.</doc-deprecated>
-      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="106"/>
+      <source-position filename="gdk-pixbuf/gdk-pixdata.h" line="105"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gdk-pixbuf/gdk-pixdata.c"

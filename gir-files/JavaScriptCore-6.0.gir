@@ -625,7 +625,7 @@ with jsc_value_new_object() that receives the copy as the instance parameter.</d
       <method name="add_property" c:identifier="jsc_class_add_property">
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCClass.cpp"
-             line="816">Add a property with @name to @jsc_class. When the property value needs to be getted, @getter is called
+             line="816">Add a property with @name to @jsc_class. When the property value is read, @getter is called
 receiving the the class instance as first parameter and @user_data as last parameter. When the property
 value needs to be set, @setter is called receiving the the class instance as first parameter, followed
 by the value to be set and then @user_data as the last parameter. When the property is cleared in the
@@ -1567,7 +1567,7 @@ If you don't want to catch the exception, but only get notified about it, call
 jsc_context_throw_exception() in @handler like the default one does.
 The last exception handler pushed is the only one used by the #JSCContext, use
 jsc_context_pop_exception_handler() to remove it and set the previous one. When @handler
-is removed from the context, @destroy_notify i called with @user_data as parameter.</doc>
+is removed from the context, @destroy_notify is called with @user_data as parameter.</doc>
         <source-position filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCContext.h"
                          line="99"/>
         <return-value transfer-ownership="none">
@@ -2406,7 +2406,7 @@ against at application run time.</doc>
                        line="38"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="90" c:type="JSC_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="1" c:type="JSC_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="49">Like jsc_get_micro_version(), but from the headers used at
@@ -2416,7 +2416,7 @@ against at application run time.</doc>
                        line="56"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="47" c:type="JSC_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="51" c:type="JSC_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="_builddir/JavaScriptCoreGLib/DerivedSources/jsc/JSCVersion.h"
            line="40">Like jsc_get_minor_version(), but from the headers used at
@@ -3958,7 +3958,7 @@ starting at the indicated offset.</doc>
         <doc xml:space="preserve"
              filename="Source/JavaScriptCore/API/glib/JSCValue.cpp"
              line="1133">Define or modify a property with @property_name in object referenced by @value. When the
-property value needs to be getted or set, @getter and @setter callbacks will be called.
+property value is read or set, @getter and @setter callbacks will be called.
 When the property is cleared in the #JSCClass context, @destroy_notify is called with
 @user_data as parameter. This is equivalent to JavaScript &lt;function&gt;Object.defineProperty()&lt;/function&gt;
 when used with an accessor descriptor.

@@ -26,16 +26,16 @@ and/or use gtk-doc annotations.  -->
            glib:type-name="AscCanvas"
            glib:get-type="asc_canvas_get_type"
            glib:type-struct="CanvasClass">
-      <source-position filename="compose/asc-canvas.h" line="34"/>
+      <source-position filename="compose/asc-canvas.h" line="32"/>
       <constructor name="new" c:identifier="asc_canvas_new">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.c"
-             line="95">Creates a new #AscFont.</doc>
-        <source-position filename="compose/asc-canvas.h" line="57"/>
+             line="97">Creates a new #AscFont.</doc>
+        <source-position filename="compose/asc-canvas.h" line="55"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="compose/asc-canvas.c"
-               line="100">an #AscCanvas</doc>
+               line="102">an #AscCanvas</doc>
           <type name="Canvas" c:type="AscCanvas*"/>
         </return-value>
         <parameters>
@@ -50,8 +50,8 @@ and/or use gtk-doc annotations.  -->
       <method name="get_height" c:identifier="asc_canvas_get_height">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.c"
-             line="131">Gets the canvas height.</doc>
-        <source-position filename="compose/asc-canvas.h" line="60"/>
+             line="133">Gets the canvas height.</doc>
+        <source-position filename="compose/asc-canvas.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -59,7 +59,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="canvas" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-canvas.c"
-                 line="133">an #AscCanvas instance.</doc>
+                 line="135">an #AscCanvas instance.</doc>
             <type name="Canvas" c:type="AscCanvas*"/>
           </instance-parameter>
         </parameters>
@@ -67,8 +67,8 @@ and/or use gtk-doc annotations.  -->
       <method name="get_width" c:identifier="asc_canvas_get_width">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.c"
-             line="118">Gets the canvas width.</doc>
-        <source-position filename="compose/asc-canvas.h" line="59"/>
+             line="120">Gets the canvas width.</doc>
+        <source-position filename="compose/asc-canvas.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
@@ -76,7 +76,7 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="canvas" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-canvas.c"
-                 line="120">an #AscCanvas instance.</doc>
+                 line="122">an #AscCanvas instance.</doc>
             <type name="Canvas" c:type="AscCanvas*"/>
           </instance-parameter>
         </parameters>
@@ -86,7 +86,30 @@ and/or use gtk-doc annotations.  -->
               throws="1">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.c"
-             line="144">Render an SVG graphic from the SVG data provided.</doc>
+             line="146">Render an SVG graphic from the SVG data provided.</doc>
+        <source-position filename="compose/asc-canvas.h" line="60"/>
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="canvas" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-canvas.c"
+                 line="148">an #AscCanvas instance.</doc>
+            <type name="Canvas" c:type="AscCanvas*"/>
+          </instance-parameter>
+          <parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="compose/asc-canvas.c"
+                 line="149">SVG data input stream.</doc>
+            <type name="Gio.InputStream" c:type="GInputStream*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="save_png" c:identifier="asc_canvas_save_png" throws="1">
+        <doc xml:space="preserve"
+             filename="compose/asc-canvas.c"
+             line="834">Save canvas to PNG file.</doc>
         <source-position filename="compose/asc-canvas.h" line="62"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
@@ -95,36 +118,13 @@ and/or use gtk-doc annotations.  -->
           <instance-parameter name="canvas" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-canvas.c"
-                 line="146">an #AscCanvas instance.</doc>
-            <type name="Canvas" c:type="AscCanvas*"/>
-          </instance-parameter>
-          <parameter name="stream" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="147">SVG data input stream.</doc>
-            <type name="Gio.InputStream" c:type="GInputStream*"/>
-          </parameter>
-        </parameters>
-      </method>
-      <method name="save_png" c:identifier="asc_canvas_save_png" throws="1">
-        <doc xml:space="preserve"
-             filename="compose/asc-canvas.c"
-             line="419">Save canvas to PNG file.</doc>
-        <source-position filename="compose/asc-canvas.h" line="64"/>
-        <return-value transfer-ownership="none">
-          <type name="gboolean" c:type="gboolean"/>
-        </return-value>
-        <parameters>
-          <instance-parameter name="canvas" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="compose/asc-canvas.c"
-                 line="421">an #AscCanvas instance.</doc>
+                 line="836">an #AscCanvas instance.</doc>
             <type name="Canvas" c:type="AscCanvas*"/>
           </instance-parameter>
           <parameter name="fname" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-canvas.c"
-                 line="422">Filename to save to.</doc>
+                 line="837">Filename to save to.</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -133,7 +133,7 @@ and/or use gtk-doc annotations.  -->
     <record name="CanvasClass"
             c:type="AscCanvasClass"
             glib:is-gtype-struct-for="Canvas">
-      <source-position filename="compose/asc-canvas.h" line="34"/>
+      <source-position filename="compose/asc-canvas.h" line="32"/>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -145,7 +145,7 @@ and/or use gtk-doc annotations.  -->
                  glib:error-domain="AscCanvasError">
       <doc xml:space="preserve"
            filename="compose/asc-canvas.h"
-           line="36">A drawing error.</doc>
+           line="34">A drawing error.</doc>
       <member name="failed"
               value="0"
               c:identifier="ASC_CANVAS_ERROR_FAILED"
@@ -153,7 +153,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="ASC_CANVAS_ERROR_FAILED">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.h"
-             line="38">Generic failure.</doc>
+             line="36">Generic failure.</doc>
       </member>
       <member name="drawing"
               value="1"
@@ -162,7 +162,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="ASC_CANVAS_ERROR_DRAWING">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.h"
-             line="39">Drawing operation failed.</doc>
+             line="37">Drawing operation failed.</doc>
       </member>
       <member name="font"
               value="2"
@@ -171,7 +171,7 @@ and/or use gtk-doc annotations.  -->
               glib:name="ASC_CANVAS_ERROR_FONT">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.h"
-             line="40">Issue with font or font selection.</doc>
+             line="38">Issue with font or font selection.</doc>
       </member>
       <member name="unsupported"
               value="3"
@@ -180,13 +180,13 @@ and/or use gtk-doc annotations.  -->
               glib:name="ASC_CANVAS_ERROR_UNSUPPORTED">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.h"
-             line="41">The requested action was not supported.</doc>
+             line="39">The requested action was not supported.</doc>
       </member>
       <function name="quark" c:identifier="asc_canvas_error_quark">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="compose/asc-canvas.c"
-               line="58">An error quark.</doc>
+               line="60">An error quark.</doc>
           <type name="GLib.Quark" c:type="GQuark"/>
         </return-value>
       </function>
@@ -1366,7 +1366,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <constructor name="new" c:identifier="asc_directory_unit_new">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="270">Creates a new #AscDirectoryUnit.</doc>
+             line="273">Creates a new #AscDirectoryUnit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="44"/>
         <return-value transfer-ownership="full">
           <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
@@ -1380,7 +1380,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="get_root" c:identifier="asc_directory_unit_get_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="241">Get the root directory path for this unit.</doc>
+             line="244">Get the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="utf8" c:type="const gchar*"/>
@@ -1389,7 +1389,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="243">an #AscDirectoryUnit instance.</doc>
+                 line="246">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
         </parameters>
@@ -1397,7 +1397,7 @@ will be served on a webserver via the URL set as media baseurl.</doc>
       <method name="set_root" c:identifier="asc_directory_unit_set_root">
         <doc xml:space="preserve"
              filename="compose/asc-directory-unit.c"
-             line="254">Sets the root directory path for this unit.</doc>
+             line="257">Sets the root directory path for this unit.</doc>
         <source-position filename="compose/asc-directory-unit.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -1406,13 +1406,13 @@ will be served on a webserver via the URL set as media baseurl.</doc>
           <instance-parameter name="dirunit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="256">an #AscDirectoryUnit instance.</doc>
+                 line="259">an #AscDirectoryUnit instance.</doc>
             <type name="DirectoryUnit" c:type="AscDirectoryUnit*"/>
           </instance-parameter>
           <parameter name="root_dir" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="compose/asc-directory-unit.c"
-                 line="257">Absolute directory path</doc>
+                 line="260">Absolute directory path</doc>
             <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
@@ -3743,7 +3743,7 @@ and the text translated to the preceding locale in the following odd indices.</d
           <doc xml:space="preserve"
                filename="compose/asc-compose.h"
                line="105">A pointer to the desktop-entry data we are reading.</doc>
-          <type name="GLib.KeyFile" c:type="const GKeyFile*"/>
+          <type name="GLib.KeyFile" c:type="GKeyFile*"/>
         </parameter>
         <parameter name="text" transfer-ownership="none">
           <doc xml:space="preserve"
@@ -4404,7 +4404,7 @@ associated with this component.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="compose/asc-canvas.c"
-             line="58">An error quark.</doc>
+             line="60">An error quark.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>

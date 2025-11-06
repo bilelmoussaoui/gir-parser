@@ -287,7 +287,7 @@ protocol sessions.</doc>
                    version="1.8">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstmikey.c"
-             line="2255">Makes mikey message including:
+             line="2496">Makes mikey message including:
  - Security Policy Payload
  - Key Data Transport Payload
  - Key Data Sub-Payload</doc>
@@ -295,7 +295,7 @@ protocol sessions.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstmikey.c"
-               line="2264">a #GstMIKEYMessage,
+               line="2505">a #GstMIKEYMessage,
 or %NULL if there is no srtp information in the caps.</doc>
           <type name="MIKEYMessage" c:type="GstMIKEYMessage*"/>
         </return-value>
@@ -303,7 +303,7 @@ or %NULL if there is no srtp information in the caps.</doc>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2257">a #GstCaps, including SRTP parameters (srtp/srtcp cipher, authorization, key data)</doc>
+                 line="2498">a #GstCaps, including SRTP parameters (srtp/srtcp cipher, authorization, key data)</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -314,13 +314,13 @@ or %NULL if there is no srtp information in the caps.</doc>
                    throws="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/sdp/gstmikey.c"
-             line="2069">Parse @size bytes from @data into a #GstMIKEYMessage. @info contains the
+             line="2310">Parse @size bytes from @data into a #GstMIKEYMessage. @info contains the
 parameters to decrypt and verify the data.</doc>
         <source-position filename="gst-libs/gst/sdp/gstmikey.h" line="582"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstmikey.c"
-               line="2079">a #GstMIKEYMessage on success or %NULL when parsing failed and
+               line="2320">a #GstMIKEYMessage on success or %NULL when parsing failed and
 @error will be set.</doc>
           <type name="MIKEYMessage" c:type="GstMIKEYMessage*"/>
         </return-value>
@@ -328,7 +328,7 @@ parameters to decrypt and verify the data.</doc>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2071">bytes to read</doc>
+                 line="2312">bytes to read</doc>
             <array length="1" zero-terminated="0" c:type="gconstpointer">
               <type name="guint8"/>
             </array>
@@ -336,13 +336,13 @@ parameters to decrypt and verify the data.</doc>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2072">length of @data</doc>
+                 line="2313">length of @data</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2073">#GstMIKEYDecryptInfo</doc>
+                 line="2314">#GstMIKEYDecryptInfo</doc>
             <type name="MIKEYDecryptInfo" c:type="GstMIKEYDecryptInfo*"/>
           </parameter>
         </parameters>
@@ -587,14 +587,14 @@ in NTP-UTC format.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstmikey.c"
-               line="2553">a #gchar, base64-encoded data</doc>
+               line="2827">a #gchar, base64-encoded data</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
           <instance-parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2551">a #GstMIKEYMessage</doc>
+                 line="2825">a #GstMIKEYMessage</doc>
             <type name="MIKEYMessage" c:type="GstMIKEYMessage*"/>
           </instance-parameter>
         </parameters>
@@ -1023,20 +1023,20 @@ will be appended to @msg.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/sdp/gstmikey.c"
-               line="2395">%TRUE on success</doc>
+               line="2660">%TRUE on success</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="msg" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2392">a #GstMIKEYMessage</doc>
+                 line="2657">a #GstMIKEYMessage</doc>
             <type name="MIKEYMessage" c:type="const GstMIKEYMessage*"/>
           </instance-parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/sdp/gstmikey.c"
-                 line="2393">a #GstCaps to be filled with SRTP parameters (srtp/srtcp cipher, authorization, key data)</doc>
+                 line="2658">a #GstCaps to be filled with SRTP parameters (srtp/srtcp cipher, authorization, key data)</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>

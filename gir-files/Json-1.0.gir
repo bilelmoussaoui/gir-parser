@@ -1498,7 +1498,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_FOR"
                     c:identifier="JSON_DEPRECATED_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="36"/>
+      <source-position filename="json-glib/json-version-macros.h" line="51"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1507,7 +1507,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_0_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_0_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="178"/>
+      <source-position filename="json-glib/json-version-macros.h" line="193"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1516,7 +1516,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_10_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_10_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="253"/>
+      <source-position filename="json-glib/json-version-macros.h" line="268"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1525,7 +1525,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_2_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_2_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="193"/>
+      <source-position filename="json-glib/json-version-macros.h" line="208"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1534,7 +1534,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_4_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_4_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="208"/>
+      <source-position filename="json-glib/json-version-macros.h" line="223"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1543,7 +1543,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_6_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_6_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="223"/>
+      <source-position filename="json-glib/json-version-macros.h" line="238"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -1552,7 +1552,7 @@ of JSON-GLib is greater than the required one.</doc>
     <function-macro name="DEPRECATED_IN_1_8_FOR"
                     c:identifier="JSON_DEPRECATED_IN_1_8_FOR"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="238"/>
+      <source-position filename="json-glib/json-version-macros.h" line="253"/>
       <parameters>
         <parameter name="f">
         </parameter>
@@ -2230,7 +2230,7 @@ stream.</doc>
       <source-position filename="json-glib/json-version.h" line="37"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="7" c:type="JSON_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="9" c:type="JSON_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="46">Json micro version component (e.g. 3 if `JSON_VERSION` is "1.2.3")</doc>
@@ -5013,11 +5013,11 @@ parse_json (const char *filename)
       return FALSE;
     }
 
-  g_autoptr(JsonNode) root = json_parser_get_root (parser);
+  JsonNode *root = json_parser_get_root (parser);
 
   // manipulate the object tree from the root node
 
-  return TRUE
+  return TRUE;
 }
 ```
 
@@ -8223,7 +8223,7 @@ sequence.</doc>
     <function-macro name="UNAVAILABLE"
                     c:identifier="JSON_UNAVAILABLE"
                     introspectable="0">
-      <source-position filename="json-glib/json-version-macros.h" line="37"/>
+      <source-position filename="json-glib/json-version-macros.h" line="52"/>
       <parameters>
         <parameter name="maj">
         </parameter>
@@ -8231,7 +8231,7 @@ sequence.</doc>
         </parameter>
       </parameters>
     </function-macro>
-    <constant name="VERSION_S" value="1.10.7" c:type="JSON_VERSION_S">
+    <constant name="VERSION_S" value="1.10.9" c:type="JSON_VERSION_S">
       <doc xml:space="preserve"
            filename="json-glib/json-version.h"
            line="60">The version of JSON-GLib, encoded as a string, useful for printing and

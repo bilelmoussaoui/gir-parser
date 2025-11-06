@@ -3125,7 +3125,7 @@ signal is emitted.</doc>
            glib:type-struct="WebHitTestResultClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-           line="48">Result of a Hit Test (Web Process Extensions).
+           line="49">Result of a Hit Test (Web Process Extensions).
 
 WebKitWebHitTestResult extends #WebKitHitTestResult to provide information
 about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
@@ -3135,7 +3135,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_editable">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="254">Check whether there is an editable element at the hit test position.
+             line="255">Check whether there is an editable element at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_EDITABLE flag is present in
 the context flags.</doc>
@@ -3144,7 +3144,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="263">%TRUE if the hit test covers an editable element or %FALSE otherwise.</doc>
+               line="264">%TRUE if the hit test covers an editable element or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3152,7 +3152,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="256">a #WebWebKitHitTestResult</doc>
+                 line="257">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3161,7 +3161,7 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_image">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="220">Check whether there is an image element at the hit test position.
+             line="221">Check whether there is an image element at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_IMAGE flag is present in
 the context flags.</doc>
@@ -3170,7 +3170,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="229">%TRUE if the hit test covers an image element or %FALSE otherwise.</doc>
+               line="230">%TRUE if the hit test covers an image element or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3178,7 +3178,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="222">a #WebWebKitHitTestResult</doc>
+                 line="223">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3187,7 +3187,7 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_link">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="203">Check whether there is a link element at the hit test position.
+             line="204">Check whether there is a link element at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_LINK flag is present in
 the context flags.</doc>
@@ -3196,7 +3196,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="212">%TRUE if the hit test covers a link element or %FALSE otherwise.</doc>
+               line="213">%TRUE if the hit test covers a link element or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3204,7 +3204,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="205">a #WebWebKitHitTestResult</doc>
+                 line="206">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3213,7 +3213,7 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_media">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="237">Check whether there is a media element at the hit test position.
+             line="238">Check whether there is a media element at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_MEDIA flag is present in
 the context flags.</doc>
@@ -3222,7 +3222,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="246">%TRUE if the hit test covers a media element or %FALSE otherwise.</doc>
+               line="247">%TRUE if the hit test covers a media element or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3230,7 +3230,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="239">a #WebWebKitHitTestResult</doc>
+                 line="240">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3239,7 +3239,7 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_scrollbar">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="360">Check whether there is a scrollbar at the hit test position.
+             line="361">Check whether there is a scrollbar at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR flag is present in
 the context flags.</doc>
@@ -3248,7 +3248,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="369">%TRUE if the hit test covers a scrollbar or %FALSE otherwise.</doc>
+               line="370">%TRUE if the hit test covers a scrollbar or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3256,7 +3256,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="362">a #WebWebKitHitTestResult</doc>
+                 line="363">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3265,7 +3265,7 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_context_is_selection">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="271">Check whether there is a selected element at the hit test position.
+             line="272">Check whether there is a selected element at the hit test position.
 
 Checks whether %WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION flag is present in
 the context flags.</doc>
@@ -3274,7 +3274,7 @@ the context flags.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="280">%TRUE if the hit test covers a selected element or %FALSE otherwise.</doc>
+               line="281">%TRUE if the hit test covers a selected element or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3282,7 +3282,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="273">a #WebWebKitHitTestResult</doc>
+                 line="274">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3291,13 +3291,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_context">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="189">Gets the the context flags for the hit test result.</doc>
+             line="190">Gets the the context flags for the hit test result.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="195">a bitmask of #WebKitHitTestResultContext flags</doc>
+               line="196">a bitmask of #WebKitHitTestResultContext flags</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
@@ -3305,7 +3305,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="191">a #WebKitWebHitTestResult</doc>
+                 line="192">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3314,13 +3314,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_image_uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="332">Obtains the URI associated with the image element at the hit test position.</doc>
+             line="333">Obtains the URI associated with the image element at the hit test position.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="68"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="338">the URI of the image element, or %NULL if the hit test does not cover an image element.</doc>
+               line="339">the URI of the image element, or %NULL if the hit test does not cover an image element.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -3328,7 +3328,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="334">a #WebWebKitHitTestResult</doc>
+                 line="335">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3338,13 +3338,13 @@ the context flags.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="398">Get the #JSCValue for the DOM node in @world at the coordinates of the Hit Test.</doc>
+             line="399">Get the #JSCValue for the DOM node in @world at the coordinates of the Hit Test.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="78"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="405">a #JSCValue for the DOM node, or %NULL</doc>
+               line="406">a #JSCValue for the DOM node, or %NULL</doc>
           <type name="JavaScriptCore.Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
@@ -3352,7 +3352,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="400">a #WebKitWebHitTestResult</doc>
+                 line="401">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
           <parameter name="world"
@@ -3361,7 +3361,7 @@ the context flags.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="401">a #WebKitScriptWorld, or %NULL to use the default</doc>
+                 line="402">a #WebKitScriptWorld, or %NULL to use the default</doc>
             <type name="ScriptWorld" c:type="WebKitScriptWorld*"/>
           </parameter>
         </parameters>
@@ -3370,13 +3370,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_link_label">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="317">Obtains the label associated with the link element at the hit test position.</doc>
+             line="318">Obtains the label associated with the link element at the hit test position.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="65"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="323">the label of the link element, or %NULL if the hit test does not cover a link element
+               line="324">the label of the link element, or %NULL if the hit test does not cover a link element
    or the link element does not have a label.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3385,7 +3385,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="319">a #WebWebKitHitTestResult</doc>
+                 line="320">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3394,13 +3394,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_link_title">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="302">Obtains the title associated with the link element at the hit test position.</doc>
+             line="303">Obtains the title associated with the link element at the hit test position.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="308">the title of the link element, or %NULL if the hit test does not cover a link element
+               line="309">the title of the link element, or %NULL if the hit test does not cover a link element
    or the link element does not have a title.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3409,7 +3409,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="304">a #WebWebKitHitTestResult</doc>
+                 line="305">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3418,13 +3418,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_link_uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="288">Obtains the URI associated with the link element at the hit test position.</doc>
+             line="289">Obtains the URI associated with the link element at the hit test position.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="294">the URI of the link element, or %NULL if the hit test does not cover a link element.</doc>
+               line="295">the URI of the link element, or %NULL if the hit test does not cover a link element.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -3432,7 +3432,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="290">a #WebWebKitHitTestResult</doc>
+                 line="291">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -3441,13 +3441,13 @@ the context flags.</doc>
               c:identifier="webkit_web_hit_test_result_get_media_uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="346">Obtains the URI associated with the media element at the hit test position.</doc>
+             line="347">Obtains the URI associated with the media element at the hit test position.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="71"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="352">the URI of the media element, or %NULL if the hit test does not cover a media element.</doc>
+               line="353">the URI of the media element, or %NULL if the hit test does not cover a media element.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
         <parameters>
@@ -3455,7 +3455,7 @@ the context flags.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="348">a #WebWebKitHitTestResult</doc>
+                 line="349">a #WebWebKitHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>

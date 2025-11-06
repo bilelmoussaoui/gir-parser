@@ -48326,7 +48326,7 @@ signal is emitted.</doc>
            glib:type-struct="WebHitTestResultClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-           line="48">Result of a Hit Test (Web Process Extensions).
+           line="49">Result of a Hit Test (Web Process Extensions).
 
 WebKitWebHitTestResult extends #WebKitHitTestResult to provide information
 about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
@@ -48337,13 +48337,13 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="398">Get the #JSCValue for the DOM node in @world at the coordinates of the Hit Test.</doc>
+             line="399">Get the #JSCValue for the DOM node in @world at the coordinates of the Hit Test.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="65"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="405">a #JSCValue for the DOM node, or %NULL</doc>
+               line="406">a #JSCValue for the DOM node, or %NULL</doc>
           <type name="JavaScriptCore.Value" c:type="JSCValue*"/>
         </return-value>
         <parameters>
@@ -48351,7 +48351,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
                               transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="400">a #WebKitWebHitTestResult</doc>
+                 line="401">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
           <parameter name="world"
@@ -48360,7 +48360,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="401">a #WebKitScriptWorld, or %NULL to use the default</doc>
+                 line="402">a #WebKitScriptWorld, or %NULL to use the default</doc>
             <type name="ScriptWorld" c:type="WebKitScriptWorld*"/>
           </parameter>
         </parameters>
@@ -48373,21 +48373,21 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
               deprecated-version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="378">Get the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
+             line="379">Get the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
         <doc-deprecated xml:space="preserve">Use webkit_web_hit_test_result_get_js_node() instead</doc-deprecated>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebHitTestResult.h"
                          line="61"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-               line="384">a #WebKitDOMNode</doc>
+               line="385">a #WebKitDOMNode</doc>
           <type name="DOMNode" c:type="WebKitDOMNode*"/>
         </return-value>
         <parameters>
           <instance-parameter name="hit_test_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-                 line="380">a #WebKitWebHitTestResult</doc>
+                 line="381">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult" c:type="WebKitWebHitTestResult*"/>
           </instance-parameter>
         </parameters>
@@ -48401,7 +48401,7 @@ about the #WebKitDOMNode in the coordinates of the Hit Test.</doc>
                 getter="get_node">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebHitTestResult.cpp"
-             line="120">The #WebKitDOMNode</doc>
+             line="121">The #WebKitDOMNode</doc>
         <type name="DOMNode"/>
       </property>
       <field name="parent">

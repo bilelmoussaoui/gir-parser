@@ -11,7 +11,7 @@ and/or use gtk-doc annotations.  -->
   <package name="glib-2.0"/>
   <c:include name="glib-unix.h"/>
   <c:include name="glib.h"/>
-  <doc:format name="unknown"/>
+  <doc:format name="gi-docgen"/>
   <namespace name="GLibUnix"
              version="2.0"
              shared-library="libgobject-2.0.so.0,libglib-2.0.so.0"
@@ -341,6 +341,19 @@ This function preserves the value of `errno`.</doc>
         </parameter>
         <parameter name="notify" transfer-ownership="none" scope="async">
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="fd_query_path"
+              c:identifier="g_unix_fd_query_path"
+              throws="1">
+      <source-position filename="glib/glib-unix.h" line="357"/>
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="fd" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
