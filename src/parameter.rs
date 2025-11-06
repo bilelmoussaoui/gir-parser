@@ -44,6 +44,79 @@ impl From<crate::r#type::AnyType> for ParameterType {
     }
 }
 
+/// Represents either an instance parameter or a regular parameter
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AnyParameter<'a> {
+    Instance(&'a InstanceParameter),
+    Regular(&'a Parameter),
+}
+
+impl<'a> AnyParameter<'a> {
+    pub fn name(&self) -> &str {
+        match self {
+            Self::Instance(p) => p.name(),
+            Self::Regular(p) => p.name(),
+        }
+    }
+
+    pub fn is_instance(&self) -> bool {
+        matches!(self, Self::Instance(_))
+    }
+
+    pub fn is_regular(&self) -> bool {
+        matches!(self, Self::Regular(_))
+    }
+
+    pub fn as_instance(&self) -> &'a InstanceParameter {
+        match self {
+            Self::Instance(p) => p,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn as_regular(&self) -> &'a Parameter {
+        match self {
+            Self::Regular(p) => p,
+            _ => unreachable!(),
+        }
+    }
+
+    pub fn is_nullable(&self) -> Option<bool> {
+        match self {
+            Self::Instance(p) => p.is_nullable(),
+            Self::Regular(p) => p.is_nullable(),
+        }
+    }
+
+    pub fn is_allow_none(&self) -> Option<bool> {
+        match self {
+            Self::Instance(p) => p.is_allow_none(),
+            Self::Regular(p) => p.is_allow_none(),
+        }
+    }
+
+    pub fn direction(&self) -> Option<Direction> {
+        match self {
+            Self::Instance(p) => p.direction(),
+            Self::Regular(p) => p.direction(),
+        }
+    }
+
+    pub fn is_caller_allocates(&self) -> Option<bool> {
+        match self {
+            Self::Instance(p) => p.is_caller_allocates(),
+            Self::Regular(p) => p.is_caller_allocates(),
+        }
+    }
+
+    pub fn transfer_ownership(&self) -> Option<TransferOwnership> {
+        match self {
+            Self::Instance(p) => p.transfer_ownership(),
+            Self::Regular(p) => p.transfer_ownership(),
+        }
+    }
+}
+
 #[derive(Clone, Debug, Default, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"parameters")]
 #[xmlserde(deny_unknown_fields)]
@@ -66,6 +139,14 @@ impl Parameters {
     pub fn inner(&self) -> &[Parameter] {
         &self.parameter
     }
+
+    /// Returns an iterator over all parameters
+    pub fn all(&self) -> impl Iterator<Item = AnyParameter<'_>> {
+        self.instance_parameter
+            .iter()
+            .map(AnyParameter::Instance)
+            .chain(self.parameter.iter().map(AnyParameter::Regular))
+    }
 }
 
 impl IntoIterator for Parameters {
@@ -74,6 +155,37 @@ impl IntoIterator for Parameters {
 
     fn into_iter(self) -> Self::IntoIter {
         self.parameter.into_iter()
+    }
+}
+
+impl<'a> IntoIterator for &'a Parameters {
+    type Item = &'a Parameter;
+    type IntoIter = std::slice::Iter<'a, Parameter>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.parameter.iter()
+    }
+}
+
+impl AsRef<[Parameter]> for Parameters {
+    fn as_ref(&self) -> &[Parameter] {
+        &self.parameter
+    }
+}
+
+impl std::ops::Deref for Parameters {
+    type Target = [Parameter];
+
+    fn deref(&self) -> &Self::Target {
+        &self.parameter
+    }
+}
+
+impl std::ops::Index<usize> for Parameters {
+    type Output = Parameter;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.parameter[index]
     }
 }
 
