@@ -1,6 +1,6 @@
 use xmlserde_derives::XmlDeserialize;
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"attribute")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Attribute {

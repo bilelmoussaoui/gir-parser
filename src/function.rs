@@ -10,7 +10,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"function")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Function {
@@ -70,7 +70,7 @@ impl_documentable!(Function);
 impl_callable!(Function);
 impl_function_like!(Function);
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"function-inline")]
 #[xmlserde(deny_unknown_fields)]
 pub struct FunctionInline {

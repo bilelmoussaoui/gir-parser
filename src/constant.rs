@@ -9,7 +9,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"constant")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Constant {

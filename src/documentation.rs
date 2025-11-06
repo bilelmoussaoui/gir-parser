@@ -1,6 +1,6 @@
 use xmlserde_derives::XmlDeserialize;
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"source-position")]
 #[xmlserde(deny_unknown_fields)]
 pub struct SourcePosition {
@@ -26,7 +26,7 @@ impl SourcePosition {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"doc-deprecated")]
 #[xmlserde(deny_unknown_fields)]
 pub struct DocDeprecated {
@@ -52,7 +52,7 @@ impl DocDeprecated {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"doc-stability")]
 #[xmlserde(deny_unknown_fields)]
 pub struct DocStability {
@@ -78,7 +78,7 @@ impl DocStability {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"doc-version")]
 #[xmlserde(deny_unknown_fields)]
 pub struct DocVersion {
@@ -104,7 +104,7 @@ impl DocVersion {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"doc")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Documentation {

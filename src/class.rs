@@ -18,7 +18,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"implements")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Implements {
@@ -32,7 +32,7 @@ impl Implements {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 // FIXME: The `Type` / `AnyType` fields are quite huge and some boxing would
 // probably be useful here but `xmlserde` does not seem to support that.
 #[allow(clippy::large_enum_variant)]

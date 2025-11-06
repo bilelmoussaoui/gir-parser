@@ -12,7 +12,7 @@ use crate::{
     Callback, Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 // FIXME: The `Type` / `AnyType` fields are quite huge and some boxing would
 // probably be useful here but `xmlserde` does not seem to support that.
 #[allow(clippy::large_enum_variant)]
@@ -27,7 +27,7 @@ pub enum RecordField {
     Callback(Callback),
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"record")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Record {

@@ -2,7 +2,7 @@ use xmlserde_derives::XmlDeserialize;
 
 use crate::r#type::Type;
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"array")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Array {

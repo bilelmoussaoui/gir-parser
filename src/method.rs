@@ -10,7 +10,7 @@ use crate::{
     Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"method")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Method {
@@ -85,7 +85,7 @@ impl_documentable!(Method);
 impl_callable!(Method);
 impl_function_like!(Method);
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"method-inline")]
 #[xmlserde(deny_unknown_fields)]
 pub struct MethodInline {

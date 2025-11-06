@@ -10,7 +10,7 @@ use crate::{
     SignalEmission, Stability,
 };
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"glib:signal")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Signal {

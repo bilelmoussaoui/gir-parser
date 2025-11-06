@@ -11,7 +11,7 @@ use crate::{
 };
 
 xml_serde_enum! {
-    #[derive(Debug, Copy, Clone)]
+    #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
     Direction {
         In => "in",
         Out => "out",
@@ -19,7 +19,7 @@ xml_serde_enum! {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 pub enum ParameterType {
     #[xmlserde(name = b"type")]
     Type(Type),
@@ -44,7 +44,7 @@ impl From<crate::r#type::AnyType> for ParameterType {
     }
 }
 
-#[derive(Clone, Debug, Default, XmlDeserialize)]
+#[derive(Clone, Debug, Default, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"parameters")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Parameters {
@@ -77,7 +77,7 @@ impl IntoIterator for Parameters {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"parameter")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Parameter {
@@ -180,7 +180,7 @@ impl Parameter {
 impl_attributable!(Parameter);
 impl_documentable!(Parameter);
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 #[xmlserde(root = b"instance-parameter")]
 #[xmlserde(deny_unknown_fields)]
 pub struct InstanceParameter {

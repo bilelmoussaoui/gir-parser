@@ -4,7 +4,7 @@ use xmlserde_derives::XmlDeserialize;
 
 use crate::{namespace::Namespace, version::Version, ParserError};
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"include")]
 #[xmlserde(deny_unknown_fields)]
 pub struct NamespaceInclude {
@@ -32,7 +32,7 @@ impl NamespaceInclude {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"c:include")]
 #[xmlserde(deny_unknown_fields)]
 pub struct HeaderInclude {
@@ -46,7 +46,7 @@ impl HeaderInclude {
     }
 }
 
-#[derive(Clone, Debug, XmlDeserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, XmlDeserialize)]
 #[xmlserde(root = b"package")]
 #[xmlserde(deny_unknown_fields)]
 pub struct Package {
@@ -60,7 +60,7 @@ impl Package {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum DocFormat {
     GtkDocMarkdown,
     GtkDocDocbook,
