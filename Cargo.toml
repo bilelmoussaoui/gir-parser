@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 repository = "https://github.com/bilelmoussaoui/gir-parser"
 authors = ["Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>"]
-exclude = ["gir-files", "gir-1.2.rnc", "update_gir_files.sh", "bin"]
+exclude = ["gir-files", "gir-1.2.rnc", "update_gir_files.sh"]
 description = "GObject Introspection GIR files parser"
 keywords = ["gir", "gobject", "introspection", "parser", "xml"]
 
