@@ -96,3 +96,43 @@ impl Enumeration {
 impl_info!(Enumeration);
 impl_attributable!(Enumeration);
 impl_documentable!(Enumeration);
+
+impl IntoIterator for Enumeration {
+    type Item = Member;
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.members.into_iter()
+    }
+}
+
+impl<'a> IntoIterator for &'a Enumeration {
+    type Item = &'a Member;
+    type IntoIter = std::slice::Iter<'a, Member>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.members.iter()
+    }
+}
+
+impl AsRef<[Member]> for Enumeration {
+    fn as_ref(&self) -> &[Member] {
+        &self.members
+    }
+}
+
+impl std::ops::Deref for Enumeration {
+    type Target = [Member];
+
+    fn deref(&self) -> &Self::Target {
+        &self.members
+    }
+}
+
+impl std::ops::Index<usize> for Enumeration {
+    type Output = Member;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.members[index]
+    }
+}

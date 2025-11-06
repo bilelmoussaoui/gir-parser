@@ -90,3 +90,43 @@ impl BitField {
 impl_info!(BitField);
 impl_attributable!(BitField);
 impl_documentable!(BitField);
+
+impl IntoIterator for BitField {
+    type Item = Member;
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.members.into_iter()
+    }
+}
+
+impl<'a> IntoIterator for &'a BitField {
+    type Item = &'a Member;
+    type IntoIter = std::slice::Iter<'a, Member>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.members.iter()
+    }
+}
+
+impl AsRef<[Member]> for BitField {
+    fn as_ref(&self) -> &[Member] {
+        &self.members
+    }
+}
+
+impl std::ops::Deref for BitField {
+    type Target = [Member];
+
+    fn deref(&self) -> &Self::Target {
+        &self.members
+    }
+}
+
+impl std::ops::Index<usize> for BitField {
+    type Output = Member;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.members[index]
+    }
+}
