@@ -11,7 +11,7 @@ keywords = ["gir", "gobject", "introspection", "parser", "xml"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
-xmlserde = "0.11"
+xmlserde = "0.12"
 xmlserde_derives = "0.11"
 
 [[bin]]
