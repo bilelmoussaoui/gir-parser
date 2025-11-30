@@ -54,7 +54,7 @@ If the style is GTK_SOURCE_ANNOTATION_STYLE_NONE it will use the same color as [
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="icon"
-                     transfer-ownership="none"
+                     transfer-ownership="full"
                      nullable="1"
                      allow-none="1">
             <doc xml:space="preserve"
@@ -10580,7 +10580,7 @@ against at application run time.</doc>
       <source-position filename="gtksourceview/gtksourceversion.h" line="34"/>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="1" c:type="GTK_SOURCE_MICRO_VERSION">
+    <constant name="MICRO_VERSION" value="0" c:type="GTK_SOURCE_MICRO_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
            line="45">Like gtk_source_get_micro_version(), but from the headers used at
@@ -10590,7 +10590,7 @@ against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
     <constant name="MINOR_VERSION"
-              value="18"
+              value="19"
               c:type="GTK_SOURCE_MINOR_VERSION">
       <doc xml:space="preserve"
            filename="gtksourceview/gtksourceversion.h"
@@ -20276,7 +20276,7 @@ This may be executed in relation to the user running the `:write` or `:w` comman
 at runtime instead of compile time. This is useful for compiling
 against older versions of GtkSourceView, but using features from newer
 versions.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="320"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="336"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20435,7 +20435,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MAJOR_VERSION
 macro, which represents the major version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="314"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="330"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20454,7 +20454,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MICRO_VERSION
 macro, which represents the micro version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="318"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="334"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"
@@ -20473,7 +20473,7 @@ This function is in the library, so it represents the GtkSourceView library
 your code is running against. Contrast with the #GTK_SOURCE_MINOR_VERSION
 macro, which represents the minor version of the GtkSourceView headers you
 have included when compiling your code.</doc>
-      <source-position filename="gtksourceview/gtksourceversion.h" line="316"/>
+      <source-position filename="gtksourceview/gtksourceversion.h" line="332"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gtksourceview/gtksourceversion.c"

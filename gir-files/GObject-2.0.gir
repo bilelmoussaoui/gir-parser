@@ -19675,19 +19675,19 @@ Get the contents of a %G_TYPE_CHAR #GValue.</doc>
       <method name="get_enum" c:identifier="g_value_get_enum">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="680">Get the contents of a %G_TYPE_ENUM #GValue.</doc>
+             line="707">Get the contents of a %G_TYPE_ENUM #GValue.</doc>
         <source-position filename="gobject/genums.h" line="248"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="686">enum contents of @value</doc>
+               line="713">enum contents of @value</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="682">a valid #GValue whose type is derived from %G_TYPE_ENUM</doc>
+                 line="709">a valid #GValue whose type is derived from %G_TYPE_ENUM</doc>
             <type name="Value" c:type="const GValue*"/>
           </instance-parameter>
         </parameters>
@@ -19695,19 +19695,19 @@ Get the contents of a %G_TYPE_CHAR #GValue.</doc>
       <method name="get_flags" c:identifier="g_value_get_flags">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="712">Get the contents of a %G_TYPE_FLAGS #GValue.</doc>
+             line="739">Get the contents of a %G_TYPE_FLAGS #GValue.</doc>
         <source-position filename="gobject/genums.h" line="253"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="718">flags contents of @value</doc>
+               line="745">flags contents of @value</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="714">a valid #GValue whose type is derived from %G_TYPE_FLAGS</doc>
+                 line="741">a valid #GValue whose type is derived from %G_TYPE_FLAGS</doc>
             <type name="Value" c:type="const GValue*"/>
           </instance-parameter>
         </parameters>
@@ -20265,7 +20265,7 @@ This is an internal function introduced mainly for C marshallers.</doc>
       <method name="set_enum" c:identifier="g_value_set_enum">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="664">Set the contents of a %G_TYPE_ENUM #GValue to @v_enum.</doc>
+             line="691">Set the contents of a %G_TYPE_ENUM #GValue to @v_enum.</doc>
         <source-position filename="gobject/genums.h" line="245"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -20274,13 +20274,13 @@ This is an internal function introduced mainly for C marshallers.</doc>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="666">a valid #GValue whose type is derived from %G_TYPE_ENUM</doc>
+                 line="693">a valid #GValue whose type is derived from %G_TYPE_ENUM</doc>
             <type name="Value" c:type="GValue*"/>
           </instance-parameter>
           <parameter name="v_enum" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="667">enum value to be set</doc>
+                 line="694">enum value to be set</doc>
             <type name="gint" c:type="gint"/>
           </parameter>
         </parameters>
@@ -20288,7 +20288,7 @@ This is an internal function introduced mainly for C marshallers.</doc>
       <method name="set_flags" c:identifier="g_value_set_flags">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="696">Set the contents of a %G_TYPE_FLAGS #GValue to @v_flags.</doc>
+             line="723">Set the contents of a %G_TYPE_FLAGS #GValue to @v_flags.</doc>
         <source-position filename="gobject/genums.h" line="250"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -20297,13 +20297,13 @@ This is an internal function introduced mainly for C marshallers.</doc>
           <instance-parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="698">a valid #GValue whose type is derived from %G_TYPE_FLAGS</doc>
+                 line="725">a valid #GValue whose type is derived from %G_TYPE_FLAGS</doc>
             <type name="Value" c:type="GValue*"/>
           </instance-parameter>
           <parameter name="v_flags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gobject/genums.c"
-                 line="699">flags value to be set</doc>
+                 line="726">flags value to be set</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -23710,12 +23710,12 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
     <function name="enum_get_value" c:identifier="g_enum_get_value">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="472">Returns the #GEnumValue for a value.</doc>
+           line="499">Returns the #GEnumValue for a value.</doc>
       <source-position filename="gobject/genums.h" line="221"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="479">the #GEnumValue for @value, or %NULL
+             line="506">the #GEnumValue for @value, or %NULL
          if @value is not a member of the enumeration</doc>
         <type name="EnumValue" c:type="GEnumValue*"/>
       </return-value>
@@ -23723,13 +23723,13 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
         <parameter name="enum_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="474">a #GEnumClass</doc>
+               line="501">a #GEnumClass</doc>
           <type name="EnumClass" c:type="GEnumClass*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="475">the value to look up</doc>
+               line="502">the value to look up</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -23738,12 +23738,12 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
               c:identifier="g_enum_get_value_by_name">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="354">Looks up a #GEnumValue by name.</doc>
+           line="381">Looks up a #GEnumValue by name.</doc>
       <source-position filename="gobject/genums.h" line="224"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="361">the #GEnumValue with name @name,
+             line="388">the #GEnumValue with name @name,
          or %NULL if the enumeration doesn't have a member
          with that name</doc>
         <type name="EnumValue" c:type="GEnumValue*"/>
@@ -23752,13 +23752,13 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
         <parameter name="enum_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="356">a #GEnumClass</doc>
+               line="383">a #GEnumClass</doc>
           <type name="EnumClass" c:type="GEnumClass*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="357">the name to look up</doc>
+               line="384">the name to look up</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -23767,12 +23767,12 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
               c:identifier="g_enum_get_value_by_nick">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="413">Looks up a #GEnumValue by nickname.</doc>
+           line="440">Looks up a #GEnumValue by nickname.</doc>
       <source-position filename="gobject/genums.h" line="227"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="420">the #GEnumValue with nickname @nick,
+             line="447">the #GEnumValue with nickname @nick,
          or %NULL if the enumeration doesn't have a member
          with that nickname</doc>
         <type name="EnumValue" c:type="GEnumValue*"/>
@@ -23781,13 +23781,13 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
         <parameter name="enum_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="415">a #GEnumClass</doc>
+               line="442">a #GEnumClass</doc>
           <type name="EnumClass" c:type="GEnumClass*"/>
         </parameter>
         <parameter name="nick" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="416">the nickname to look up</doc>
+               line="443">the nickname to look up</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -23833,7 +23833,7 @@ definition  than to write one yourself using g_enum_register_static().</doc>
               version="2.54">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="537">Pretty-prints @value in the form of the enum’s name.
+           line="564">Pretty-prints @value in the form of the enum’s name.
 
 This is intended to be used for debugging purposes. The format of the output
 may change in the future.</doc>
@@ -23841,20 +23841,20 @@ may change in the future.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="547">a newly-allocated text string</doc>
+             line="574">a newly-allocated text string</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="g_enum_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="539">the type identifier of a #GEnumClass type</doc>
+               line="566">the type identifier of a #GEnumClass type</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="540">the value</doc>
+               line="567">the value</doc>
           <type name="gint" c:type="gint"/>
         </parameter>
       </parameters>
@@ -23902,12 +23902,12 @@ g_enum_complete_type_info() above.</doc>
               c:identifier="g_flags_get_first_value">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="500">Returns the first #GFlagsValue which is set in @value.</doc>
+           line="527">Returns the first #GFlagsValue which is set in @value.</doc>
       <source-position filename="gobject/genums.h" line="230"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="507">the first #GFlagsValue which is set in
+             line="534">the first #GFlagsValue which is set in
          @value, or %NULL if none is set</doc>
         <type name="FlagsValue" c:type="GFlagsValue*"/>
       </return-value>
@@ -23915,13 +23915,13 @@ g_enum_complete_type_info() above.</doc>
         <parameter name="flags_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="502">a #GFlagsClass</doc>
+               line="529">a #GFlagsClass</doc>
           <type name="FlagsClass" c:type="GFlagsClass*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="503">the value</doc>
+               line="530">the value</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -23930,12 +23930,12 @@ g_enum_complete_type_info() above.</doc>
               c:identifier="g_flags_get_value_by_name">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="384">Looks up a #GFlagsValue by name.</doc>
+           line="411">Looks up a #GFlagsValue by name.</doc>
       <source-position filename="gobject/genums.h" line="233"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="391">the #GFlagsValue with name @name,
+             line="418">the #GFlagsValue with name @name,
          or %NULL if there is no flag with that name</doc>
         <type name="FlagsValue" c:type="GFlagsValue*"/>
       </return-value>
@@ -23943,13 +23943,13 @@ g_enum_complete_type_info() above.</doc>
         <parameter name="flags_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="386">a #GFlagsClass</doc>
+               line="413">a #GFlagsClass</doc>
           <type name="FlagsClass" c:type="GFlagsClass*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="387">the name to look up</doc>
+               line="414">the name to look up</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -23958,12 +23958,12 @@ g_enum_complete_type_info() above.</doc>
               c:identifier="g_flags_get_value_by_nick">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="443">Looks up a #GFlagsValue by nickname.</doc>
+           line="470">Looks up a #GFlagsValue by nickname.</doc>
       <source-position filename="gobject/genums.h" line="236"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="450">the #GFlagsValue with nickname @nick,
+             line="477">the #GFlagsValue with nickname @nick,
          or %NULL if there is no flag with that nickname</doc>
         <type name="FlagsValue" c:type="GFlagsValue*"/>
       </return-value>
@@ -23971,13 +23971,13 @@ g_enum_complete_type_info() above.</doc>
         <parameter name="flags_class" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="445">a #GFlagsClass</doc>
+               line="472">a #GFlagsClass</doc>
           <type name="FlagsClass" c:type="GFlagsClass*"/>
         </parameter>
         <parameter name="nick" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="446">the nickname to look up</doc>
+               line="473">the nickname to look up</doc>
           <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
@@ -24023,7 +24023,7 @@ definition than to write one yourself using g_flags_register_static().</doc>
               version="2.54">
       <doc xml:space="preserve"
            filename="gobject/genums.c"
-           line="627">Pretty-prints @value in the form of the flag names separated by ` | ` and
+           line="654">Pretty-prints @value in the form of the flag names separated by ` | ` and
 sorted. Any extra bits will be shown at the end as a hexadecimal number.
 
 This is intended to be used for debugging purposes. The format of the output
@@ -24032,20 +24032,20 @@ may change in the future.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="gobject/genums.c"
-             line="638">a newly-allocated text string</doc>
+             line="665">a newly-allocated text string</doc>
         <type name="utf8" c:type="gchar*"/>
       </return-value>
       <parameters>
         <parameter name="flags_type" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="629">the type identifier of a #GFlagsClass type</doc>
+               line="656">the type identifier of a #GFlagsClass type</doc>
           <type name="GType" c:type="GType"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gobject/genums.c"
-               line="630">the value</doc>
+               line="657">the value</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
