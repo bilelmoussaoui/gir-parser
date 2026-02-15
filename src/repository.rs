@@ -60,6 +60,14 @@ impl Package {
     }
 }
 
+#[derive(Clone, Debug, XmlDeserialize, Copy, Default)]
+#[xmlserde(root = b"doc:format")]
+#[xmlserde(deny_unknown_fields)]
+struct DocFormatChild {
+    #[xmlserde(name = b"name", ty = "attr")]
+    format: DocFormat,
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Default, Copy)]
 pub enum DocFormat {
     GtkDocMarkdown,
@@ -120,8 +128,8 @@ pub struct Repository {
     packages: Vec<Package>,
     #[xmlserde(name = b"namespace", ty = "child")]
     namespace: Namespace,
-    #[xmlserde(name = b"doc:format", ty = "attr", default = "DocFormat::default")]
-    doc_format: DocFormat,
+    #[xmlserde(name = b"doc:format", ty = "child")]
+    doc_format_child: Option<DocFormatChild>,
 }
 
 impl Repository {
@@ -209,7 +217,7 @@ impl Repository {
     }
 
     pub fn doc_format(&self) -> DocFormat {
-        self.doc_format
+        self.doc_format_child.map(|c| c.format).unwrap_or_default()
     }
 }
 
