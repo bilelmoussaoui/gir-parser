@@ -1,4 +1,4 @@
-use std::{collections::HashMap, path::Path};
+use std::{collections::HashMap, path::Path, str::FromStr};
 
 use xmlserde_derives::XmlDeserialize;
 
@@ -209,5 +209,14 @@ impl Repository {
 
     pub fn doc_format(&self) -> Option<&DocFormat> {
         self.doc_format.as_ref()
+    }
+}
+
+impl FromStr for Repository {
+    type Err = ParserError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let repository = xmlserde::xml_deserialize_from_str(s).map_err(ParserError::Xml)?;
+        Ok(repository)
     }
 }
