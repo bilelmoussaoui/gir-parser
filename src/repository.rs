@@ -65,7 +65,7 @@ pub enum DocFormat {
     GtkDocMarkdown,
     GtkDocDocbook,
     GiDocgen,
-    HotDoc,
+    Hotdoc,
     Unknown,
 }
 
@@ -75,7 +75,7 @@ impl xmlserde::XmlValue for DocFormat {
             Self::GtkDocMarkdown => "gtk-doc-markdown",
             Self::GtkDocDocbook => "gtk-doc-docbook",
             Self::GiDocgen => "gi-docgen",
-            Self::HotDoc => "hotdoc",
+            Self::Hotdoc => "hotdoc",
             Self::Unknown => "unknown",
         }
         .to_owned()
@@ -86,7 +86,7 @@ impl xmlserde::XmlValue for DocFormat {
             "gtk-doc-markdown" => Ok(Self::GtkDocMarkdown),
             "gtk-doc-docbook" => Ok(Self::GtkDocDocbook),
             "gi-docgen" => Ok(Self::GiDocgen),
-            "hotdoc" => Ok(Self::HotDoc),
+            "hotdoc" => Ok(Self::Hotdoc),
             "unknown" => Ok(Self::Unknown),
             e => Err(format!("Invalid doc:format {e}")),
         }
