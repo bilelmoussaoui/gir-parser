@@ -60,12 +60,13 @@ impl Package {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Default)]
 pub enum DocFormat {
     GtkDocMarkdown,
     GtkDocDocbook,
     GiDocgen,
     Hotdoc,
+    #[default]
     Unknown,
 }
 
