@@ -143,7 +143,7 @@ pub use property::Property;
 mod record;
 pub use record::{Record, RecordField};
 mod repository;
-pub use repository::{HeaderInclude, NamespaceInclude, Package, Repository};
+pub use repository::{DocFormat, HeaderInclude, NamespaceInclude, Package, Repository};
 mod return_value;
 pub use return_value::ReturnValue;
 mod signal;
