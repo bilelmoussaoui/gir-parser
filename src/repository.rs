@@ -60,7 +60,7 @@ impl Package {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Copy)]
 pub enum DocFormat {
     GtkDocMarkdown,
     GtkDocDocbook,
