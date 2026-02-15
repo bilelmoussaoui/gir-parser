@@ -301,4 +301,35 @@ mod tests {
             assert!(gir_file.starts_with(repository.namespace().name()));
         }
     }
+
+    #[test]
+    fn parse_doc_format_is_missing() {
+        // doc:format is missing
+        let content = r#"
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:doc="http://www.gtk.org/introspection/doc/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="GObject" version="2.0"/>
+  <package name="pango"/>
+  <c:include name="pango/pango.h"/>
+  <namespace name="Pango" version="1.0" shared-library="libpango-1.0.so.0" c:identifier-prefixes="Pango" c:symbol-prefixes="pango">
+  </namespace>
+</repository>"#;
+        let repo = Repository::from_str(content).unwrap();
+        assert_eq!(repo.doc_format(), crate::DocFormat::Unknown);
+    }
+
+    #[test]
+    fn parse_doc_format_gi_docgen_missing() {
+        // doc:format is missing
+        let content = r#"
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:doc="http://www.gtk.org/introspection/doc/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="GObject" version="2.0"/>
+  <package name="pango"/>
+  <c:include name="pango/pango.h"/>
+  <doc:format name="gi-docgen"/>
+  <namespace name="Pango" version="1.0" shared-library="libpango-1.0.so.0" c:identifier-prefixes="Pango" c:symbol-prefixes="pango">
+  </namespace>
+</repository>"#;
+        let repo = Repository::from_str(content).unwrap();
+        assert_eq!(repo.doc_format(), crate::DocFormat::GiDocgen);
+    }
 }
