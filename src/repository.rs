@@ -120,8 +120,8 @@ pub struct Repository {
     packages: Vec<Package>,
     #[xmlserde(name = b"namespace", ty = "child")]
     namespace: Namespace,
-    #[xmlserde(name = b"doc:format", ty = "attr")]
-    doc_format: Option<DocFormat>,
+    #[xmlserde(name = b"doc:format", ty = "attr", default = "DocFormat::default")]
+    doc_format: DocFormat,
 }
 
 impl Repository {
@@ -208,8 +208,8 @@ impl Repository {
         &self.namespace
     }
 
-    pub fn doc_format(&self) -> Option<&DocFormat> {
-        self.doc_format.as_ref()
+    pub fn doc_format(&self) -> DocFormat {
+        self.doc_format
     }
 }
 
