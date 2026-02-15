@@ -204,7 +204,7 @@ mod tests {
     use super::{repository::Repository, version::Version};
 
     fn parse_gir(gir_file: &str) -> Repository {
-        let path = PathBuf::from("./gir-files").join(&format!("{}.gir", gir_file));
+        let path = PathBuf::from("./gir-files").join(format!("{}.gir", gir_file));
         Repository::from_path(path).unwrap()
     }
     #[test]
