@@ -19,6 +19,16 @@ xml_serde_enum! {
     }
 }
 
+impl Direction {
+    pub fn is_in(self) -> bool {
+        matches!(self, Self::In | Self::InOut)
+    }
+
+    pub fn is_out(self) -> bool {
+        matches!(self, Self::Out | Self::InOut)
+    }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, XmlDeserialize)]
 pub enum ParameterType {
     #[xmlserde(name = b"type")]
@@ -286,6 +296,18 @@ impl Parameter {
 
     pub fn ty(&self) -> Option<&ParameterType> {
         self.type_.as_ref()
+    }
+
+    pub fn is_length(&self) -> bool {
+        if !self.direction.is_some_and(|d| d.is_in()) {
+            return false;
+        }
+        let len = self.name().len();
+        if len >= 3 && &self.name()[len - 3..len] == "len" {
+            return true;
+        }
+
+        self.name().contains("length")
     }
 }
 
