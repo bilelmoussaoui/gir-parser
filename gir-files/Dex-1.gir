@@ -1003,6 +1003,134 @@ rejected with %DEX_ERROR_CHANNEL_CLOSED.</doc>
         </parameters>
       </method>
     </class>
+    <class name="DBusInterfaceSkeleton"
+           c:symbol-prefix="dbus_interface_skeleton"
+           c:type="DexDBusInterfaceSkeleton"
+           parent="Gio.DBusInterfaceSkeleton"
+           abstract="1"
+           glib:type-name="DexDBusInterfaceSkeleton"
+           glib:get-type="dex_dbus_interface_skeleton_get_type"
+           glib:type-struct="DBusInterfaceSkeletonClass">
+      <doc xml:space="preserve"
+           filename="src/dex-gdbus.c"
+           line="40">#DexDBusInterfaceSkeleton provides integration between libdex and the GDBus
+codegen. If the gdbus-codegen dex extension is used, all generated
+InterfaceSkeletons inherit from #DexDBusInterfaceSkeleton instead of
+#GDBusInterfaceSkeleton, which allows the use of the API exposed here.</doc>
+      <source-position filename="src/dex-gdbus.h" line="65"/>
+      <implements name="Gio.DBusInterface"/>
+      <method name="cancel"
+              c:identifier="dex_dbus_interface_skeleton_cancel"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="src/dex-gdbus.c"
+             line="189">Cancels all in-flight fibers.</doc>
+        <source-position filename="src/dex-gdbus.h" line="68"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="interface_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-gdbus.c"
+                 line="191">a #DexDBusInterfaceSkeleton</doc>
+            <type name="DBusInterfaceSkeleton"
+                  c:type="DexDBusInterfaceSkeleton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_flags"
+              c:identifier="dex_dbus_interface_skeleton_get_flags"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="src/dex-gdbus.c"
+             line="211">Gets the #DexDBusInterfaceSkeletonFlags that describes the behavior
+of @interface_</doc>
+        <source-position filename="src/dex-gdbus.h" line="70"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gdbus.c"
+               line="218">One or more flags from the #DexDBusInterfaceSkeletonFlags enumeration.</doc>
+          <type name="DBusInterfaceSkeletonFlags"
+                c:type="DexDBusInterfaceSkeletonFlags"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="interface_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-gdbus.c"
+                 line="213">a #DexDBusInterfaceSkeleton</doc>
+            <type name="DBusInterfaceSkeleton"
+                  c:type="DexDBusInterfaceSkeleton*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_flags"
+              c:identifier="dex_dbus_interface_skeleton_set_flags"
+              version="1.1">
+        <doc xml:space="preserve"
+             filename="src/dex-gdbus.c"
+             line="234">Sets flags describing what the behavior of @interface_ should be.</doc>
+        <source-position filename="src/dex-gdbus.h" line="72"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="interface_" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-gdbus.c"
+                 line="236">a #DexDBusInterfaceSkeleton</doc>
+            <type name="DBusInterfaceSkeleton"
+                  c:type="DexDBusInterfaceSkeleton*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/dex-gdbus.c"
+                 line="237">Flags from the #DexDBusInterfaceSkeletonFlags enumeration.</doc>
+            <type name="DBusInterfaceSkeletonFlags"
+                  c:type="DexDBusInterfaceSkeletonFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Gio.DBusInterfaceSkeleton"
+              c:type="GDBusInterfaceSkeleton"/>
+      </field>
+    </class>
+    <record name="DBusInterfaceSkeletonClass"
+            c:type="DexDBusInterfaceSkeletonClass"
+            glib:is-gtype-struct-for="DBusInterfaceSkeleton">
+      <source-position filename="src/dex-gdbus.h" line="65"/>
+      <field name="parent_class">
+        <type name="Gio.DBusInterfaceSkeletonClass"
+              c:type="GDBusInterfaceSkeletonClass"/>
+      </field>
+    </record>
+    <bitfield name="DBusInterfaceSkeletonFlags"
+              version="1.1"
+              c:type="DexDBusInterfaceSkeletonFlags">
+      <doc xml:space="preserve"
+           filename="src/dex-gdbus.h"
+           line="36">Flags describing the behavior of a #GDBusInterfaceSkeleton instance.</doc>
+      <source-position filename="src/dex-gdbus.h" line="53"/>
+      <member name="none"
+              value="0"
+              c:identifier="DEX_DBUS_INTERFACE_SKELETON_FLAGS_NONE">
+        <doc xml:space="preserve"
+             filename="src/dex-gdbus.h"
+             line="38">No flags set.</doc>
+      </member>
+      <member name="handle_method_invocations_in_fiber"
+              value="1"
+              c:identifier="DEX_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_FIBER">
+        <doc xml:space="preserve"
+             filename="src/dex-gdbus.h"
+             line="39">Each method invocation is
+  handled in a fiber dedicated to the invocation. This means that the method implementation can
+  use dex_await or similar. Authorization for method invocations uses the same fiber.
+  This can not be used in combination with METHOD_INVOCATIONS_IN_THREAD and trying to do so leads
+  to a runtime error.</doc>
+      </member>
+    </bitfield>
     <function-macro name="DELAYED"
                     c:identifier="DEX_DELAYED"
                     introspectable="0">
@@ -3290,7 +3418,7 @@ If it was the last reference, the resources associated to the instance are freed
            glib:fundamental="1">
       <doc xml:space="preserve"
            filename="src/dex-promise.c"
-           line="30">`DexPromise` is a convenient [class@Dex.Future] for propagating a result or
+           line="32">`DexPromise` is a convenient [class@Dex.Future] for propagating a result or
 rejection in application and library code.
 
 Use this when there is not a more specialized `DexFuture` for your needs to
@@ -3298,7 +3426,7 @@ propagate a result or rejection to the caller in an asynchronous fashion.</doc>
       <constructor name="new" c:identifier="dex_promise_new">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="90">Creates a new promise which may be completed or rejected
+             line="92">Creates a new promise which may be completed or rejected
 using the available methods.</doc>
         <source-position filename="src/dex-promise.h" line="43"/>
         <return-value transfer-ownership="full">
@@ -3309,7 +3437,7 @@ using the available methods.</doc>
                    c:identifier="dex_promise_new_cancellable">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="104">Creates a new [class@Dex.Promise] that can propagate cancellation if the
+             line="106">Creates a new [class@Dex.Promise] that can propagate cancellation if the
 promise is discarded.
 
 This can be used to plumb cancellation between promises and
@@ -3318,7 +3446,7 @@ This can be used to plumb cancellation between promises and
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-promise.c"
-               line="113">a [class@Dex.Promise]</doc>
+               line="115">a [class@Dex.Promise]</doc>
           <type name="Promise" c:type="DexPromise*"/>
         </return-value>
       </constructor>
@@ -3326,7 +3454,7 @@ This can be used to plumb cancellation between promises and
               c:identifier="dex_promise_get_cancellable">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="125">Gets a [class@Gio.Cancellable] that will cancel when the promise has
+             line="127">Gets a [class@Gio.Cancellable] that will cancel when the promise has
 been discarded (and therefore result no longer necessary).
 
 This is useful when manually implementing wrappers around various
@@ -3337,14 +3465,14 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/dex-promise.c"
-               line="137">a [class@Gio.Cancellable] or %NULL</doc>
+               line="139">a [class@Gio.Cancellable] or %NULL</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="127">a [class@Dex.Promise]</doc>
+                 line="129">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
         </parameters>
@@ -3352,7 +3480,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
       <method name="reject" c:identifier="dex_promise_reject">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="164">Marks the promise as rejected, indicating a failure.</doc>
+             line="166">Marks the promise as rejected, indicating a failure.</doc>
         <source-position filename="src/dex-promise.h" line="97"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3361,13 +3489,13 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="166">a [class@Dex.Promise]</doc>
+                 line="168">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="error" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="167">a [struct@GLib.Error]</doc>
+                 line="169">a [struct@GLib.Error]</doc>
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
         </parameters>
@@ -3375,7 +3503,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
       <method name="resolve" c:identifier="dex_promise_resolve">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="147">Sets the result for a [class@Dex.Promise].</doc>
+             line="149">Sets the result for a [class@Dex.Promise].</doc>
         <source-position filename="src/dex-promise.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3384,13 +3512,13 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="149">a [class@Dex.Promise]</doc>
+                 line="151">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="150">a [struct@GObject.Value] containing the resolved value</doc>
+                 line="152">a [struct@GObject.Value] containing the resolved value</doc>
             <type name="GObject.Value" c:type="const GValue*"/>
           </parameter>
         </parameters>
@@ -3399,7 +3527,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
               c:identifier="dex_promise_resolve_boolean">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="317">Resolve promise to `value`.</doc>
+             line="319">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3408,7 +3536,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="319">a [class@Dex.Promise]</doc>
+                 line="321">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3427,13 +3555,13 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="384">a [class@Dex.Promise]</doc>
+                 line="386">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="boxed_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="385">a `GType` of %G_TYPE_BOXED</doc>
+                 line="387">a `GType` of %G_TYPE_BOXED</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
           <parameter name="instance"
@@ -3442,7 +3570,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="386">the boxed value to store</doc>
+                 line="388">the boxed value to store</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3450,7 +3578,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
       <method name="resolve_double" c:identifier="dex_promise_resolve_double">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="303">Resolve promise to `value`.</doc>
+             line="305">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3459,7 +3587,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="305">a [class@Dex.Promise]</doc>
+                 line="307">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3470,7 +3598,7 @@ If @promise was created with [ctor@Dex.Promise.new], then %NULL is returned.</do
       <method name="resolve_fd" c:identifier="dex_promise_resolve_fd">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="181">Resolves the promise to @fd.
+             line="183">Resolves the promise to @fd.
 
 The file-descriptor may be dup()'d by this function and
 @fd closed immediately.
@@ -3484,13 +3612,13 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="183">a [class@Dex.Promise]</doc>
+                 line="185">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="fd" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="184">a file-descriptor for the resolve to resolve to</doc>
+                 line="186">a file-descriptor for the resolve to resolve to</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -3498,7 +3626,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_float" c:identifier="dex_promise_resolve_float">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="289">Resolve promise to `value`.</doc>
+             line="291">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3507,7 +3635,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="291">a [class@Dex.Promise]</doc>
+                 line="293">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3518,7 +3646,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_int" c:identifier="dex_promise_resolve_int">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="205">Resolve promise to `value`.</doc>
+             line="207">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="57"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3527,7 +3655,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="207">a [class@Dex.Promise]</doc>
+                 line="209">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3538,7 +3666,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_int64" c:identifier="dex_promise_resolve_int64">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="233">Resolve promise to `value`.</doc>
+             line="235">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="63"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3547,7 +3675,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="235">a [class@Dex.Promise]</doc>
+                 line="237">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3558,7 +3686,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_long" c:identifier="dex_promise_resolve_long">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="261">Resolve promise to `value`.</doc>
+             line="263">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="69"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3567,7 +3695,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="263">a [class@Dex.Promise]</doc>
+                 line="265">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3584,7 +3712,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="348">a [class@Dex.Promise]</doc>
+                 line="350">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="object"
@@ -3593,7 +3721,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="349">a [class@GObject.Object]</doc>
+                 line="351">a [class@GObject.Object]</doc>
             <type name="GObject.Object" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3607,13 +3735,13 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="333">a [class@Dex.Promise]</doc>
+                 line="335">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="334">a string to use to resolve the promise</doc>
+                 line="336">a string to use to resolve the promise</doc>
             <type name="utf8" c:type="char*"/>
           </parameter>
         </parameters>
@@ -3621,7 +3749,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_uint" c:identifier="dex_promise_resolve_uint">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="219">Resolve promise to `value`.</doc>
+             line="221">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="60"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3630,7 +3758,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="221">a [class@Dex.Promise]</doc>
+                 line="223">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3641,7 +3769,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_uint64" c:identifier="dex_promise_resolve_uint64">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="247">Resolve promise to `value`.</doc>
+             line="249">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="66"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3650,7 +3778,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="249">a [class@Dex.Promise]</doc>
+                 line="251">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3661,7 +3789,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
       <method name="resolve_ulong" c:identifier="dex_promise_resolve_ulong">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="275">Resolve promise to `value`.</doc>
+             line="277">Resolve promise to `value`.</doc>
         <source-position filename="src/dex-promise.h" line="72"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3670,7 +3798,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="277">a [class@Dex.Promise]</doc>
+                 line="279">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="value" transfer-ownership="none">
@@ -3683,7 +3811,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
               version="0.8">
         <doc xml:space="preserve"
              filename="src/dex-promise.c"
-             line="362">If @variant is floating, its reference is consumed.</doc>
+             line="364">If @variant is floating, its reference is consumed.</doc>
         <source-position filename="src/dex-promise.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -3692,7 +3820,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
           <instance-parameter name="promise" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="364">a [class@Dex.Promise]</doc>
+                 line="366">a [class@Dex.Promise]</doc>
             <type name="Promise" c:type="DexPromise*"/>
           </instance-parameter>
           <parameter name="variant"
@@ -3701,7 +3829,7 @@ Use dex_await_fd() or similar to retrieve the resolved FD.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/dex-promise.c"
-                 line="365">a [struct@GLib.Variant]</doc>
+                 line="367">a [struct@GLib.Variant]</doc>
             <type name="GLib.Variant" c:type="GVariant*"/>
           </parameter>
         </parameters>
@@ -4044,12 +4172,12 @@ they have exhausted their own work queue.</doc>
       <constructor name="new" c:identifier="dex_thread_pool_scheduler_new">
         <doc xml:space="preserve"
              filename="src/dex-thread-pool-scheduler.c"
-             line="175">Creates a new [class@Dex.Scheduler] that executes work items on a thread pool.</doc>
+             line="177">Creates a new [class@Dex.Scheduler] that executes work items on a thread pool.</doc>
         <source-position filename="src/dex-thread-pool-scheduler.h" line="37"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-thread-pool-scheduler.c"
-               line="180">a [class@Dex.ThreadPoolScheduler]</doc>
+               line="182">a [class@Dex.ThreadPoolScheduler]</doc>
           <type name="Scheduler" c:type="DexScheduler*"/>
         </return-value>
       </constructor>
@@ -4057,7 +4185,7 @@ they have exhausted their own work queue.</doc>
                 c:identifier="dex_thread_pool_scheduler_get_default">
         <doc xml:space="preserve"
              filename="src/dex-thread-pool-scheduler.c"
-             line="228">Gets the default thread pool scheduler for the instance.
+             line="233">Gets the default thread pool scheduler for the instance.
 
 This function is useful to allow programs and libraries to share
 an off-main-thread scheduler without having to coordinate on where
@@ -4066,7 +4194,7 @@ the scheduler instance is created or owned.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-thread-pool-scheduler.c"
-               line="237">a [class@Dex.Scheduler]</doc>
+               line="242">a [class@Dex.Scheduler]</doc>
           <type name="Scheduler" c:type="DexScheduler*"/>
         </return-value>
       </function>
@@ -4359,12 +4487,12 @@ will get the default aio context for your scheduler.</doc>
               version="1.0">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="1858">A helper for [method@Gio.AsyncInitable.init_async].</doc>
-      <source-position filename="src/dex-gio.h" line="177"/>
+           line="1542">A helper for [method@Gio.AsyncInitable.init_async].</doc>
+      <source-position filename="src/dex-gio.h" line="154"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1866">a [class@Dex.Future] that resolves
+             line="1550">a [class@Dex.Future] that resolves
   to the @initable instance or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4372,13 +4500,13 @@ will get the default aio context for your scheduler.</doc>
         <parameter name="initable" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1860">a [iface@Gio.AsyncInitable]</doc>
+               line="1544">a [iface@Gio.AsyncInitable]</doc>
           <type name="Gio.AsyncInitable" c:type="GAsyncInitable*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1861">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1545">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4386,21 +4514,21 @@ will get the default aio context for your scheduler.</doc>
     </function>
     <function name="bus_get" c:identifier="dex_bus_get" version="0.4">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1596">Wrapper for [func@Gio.bus_get].</doc>
-      <source-position filename="src/dex-gio.h" line="139"/>
+           filename="src/dex-gdbus.c"
+           line="537">Wrapper for [func@Gio.bus_get].</doc>
+      <source-position filename="src/dex-gdbus.h" line="77"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="src/dex-gio.c"
-             line="1602">a [class@Dex.Future] that resolves to a
+             filename="src/dex-gdbus.c"
+             line="543">a [class@Dex.Future] that resolves to a
   [class@Gio.DBusConnection] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
       <parameters>
         <parameter name="bus_type" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1598">the [enum@Gio.BusType]</doc>
+               filename="src/dex-gdbus.c"
+               line="539">the [enum@Gio.BusType]</doc>
           <type name="Gio.BusType" c:type="GBusType"/>
         </parameter>
       </parameters>
@@ -4409,8 +4537,8 @@ will get the default aio context for your scheduler.</doc>
               c:identifier="dex_bus_own_name_on_connection"
               version="1.1">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1688">Wrapper for [func@Gio.bus_own_name].
+           filename="src/dex-gdbus.c"
+           line="664">Wrapper for [func@Gio.bus_own_name].
 
 Asks the D-Bus broker to own the well-known name @name on the connection @connection.
 
@@ -4420,27 +4548,27 @@ resolves to true, or rejects with an error.
 @out_name_lost_future is a future that rejects when the name was lost.
 
 If either future is canceled, the name will be unowned.</doc>
-      <source-position filename="src/dex-gio.h" line="141"/>
+      <source-position filename="src/dex-gdbus.h" line="79"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
       <parameters>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1690">The [class@Gio.DBusConnection] to own a name on.</doc>
+               filename="src/dex-gdbus.c"
+               line="666">The [class@Gio.DBusConnection] to own a name on.</doc>
           <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1691">The well-known name to own.</doc>
+               filename="src/dex-gdbus.c"
+               line="667">The well-known name to own.</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1692">a set of flags with ownership options.</doc>
+               filename="src/dex-gdbus.c"
+               line="668">a set of flags with ownership options.</doc>
           <type name="Gio.BusNameOwnerFlags" c:type="GBusNameOwnerFlags"/>
         </parameter>
         <parameter name="out_name_acquired_future"
@@ -4450,8 +4578,8 @@ If either future is canceled, the name will be unowned.</doc>
                    optional="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1693">a location for the name acquired future</doc>
+               filename="src/dex-gdbus.c"
+               line="669">a location for the name acquired future</doc>
           <type name="Future" c:type="DexFuture**"/>
         </parameter>
         <parameter name="out_name_lost_future"
@@ -4461,9 +4589,42 @@ If either future is canceled, the name will be unowned.</doc>
                    optional="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1694">a location for the name lost future</doc>
+               filename="src/dex-gdbus.c"
+               line="670">a location for the name lost future</doc>
           <type name="Future" c:type="DexFuture**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="data_input_stream_read_line"
+              c:identifier="dex_data_input_stream_read_line"
+              version="1.1">
+      <doc xml:space="preserve"
+           filename="src/dex-gio.c"
+           line="151">Reads a line from the data input stream.
+
+Wraps [method@Gio.DataInputStream.read_line_async].</doc>
+      <source-position filename="src/dex-gio.h" line="111"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/dex-gio.c"
+             line="161">a [class@Dex.Future] that resolves
+  to a string containing the line (without the line terminator), or %NULL
+  if the end of the stream is reached.</doc>
+        <type name="Future" c:type="DexFuture*"/>
+      </return-value>
+      <parameters>
+        <parameter name="stream" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="153">a [class@Gio.DataInputStream]</doc>
+          <type name="Gio.DataInputStream" c:type="GDataInputStream*"/>
+        </parameter>
+        <parameter name="io_priority" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="154">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+  request</doc>
+          <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
@@ -4471,21 +4632,21 @@ If either future is canceled, the name will be unowned.</doc>
               c:identifier="dex_dbus_connection_call"
               version="0.4">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1407">Wrapper for [method@Gio.DBusConnection.call].</doc>
-      <source-position filename="src/dex-gio.h" line="147"/>
+           filename="src/dex-gdbus.c"
+           line="348">Wrapper for [method@Gio.DBusConnection.call].</doc>
+      <source-position filename="src/dex-gdbus.h" line="85"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="src/dex-gio.c"
-             line="1425">a [class@Dex.Future] that resolves to a
+             filename="src/dex-gdbus.c"
+             line="366">a [class@Dex.Future] that resolves to a
   [struct@GLib.Variant] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
       <parameters>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1409">a [class@Gio.DBusConnection]</doc>
+               filename="src/dex-gdbus.c"
+               line="350">a [class@Gio.DBusConnection]</doc>
           <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
         </parameter>
         <parameter name="bus_name"
@@ -4493,27 +4654,27 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1410">a unique or well-known bus name or %NULL if
+               filename="src/dex-gdbus.c"
+               line="351">a unique or well-known bus name or %NULL if
   @connection is not a message bus connection</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="object_path" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1412">path of remote object</doc>
+               filename="src/dex-gdbus.c"
+               line="353">path of remote object</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="interface_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1413">D-Bus interface to invoke method on</doc>
+               filename="src/dex-gdbus.c"
+               line="354">D-Bus interface to invoke method on</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1414">the name of the method to invoke</doc>
+               filename="src/dex-gdbus.c"
+               line="355">the name of the method to invoke</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="parameters"
@@ -4521,8 +4682,8 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1415">a [struct@GLib.Variant] tuple with parameters for
+               filename="src/dex-gdbus.c"
+               line="356">a [struct@GLib.Variant] tuple with parameters for
   the method or %NULL if not passing parameters</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
@@ -4531,21 +4692,21 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1417">the expected type of the reply (which will be a
+               filename="src/dex-gdbus.c"
+               line="358">the expected type of the reply (which will be a
   tuple), or %NULL</doc>
           <type name="GLib.VariantType" c:type="const GVariantType*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1419">flags from the [flags@Gio.DBusCallFlags] enumeration</doc>
+               filename="src/dex-gdbus.c"
+               line="360">flags from the [flags@Gio.DBusCallFlags] enumeration</doc>
           <type name="Gio.DBusCallFlags" c:type="GDBusCallFlags"/>
         </parameter>
         <parameter name="timeout_msec" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1420">the timeout in milliseconds, -1 to use the default
+               filename="src/dex-gdbus.c"
+               line="361">the timeout in milliseconds, -1 to use the default
   timeout or %G_MAXINT for no timeout</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4555,13 +4716,13 @@ If either future is canceled, the name will be unowned.</doc>
               c:identifier="dex_dbus_connection_call_with_unix_fd_list"
               version="0.4">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1504">Wrapper for [method@Gio.DBusConnection.call_with_unix_fd_list].</doc>
-      <source-position filename="src/dex-gio.h" line="189"/>
+           filename="src/dex-gdbus.c"
+           line="445">Wrapper for [method@Gio.DBusConnection.call_with_unix_fd_list].</doc>
+      <source-position filename="src/dex-gdbus.h" line="104"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="src/dex-gio.c"
-             line="1523">a [class@Dex.FutureSet] that resolves to a
+             filename="src/dex-gdbus.c"
+             line="464">a [class@Dex.FutureSet] that resolves to a
   [struct@GLib.Variant].
 
   The [class@Dex.Future] containing the resulting [class@Gio.UnixFDList] can
@@ -4571,8 +4732,8 @@ If either future is canceled, the name will be unowned.</doc>
       <parameters>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1506">a [class@Gio.DBusConnection]</doc>
+               filename="src/dex-gdbus.c"
+               line="447">a [class@Gio.DBusConnection]</doc>
           <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
         </parameter>
         <parameter name="bus_name"
@@ -4580,27 +4741,27 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1507">a unique or well-known bus name or %NULL if
+               filename="src/dex-gdbus.c"
+               line="448">a unique or well-known bus name or %NULL if
   @connection is not a message bus connection</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="object_path" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1509">path of remote object</doc>
+               filename="src/dex-gdbus.c"
+               line="450">path of remote object</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="interface_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1510">D-Bus interface to invoke method on</doc>
+               filename="src/dex-gdbus.c"
+               line="451">D-Bus interface to invoke method on</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="method_name" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1511">the name of the method to invoke</doc>
+               filename="src/dex-gdbus.c"
+               line="452">the name of the method to invoke</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="parameters"
@@ -4608,8 +4769,8 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1512">a [struct@GLib.Variant] tuple with parameters for
+               filename="src/dex-gdbus.c"
+               line="453">a [struct@GLib.Variant] tuple with parameters for
   the method or %NULL if not passing parameters</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </parameter>
@@ -4618,21 +4779,21 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1514">the expected type of the reply (which will be a
+               filename="src/dex-gdbus.c"
+               line="455">the expected type of the reply (which will be a
   tuple), or %NULL</doc>
           <type name="GLib.VariantType" c:type="const GVariantType*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1516">flags from the [flags@Gio.DBusCallFlags] enumeration</doc>
+               filename="src/dex-gdbus.c"
+               line="457">flags from the [flags@Gio.DBusCallFlags] enumeration</doc>
           <type name="Gio.DBusCallFlags" c:type="GDBusCallFlags"/>
         </parameter>
         <parameter name="timeout_msec" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1517">the timeout in milliseconds, -1 to use the default
+               filename="src/dex-gdbus.c"
+               line="458">the timeout in milliseconds, -1 to use the default
   timeout or %G_MAXINT for no timeout</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4641,8 +4802,8 @@ If either future is canceled, the name will be unowned.</doc>
                    nullable="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1519">a [class@Gio.UnixFDList]</doc>
+               filename="src/dex-gdbus.c"
+               line="460">a [class@Gio.UnixFDList]</doc>
           <type name="Gio.UnixFDList" c:type="GUnixFDList*"/>
         </parameter>
       </parameters>
@@ -4651,21 +4812,21 @@ If either future is canceled, the name will be unowned.</doc>
               c:identifier="dex_dbus_connection_close"
               version="1.0">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1904">Asynchronously closes a connection.</doc>
-      <source-position filename="src/dex-gio.h" line="157"/>
+           filename="src/dex-gdbus.c"
+           line="738">Asynchronously closes a connection.</doc>
+      <source-position filename="src/dex-gdbus.h" line="95"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="src/dex-gio.c"
-             line="1910">a [class@Dex.Future] that resolves
+             filename="src/dex-gdbus.c"
+             line="744">a [class@Dex.Future] that resolves
   to `true` or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
       <parameters>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1906">a [class@Gio.DBusConnection]</doc>
+               filename="src/dex-gdbus.c"
+               line="740">a [class@Gio.DBusConnection]</doc>
           <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
         </parameter>
       </parameters>
@@ -4674,40 +4835,40 @@ If either future is canceled, the name will be unowned.</doc>
               c:identifier="dex_dbus_connection_send_message_with_reply"
               version="0.4">
       <doc xml:space="preserve"
-           filename="src/dex-gio.c"
-           line="1346">Wrapper for [method@Gio.DBusConnection.send_message_with_reply].</doc>
-      <source-position filename="src/dex-gio.h" line="159"/>
+           filename="src/dex-gdbus.c"
+           line="287">Wrapper for [method@Gio.DBusConnection.send_message_with_reply].</doc>
+      <source-position filename="src/dex-gdbus.h" line="97"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
-             filename="src/dex-gio.c"
-             line="1357">a [class@Dex.Future] that will resolve to a
+             filename="src/dex-gdbus.c"
+             line="298">a [class@Dex.Future] that will resolve to a
   [class@Gio.DBusMessage] or reject with failure.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
       <parameters>
         <parameter name="connection" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1348">a [class@Gio.DBusConnection]</doc>
+               filename="src/dex-gdbus.c"
+               line="289">a [class@Gio.DBusConnection]</doc>
           <type name="Gio.DBusConnection" c:type="GDBusConnection*"/>
         </parameter>
         <parameter name="message" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1349">a [class@Gio.DBusMessage]</doc>
+               filename="src/dex-gdbus.c"
+               line="290">a [class@Gio.DBusMessage]</doc>
           <type name="Gio.DBusMessage" c:type="GDBusMessage*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1350">a set of [flags@Gio.DBusSendMessageFlags]</doc>
+               filename="src/dex-gdbus.c"
+               line="291">a set of [flags@Gio.DBusSendMessageFlags]</doc>
           <type name="Gio.DBusSendMessageFlags"
                 c:type="GDBusSendMessageFlags"/>
         </parameter>
         <parameter name="timeout_msec" transfer-ownership="none">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1351">timeout in milliseconds, or -1 for default, or %G_MAXINT
+               filename="src/dex-gdbus.c"
+               line="292">timeout in milliseconds, or -1 for default, or %G_MAXINT
   for no timeout.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4718,8 +4879,8 @@ If either future is canceled, the name will be unowned.</doc>
                    optional="1"
                    allow-none="1">
           <doc xml:space="preserve"
-               filename="src/dex-gio.c"
-               line="1353">a location for the message serial number</doc>
+               filename="src/dex-gdbus.c"
+               line="294">a location for the message serial number</doc>
           <type name="guint32" c:type="guint32*"/>
         </parameter>
       </parameters>
@@ -4729,16 +4890,46 @@ If either future is canceled, the name will be unowned.</doc>
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
     </function>
-    <function name="file_copy" c:identifier="dex_file_copy">
+    <function name="fd_watch" c:identifier="dex_fd_watch" version="1.1">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="1012">Asynchronously copies a file and returns a [class@Dex.Future] which
-can be observed for the result.</doc>
-      <source-position filename="src/dex-gio.h" line="47"/>
+           line="1830">Creates a new GSource that will fire when @events is satisfied.
+
+This is primarily useful when integrating with legacy systems on a
+fiber.</doc>
+      <source-position filename="src/dex-gio.h" line="164"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1023">a [class@Dex.Future] that resolves
+             line="1840">a [class@Dex.Future] that resolves to the
+  revents value when @events is satisfied.</doc>
+        <type name="Future" c:type="DexFuture*"/>
+      </return-value>
+      <parameters>
+        <parameter name="fd" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="1832">a file-descriptor</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="events" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="1833">the POLLOUT|POLLIN style bitmask to watch for</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_copy" c:identifier="dex_file_copy">
+      <doc xml:space="preserve"
+           filename="src/dex-gio.c"
+           line="1116">Asynchronously copies a file and returns a [class@Dex.Future] which
+can be observed for the result.</doc>
+      <source-position filename="src/dex-gio.h" line="43"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/dex-gio.c"
+             line="1127">a [class@Dex.Future] that resolves
   to true if successful otherwise rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4746,26 +4937,59 @@ can be observed for the result.</doc>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1014">a [iface@Gio.File]</doc>
+               line="1118">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="destination" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1015">a [iface@Gio.File]</doc>
+               line="1119">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1016">a set of [flags@Gio.FileCopyFlags]</doc>
+               line="1120">a set of [flags@Gio.FileCopyFlags]</doc>
           <type name="Gio.FileCopyFlags" c:type="GFileCopyFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1017">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1121">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="file_create" c:identifier="dex_file_create" version="1.1">
+      <doc xml:space="preserve"
+           filename="src/dex-gio.c"
+           line="258">Wraps [method@Gio.File.create] as a [class@Dex.Future].</doc>
+      <source-position filename="src/dex-gio.h" line="70"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="src/dex-gio.c"
+             line="266">a [class@Dex.Future] that resolves to
+  a [class@Gio.FileOutputStream] or rejects with error.</doc>
+        <type name="Future" c:type="DexFuture*"/>
+      </return-value>
+      <parameters>
+        <parameter name="file" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="260">a [iface@Gio.File]</doc>
+          <type name="Gio.File" c:type="GFile*"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="261">flags for creating the file</doc>
+          <type name="Gio.FileCreateFlags" c:type="GFileCreateFlags"/>
+        </parameter>
+        <parameter name="io_priority" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/dex-gio.c"
+               line="262">priority for the IO operation</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
@@ -4773,13 +4997,13 @@ can be observed for the result.</doc>
     <function name="file_delete" c:identifier="dex_file_delete">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="1069">Asynchronously deletes a file and returns a [class@Dex.Future] which
+           line="1173">Asynchronously deletes a file and returns a [class@Dex.Future] which
 can be observed for the result.</doc>
-      <source-position filename="src/dex-gio.h" line="52"/>
+      <source-position filename="src/dex-gio.h" line="48"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1078">a [class@Dex.Future] that resolves
+             line="1182">a [class@Dex.Future] that resolves
   to true or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4787,13 +5011,13 @@ can be observed for the result.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1071">a [iface@Gio.File]</doc>
+               line="1175">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1072">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1176">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4805,7 +5029,7 @@ can be observed for the result.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="908">a [class@Dex.Future] that resolves to a
+             line="1012">a [class@Dex.Future] that resolves to a
   [class@Gio.FileEnumerator] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4813,25 +5037,25 @@ can be observed for the result.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="902">a [iface@Gio.File]</doc>
+               line="1006">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="attributes" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="903">an attribute query string (see: [`GFile` documentation](iface@Gio.File))</doc>
+               line="1007">an attribute query string (see: [`GFile` documentation](iface@Gio.File))</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="904">a set of [flags@Gio.FileQueryInfoFlags]</doc>
+               line="1008">a set of [flags@Gio.FileQueryInfoFlags]</doc>
           <type name="Gio.FileQueryInfoFlags" c:type="GFileQueryInfoFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="905">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1009">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4841,7 +5065,7 @@ can be observed for the result.</doc>
               c:identifier="dex_file_enumerator_next_files">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="953">Wraps [method@Gio.FileEnumerator.next_files_async].
+           line="1057">Wraps [method@Gio.FileEnumerator.next_files_async].
 
 Use [method@Dex.Future.await_boxed] to await for the result of this function.
 
@@ -4854,7 +5078,7 @@ g_autolist(GFileInfo) infos = dex_await_boxed (dex_file_enumerator_next_files (e
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="970">a [class@Dex.Future] that resolves to
+             line="1074">a [class@Dex.Future] that resolves to
   a [struct@GLib.List] of [class@Gio.FileInfo]</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4862,19 +5086,19 @@ g_autolist(GFileInfo) infos = dex_await_boxed (dex_file_enumerator_next_files (e
         <parameter name="file_enumerator" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="955">a [class@Gio.FileEnumerator]</doc>
+               line="1059">a [class@Gio.FileEnumerator]</doc>
           <type name="Gio.FileEnumerator" c:type="GFileEnumerator*"/>
         </parameter>
         <parameter name="num_files" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="956">the number of files</doc>
+               line="1060">the number of files</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="957">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1061">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4882,11 +5106,11 @@ g_autolist(GFileInfo) infos = dex_await_boxed (dex_file_enumerator_next_files (e
     </function>
     <function name="file_load_contents_bytes"
               c:identifier="dex_file_load_contents_bytes">
-      <source-position filename="src/dex-gio.h" line="58"/>
+      <source-position filename="src/dex-gio.h" line="54"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1307">a [class@Dex.Future] that resolves
+             line="1411">a [class@Dex.Future] that resolves
   to a [struct@GLib.Bytes].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4894,7 +5118,7 @@ g_autolist(GFileInfo) infos = dex_await_boxed (dex_file_enumerator_next_files (e
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1305">a [iface@Gio.File]</doc>
+               line="1409">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
@@ -4903,26 +5127,26 @@ g_autolist(GFileInfo) infos = dex_await_boxed (dex_file_enumerator_next_files (e
               c:identifier="dex_file_make_directory">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="780">Asynchronously creates a directory and returns [class@Dex.Future] which
+           line="884">Asynchronously creates a directory and returns [class@Dex.Future] which
 can be observed for the result.</doc>
-      <source-position filename="src/dex-gio.h" line="42"/>
+      <source-position filename="src/dex-gio.h" line="38"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="789">a [class@Dex.Future]</doc>
+             line="893">a [class@Dex.Future]</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
       <parameters>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="782">a [iface@Gio.File]</doc>
+               line="886">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="783">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="887">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4933,15 +5157,15 @@ can be observed for the result.</doc>
               version="1.0">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="846">Creates a directory at @file.
+           line="950">Creates a directory at @file.
 
 If @file already exists and is a directory, then the future
 will resolve to %TRUE.</doc>
-      <source-position filename="src/dex-gio.h" line="45"/>
+      <source-position filename="src/dex-gio.h" line="41"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="855">a [class@Dex.Future] that resolves to
+             line="959">a [class@Dex.Future] that resolves to
   a boolean or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4949,17 +5173,17 @@ will resolve to %TRUE.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="848">a [iface@Gio.File]</doc>
+               line="952">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
     </function>
     <function name="file_move" c:identifier="dex_file_move">
-      <source-position filename="src/dex-gio.h" line="169"/>
+      <source-position filename="src/dex-gio.h" line="146"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="2021">a [class@Dex.Future] that resolves to %TRUE
+             line="1663">a [class@Dex.Future] that resolves to %TRUE
   or rejects with error</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -4967,25 +5191,25 @@ will resolve to %TRUE.</doc>
         <parameter name="source" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2010">source [iface@Gio.File]</doc>
+               line="1652">source [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="destination" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2011">destination [iface@Gio.File]</doc>
+               line="1653">destination [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2012">a set of [flags@Gio.FileCopyFlags]</doc>
+               line="1654">a set of [flags@Gio.FileCopyFlags]</doc>
           <type name="Gio.FileCopyFlags" c:type="GFileCopyFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2013">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1655">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -4996,7 +5220,7 @@ will resolve to %TRUE.</doc>
                    destroy="6">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2015">
+               line="1657">
   [callback@Gio.FileProgressCallback] function for updates</doc>
           <type name="Gio.FileProgressCallback"
                 c:type="GFileProgressCallback"/>
@@ -5007,7 +5231,7 @@ will resolve to %TRUE.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2017">`gpointer` to user data for the callback function</doc>
+               line="1659">`gpointer` to user data for the callback function</doc>
           <type name="gpointer" c:type="gpointer"/>
         </parameter>
         <parameter name="progress_callback_data_destroy"
@@ -5017,7 +5241,7 @@ will resolve to %TRUE.</doc>
                    scope="async">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2018">a function to destroy the
+               line="1660">a function to destroy the
   @progress_callback_data, or %NULL</doc>
           <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
         </parameter>
@@ -5028,12 +5252,12 @@ will resolve to %TRUE.</doc>
               version="0.6">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="1813">Queries to see if @file exists asynchronously.</doc>
-      <source-position filename="src/dex-gio.h" line="167"/>
+           line="1497">Queries to see if @file exists asynchronously.</doc>
+      <source-position filename="src/dex-gio.h" line="144"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1819">a [class@Dex.Future] that will resolve with %TRUE
+             line="1503">a [class@Dex.Future] that will resolve with %TRUE
   if the file exists, otherwise reject with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5041,18 +5265,18 @@ will resolve to %TRUE.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1815">a [iface@Gio.File]</doc>
+               line="1499">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
       </parameters>
     </function>
     <function name="file_query_file_type"
               c:identifier="dex_file_query_file_type">
-      <source-position filename="src/dex-gio.h" line="65"/>
+      <source-position filename="src/dex-gio.h" line="61"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="739">a [class@Dex.Future] that resolves to a
+             line="843">a [class@Dex.Future] that resolves to a
   [enum@Gio.FileType].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5060,30 +5284,30 @@ will resolve to %TRUE.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="734">a [iface@Gio.File]</doc>
+               line="838">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="735">a set of [flags@Gio.FileQueryInfoFlags]</doc>
+               line="839">a set of [flags@Gio.FileQueryInfoFlags]</doc>
           <type name="Gio.FileQueryInfoFlags" c:type="GFileQueryInfoFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="736">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="840">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="file_query_info" c:identifier="dex_file_query_info">
-      <source-position filename="src/dex-gio.h" line="60"/>
+      <source-position filename="src/dex-gio.h" line="56"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="680">a [class@Dex.Future] that resolves
+             line="784">a [class@Dex.Future] that resolves
   to a [class@Gio.FileInfo] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5091,25 +5315,25 @@ will resolve to %TRUE.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="674">a [iface@Gio.File]</doc>
+               line="778">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="attributes" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="675">an attribute query string (see: [GFile documentation](iface@Gio.File))</doc>
+               line="779">an attribute query string (see: [GFile documentation](iface@Gio.File))</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="676">a set of [flags@Gio.FileQueryInfoFlags]</doc>
+               line="780">a set of [flags@Gio.FileQueryInfoFlags]</doc>
           <type name="Gio.FileQueryInfoFlags" c:type="GFileQueryInfoFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="677">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="781">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5118,12 +5342,12 @@ will resolve to %TRUE.</doc>
     <function name="file_read" c:identifier="dex_file_read">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="203">Asynchronously opens a file for reading.</doc>
-      <source-position filename="src/dex-gio.h" line="55"/>
+           line="307">Asynchronously opens a file for reading.</doc>
+      <source-position filename="src/dex-gio.h" line="51"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="211">a [class@Dex.Future] that resolves
+             line="315">a [class@Dex.Future] that resolves
   to a [class@Gio.FileInputStream].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5131,13 +5355,13 @@ will resolve to %TRUE.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="205">a [iface@Gio.File]</doc>
+               line="309">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="206">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="310">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5146,13 +5370,13 @@ will resolve to %TRUE.</doc>
     <function name="file_replace" c:identifier="dex_file_replace">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="250">Opens a stream that will replace @file on disk when the input
+           line="354">Opens a stream that will replace @file on disk when the input
 stream is closed.</doc>
       <source-position filename="src/dex-gio.h" line="74"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="259">a [class@Dex.Future] that resolves
+             line="363">a [class@Dex.Future] that resolves
   to a [class@Gio.FileInputStream].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5160,7 +5384,7 @@ stream is closed.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="252">a [iface@Gio.File]</doc>
+               line="356">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="etag"
@@ -5169,7 +5393,7 @@ stream is closed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="253">the etag or %NULL</doc>
+               line="357">the etag or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="make_backup" transfer-ownership="none">
@@ -5178,7 +5402,7 @@ stream is closed.</doc>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="254">a set of [flags@Gio.FileCreateFlags]</doc>
+               line="358">a set of [flags@Gio.FileCreateFlags]</doc>
           <type name="Gio.FileCreateFlags" c:type="GFileCreateFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
@@ -5190,12 +5414,12 @@ stream is closed.</doc>
               c:identifier="dex_file_replace_contents_bytes">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="308">Wraps [method@Gio.File.replace_contents_bytes_async]</doc>
+           line="412">Wraps [method@Gio.File.replace_contents_bytes_async]</doc>
       <source-position filename="src/dex-gio.h" line="80"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="318">a [class@Dex.Future] which resolves to the
+             line="422">a [class@Dex.Future] which resolves to the
   new etag. Therefore, it is possible to be %NULL without an
   error having occurred.</doc>
         <type name="Future" c:type="DexFuture*"/>
@@ -5204,13 +5428,13 @@ stream is closed.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="310">a [iface@Gio.File]</doc>
+               line="414">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="contents" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="311">a [struct@GLib.Bytes]</doc>
+               line="415">a [struct@GLib.Bytes]</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </parameter>
         <parameter name="etag"
@@ -5219,19 +5443,19 @@ stream is closed.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="312">the etag or %NULL</doc>
+               line="416">the etag or %NULL</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="make_backup" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="313">if a backup file should be created</doc>
+               line="417">if a backup file should be created</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="314">a set of [flags@Gio.FileCreateFlags]</doc>
+               line="418">a set of [flags@Gio.FileCreateFlags]</doc>
           <type name="Gio.FileCreateFlags" c:type="GFileCreateFlags"/>
         </parameter>
       </parameters>
@@ -5239,11 +5463,11 @@ stream is closed.</doc>
     <function name="file_set_attributes"
               c:identifier="dex_file_set_attributes"
               version="1.0">
-      <source-position filename="src/dex-gio.h" line="69"/>
+      <source-position filename="src/dex-gio.h" line="65"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1955">a [class@Dex.Future] that resolves to a
+             line="1597">a [class@Dex.Future] that resolves to a
   [class@Gio.FileInfo] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5251,25 +5475,25 @@ stream is closed.</doc>
         <parameter name="file" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1949">a [iface@Gio.File]</doc>
+               line="1591">a [iface@Gio.File]</doc>
           <type name="Gio.File" c:type="GFile*"/>
         </parameter>
         <parameter name="file_info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1950">a [class@Gio.FileInfo]</doc>
+               line="1592">a [class@Gio.FileInfo]</doc>
           <type name="Gio.FileInfo" c:type="GFileInfo*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1951">a set of [flags@Gio.FileQueryInfoFlags]</doc>
+               line="1593">a set of [flags@Gio.FileQueryInfoFlags]</doc>
           <type name="Gio.FileQueryInfoFlags" c:type="GFileQueryInfoFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1952">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1594">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5280,14 +5504,14 @@ stream is closed.</doc>
               version="1.1">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="2131">Locates the first executable named program in the user’s path.
+           line="1773">Locates the first executable named program in the user’s path.
 
 This runs [func@GLib.find_program_in_path] on a dedicated thread.</doc>
-      <source-position filename="src/dex-gio.h" line="183"/>
+      <source-position filename="src/dex-gio.h" line="160"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="2139">a [class@Dex.Future] that resolves to a
+             line="1781">a [class@Dex.Future] that resolves to a
   string containing the path or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5295,7 +5519,7 @@ This runs [func@GLib.find_program_in_path] on a dedicated thread.</doc>
         <parameter name="program" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2133">the name of the executable such as "grep"</doc>
+               line="1775">the name of the executable such as "grep"</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5369,7 +5593,7 @@ at compile time of libdex.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="577">a [class@Dex.Future] that resolves
+             line="681">a [class@Dex.Future] that resolves
   to true if successful or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5377,13 +5601,13 @@ at compile time of libdex.</doc>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="573">a [class@Gio.InputStream]</doc>
+               line="677">a [class@Gio.InputStream]</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="574">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="678">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5392,13 +5616,13 @@ at compile time of libdex.</doc>
     <function name="input_stream_read" c:identifier="dex_input_stream_read">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="367">Reads @count bytes from an input stream into a pre-allocated @buffer. The
+           line="471">Reads @count bytes from an input stream into a pre-allocated @buffer. The
 @buffer must stay valid for the lifetime of this future.</doc>
       <source-position filename="src/dex-gio.h" line="98"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="378">a [class@Dex.Future] that reads @counts bytes
+             line="482">a [class@Dex.Future] that reads @counts bytes
   into @buffer</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5406,7 +5630,7 @@ at compile time of libdex.</doc>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="369">a [class@Gio.InputStream]</doc>
+               line="473">a [class@Gio.InputStream]</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </parameter>
         <parameter name="buffer"
@@ -5423,13 +5647,13 @@ at compile time of libdex.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="371">size in bytes to read from the stream into the @buffer</doc>
+               line="475">size in bytes to read from the stream into the @buffer</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="372">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="476">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5439,12 +5663,12 @@ at compile time of libdex.</doc>
               c:identifier="dex_input_stream_read_bytes">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="98">Reads @count bytes from the stream.</doc>
+           line="99">Reads @count bytes from the stream.</doc>
       <source-position filename="src/dex-gio.h" line="107"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="107">a [class@Dex.Future] that resolves
+             line="108">a [class@Dex.Future] that resolves
   to a [struct@GLib.Bytes].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5452,19 +5676,19 @@ at compile time of libdex.</doc>
         <parameter name="stream" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="100">a [class@Gio.InputStream]</doc>
+               line="101">a [class@Gio.InputStream]</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </parameter>
         <parameter name="count" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="101">size in bytes to read from the stream</doc>
+               line="102">size in bytes to read from the stream</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="102">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="103">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5475,7 +5699,7 @@ at compile time of libdex.</doc>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="430">a [class@Dex.Future] that resolves
+             line="534">a [class@Dex.Future] that resolves
   to the number of bytes skipped as a `gint64`.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5483,30 +5707,30 @@ at compile time of libdex.</doc>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="425">a [class@Gio.InputStream]</doc>
+               line="529">a [class@Gio.InputStream]</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </parameter>
         <parameter name="count" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="426">the number of bytes to skip</doc>
+               line="530">the number of bytes to skip</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="427">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="531">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="io_stream_close" c:identifier="dex_io_stream_close">
-      <source-position filename="src/dex-gio.h" line="133"/>
+      <source-position filename="src/dex-gio.h" line="136"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1214">a [class@Dex.Future] that resolves to
+             line="1318">a [class@Dex.Future] that resolves to
   true or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5514,13 +5738,13 @@ at compile time of libdex.</doc>
         <parameter name="io_stream" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1210">a [class@Gio.IOStream]</doc>
+               line="1314">a [class@Gio.IOStream]</doc>
           <type name="Gio.IOStream" c:type="GIOStream*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1211">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="1315">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5531,12 +5755,12 @@ at compile time of libdex.</doc>
               version="1.1">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="2083">Similar to [func@GLib.mkdir_with_parents] but runs on a dedicated thread.</doc>
-      <source-position filename="src/dex-gio.h" line="180"/>
+           line="1725">Similar to [func@GLib.mkdir_with_parents] but runs on a dedicated thread.</doc>
+      <source-position filename="src/dex-gio.h" line="157"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="2090">a [class@Dex.Future] that resolves to 0
+             line="1732">a [class@Dex.Future] that resolves to 0
   if successful, otherwise rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5544,24 +5768,24 @@ at compile time of libdex.</doc>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2085">a path to a directory to create</doc>
+               line="1727">a path to a directory to create</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="mode" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2086">the mode for the directory such as `0750`</doc>
+               line="1728">the mode for the directory such as `0750`</doc>
           <type name="gint" c:type="int"/>
         </parameter>
       </parameters>
     </function>
     <function name="output_stream_close"
               c:identifier="dex_output_stream_close">
-      <source-position filename="src/dex-gio.h" line="111"/>
+      <source-position filename="src/dex-gio.h" line="114"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="531">a [class@Dex.Future] that resolves
+             line="635">a [class@Dex.Future] that resolves
   to true or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5569,13 +5793,13 @@ at compile time of libdex.</doc>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="527">a [class@Gio.OutputStream]</doc>
+               line="631">a [class@Gio.OutputStream]</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="528">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="632">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5583,11 +5807,11 @@ at compile time of libdex.</doc>
     </function>
     <function name="output_stream_splice"
               c:identifier="dex_output_stream_splice">
-      <source-position filename="src/dex-gio.h" line="114"/>
+      <source-position filename="src/dex-gio.h" line="117"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="626">a [class@Dex.Future] that resolves to the
+             line="730">a [class@Dex.Future] that resolves to the
   number of bytes spliced as a `gint64` or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5595,26 +5819,26 @@ at compile time of libdex.</doc>
         <parameter name="output" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="620">a [class@Gio.OutputStream]</doc>
+               line="724">a [class@Gio.OutputStream]</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </parameter>
         <parameter name="input" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="621">a [class@Gio.InputStream]</doc>
+               line="725">a [class@Gio.InputStream]</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </parameter>
         <parameter name="flags" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="622">a set of [flags@Gio.OutputStreamSpliceFlags]</doc>
+               line="726">a set of [flags@Gio.OutputStreamSpliceFlags]</doc>
           <type name="Gio.OutputStreamSpliceFlags"
                 c:type="GOutputStreamSpliceFlags"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="623">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="727">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5622,11 +5846,11 @@ at compile time of libdex.</doc>
     </function>
     <function name="output_stream_write"
               c:identifier="dex_output_stream_write">
-      <source-position filename="src/dex-gio.h" line="119"/>
+      <source-position filename="src/dex-gio.h" line="122"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="481">a [class@Dex.Future] that resolves
+             line="585">a [class@Dex.Future] that resolves
   to the number of bytes written as a `gint64`</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5634,7 +5858,7 @@ at compile time of libdex.</doc>
         <parameter name="self" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="475">a [class@Gio.OutputStream]</doc>
+               line="579">a [class@Gio.OutputStream]</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </parameter>
         <parameter name="buffer" transfer-ownership="none">
@@ -5645,13 +5869,13 @@ at compile time of libdex.</doc>
         <parameter name="count" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="477">size in bytes to write to the output stream</doc>
+               line="581">size in bytes to write to the output stream</doc>
           <type name="gsize" c:type="gsize"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="478">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="582">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5661,15 +5885,15 @@ at compile time of libdex.</doc>
               c:identifier="dex_output_stream_write_bytes">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="150">Writes @bytes to @stream.
+           line="205">Writes @bytes to @stream.
 
 This function takes a reference to @bytes and may be released after
 calling this function.</doc>
-      <source-position filename="src/dex-gio.h" line="124"/>
+      <source-position filename="src/dex-gio.h" line="127"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="162">a [class@Dex.Future] that resolves to
+             line="217">a [class@Dex.Future] that resolves to
   a `gint64`.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5677,19 +5901,19 @@ calling this function.</doc>
         <parameter name="stream" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="152">a [class@Gio.InputStream]</doc>
+               line="207">a [class@Gio.InputStream]</doc>
           <type name="Gio.OutputStream" c:type="GOutputStream*"/>
         </parameter>
         <parameter name="bytes" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="153">the [struct@GLib.Bytes] to write to the stream</doc>
+               line="208">the [struct@GLib.Bytes] to write to the stream</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </parameter>
         <parameter name="io_priority" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="154">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
+               line="209">the [IO priority][iface@Gio.AsyncResult#io-priority] of the
   request</doc>
           <type name="gint" c:type="int"/>
         </parameter>
@@ -5697,11 +5921,11 @@ calling this function.</doc>
     </function>
     <function name="resolver_lookup_by_name"
               c:identifier="dex_resolver_lookup_by_name">
-      <source-position filename="src/dex-gio.h" line="136"/>
+      <source-position filename="src/dex-gio.h" line="139"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1260">a [class@Dex.Future] that resolves to a
+             line="1364">a [class@Dex.Future] that resolves to a
   [struct@GLib.List] of [class@Gio.InetAddress].</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5709,13 +5933,13 @@ calling this function.</doc>
         <parameter name="resolver" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1257">a [class@Gio.Resolver]</doc>
+               line="1361">a [class@Gio.Resolver]</doc>
           <type name="Gio.Resolver" c:type="GResolver*"/>
         </parameter>
         <parameter name="address" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1258">the address to look up</doc>
+               line="1362">the address to look up</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
@@ -5731,11 +5955,11 @@ calling this function.</doc>
     </function-macro>
     <function name="socket_client_connect"
               c:identifier="dex_socket_client_connect">
-      <source-position filename="src/dex-gio.h" line="130"/>
+      <source-position filename="src/dex-gio.h" line="133"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1167">a [class@Dex.Future] that resolves to a
+             line="1271">a [class@Dex.Future] that resolves to a
   [class@Gio.SocketConnection] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5743,24 +5967,24 @@ calling this function.</doc>
         <parameter name="socket_client" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1164">a [class@Gio.SocketClient]</doc>
+               line="1268">a [class@Gio.SocketClient]</doc>
           <type name="Gio.SocketClient" c:type="GSocketClient*"/>
         </parameter>
         <parameter name="socket_connectable" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1165">a [iface@Gio.SocketConnectable]</doc>
+               line="1269">a [iface@Gio.SocketConnectable]</doc>
           <type name="Gio.SocketConnectable" c:type="GSocketConnectable*"/>
         </parameter>
       </parameters>
     </function>
     <function name="socket_listener_accept"
               c:identifier="dex_socket_listener_accept">
-      <source-position filename="src/dex-gio.h" line="128"/>
+      <source-position filename="src/dex-gio.h" line="131"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1123">a [class@Dex.Future] that resolves to
+             line="1227">a [class@Dex.Future] that resolves to
   a [class@Gio.SocketConnection] or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5768,7 +5992,7 @@ calling this function.</doc>
         <parameter name="listener" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1121">a [class@Gio.SocketListener]</doc>
+               line="1225">a [class@Gio.SocketListener]</doc>
           <type name="Gio.SocketListener" c:type="GSocketListener*"/>
         </parameter>
       </parameters>
@@ -5778,13 +6002,13 @@ calling this function.</doc>
               version="0.4">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="1763">Creates a future that awaits for @subprocess to complete using
+           line="1447">Creates a future that awaits for @subprocess to complete using
 [method@Gio.Subprocess.wait_check_async].</doc>
-      <source-position filename="src/dex-gio.h" line="165"/>
+      <source-position filename="src/dex-gio.h" line="142"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="1770">a [class@Dex.Future] that will resolve when @subprocess
+             line="1454">a [class@Dex.Future] that will resolve when @subprocess
   exits cleanly or reject upon signal or non-successful exit.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5792,7 +6016,7 @@ calling this function.</doc>
         <parameter name="subprocess" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="1765">a [class@Gio.Subprocess]</doc>
+               line="1449">a [class@Gio.Subprocess]</doc>
           <type name="Gio.Subprocess" c:type="GSubprocess*"/>
         </parameter>
       </parameters>
@@ -5890,12 +6114,12 @@ you need to block the thread until @future has resolved or rejected.</doc>
     <function name="unlink" c:identifier="dex_unlink" version="1.1">
       <doc xml:space="preserve"
            filename="src/dex-gio.c"
-           line="2166">This runs [func@GLib.unlink] on a dedicated thread.</doc>
-      <source-position filename="src/dex-gio.h" line="185"/>
+           line="1808">This runs [func@GLib.unlink] on a dedicated thread.</doc>
+      <source-position filename="src/dex-gio.h" line="162"/>
       <return-value transfer-ownership="full">
         <doc xml:space="preserve"
              filename="src/dex-gio.c"
-             line="2172">a [class@Dex.Future] that resolves to an
+             line="1814">a [class@Dex.Future] that resolves to an
   int of 0 on success or rejects with error.</doc>
         <type name="Future" c:type="DexFuture*"/>
       </return-value>
@@ -5903,7 +6127,7 @@ you need to block the thread until @future has resolved or rejected.</doc>
         <parameter name="path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/dex-gio.c"
-               line="2168">the path to unlink</doc>
+               line="1810">the path to unlink</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>

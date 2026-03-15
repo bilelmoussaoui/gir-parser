@@ -746,33 +746,33 @@ The content should be accessed through the API.</doc>
               introspectable="0">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-             line="880">Add a relatable metadata to @meta. This method is meant to be used by
+             line="882">Add a relatable metadata to @meta. This method is meant to be used by
 new struct sub-classing GstAnalyticsRelatableMtd.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsmeta.h"
                          line="256"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="890">A pointer to a memory area of size @size where to put the data</doc>
+               line="892">A pointer to a memory area of size @size where to put the data</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="882">Instance</doc>
+                 line="884">Instance</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="impl" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="883">Implementation of relatable (#GstAnalyticsRelatableMtd)</doc>
+                 line="885">Implementation of relatable (#GstAnalyticsRelatableMtd)</doc>
             <type name="MtdImpl" c:type="const GstAnalyticsMtdImpl*"/>
           </parameter>
           <parameter name="size" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="884">Size required</doc>
+                 line="886">Size required</doc>
             <type name="gsize" c:type="gsize"/>
           </parameter>
           <parameter name="rlt_mtd"
@@ -782,7 +782,7 @@ new struct sub-classing GstAnalyticsRelatableMtd.</doc>
                      nullable="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="885">Updated handle</doc>
+                 line="887">Updated handle</doc>
             <type name="Mtd" c:type="GstAnalyticsMtd*"/>
           </parameter>
         </parameters>
@@ -1228,33 +1228,33 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="1042">TRUE if @rlt_mtd was updated, other wise FALSE</doc>
+               line="1044">TRUE if @rlt_mtd was updated, other wise FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1032">GstAnalyticsRelationMeta instance where to query for
+                 line="1034">GstAnalyticsRelationMeta instance where to query for
    GstAnalyticsRelatableMtd.</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="an_meta_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1034">Id of GstAnalyticsMtd involved in relation to query</doc>
+                 line="1036">Id of GstAnalyticsMtd involved in relation to query</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="relation_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1035">Type of relation to filter on.</doc>
+                 line="1037">Type of relation to filter on.</doc>
             <type name="RelTypes" c:type="GstAnalyticsRelTypes"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1036">Type of GstAnalyticsMtd to filter on</doc>
+                 line="1038">Type of GstAnalyticsMtd to filter on</doc>
             <type name="MtdType" c:type="GstAnalyticsMtdType"/>
           </parameter>
           <parameter name="state"
@@ -1263,7 +1263,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1037">Opaque data to store state of the query.
+                 line="1039">Opaque data to store state of the query.
    If @state point to NULL, the first analytics-metadata directly related
    to @an_meta_id will be set in @rlt_mtd. Doesn't need to be free.</doc>
             <type name="gpointer" c:type="gpointer*"/>
@@ -1274,7 +1274,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1040">Handle updated to directly related relatable meta.</doc>
+                 line="1042">Handle updated to directly related relatable meta.</doc>
             <type name="Mtd" c:type="GstAnalyticsMtd*"/>
           </parameter>
         </parameters>
@@ -1284,33 +1284,33 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-             line="962">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
+             line="964">Fill @rlt if a analytics-meta with id == @an_meta_id exist in @meta instance,
 otherwise this method return FALSE and @rlt is invalid.</doc>
         <source-position filename="gst-libs/gst/analytics/gstanalyticsmeta.h"
                          line="261"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="974">TRUE if successful.</doc>
+               line="976">TRUE if successful.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="964">Instance of GstAnalyticsRelationMeta</doc>
+                 line="966">Instance of GstAnalyticsRelationMeta</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="an_meta_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="965">Id of GstAnalyticsMtd instance to retrieve</doc>
+                 line="967">Id of GstAnalyticsMtd instance to retrieve</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="966">Filter on a specific type of analysis, use
+                 line="968">Filter on a specific type of analysis, use
  %GST_ANALYTICS_MTD_TYPE_ANY to match any type</doc>
             <type name="MtdType" c:type="GstAnalyticsMtdType"/>
           </parameter>
@@ -1320,7 +1320,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="968">Will be filled with relatable
+                 line="970">Will be filled with relatable
    meta</doc>
             <type name="Mtd" c:type="GstAnalyticsMtd*"/>
           </parameter>
@@ -1335,21 +1335,21 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="1017">Analytics data pointer</doc>
+               line="1019">Analytics data pointer</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1014">Instance of GstAnalyticsRelationMeta</doc>
+                 line="1016">Instance of GstAnalyticsRelationMeta</doc>
             <type name="RelationMeta"
                   c:type="const GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="an_meta_id" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1015">Id of GstAnalyticsMtd instance to retrieve</doc>
+                 line="1017">Id of GstAnalyticsMtd instance to retrieve</doc>
             <type name="guint" c:type="guint"/>
           </parameter>
         </parameters>
@@ -1521,14 +1521,14 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="1114">FALSE if end was reached and iteration is completed.</doc>
+               line="1116">FALSE if end was reached and iteration is completed.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="meta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1107">Instance of GstAnalyticsRelationMeta</doc>
+                 line="1109">Instance of GstAnalyticsRelationMeta</doc>
             <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
           </instance-parameter>
           <parameter name="state"
@@ -1537,14 +1537,14 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1108">Opaque data to store iteration state, initialize to NULL, no need to
+                 line="1110">Opaque data to store iteration state, initialize to NULL, no need to
    free it.</doc>
             <type name="gpointer" c:type="gpointer*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1110">Type of GstAnalyticsMtd to iterate on or use
+                 line="1112">Type of GstAnalyticsMtd to iterate on or use
  %GST_ANALYTICS_MTD_TYPE_ANY for any.</doc>
             <type name="MtdType" c:type="GstAnalyticsMtdType"/>
           </parameter>
@@ -1554,7 +1554,7 @@ otherwise this method return FALSE and @rlt is invalid.</doc>
                      transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-                 line="1112">Handle updated to iterated GstAnalyticsRelatableMtd.</doc>
+                 line="1114">Handle updated to iterated GstAnalyticsRelatableMtd.</doc>
             <type name="Mtd" c:type="GstAnalyticsMtd*"/>
           </parameter>
         </parameters>
@@ -2593,7 +2593,7 @@ Get the opaque id identifying the relatable type</doc>
               version="1.24">
       <doc xml:space="preserve"
            filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-           line="809">Attach a analysis-results-meta-relation  meta (#GstAnalyticsRelationMeta)to @buffer.
+           line="811">Attach a analysis-results-meta-relation  meta (#GstAnalyticsRelationMeta)to @buffer.
 
 A #GstAnalyticsRelationMeta is a metadata describing relation between other
 analysis meta. It's more efficient to use #gst_buffer_add_analytics_relation_meta_full
@@ -2603,14 +2603,14 @@ and providing the maximum number of analysis meta that will attached to a buffer
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-             line="819">Newly attached #GstAnalyticsRelationMeta</doc>
+             line="821">Newly attached #GstAnalyticsRelationMeta</doc>
         <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="811">a #GstBuffer</doc>
+               line="813">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>
@@ -2620,7 +2620,7 @@ and providing the maximum number of analysis meta that will attached to a buffer
               version="1.24">
       <doc xml:space="preserve"
            filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-           line="829">Attache a analysis-results relation-meta (#GstAnalyticsRelationMeta) to @buffer.
+           line="831">Attache a analysis-results relation-meta (#GstAnalyticsRelationMeta) to @buffer.
 
 A #GstAnalyticsRelationMeta is a metadata describing relation between other
 analysis meta.</doc>
@@ -2629,20 +2629,20 @@ analysis meta.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-             line="839">Newly attached #GstAnalyticsRelationMeta</doc>
+             line="841">Newly attached #GstAnalyticsRelationMeta</doc>
         <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="831">a #GstBuffer</doc>
+               line="833">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
         <parameter name="init_params" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="832">Initialization parameters</doc>
+               line="834">Initialization parameters</doc>
           <type name="RelationMetaInitParams"
                 c:type="GstAnalyticsRelationMetaInitParams*"/>
         </parameter>
@@ -2676,20 +2676,20 @@ analysis meta.</doc>
               version="1.24">
       <doc xml:space="preserve"
            filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-           line="864">Retrives the meta or %NULL if it doesn't exist</doc>
+           line="866">Retrives the meta or %NULL if it doesn't exist</doc>
       <source-position filename="gst-libs/gst/analytics/gstanalyticsmeta.h"
                        line="252"/>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-             line="870">The #GstAnalyticsRelationMeta if there is one</doc>
+             line="872">The #GstAnalyticsRelationMeta if there is one</doc>
         <type name="RelationMeta" c:type="GstAnalyticsRelationMeta*"/>
       </return-value>
       <parameters>
         <parameter name="buffer" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/analytics/gstanalyticsmeta.c"
-               line="866">a #GstBuffer</doc>
+               line="868">a #GstBuffer</doc>
           <type name="Gst.Buffer" c:type="GstBuffer*"/>
         </parameter>
       </parameters>

@@ -2333,7 +2333,7 @@ The glcolorconvertelement provides a GStreamer element that uses
                    c:identifier="gst_gl_color_convert_new"
                    version="1.4">
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="137"/>
+                         line="141"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
@@ -2356,7 +2356,7 @@ The glcolorconvertelement provides a GStreamer element that uses
              filename="gst-libs/gst/gl/gstglcolorconvert.c"
              line="2115">Provides an implementation of #GstBaseTransformClass.fixate_caps()</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="145"/>
+                         line="149"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
@@ -2394,11 +2394,11 @@ The glcolorconvertelement provides a GStreamer element that uses
                 c:identifier="gst_gl_color_convert_swizzle_shader_string"
                 version="1.24">
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="161"/>
+                         line="165"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
-               line="3918">a shader string that can be used to swizzle vec
+               line="3920">a shader string that can be used to swizzle vec
 components in a GLSL shader.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2406,7 +2406,7 @@ components in a GLSL shader.</doc>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglcolorconvert.c"
-                 line="3916">a #GstGLContext</doc>
+                 line="3918">a #GstGLContext</doc>
             <type name="GLContext" c:type="GstGLContext*"/>
           </parameter>
         </parameters>
@@ -2418,7 +2418,7 @@ components in a GLSL shader.</doc>
              filename="gst-libs/gst/gl/gstglcolorconvert.c"
              line="1883">Provides an implementation of #GstBaseTransformClass.transform_caps()</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="140"/>
+                         line="144"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
@@ -2457,7 +2457,7 @@ components in a GLSL shader.</doc>
                 version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglcolorconvert.c"
-             line="3941">The returned glsl function has declaration:
+             line="3943">The returned glsl function has declaration:
 
 `vec3 yuv_to_rgb (vec3 rgb, vec3 offset, vec3 ycoeff, vec3 ucoeff, vec3 vcoeff);`
 
@@ -2465,11 +2465,11 @@ The Y component is placed in the 0th index of the returned value, The U componen
 1st, and the V component in the 2nd.  offset, ycoeff, ucoeff, and vcoeff are the
 specific coefficients and offset used for the conversion.</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="164"/>
+                         line="168"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
-               line="3953">a glsl function that can be used to convert from
+               line="3955">a glsl function that can be used to convert from
 yuv to rgb</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -2477,7 +2477,7 @@ yuv to rgb</doc>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglcolorconvert.c"
-                 line="3943">a #GstGLContext</doc>
+                 line="3945">a #GstGLContext</doc>
             <type name="GLContext" c:type="GstGLContext*"/>
           </parameter>
         </parameters>
@@ -2489,7 +2489,7 @@ yuv to rgb</doc>
              filename="gst-libs/gst/gl/gstglcolorconvert.c"
              line="1521">Provides an implementation of #GstBaseTransformClass.decide_allocation()</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="154"/>
+                         line="158"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
@@ -2519,7 +2519,7 @@ yuv to rgb</doc>
              line="2156">Converts the data contained by @inbuf using the formats specified by the
 #GstCaps passed to gst_gl_color_convert_set_caps()</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="158"/>
+                         line="162"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglcolorconvert.c"
@@ -2548,7 +2548,7 @@ yuv to rgb</doc>
              filename="gst-libs/gst/gl/gstglcolorconvert.c"
              line="1498">Initializes @convert with the information required for conversion.</doc>
         <source-position filename="gst-libs/gst/gl/gstglcolorconvert.h"
-                         line="150"/>
+                         line="154"/>
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -11301,14 +11301,14 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3011">a new #GstGLUpload object</doc>
+               line="3013">a new #GstGLUpload object</doc>
           <type name="GLUpload" c:type="GstGLUpload*"/>
         </return-value>
         <parameters>
           <parameter name="context" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3009">a #GstGLContext</doc>
+                 line="3011">a #GstGLContext</doc>
             <type name="GLContext" c:type="GstGLContext*"/>
           </parameter>
         </parameters>
@@ -11325,37 +11325,37 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
               version="1.24">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3364">Fixate the @othercaps based on the information of the @caps.</doc>
+             line="3366">Fixate the @othercaps based on the information of the @caps.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="123"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3373">the fixated caps</doc>
+               line="3375">the fixated caps</doc>
           <type name="Gst.Caps" c:type="GstCaps*"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3366">a #GstGLUpload</doc>
+                 line="3368">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3367">the pad #GstPadDirection</doc>
+                 line="3369">the pad #GstPadDirection</doc>
             <type name="Gst.PadDirection" c:type="GstPadDirection"/>
           </parameter>
           <parameter name="caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3368">a #GstCaps as the reference</doc>
+                 line="3370">a #GstCaps as the reference</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="othercaps" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3369">a #GstCaps to fixate</doc>
+                 line="3371">a #GstCaps to fixate</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>
@@ -11369,7 +11369,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3203">a #GstGLUpload</doc>
+                 line="3205">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps"
@@ -11380,7 +11380,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3204">the input #GstCaps</doc>
+                 line="3206">the input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
           <parameter name="out_caps"
@@ -11391,7 +11391,7 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3205">the output #GstCaps</doc>
+                 line="3207">the output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps**"/>
           </parameter>
         </parameters>
@@ -11400,26 +11400,26 @@ A #GstGLUpload can be created with gst_gl_upload_new()</doc>
               c:identifier="gst_gl_upload_perform_with_buffer">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3256">Uploads @buffer using the transformation specified by
+             line="3258">Uploads @buffer using the transformation specified by
 gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="118"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3265">whether the upload was successful</doc>
+               line="3267">whether the upload was successful</doc>
           <type name="GLUploadReturn" c:type="GstGLUploadReturn"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3258">a #GstGLUpload</doc>
+                 line="3260">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="buffer" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3259">input #GstBuffer</doc>
+                 line="3261">input #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer*"/>
           </parameter>
           <parameter name="outbuf_ptr"
@@ -11428,7 +11428,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3260">resulting #GstBuffer</doc>
+                 line="3262">resulting #GstBuffer</doc>
             <type name="Gst.Buffer" c:type="GstBuffer**"/>
           </parameter>
         </parameters>
@@ -11437,7 +11437,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
               c:identifier="gst_gl_upload_propose_allocation">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3127">Adds the required allocation parameters to support uploading.</doc>
+             line="3129">Adds the required allocation parameters to support uploading.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="113"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -11446,7 +11446,7 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3129">a #GstGLUpload</doc>
+                 line="3131">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="decide_query"
@@ -11455,13 +11455,13 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3130">a #GstQuery from a decide allocation</doc>
+                 line="3132">a #GstQuery from a decide allocation</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
           <parameter name="query" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3131">the proposed allocation query</doc>
+                 line="3133">the proposed allocation query</doc>
             <type name="Gst.Query" c:type="GstQuery*"/>
           </parameter>
         </parameters>
@@ -11469,31 +11469,31 @@ gst_gl_upload_set_caps() creating a new #GstBuffer in @outbuf_ptr.</doc>
       <method name="set_caps" c:identifier="gst_gl_upload_set_caps">
         <doc xml:space="preserve"
              filename="gst-libs/gst/gl/gstglupload.c"
-             line="3178">Initializes @upload with the information required for upload.</doc>
+             line="3180">Initializes @upload with the information required for upload.</doc>
         <source-position filename="gst-libs/gst/gl/gstglupload.h" line="105"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/gl/gstglupload.c"
-               line="3186">whether @in_caps and @out_caps could be set on @upload</doc>
+               line="3188">whether @in_caps and @out_caps could be set on @upload</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="upload" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3180">a #GstGLUpload</doc>
+                 line="3182">a #GstGLUpload</doc>
             <type name="GLUpload" c:type="GstGLUpload*"/>
           </instance-parameter>
           <parameter name="in_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3181">input #GstCaps</doc>
+                 line="3183">input #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
           <parameter name="out_caps" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/gl/gstglupload.c"
-                 line="3182">output #GstCaps</doc>
+                 line="3184">output #GstCaps</doc>
             <type name="Gst.Caps" c:type="GstCaps*"/>
           </parameter>
         </parameters>

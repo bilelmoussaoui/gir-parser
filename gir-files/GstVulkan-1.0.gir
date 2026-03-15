@@ -73,7 +73,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_IS_VULKAN_COMMAND_POOL"
                     introspectable="0">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="29"/>
+                       line="31"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -83,7 +83,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_IS_VULKAN_COMMAND_POOL_CLASS"
                     introspectable="0">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="30"/>
+                       line="32"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -336,7 +336,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_VULKAN_QUEUE"
                     c:identifier="GST_IS_VULKAN_QUEUE"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="30"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="32"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -345,7 +345,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="IS_VULKAN_QUEUE_CLASS"
                     c:identifier="GST_IS_VULKAN_QUEUE_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="31"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="33"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -501,7 +501,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_VULKAN_COMMAND_POOL"
                     introspectable="0">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="27"/>
+                       line="29"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -511,7 +511,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_VULKAN_COMMAND_POOL_CLASS"
                     introspectable="0">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="28"/>
+                       line="30"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -521,7 +521,7 @@ and/or use gtk-doc annotations.  -->
                     c:identifier="GST_VULKAN_COMMAND_POOL_GET_CLASS"
                     introspectable="0">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="31"/>
+                       line="33"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -1030,7 +1030,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="VULKAN_QUEUE"
                     c:identifier="GST_VULKAN_QUEUE"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="28"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="30"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -1039,7 +1039,7 @@ and/or use gtk-doc annotations.  -->
     <function-macro name="VULKAN_QUEUE_CLASS"
                     c:identifier="GST_VULKAN_QUEUE_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="29"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="31"/>
       <parameters>
         <parameter name="k">
         </parameter>
@@ -1049,13 +1049,13 @@ and/or use gtk-doc annotations.  -->
               value="gst.vulkan.queue"
               c:type="GST_VULKAN_QUEUE_CONTEXT_TYPE_STR"
               version="1.18">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="41"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="43"/>
       <type name="utf8" c:type="gchar*"/>
     </constant>
     <function-macro name="VULKAN_QUEUE_GET_CLASS"
                     c:identifier="GST_VULKAN_QUEUE_GET_CLASS"
                     introspectable="0">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="32"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="34"/>
       <parameters>
         <parameter name="o">
         </parameter>
@@ -1843,13 +1843,13 @@ will be freed.</doc>
            glib:get-type="gst_vulkan_command_pool_get_type"
            glib:type-struct="VulkanCommandPoolClass">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="67"/>
+                       line="69"/>
       <method name="create"
               c:identifier="gst_vulkan_command_pool_create"
               version="1.18"
               throws="1">
         <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                         line="75"/>
+                         line="77"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkcommandpool.c"
@@ -1869,7 +1869,7 @@ will be freed.</doc>
               c:identifier="gst_vulkan_command_pool_get_queue"
               version="1.18">
         <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                         line="72"/>
+                         line="74"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkcommandpool.c"
@@ -1897,7 +1897,7 @@ gst_vulkan_command_pool_lock()/gst_vulkan_command_pool_unlock() pair to meet
 the Vulkan API requirements that host access to the command pool is
 externally synchronised.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                         line="79"/>
+                         line="81"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1918,7 +1918,7 @@ externally synchronised.</doc>
              line="257">See the documentation for gst_vulkan_command_pool_lock() for when you would
 need to use this function.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                         line="81"/>
+                         line="83"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -1934,19 +1934,19 @@ need to use this function.</doc>
       <field name="parent">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-             line="37">the parent #GstObject</doc>
+             line="39">the parent #GstObject</doc>
         <type name="Gst.Object" c:type="GstObject"/>
       </field>
       <field name="queue">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-             line="38">the #GstVulkanQueue to command buffers will be allocated from</doc>
+             line="40">the #GstVulkanQueue to command buffers will be allocated from</doc>
         <type name="VulkanQueue" c:type="GstVulkanQueue*"/>
       </field>
       <field name="pool">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-             line="39">the vulkan command pool handle</doc>
+             line="41">the vulkan command pool handle</doc>
         <type name="Vulkan.CommandPool" c:type="VkCommandPool"/>
       </field>
       <field name="_reserved" readable="0" private="1">
@@ -1960,11 +1960,11 @@ need to use this function.</doc>
             glib:is-gtype-struct-for="VulkanCommandPool"
             version="1.18">
       <source-position filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-                       line="67"/>
+                       line="69"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkcommandpool.h"
-             line="57">the parent #GstObjectClass</doc>
+             line="59">the parent #GstObjectClass</doc>
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
       <field name="_reserved" readable="0" private="1">
@@ -8468,7 +8468,7 @@ called.</doc>
            glib:type-name="GstVulkanQueue"
            glib:get-type="gst_vulkan_queue_get_type"
            glib:type-struct="VulkanQueueClass">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="79"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="81"/>
       <function name="flags_to_string"
                 c:identifier="gst_vulkan_queue_flags_to_string"
                 version="1.18">
@@ -8493,7 +8493,7 @@ called.</doc>
 Intended for use with element query handlers to respond to #GST_QUERY_CONTEXT
 for a #GstVulkanQueue.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="102"/>
+                         line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkqueue.c"
@@ -8532,7 +8532,7 @@ for a #GstVulkanQueue.</doc>
              line="262">Attempt to retrieve a #GstVulkanQueue using #GST_QUERY_CONTEXT from the
 surrounding elements of @element.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="106"/>
+                         line="108"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkqueue.c"
@@ -8562,7 +8562,7 @@ surrounding elements of @element.</doc>
               version="1.18"
               throws="1">
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="87"/>
+                         line="89"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkqueue.c"
@@ -8582,7 +8582,7 @@ surrounding elements of @element.</doc>
               c:identifier="gst_vulkan_queue_get_device"
               version="1.18">
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="84"/>
+                         line="86"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkqueue.c"
@@ -8606,7 +8606,7 @@ surrounding elements of @element.</doc>
              line="308">Locks the queue for command submission using `vkQueueSubmit()` to meet the
 Vulkan requirements for externally synchronised resources.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="91"/>
+                         line="93"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8628,7 +8628,7 @@ Vulkan requirements for externally synchronised resources.</doc>
 
 See gst_vulkan_queue_submit_lock() for details on when this call is needed.</doc>
         <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h"
-                         line="93"/>
+                         line="95"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -8644,31 +8644,31 @@ See gst_vulkan_queue_submit_lock() for details on when this call is needed.</doc
       <field name="parent">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="45">the parent #GstObject</doc>
+             line="47">the parent #GstObject</doc>
         <type name="Gst.Object" c:type="GstObject"/>
       </field>
       <field name="device">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="46">the #GstVulkanDevice this queue was allocated from</doc>
+             line="48">the #GstVulkanDevice this queue was allocated from</doc>
         <type name="VulkanDevice" c:type="GstVulkanDevice*"/>
       </field>
       <field name="queue">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="47">the vulkan queue handle</doc>
+             line="49">the vulkan queue handle</doc>
         <type name="Vulkan.Queue" c:type="VkQueue"/>
       </field>
       <field name="family">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="48">the vulkan queue family</doc>
+             line="50">the vulkan queue family</doc>
         <type name="guint32" c:type="guint32"/>
       </field>
       <field name="index">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="49">the vulkan queue index</doc>
+             line="51">the vulkan queue index</doc>
         <type name="guint32" c:type="guint32"/>
       </field>
       <field name="_reserved" readable="0" private="1">
@@ -8681,11 +8681,11 @@ See gst_vulkan_queue_submit_lock() for details on when this call is needed.</doc
             c:type="GstVulkanQueueClass"
             glib:is-gtype-struct-for="VulkanQueue"
             version="1.18">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="79"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="81"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.h"
-             line="69">the parent #GstObjectClass</doc>
+             line="71">the parent #GstObjectClass</doc>
         <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
       </field>
       <field name="_reserved" readable="0" private="1">
@@ -10886,7 +10886,7 @@ Currently intended for subclasses to update internal state.</doc>
     <function name="context_get_vulkan_queue"
               c:identifier="gst_context_get_vulkan_queue"
               version="1.18">
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="99"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="101"/>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkqueue.c"
@@ -11007,7 +11007,7 @@ Currently intended for subclasses to update internal state.</doc>
       <doc xml:space="preserve"
            filename="gst-libs/gst/vulkan/gstvkqueue.c"
            line="157">Sets @queue on @context</doc>
-      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="96"/>
+      <source-position filename="gst-libs/gst/vulkan/gstvkqueue.h" line="98"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -11635,20 +11635,20 @@ the error</doc>
       <return-value>
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="493">the VkFormat to use for @v_format and @plane</doc>
+             line="496">the VkFormat to use for @v_format and @plane</doc>
         <type name="Vulkan.Format" c:type="VkFormat"/>
       </return-value>
       <parameters>
         <parameter name="v_info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="490">the #GstVideoInfo</doc>
+               line="493">the #GstVideoInfo</doc>
           <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
         </parameter>
         <parameter name="plane" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="491">the plane</doc>
+               line="494">the plane</doc>
           <type name="guint" c:type="guint"/>
         </parameter>
       </parameters>
@@ -11662,7 +11662,7 @@ the error</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="648">%TRUE if requested GStreamer format maps to a Vulkan format and its
+             line="651">%TRUE if requested GStreamer format maps to a Vulkan format and its
 properties.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
@@ -11670,25 +11670,25 @@ properties.</doc>
         <parameter name="device" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="640">a #GstVulkanDevice</doc>
+               line="643">a #GstVulkanDevice</doc>
           <type name="VulkanDevice" c:type="GstVulkanDevice*"/>
         </parameter>
         <parameter name="info" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="641">the #GstVideoInfo</doc>
+               line="644">the #GstVideoInfo</doc>
           <type name="GstVideo.VideoInfo" c:type="GstVideoInfo*"/>
         </parameter>
         <parameter name="tiling" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="642">the tiling to use</doc>
+               line="645">the tiling to use</doc>
           <type name="Vulkan.ImageTiling" c:type="VkImageTiling"/>
         </parameter>
         <parameter name="no_multiplane" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="643">query for vulkan formats without multiple images</doc>
+               line="646">query for vulkan formats without multiple images</doc>
           <type name="gboolean" c:type="gboolean"/>
         </parameter>
         <parameter name="requested_usage" transfer-ownership="none">
@@ -11700,7 +11700,7 @@ properties.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="644">Vulkan formats per image/plane</doc>
+               line="647">Vulkan formats per image/plane</doc>
           <array zero-terminated="0" c:type="VkFormat*" fixed-size="4">
             <type name="Vulkan.Format" c:type="VkFormat"/>
           </array>
@@ -11711,7 +11711,7 @@ properties.</doc>
                    transfer-ownership="full">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="645">number of images/planes used by the Vulkan format</doc>
+               line="648">number of images/planes used by the Vulkan format</doc>
           <type name="gint" c:type="int*"/>
         </parameter>
         <parameter name="usage"
@@ -11720,7 +11720,7 @@ properties.</doc>
                    transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="646">The potential usage of the format</doc>
+               line="649">The potential usage of the format</doc>
           <type name="Vulkan.ImageUsageFlags" c:type="VkImageUsageFlags*"/>
         </parameter>
       </parameters>
@@ -11733,14 +11733,14 @@ properties.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="415">the @format aspect</doc>
+             line="418">the @format aspect</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="413">Vulkan Format</doc>
+               line="416">Vulkan Format</doc>
           <type name="Vulkan.Format" c:type="VkFormat"/>
         </parameter>
       </parameters>
@@ -11753,14 +11753,14 @@ properties.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="393">the #GstVulkanFormatInfo for @format or %NULL</doc>
+             line="396">the #GstVulkanFormatInfo for @format or %NULL</doc>
         <type name="VulkanFormatInfo" c:type="const GstVulkanFormatInfo*"/>
       </return-value>
       <parameters>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="391">a valid `VkFormat`</doc>
+               line="394">a valid `VkFormat`</doc>
           <type name="Vulkan.Format" c:type="VkFormat"/>
         </parameter>
       </parameters>
@@ -11774,14 +11774,14 @@ properties.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="470">the #GstVulkanFormatMap matching with @format</doc>
+             line="473">the #GstVulkanFormatMap matching with @format</doc>
         <type name="VulkanFormatMap" c:type="const GstVulkanFormatMap*"/>
       </return-value>
       <parameters>
         <parameter name="format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="468">the #GstVideoFormat to get</doc>
+               line="471">the #GstVideoFormat to get</doc>
           <type name="GstVideo.VideoFormat" c:type="GstVideoFormat"/>
         </parameter>
       </parameters>
@@ -11794,14 +11794,14 @@ properties.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="gst-libs/gst/vulkan/gstvkformat.c"
-             line="753">the #GstVideoFormat that maps to @vk_format</doc>
+             line="756">the #GstVideoFormat that maps to @vk_format</doc>
         <type name="GstVideo.VideoFormat" c:type="GstVideoFormat"/>
       </return-value>
       <parameters>
         <parameter name="vk_format" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/vulkan/gstvkformat.c"
-               line="751">the Vulkan format to convert</doc>
+               line="754">the Vulkan format to convert</doc>
           <type name="Vulkan.Format" c:type="VkFormat"/>
         </parameter>
       </parameters>

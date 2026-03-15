@@ -2827,27 +2827,27 @@ decoding process for the #GstH265Picture</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth265decoder.c"
-             line="2235">Retrive DPB and return a #GstH265Picture corresponding to
+             line="2239">Retrive DPB and return a #GstH265Picture corresponding to
 the @system_frame_number</doc>
         <source-position filename="gst-libs/gst/codecs/gsth265decoder.h"
                          line="198"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/codecs/gsth265decoder.c"
-               line="2243">a #GstH265Picture if successful, or %NULL otherwise</doc>
+               line="2247">a #GstH265Picture if successful, or %NULL otherwise</doc>
           <type name="H265Picture" c:type="GstH265Picture*"/>
         </return-value>
         <parameters>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2237">a #GstH265Decoder</doc>
+                 line="2241">a #GstH265Decoder</doc>
             <type name="H265Decoder" c:type="GstH265Decoder*"/>
           </instance-parameter>
           <parameter name="system_frame_number" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2238">a target system frame number of #GstH265Picture</doc>
+                 line="2242">a target system frame number of #GstH265Picture</doc>
             <type name="guint32" c:type="guint32"/>
           </parameter>
         </parameters>
@@ -2857,7 +2857,7 @@ the @system_frame_number</doc>
               version="1.20">
         <doc xml:space="preserve"
              filename="gst-libs/gst/codecs/gsth265decoder.c"
-             line="2219">Called to en/disable reference picture modification process.</doc>
+             line="2223">Called to en/disable reference picture modification process.</doc>
         <source-position filename="gst-libs/gst/codecs/gsth265decoder.h"
                          line="194"/>
         <return-value transfer-ownership="none">
@@ -2867,13 +2867,13 @@ the @system_frame_number</doc>
           <instance-parameter name="decoder" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2221">a #GstH265Decoder</doc>
+                 line="2225">a #GstH265Decoder</doc>
             <type name="H265Decoder" c:type="GstH265Decoder*"/>
           </instance-parameter>
           <parameter name="process" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/codecs/gsth265decoder.c"
-                 line="2222">whether subclass is requiring reference picture modification process</doc>
+                 line="2226">whether subclass is requiring reference picture modification process</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
