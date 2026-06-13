@@ -5702,14 +5702,14 @@ UTC times will be converted to nanoseconds since 1900.</doc>
       <method name="as_text" c:identifier="gst_rtsp_transport_as_text">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="592">Convert @transport into a string that can be used to signal the transport in
+             line="601">Convert @transport into a string that can be used to signal the transport in
 an RTSP SETUP response.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="184"/>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="599">a string describing the RTSP transport
+               line="608">a string describing the RTSP transport
 or %NULL when the transport is invalid.</doc>
           <type name="utf8" c:type="gchar*"/>
         </return-value>
@@ -5717,7 +5717,7 @@ or %NULL when the transport is invalid.</doc>
           <instance-parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="594">a #GstRTSPTransport</doc>
+                 line="603">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </instance-parameter>
         </parameters>
@@ -5725,20 +5725,20 @@ or %NULL when the transport is invalid.</doc>
       <method name="free" c:identifier="gst_rtsp_transport_free">
         <doc xml:space="preserve"
              filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-             line="763">Free the memory used by @transport.</doc>
+             line="772">Free the memory used by @transport.</doc>
         <source-position filename="gst-libs/gst/rtsp/gstrtsptransport.h"
                          line="197"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-               line="769">#GST_RTSP_OK.</doc>
+               line="778">#GST_RTSP_OK.</doc>
           <type name="RTSPResult" c:type="GstRTSPResult"/>
         </return-value>
         <parameters>
           <instance-parameter name="transport" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="gst-libs/gst/rtsp/gstrtsptransport.c"
-                 line="765">a #GstRTSPTransport</doc>
+                 line="774">a #GstRTSPTransport</doc>
             <type name="RTSPTransport" c:type="GstRTSPTransport*"/>
           </instance-parameter>
         </parameters>

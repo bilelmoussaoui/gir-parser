@@ -1359,6 +1359,7 @@ can be blocking.</doc>
       </method>
       <method name="set_accepted_memory_formats"
               c:identifier="gly_loader_set_accepted_memory_formats"
+              glib:set-property="accepted-memory-formats"
               version="2.0">
         <doc xml:space="preserve"
              filename="libglycin/include/glycin.h"
@@ -1385,6 +1386,7 @@ format will be transformed into the best suitable format selected.</doc>
       </method>
       <method name="set_apply_transformations"
               c:identifier="gly_loader_set_apply_transformations"
+              glib:set-property="apply-transformations"
               version="2.0">
         <doc xml:space="preserve"
              filename="libglycin/include/glycin.h"
@@ -1430,13 +1432,24 @@ This option is enabled by default.</doc>
           </parameter>
         </parameters>
       </method>
-      <property name="apply-transformation"
+      <property name="accepted-memory-formats"
+                readable="0"
                 writable="1"
                 transfer-ownership="none"
+                setter="set_accepted_memory_formats"
+                default-value="0">
+        <type name="MemoryFormatSelection"/>
+      </property>
+      <property name="apply-transformations"
+                readable="0"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_apply_transformations"
                 default-value="FALSE">
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="bytes"
+                readable="0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none">
@@ -1446,18 +1459,14 @@ This option is enabled by default.</doc>
         <type name="Gio.Cancellable"/>
       </property>
       <property name="file"
+                readable="0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none">
         <type name="Gio.File"/>
       </property>
-      <property name="memory-format-selection"
-                writable="1"
-                transfer-ownership="none"
-                default-value="0">
-        <type name="MemoryFormatSelection"/>
-      </property>
       <property name="sandbox-selector"
+                readable="0"
                 writable="1"
                 transfer-ownership="none"
                 setter="set_sandbox_selector"
@@ -1465,6 +1474,7 @@ This option is enabled by default.</doc>
         <type name="SandboxSelector"/>
       </property>
       <property name="stream"
+                readable="0"
                 writable="1"
                 construct-only="1"
                 transfer-ownership="none">
@@ -2035,6 +2045,7 @@ premultiplied with the alpha value</doc>
       <source-position filename="libglycin/include/glycin.h" line="844"/>
       <method name="set_color_icc_profile"
               c:identifier="gly_new_frame_set_color_icc_profile"
+              glib:set-property="color-icc-profile"
               version="2.0">
         <source-position filename="libglycin/include/glycin.h" line="855"/>
         <return-value transfer-ownership="none">
@@ -2055,6 +2066,46 @@ premultiplied with the alpha value</doc>
           </parameter>
         </parameters>
       </method>
+      <property name="color-icc-profile"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_color_icc_profile">
+        <type name="GLib.Bytes"/>
+      </property>
+      <property name="height"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="memory-format"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="R8g8b8">
+        <type name="MemoryFormat"/>
+      </property>
+      <property name="stride"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
+      <property name="texture"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="GLib.Bytes"/>
+      </property>
+      <property name="width"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                default-value="0">
+        <type name="guint" c:type="guint"/>
+      </property>
     </class>
     <record name="NewFrameClass"
             c:type="GlyNewFrameClass"

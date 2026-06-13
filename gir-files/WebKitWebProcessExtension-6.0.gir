@@ -3012,7 +3012,7 @@ selection.</doc>
            glib:type-struct="WebFormManagerClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-           line="33">Form manager of a #WebKitWebPage in a #WebKitScriptWorld</doc>
+           line="35">Form manager of a #WebKitWebPage in a #WebKitScriptWorld</doc>
       <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                        line="49"/>
       <function name="input_element_auto_fill"
@@ -3020,7 +3020,7 @@ selection.</doc>
                 version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="207">Set the value of an HTML input element as if it had been edited by
+             line="209">Set the value of an HTML input element as if it had been edited by
 the user, triggering a change event, and set it as filled automatically.
 If @element is not an HTML input element this function does nothing.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
@@ -3032,13 +3032,13 @@ If @element is not an HTML input element this function does nothing.</doc>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="209">a #JSCValue</doc>
+                 line="211">a #JSCValue</doc>
             <type name="JavaScriptCore.Value" c:type="JSCValue*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="210">the text to set</doc>
+                 line="212">the text to set</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3048,13 +3048,13 @@ If @element is not an HTML input element this function does nothing.</doc>
                 version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="232">Get whether @element is an HTML input element that has been filled automatically.</doc>
+             line="234">Get whether @element is an HTML input element that has been filled automatically.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                          line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-               line="238">%TRUE if @element is an HTML input element that has been filled automatically,
+               line="240">%TRUE if @element is an HTML input element that has been filled automatically,
    or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3062,7 +3062,7 @@ If @element is not an HTML input element this function does nothing.</doc>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="234">a #JSCValue</doc>
+                 line="236">a #JSCValue</doc>
             <type name="JavaScriptCore.Value" c:type="JSCValue*"/>
           </parameter>
         </parameters>
@@ -3072,13 +3072,13 @@ If @element is not an HTML input element this function does nothing.</doc>
                 version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="181">Get whether @element is an HTML text input element that has been edited by a user action.</doc>
+             line="183">Get whether @element is an HTML text input element that has been edited by a user action.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebFormManager.h"
                          line="55"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-               line="187">%TRUE if @element is an HTML text input element that has been edited by a user action,
+               line="189">%TRUE if @element is an HTML text input element that has been edited by a user action,
    or %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3086,7 +3086,7 @@ If @element is not an HTML input element this function does nothing.</doc>
           <parameter name="element" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="183">a #JSCValue</doc>
+                 line="185">a #JSCValue</doc>
             <type name="JavaScriptCore.Value" c:type="JSCValue*"/>
           </parameter>
         </parameters>
@@ -3097,7 +3097,7 @@ If @element is not an HTML input element this function does nothing.</doc>
       <glib:signal name="form-controls-associated" when="last" version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="61">Emitted after form elements (or form associated elements) are associated to @frame.
+             line="63">Emitted after form elements (or form associated elements) are associated to @frame.
 This is useful to implement form auto filling for web pages where form fields are added
 dynamically. This signal might be emitted multiple times for the same frame.
 
@@ -3113,13 +3113,13 @@ keep them alive after the signal handler returns.</doc>
           <parameter name="frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="64">a #WebKitFrame</doc>
+                 line="66">a #WebKitFrame</doc>
             <type name="Frame"/>
           </parameter>
           <parameter name="elements" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="65">a #GPtrArray of
+                 line="67">a #GPtrArray of
     #JSCValue with the list of forms in the page</doc>
             <array name="GLib.PtrArray">
               <type name="JavaScriptCore.Value"/>
@@ -3130,7 +3130,7 @@ keep them alive after the signal handler returns.</doc>
       <glib:signal name="will-send-submit-event" when="last" version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="90">This signal is emitted when the DOM submit event is about to be fired for @form.
+             line="92">This signal is emitted when the DOM submit event is about to be fired for @form.
 JavaScript code may rely on the submit event to detect that the user has clicked
 on a submit button, and to possibly cancel the form submission before
 #WebKitWebFormManager::will-submit-form signal is emitted.
@@ -3149,19 +3149,19 @@ misguided websites may use such techniques to attempt to thwart password manager
           <parameter name="form" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="93">the #JSCValue to be submitted, which will always correspond to an HTMLFormElement</doc>
+                 line="95">the #JSCValue to be submitted, which will always correspond to an HTMLFormElement</doc>
             <type name="JavaScriptCore.Value"/>
           </parameter>
           <parameter name="source_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="94">the #WebKitFrame containing the form to be submitted</doc>
+                 line="96">the #WebKitFrame containing the form to be submitted</doc>
             <type name="Frame"/>
           </parameter>
           <parameter name="target_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="95">the #WebKitFrame containing the form's target,
+                 line="97">the #WebKitFrame containing the form's target,
     which may be the same as @source_frame if no target was specified</doc>
             <type name="Frame"/>
           </parameter>
@@ -3170,7 +3170,7 @@ misguided websites may use such techniques to attempt to thwart password manager
       <glib:signal name="will-submit-form" when="last" version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-             line="124">This signal is emitted when @form will imminently be submitted. It can no longer
+             line="126">This signal is emitted when @form will imminently be submitted. It can no longer
 be cancelled. This event always occurs immediately before a form is submitted to
 its target, so use this event to reliably detect when a form is submitted. This
 signal is emitted after #WebKitWebFormManager::will-send-submit-event if that
@@ -3182,19 +3182,19 @@ signal is emitted.</doc>
           <parameter name="form" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="127">the #JSCValue to be submitted, which will always correspond to an HTMLFormElement</doc>
+                 line="129">the #JSCValue to be submitted, which will always correspond to an HTMLFormElement</doc>
             <type name="JavaScriptCore.Value"/>
           </parameter>
           <parameter name="source_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="128">the #WebKitFrame containing the form to be submitted</doc>
+                 line="130">the #WebKitFrame containing the form to be submitted</doc>
             <type name="Frame"/>
           </parameter>
           <parameter name="target_frame" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebFormManager.cpp"
-                 line="129">the #WebKitFrame containing the form's target,
+                 line="131">the #WebKitFrame containing the form's target,
     which may be the same as @source_frame if no target was specified</doc>
             <type name="Frame"/>
           </parameter>
@@ -3576,7 +3576,7 @@ the context flags.</doc>
            glib:type-struct="WebPageClass">
       <doc xml:space="preserve"
            filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-           line="75">A loaded web page.</doc>
+           line="76">A loaded web page.</doc>
       <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                        line="39"/>
       <method name="get_editor"
@@ -3584,20 +3584,20 @@ the context flags.</doc>
               version="2.10">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="897">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
+             line="898">Gets the #WebKitWebEditor of a #WebKitWebPage.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="903">the #WebKitWebEditor</doc>
+               line="904">the #WebKitWebEditor</doc>
           <type name="WebEditor" c:type="WebKitWebEditor*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="899">a #WebKitWebPage</doc>
+                 line="900">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3607,20 +3607,20 @@ the context flags.</doc>
               version="2.40">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="982">Get the #WebKitWebFormManager of @web_page in @world.</doc>
+             line="983">Get the #WebKitWebFormManager of @web_page in @world.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="59"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="989">a #WebKitWebFormManager</doc>
+               line="990">a #WebKitWebFormManager</doc>
           <type name="WebFormManager" c:type="WebKitWebFormManager*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="984">a #WebKitWebPage</doc>
+                 line="985">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="world"
@@ -3629,7 +3629,7 @@ the context flags.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="985">a #WebKitScriptWorld</doc>
+                 line="986">a #WebKitScriptWorld</doc>
             <type name="ScriptWorld" c:type="WebKitScriptWorld*"/>
           </parameter>
         </parameters>
@@ -3637,20 +3637,20 @@ the context flags.</doc>
       <method name="get_id" c:identifier="webkit_web_page_get_id">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="845">Get the identifier of the #WebKitWebPage</doc>
+             line="846">Get the identifier of the #WebKitWebPage</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="47"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="851">the identifier of @web_page</doc>
+               line="852">the identifier of @web_page</doc>
           <type name="guint64" c:type="guint64"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="847">a #WebKitWebPage</doc>
+                 line="848">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3662,20 +3662,20 @@ the context flags.</doc>
               deprecated-version="2.48">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="879">Returns the main frame of a #WebKitWebPage.</doc>
+             line="880">Returns the main frame of a #WebKitWebPage.</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="53"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="885">the #WebKitFrame that is the main frame of @web_page</doc>
+               line="886">the #WebKitFrame that is the main frame of @web_page</doc>
           <type name="Frame" c:type="WebKitFrame*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="881">a #WebKitWebPage</doc>
+                 line="882">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3685,7 +3685,7 @@ the context flags.</doc>
               glib:get-property="uri">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="860">Returns the current active URI of @web_page.
+             line="861">Returns the current active URI of @web_page.
 
 You can monitor the active URI by connecting to the notify::uri
 signal of @web_page.</doc>
@@ -3694,7 +3694,7 @@ signal of @web_page.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="869">the current active URI of @web_view or %NULL if nothing has been
+               line="870">the current active URI of @web_view or %NULL if nothing has been
    loaded yet.</doc>
           <type name="utf8" c:type="const gchar*"/>
         </return-value>
@@ -3702,7 +3702,7 @@ signal of @web_page.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="862">a #WebKitWebPage</doc>
+                 line="863">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
         </parameters>
@@ -3713,7 +3713,7 @@ signal of @web_page.</doc>
               glib:finish-func="send_message_to_view_finish">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="917">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
+             line="918">Send @message to the #WebKitWebView corresponding to @web_page. If @message is floating, it's consumed.
 
 If you don't expect any reply, or you simply want to ignore it, you can pass %NULL as @callback.
 When the operation is finished, @callback will be called. You can then call
@@ -3727,13 +3727,13 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="919">a #WebKitWebPage</doc>
+                 line="920">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="920">a #WebKitUserMessage</doc>
+                 line="921">a #WebKitUserMessage</doc>
             <type name="UserMessage" c:type="WebKitUserMessage*"/>
           </parameter>
           <parameter name="cancellable"
@@ -3742,7 +3742,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="921">a #GCancellable or %NULL to ignore</doc>
+                 line="922">a #GCancellable or %NULL to ignore</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback"
@@ -3753,7 +3753,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      closure="3">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="922">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
+                 line="923">A #GAsyncReadyCallback to call when the request is satisfied or %NULL</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data"
@@ -3762,7 +3762,7 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="923">the data to pass to callback function</doc>
+                 line="924">the data to pass to callback function</doc>
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
@@ -3773,26 +3773,26 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
               throws="1">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="962">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
+             line="963">Finish an asynchronous operation started with webkit_web_page_send_message_to_view().</doc>
         <source-position filename="_builddir/WebKitGTK/DerivedSources/webkit/WebKitWebPage.h"
                          line="70"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="970">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
+               line="971">a #WebKitUserMessage with the reply or %NULL in case of error.</doc>
           <type name="UserMessage" c:type="WebKitUserMessage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="web_page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="964">a #WebKitWebPage</doc>
+                 line="965">a #WebKitWebPage</doc>
             <type name="WebPage" c:type="WebKitWebPage*"/>
           </instance-parameter>
           <parameter name="result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="965">a #GAsyncResult</doc>
+                 line="966">a #GAsyncResult</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
         </parameters>
@@ -3803,13 +3803,13 @@ webkit_web_page_send_message_to_view_finish() to get the message reply.</doc>
                 default-value="NULL">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="518">The current active URI of the #WebKitWebPage.</doc>
+             line="519">The current active URI of the #WebKitWebPage.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <glib:signal name="console-message-sent" when="last" version="2.12">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="618">Emitted when a message is sent to the console. This can be a message
+             line="619">Emitted when a message is sent to the console. This can be a message
 produced by the use of JavaScript console API, a JavaScript exception,
 a security error or other errors, warnings, debug or log messages.
 The @console_message contains information of the message.</doc>
@@ -3820,7 +3820,7 @@ The @console_message contains information of the message.</doc>
           <parameter name="console_message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="621">the #WebKitConsoleMessage</doc>
+                 line="622">the #WebKitConsoleMessage</doc>
             <type name="ConsoleMessage"/>
           </parameter>
         </parameters>
@@ -3828,7 +3828,7 @@ The @console_message contains information of the message.</doc>
       <glib:signal name="context-menu" when="last" version="2.8">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="584">Emitted before a context menu is displayed in the UI Process to
+             line="585">Emitted before a context menu is displayed in the UI Process to
 give the application a chance to customize the proposed menu,
 build its own context menu or pass user data to the UI Process.
 This signal is useful when the information available in the UI Process
@@ -3839,20 +3839,20 @@ signal instead.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="599">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
+               line="600">%TRUE if the proposed @context_menu has been modified, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="context_menu" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="587">the proposed #WebKitContextMenu</doc>
+                 line="588">the proposed #WebKitContextMenu</doc>
             <type name="ContextMenu"/>
           </parameter>
           <parameter name="hit_test_result" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="588">a #WebKitWebHitTestResult</doc>
+                 line="589">a #WebKitWebHitTestResult</doc>
             <type name="WebHitTestResult"/>
           </parameter>
         </parameters>
@@ -3860,7 +3860,7 @@ signal instead.</doc>
       <glib:signal name="document-loaded" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="532">This signal is emitted when the DOM document of a #WebKitWebPage has been
+             line="533">This signal is emitted when the DOM document of a #WebKitWebPage has been
 loaded.
 
 You can wait for this signal to get the DOM document</doc>
@@ -3871,7 +3871,7 @@ You can wait for this signal to get the DOM document</doc>
       <glib:signal name="send-request" when="last">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="549">This signal is emitted when @request is about to be sent to
+             line="550">This signal is emitted when @request is about to be sent to
 the server. This signal can be used to modify the #WebKitURIRequest
 that will be sent to the server. You can also cancel the resource load
 operation by connecting to this signal and returning %TRUE.
@@ -3888,7 +3888,7 @@ is sent over the network.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="570">%TRUE to stop other handlers from being invoked for the event.
+               line="571">%TRUE to stop other handlers from being invoked for the event.
    %FALSE to continue emission of the event.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
@@ -3896,13 +3896,13 @@ is sent over the network.</doc>
           <parameter name="request" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="552">a #WebKitURIRequest</doc>
+                 line="553">a #WebKitURIRequest</doc>
             <type name="URIRequest"/>
           </parameter>
           <parameter name="redirected_response" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="553">a #WebKitURIResponse, or %NULL</doc>
+                 line="554">a #WebKitURIResponse, or %NULL</doc>
             <type name="URIResponse"/>
           </parameter>
         </parameters>
@@ -3910,7 +3910,7 @@ is sent over the network.</doc>
       <glib:signal name="user-message-received" when="last" version="2.28">
         <doc xml:space="preserve"
              filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-             line="764">This signal is emitted when a #WebKitUserMessage is received from the
+             line="765">This signal is emitted when a #WebKitUserMessage is received from the
 #WebKitWebView corresponding to @web_page. You can reply to the message
 using webkit_user_message_send_reply().
 
@@ -3921,14 +3921,14 @@ finish with error %WEBKIT_USER_MESSAGE_UNHANDLED_MESSAGE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-               line="778">%TRUE if the message was handled, or %FALSE otherwise.</doc>
+               line="779">%TRUE if the message was handled, or %FALSE otherwise.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="message" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="Source/WebKit/WebProcess/InjectedBundle/API/glib/WebKitWebPage.cpp"
-                 line="767">the #WebKitUserMessage received</doc>
+                 line="768">the #WebKitUserMessage received</doc>
             <type name="UserMessage"/>
           </parameter>
         </parameters>

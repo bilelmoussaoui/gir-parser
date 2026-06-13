@@ -56,6 +56,9 @@ will be used in functions like gcab_cabinet_load().</doc>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgcab/gcab-cabinet.c"
+                 line="432">a #GCabCabinet</doc>
             <type name="Cabinet" c:type="GCabCabinet*"/>
           </instance-parameter>
           <parameter name="compression" transfer-ownership="none">

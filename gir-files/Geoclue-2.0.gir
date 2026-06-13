@@ -1594,7 +1594,7 @@ See gclue_client_proxy_new() for the asynchronous version of this constructor.</
                 glib:sync-func="create_sync">
         <doc xml:space="preserve"
              filename="libgeoclue/gclue-helpers.c"
-             line="230">A utility function to create a #GClueClientProxy without having to deal with
+             line="287">A utility function to create a #GClueClientProxy without having to deal with
 a #GClueManager. See also gclue_client_proxy_create_full() which improves
 resource management.
 
@@ -1606,240 +1606,6 @@ of this function.</doc>
         <source-position filename="libgeoclue/gclue-helpers.h" line="33"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="desktop_id" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="232">The desktop file id (the basename of the desktop file).</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="accuracy_level" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="233">The requested accuracy level as #GClueAccuracyLevel.</doc>
-            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
-          </parameter>
-          <parameter name="cancellable"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="234">A #GCancellable or %NULL.</doc>
-            <type name="Gio.Cancellable" c:type="GCancellable*"/>
-          </parameter>
-          <parameter name="callback"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
-                     scope="async"
-                     closure="4">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="235">A #GAsyncReadyCallback to call when the results are ready.</doc>
-            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
-          </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="236">User data to pass to @callback.</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </function>
-      <function name="create_finish"
-                c:identifier="gclue_client_proxy_create_finish"
-                throws="1">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-helpers.c"
-             line="267">Finishes an operation started with gclue_client_proxy_create().</doc>
-        <source-position filename="libgeoclue/gclue-helpers.h" line="38"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgeoclue/gclue-helpers.c"
-               line="275">The constructed proxy
-object or %NULL if @error is set.</doc>
-          <type name="ClientProxy" c:type="GClueClient*"/>
-        </return-value>
-        <parameters>
-          <parameter name="result" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="269">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to
-         gclue_client_proxy_create().</doc>
-            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
-          </parameter>
-        </parameters>
-      </function>
-      <function name="create_full"
-                c:identifier="gclue_client_proxy_create_full"
-                glib:finish-func="create_full_finish"
-                glib:sync-func="create_full_sync">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-helpers.c"
-             line="318">A utility function to create a #GClueClientProxy without having to deal with
-a #GClueManager.
-
-By setting the #GCLUE_CLIENT_PROXY_CREATE_AUTO_DELETE flag you can ensure
-that the client will be deleted again from the geoclue service when
-it is destroyed. This flag should be used unless you are doing explicit
-resource management.
-
-See #gclue_client_proxy_create_full_sync() for the synchronous, blocking
-version of this function.</doc>
-        <source-position filename="libgeoclue/gclue-helpers.h" line="45"/>
-        <return-value transfer-ownership="none">
-          <type name="none" c:type="void"/>
-        </return-value>
-        <parameters>
-          <parameter name="desktop_id" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="320">The desktop file id (the basename of the desktop file).</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="accuracy_level" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="321">The requested accuracy level as #GClueAccuracyLevel.</doc>
-            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
-          </parameter>
-          <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="322">#GClueClientProxyCreateFlags to modify the creation.</doc>
-            <type name="ClientProxyCreateFlags"
-                  c:type="GClueClientProxyCreateFlags"/>
-          </parameter>
-          <parameter name="cancellable"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="323">A #GCancellable or %NULL.</doc>
-            <type name="Gio.Cancellable" c:type="GCancellable*"/>
-          </parameter>
-          <parameter name="callback"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1"
-                     scope="async"
-                     closure="5">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="324">A #GAsyncReadyCallback to call when the results are ready.</doc>
-            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
-          </parameter>
-          <parameter name="user_data"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="325">User data to pass to @callback.</doc>
-            <type name="gpointer" c:type="gpointer"/>
-          </parameter>
-        </parameters>
-      </function>
-      <function name="create_full_finish"
-                c:identifier="gclue_client_proxy_create_full_finish"
-                throws="1">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-helpers.c"
-             line="365">Finishes an operation started with gclue_client_proxy_create_full().</doc>
-        <source-position filename="libgeoclue/gclue-helpers.h" line="51"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgeoclue/gclue-helpers.c"
-               line="373">The constructed proxy
-object or %NULL if @error is set.</doc>
-          <type name="ClientProxy" c:type="GClueClient*"/>
-        </return-value>
-        <parameters>
-          <parameter name="result" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="367">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to
-         gclue_client_proxy_create().</doc>
-            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
-          </parameter>
-        </parameters>
-      </function>
-      <function name="create_full_sync"
-                c:identifier="gclue_client_proxy_create_full_sync"
-                throws="1"
-                glib:async-func="create_full">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-helpers.c"
-             line="404">The synchronous and blocking version of #gclue_client_proxy_create_full().
-
-By setting the #GCLUE_CLIENT_PROXY_CREATE_AUTO_DELETE flag you can ensure
-that the client will be deleted again from the geoclue service when
-it is destroyed. This flag should be used unless you are doing explicit
-resource management.</doc>
-        <source-position filename="libgeoclue/gclue-helpers.h" line="53"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgeoclue/gclue-helpers.c"
-               line="419">The constructed proxy
-object or %NULL if @error is set.</doc>
-          <type name="ClientProxy" c:type="GClueClient*"/>
-        </return-value>
-        <parameters>
-          <parameter name="desktop_id" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="406">The desktop file id (the basename of the desktop file).</doc>
-            <type name="utf8" c:type="const char*"/>
-          </parameter>
-          <parameter name="accuracy_level" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="407">The requested accuracy level as #GClueAccuracyLevel.</doc>
-            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
-          </parameter>
-          <parameter name="flags" transfer-ownership="none">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="408">#GClueClientProxyCreateFlags to modify the creation.</doc>
-            <type name="ClientProxyCreateFlags"
-                  c:type="GClueClientProxyCreateFlags"/>
-          </parameter>
-          <parameter name="cancellable"
-                     transfer-ownership="none"
-                     nullable="1"
-                     allow-none="1">
-            <doc xml:space="preserve"
-                 filename="libgeoclue/gclue-helpers.c"
-                 line="409">A #GCancellable or %NULL.</doc>
-            <type name="Gio.Cancellable" c:type="GCancellable*"/>
-          </parameter>
-        </parameters>
-      </function>
-      <function name="create_sync"
-                c:identifier="gclue_client_proxy_create_sync"
-                throws="1"
-                glib:async-func="create">
-        <doc xml:space="preserve"
-             filename="libgeoclue/gclue-helpers.c"
-             line="287">The synchronous and blocking version of #gclue_client_proxy_create().
-See also gclue_client_proxy_create_full_sync() which improves resource
-management.
-
-This function is identical to calling gclue_client_proxy_create_full_sync()
-without any flags set.</doc>
-        <source-position filename="libgeoclue/gclue-helpers.h" line="40"/>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve"
-               filename="libgeoclue/gclue-helpers.c"
-               line="301">The constructed proxy
-object or %NULL if @error is set.</doc>
-          <type name="ClientProxy" c:type="GClueClient*"/>
         </return-value>
         <parameters>
           <parameter name="desktop_id" transfer-ownership="none">
@@ -1861,6 +1627,240 @@ object or %NULL if @error is set.</doc>
             <doc xml:space="preserve"
                  filename="libgeoclue/gclue-helpers.c"
                  line="291">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="4">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="292">A #GAsyncReadyCallback to call when the results are ready.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="293">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_finish"
+                c:identifier="gclue_client_proxy_create_finish"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="libgeoclue/gclue-helpers.c"
+             line="324">Finishes an operation started with gclue_client_proxy_create().</doc>
+        <source-position filename="libgeoclue/gclue-helpers.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgeoclue/gclue-helpers.c"
+               line="332">The constructed proxy
+object or %NULL if @error is set.</doc>
+          <type name="ClientProxy" c:type="GClueClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="326">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+         gclue_client_proxy_create().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_full"
+                c:identifier="gclue_client_proxy_create_full"
+                glib:finish-func="create_full_finish"
+                glib:sync-func="create_full_sync">
+        <doc xml:space="preserve"
+             filename="libgeoclue/gclue-helpers.c"
+             line="375">A utility function to create a #GClueClientProxy without having to deal with
+a #GClueManager.
+
+By setting the #GCLUE_CLIENT_PROXY_CREATE_AUTO_DELETE flag you can ensure
+that the client will be deleted again from the geoclue service when
+it is destroyed. This flag should be used unless you are doing explicit
+resource management.
+
+See #gclue_client_proxy_create_full_sync() for the synchronous, blocking
+version of this function.</doc>
+        <source-position filename="libgeoclue/gclue-helpers.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="377">The desktop file id (the basename of the desktop file).</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="accuracy_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="378">The requested accuracy level as #GClueAccuracyLevel.</doc>
+            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="379">#GClueClientProxyCreateFlags to modify the creation.</doc>
+            <type name="ClientProxyCreateFlags"
+                  c:type="GClueClientProxyCreateFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="380">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="5">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="381">A #GAsyncReadyCallback to call when the results are ready.</doc>
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="382">User data to pass to @callback.</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_full_finish"
+                c:identifier="gclue_client_proxy_create_full_finish"
+                throws="1">
+        <doc xml:space="preserve"
+             filename="libgeoclue/gclue-helpers.c"
+             line="422">Finishes an operation started with gclue_client_proxy_create_full().</doc>
+        <source-position filename="libgeoclue/gclue-helpers.h" line="51"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgeoclue/gclue-helpers.c"
+               line="430">The constructed proxy
+object or %NULL if @error is set.</doc>
+          <type name="ClientProxy" c:type="GClueClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="result" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="424">The #GAsyncResult obtained from the #GAsyncReadyCallback passed to
+         gclue_client_proxy_create().</doc>
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_full_sync"
+                c:identifier="gclue_client_proxy_create_full_sync"
+                throws="1"
+                glib:async-func="create_full">
+        <doc xml:space="preserve"
+             filename="libgeoclue/gclue-helpers.c"
+             line="461">The synchronous and blocking version of #gclue_client_proxy_create_full().
+
+By setting the #GCLUE_CLIENT_PROXY_CREATE_AUTO_DELETE flag you can ensure
+that the client will be deleted again from the geoclue service when
+it is destroyed. This flag should be used unless you are doing explicit
+resource management.</doc>
+        <source-position filename="libgeoclue/gclue-helpers.h" line="53"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgeoclue/gclue-helpers.c"
+               line="476">The constructed proxy
+object or %NULL if @error is set.</doc>
+          <type name="ClientProxy" c:type="GClueClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="463">The desktop file id (the basename of the desktop file).</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="accuracy_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="464">The requested accuracy level as #GClueAccuracyLevel.</doc>
+            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
+          </parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="465">#GClueClientProxyCreateFlags to modify the creation.</doc>
+            <type name="ClientProxyCreateFlags"
+                  c:type="GClueClientProxyCreateFlags"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="466">A #GCancellable or %NULL.</doc>
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <function name="create_sync"
+                c:identifier="gclue_client_proxy_create_sync"
+                throws="1"
+                glib:async-func="create">
+        <doc xml:space="preserve"
+             filename="libgeoclue/gclue-helpers.c"
+             line="344">The synchronous and blocking version of #gclue_client_proxy_create().
+See also gclue_client_proxy_create_full_sync() which improves resource
+management.
+
+This function is identical to calling gclue_client_proxy_create_full_sync()
+without any flags set.</doc>
+        <source-position filename="libgeoclue/gclue-helpers.h" line="40"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="libgeoclue/gclue-helpers.c"
+               line="358">The constructed proxy
+object or %NULL if @error is set.</doc>
+          <type name="ClientProxy" c:type="GClueClient*"/>
+        </return-value>
+        <parameters>
+          <parameter name="desktop_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="346">The desktop file id (the basename of the desktop file).</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="accuracy_level" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="347">The requested accuracy level as #GClueAccuracyLevel.</doc>
+            <type name="AccuracyLevel" c:type="GClueAccuracyLevel"/>
+          </parameter>
+          <parameter name="cancellable"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="libgeoclue/gclue-helpers.c"
+                 line="348">A #GCancellable or %NULL.</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
         </parameters>
