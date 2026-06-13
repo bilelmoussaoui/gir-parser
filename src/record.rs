@@ -2,6 +2,7 @@ use xmlserde_derives::XmlDeserialize;
 
 use crate::{
     attribute::Attribute,
+    callable::Callable,
     documentation::{DocDeprecated, DocStability, DocVersion, Documentation, SourcePosition},
     field::Field,
     function::{Function, FunctionInline},
@@ -83,20 +84,16 @@ pub struct Record {
     #[xmlserde(name = b"attribute", ty = "child")]
     attributes: Vec<Attribute>,
 
-    #[xmlserde(name = b"constructor", ty = "child")]
-    constructors: Vec<Function>,
-    #[xmlserde(name = b"function", ty = "child")]
-    functions: Vec<Function>,
     #[xmlserde(name = b"function-inline", ty = "child")]
     inline_functions: Vec<FunctionInline>,
 
-    #[xmlserde(name = b"method", ty = "child")]
-    methods: Vec<Method>,
     #[xmlserde(name = b"inline-methods", ty = "child")]
     inline_methods: Vec<MethodInline>,
 
     #[xmlserde(ty = "untag")]
     fields: Vec<RecordField>,
+    #[xmlserde(ty = "untag")]
+    callables: Vec<Callable>,
 }
 
 impl Record {
@@ -152,24 +149,37 @@ impl Record {
         &self.fields
     }
 
-    pub fn methods(&self) -> &[Method] {
-        &self.methods
+    pub fn callables(&self) -> &[Callable] {
+        &self.callables
+    }
+
+    pub fn methods(&self) -> impl Iterator<Item = &Method> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Method(m) => Some(m),
+            _ => None,
+        })
     }
 
     pub fn inlined_methods(&self) -> &[MethodInline] {
         &self.inline_methods
     }
 
-    pub fn functions(&self) -> &[Function] {
-        &self.functions
+    pub fn functions(&self) -> impl Iterator<Item = &Function> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Function(f) => Some(f),
+            _ => None,
+        })
     }
 
     pub fn inlined_functions(&self) -> &[FunctionInline] {
         &self.inline_functions
     }
 
-    pub fn constructors(&self) -> &[Function] {
-        &self.constructors
+    pub fn constructors(&self) -> impl Iterator<Item = &Function> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Constructor(f) => Some(f),
+            _ => None,
+        })
     }
 }
 

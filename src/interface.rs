@@ -2,6 +2,7 @@ use xmlserde_derives::XmlDeserialize;
 
 use crate::{
     attribute::Attribute,
+    callable::Callable,
     callback::Callback,
     class::Implements,
     constant::Constant,
@@ -94,17 +95,8 @@ pub struct Interface {
     #[xmlserde(name = b"implements", ty = "child")]
     implements: Vec<Implements>,
 
-    #[xmlserde(name = b"function", ty = "child")]
-    functions: Vec<Function>,
-
     #[xmlserde(name = b"function-inline", ty = "child")]
     inline_functions: Vec<FunctionInline>,
-
-    #[xmlserde(name = b"constructor", ty = "child")]
-    constructors: Vec<Function>,
-
-    #[xmlserde(name = b"method", ty = "child")]
-    methods: Vec<Method>,
 
     #[xmlserde(name = b"inline-methods", ty = "child")]
     inline_methods: Vec<MethodInline>,
@@ -114,6 +106,8 @@ pub struct Interface {
 
     #[xmlserde(ty = "untag")]
     fields: Vec<InterfaceField>,
+    #[xmlserde(ty = "untag")]
+    callables: Vec<Callable>,
 
     #[xmlserde(name = b"property", ty = "child")]
     properties: Vec<Property>,
@@ -158,20 +152,33 @@ impl Interface {
         &self.implements
     }
 
-    pub fn constructors(&self) -> &[Function] {
-        &self.constructors
+    pub fn callables(&self) -> &[Callable] {
+        &self.callables
     }
 
-    pub fn methods(&self) -> &[Method] {
-        &self.methods
+    pub fn constructors(&self) -> impl Iterator<Item = &Function> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Constructor(f) => Some(f),
+            _ => None,
+        })
+    }
+
+    pub fn methods(&self) -> impl Iterator<Item = &Method> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Method(m) => Some(m),
+            _ => None,
+        })
     }
 
     pub fn inlined_methods(&self) -> &[MethodInline] {
         &self.inline_methods
     }
 
-    pub fn functions(&self) -> &[Function] {
-        &self.functions
+    pub fn functions(&self) -> impl Iterator<Item = &Function> {
+        self.callables.iter().filter_map(|c| match c {
+            Callable::Function(f) => Some(f),
+            _ => None,
+        })
     }
 
     pub fn inlined_functions(&self) -> &[FunctionInline] {

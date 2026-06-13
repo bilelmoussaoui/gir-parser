@@ -110,6 +110,8 @@ mod bitfield;
 pub use bitfield::BitField;
 mod boxed;
 pub use boxed::Boxed;
+mod callable;
+pub use callable::Callable;
 mod callback;
 pub use callback::Callback;
 mod class;
