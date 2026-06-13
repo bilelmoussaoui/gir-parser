@@ -29,6 +29,8 @@ pub struct Type {
     source_position: Option<SourcePosition>,
     #[xmlserde(name = b"type", ty = "child")]
     types: Vec<Type>,
+    #[xmlserde(name = b"array", ty = "child")]
+    arrays: Vec<Array>,
 }
 
 impl Type {
@@ -46,6 +48,10 @@ impl Type {
 
     pub fn types(&self) -> &[Type] {
         &self.types
+    }
+
+    pub fn arrays(&self) -> &[Array] {
+        &self.arrays
     }
 }
 
